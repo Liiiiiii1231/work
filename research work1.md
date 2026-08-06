@@ -1330,7 +1330,7 @@ $$
 \sum_{i\in\mathcal J}
 \bar\omega_i^{\rm U}
 (1+\eta_i^{\rm U})
-|y_i^{\rm U}|^2
+|\phi_i^{\rm U}|^2
 |\mathbf b_i^H\mathbf f_j|^2\\
 &+
 \sum_{l\in\mathcal L}
