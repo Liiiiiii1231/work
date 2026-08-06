@@ -103,7 +103,25 @@ $$
 
 ### 2.1 子无人机集合
 
-定义
+定义下行用户、上行用户和感知目标集合分别为
+
+$$
+\mathcal K=\{1,\ldots,K\},
+\qquad
+\mathcal J=\{1,\ldots,J\},
+\qquad
+\mathcal L=\{1,\ldots,L\}.
+$$
+
+相应的下行用户、上行用户和感知目标三维位置分别记为
+
+$$
+\mathbf q_k^{\rm D},\qquad
+\mathbf q_j^{\rm U},\qquad
+\mathbf q_l^{\rm S}\in\mathbb R^3,
+$$
+
+其中 $k\in\mathcal K$、$j\in\mathcal J$、$l\in\mathcal L$。定义子无人机集合
 
 $$
 \mathcal M=\{1,\ldots,M\},
@@ -146,6 +164,24 @@ $$
 \qquad
 n=1,\ldots,N_{\rm c}.
 $$
+
+为使缆绳编号与全局阵元编号一一对应，对发射缆绳 $m\in\mathcal M_{\rm T}$ 定义
+
+$$
+i=(m-1)N_{\rm c}+n,
+\qquad
+\mathbf p_i^{\rm T}:=\mathbf p_{m,n},
+$$
+
+其中 $i=1,\ldots,N_{\rm T}$。对接收缆绳 $m\in\mathcal M_{\rm R}$ 定义
+
+$$
+s=\left(m-\frac M2-1\right)N_{\rm c}+n,
+\qquad
+\mathbf p_s^{\rm R}:=\mathbf p_{m,n},
+$$
+
+其中 $s=1,\ldots,N_{\rm R}$。
 
 分别定义发射和接收端点向量
 
@@ -299,7 +335,9 @@ $$
 
 ### 4.3 目标双程回波信道
 
-令 $\xi_l^{\rm S}$ 表示第 $l$ 个目标的复反射系数，公共双程幅度系数为
+令 $\xi_l^{\rm S}$ 表示第 $l$ 个目标的复反射系数。进一步令
+$\beta_{{\rm T},l}^{\rm S}\ge0$ 和 $\beta_{{\rm R},l}^{\rm S}\ge0$
+分别表示发射端至目标以及目标至接收端两段链路的功率增益，因此公共双程复幅度系数中使用其平方根：
 
 $$
 \alpha_l^{\rm S}
@@ -487,6 +525,12 @@ y_k^{\rm D}
 +n_k.
 $$
 
+其中下行用户噪声满足
+
+$$
+n_k\sim\mathcal{CN}(0,\sigma_k^2).
+$$
+
 ### 7.2 基站接收信号
 
 令
@@ -511,6 +555,15 @@ $$
 +
 \mathbf n_{\rm BS}
 }.
+$$
+
+其中基站接收噪声满足
+
+$$
+\mathbf n_{\rm BS}
+\sim
+\mathcal{CN}
+(\mathbf0,\sigma_{\rm BS}^2\mathbf I_{N_{\rm R}}).
 $$
 
 ---
@@ -776,7 +829,7 @@ q_j^2\mathbf f_j\mathbf f_j^H
 \mathbf Q\mathbf Q^H
 \mathbf A_{{\rm S},l}^H
 +
-\sigma_{\rm BS}^2\mathbf I.
+\sigma_{\rm BS}^2\mathbf I_{N_{\rm R}}.
 $$
 
 最大 SINR 感知接收波束为
@@ -806,7 +859,7 @@ $$
 +
 \mathbf A_{\rm U}\mathbf Q\mathbf Q^H\mathbf A_{\rm U}^H
 +
-\sigma_{\rm BS}^2\mathbf I.
+\sigma_{\rm BS}^2\mathbf I_{N_{\rm R}}.
 $$
 
 最大 SINR/MMSE 方向为
@@ -947,20 +1000,20 @@ $$
 
 ### 14.1 下行标量二次变换
 
-定义标量辅助变量 $y_k^{\rm D}\in\mathbb C$。有
+定义标量辅助变量 $\phi_k^{\rm D}\in\mathbb C$。有
 
 $$
 \frac{|\mathbf h_k^H\mathbf w_k|^2}{T_k^{\rm D}}
 =
-\max_{y_k^{\rm D}}
+\max_{\phi_k^{\rm D}}
 \left[
 2\operatorname{Re}
 \left\{
-(y_k^{\rm D})^*
+(\phi_k^{\rm D})^*
 \mathbf h_k^H\mathbf w_k
 \right\}
 -
-|y_k^{\rm D}|^2T_k^{\rm D}
+|\phi_k^{\rm D}|^2T_k^{\rm D}
 \right].
 $$
 
@@ -968,7 +1021,7 @@ $$
 
 $$
 \boxed{
-y_k^{{\rm D}\star}
+\phi_k^{{\rm D}\star}
 =
 \frac{\mathbf h_k^H\mathbf w_k}
 {T_k^{\rm D}}
@@ -977,7 +1030,7 @@ $$
 
 ### 14.2 上行标量二次变换
 
-定义 $y_j^{\rm U}\in\mathbb C$。有
+定义 $\phi_j^{\rm U}\in\mathbb C$。有
 
 $$
 \frac{
@@ -986,15 +1039,15 @@ q_j^2|\mathbf b_j^H\mathbf f_j|^2
 T_j^{\rm U}
 }
 =
-\max_{y_j^{\rm U}}
+\max_{\phi_j^{\rm U}}
 \left[
 2\operatorname{Re}
 \left\{
-(y_j^{\rm U})^*
+(\phi_j^{\rm U})^*
 q_j\mathbf b_j^H\mathbf f_j
 \right\}
 -
-|y_j^{\rm U}|^2T_j^{\rm U}
+|\phi_j^{\rm U}|^2T_j^{\rm U}
 \right].
 $$
 
@@ -1002,7 +1055,7 @@ $$
 
 $$
 \boxed{
-y_j^{{\rm U}\star}
+\phi_j^{{\rm U}\star}
 =
 \frac{
 q_j\mathbf b_j^H\mathbf f_j
@@ -1026,7 +1079,7 @@ $$
 以及向量辅助变量
 
 $$
-\mathbf y_l^{\rm S}
+\boldsymbol\phi_l^{\rm S}
 \in\mathbb C^{D}.
 $$
 
@@ -1039,15 +1092,15 @@ $$
 T_l^{\rm S}
 }
 =
-\max_{\mathbf y_l^{\rm S}}
+\max_{\boldsymbol\phi_l^{\rm S}}
 \left[
 2\operatorname{Re}
 \left\{
-(\mathbf y_l^{\rm S})^H
+(\boldsymbol\phi_l^{\rm S})^H
 \mathbf Q^H\mathbf g_l
 \right\}
 -
-\|\mathbf y_l^{\rm S}\|_2^2T_l^{\rm S}
+\|\boldsymbol\phi_l^{\rm S}\|_2^2T_l^{\rm S}
 \right].
 $$
 
@@ -1055,7 +1108,7 @@ $$
 
 $$
 \boxed{
-\mathbf y_l^{{\rm S}\star}
+\boldsymbol\phi_l^{{\rm S}\star}
 =
 \frac{
 \mathbf Q^H\mathbf G_l^H\mathbf u_l
@@ -1069,7 +1122,7 @@ $$
 
 ## 15. 内层步骤四：发射矩阵的拉格朗日闭式更新
 
-固定接收波束、$\{\eta\}$、$\{y^{\rm D}\}$、$\{y^{\rm U}\}$、$\{\mathbf y^{\rm S}\}$ 和 $\{q_j\}$。
+固定接收波束、$\{\eta\}$、$\{\phi^{\rm D}\}$、$\{\phi^{\rm U}\}$、$\{\boldsymbol\phi^{\rm S}\}$ 和 $\{q_j\}$。
 
 ### 15.1 二次矩阵项
 
@@ -1114,19 +1167,19 @@ $$
 \sum_{k\in\mathcal K}
 \bar\omega_k^{\rm D}
 (1+\eta_k^{\rm D})
-|y_k^{\rm D}|^2
+|\phi_k^{\rm D}|^2
 \mathbf C_k^{\rm D}\\
 &+
 \sum_{j\in\mathcal J}
 \bar\omega_j^{\rm U}
 (1+\eta_j^{\rm U})
-|y_j^{\rm U}|^2
+|\phi_j^{\rm U}|^2
 \mathbf C_j^{\rm U}\\
 &+
 \sum_{l\in\mathcal L}
 \bar\omega_l^{\rm S}
 (1+\eta_l^{\rm S})
-\|\mathbf y_l^{\rm S}\|_2^2
+\|\boldsymbol\phi_l^{\rm S}\|_2^2
 \left(
 \mathbf C_{l,{\rm des}}^{\rm S}
 +
@@ -1152,7 +1205,7 @@ $$
 \sum_{k\in\mathcal K}
 \bar\omega_k^{\rm D}
 (1+\eta_k^{\rm D})
-y_k^{\rm D}
+\phi_k^{\rm D}
 \mathbf h_k
 (\mathbf e_k^{(D)})^T\\
 &+
@@ -1160,7 +1213,7 @@ y_k^{\rm D}
 \bar\omega_l^{\rm S}
 (1+\eta_l^{\rm S})
 \mathbf G_l^H\mathbf u_l
-(\mathbf y_l^{\rm S})^H.
+(\boldsymbol\phi_l^{\rm S})^H.
 \end{aligned}
 $$
 
@@ -1212,7 +1265,7 @@ $$
 \boxed{
 \widehat{\mathbf Q}
 =
-(\mathbf A_Q+\lambda_{\rm P}\mathbf I)^{-1}
+(\mathbf A_Q+\lambda_{\rm P}\mathbf I_{N_{\rm T}})^{-1}
 \mathbf B_Q
 }.
 $$
@@ -1227,7 +1280,7 @@ $$
 可取 $\lambda_{\rm P}=0$。否则通过一维二分搜索寻找唯一的 $\lambda_{\rm P}>0$，使
 
 $$
-\|(\mathbf A_Q+\lambda_{\rm P}\mathbf I)^{-1}
+\|(\mathbf A_Q+\lambda_{\rm P}\mathbf I_{N_{\rm T}})^{-1}
 \mathbf B_Q\|_F^2
 =
 P_{\rm D}^{\max}.
@@ -1253,26 +1306,26 @@ $$
 固定 $\mathbf Q$ 和全部辅助变量。关于 $q_j$ 的目标可写成
 
 $$
-2a_jq_j-d_jq_j^2+\text{常数},
+2\mu_jq_j-\nu_jq_j^2+\text{常数},
 $$
 
 其中
 
 $$
-a_j
+\mu_j
 =
 \bar\omega_j^{\rm U}
 (1+\eta_j^{\rm U})
 \operatorname{Re}
 \left\{
-(y_j^{\rm U})^*
+(\phi_j^{\rm U})^*
 \mathbf b_j^H\mathbf f_j
 \right\},
 $$
 
 $$
 \begin{aligned}
-d_j
+\nu_j
 ={}&
 \sum_{i\in\mathcal J}
 \bar\omega_i^{\rm U}
@@ -1283,7 +1336,7 @@ d_j
 \sum_{l\in\mathcal L}
 \bar\omega_l^{\rm S}
 (1+\eta_l^{\rm S})
-\|\mathbf y_l^{\rm S}\|_2^2
+\|\boldsymbol\phi_l^{\rm S}\|_2^2
 |\mathbf u_l^H\mathbf f_j|^2.
 \end{aligned}
 $$
@@ -1294,7 +1347,7 @@ $$
 q_{j,\max}:=\sqrt{P_{{\rm U},j}^{\max}}.
 $$
 
-当 $d_j>0$ 时，根据无约束驻点 $a_j/d_j$ 是否落在合法区间
+当 $\nu_j>0$ 时，根据无约束驻点 $\mu_j/\nu_j$ 是否落在合法区间
 $[0,q_{j,\max}]$ 内，最优候选幅度可分类写为
 
 $$
@@ -1302,11 +1355,11 @@ $$
 \widehat q_j=
 \begin{cases}
 0,
-& a_j\le0,\\[2mm]
-\dfrac{a_j}{d_j},
-& 0<a_j<d_jq_{j,\max},\\[3mm]
+& \mu_j\le0,\\[2mm]
+\dfrac{\mu_j}{\nu_j},
+& 0<\mu_j<\nu_jq_{j,\max},\\[3mm]
 q_{j,\max},
-& a_j\ge d_jq_{j,\max}.
+& \mu_j\ge \nu_jq_{j,\max}.
 \end{cases}
 }
 $$
@@ -1318,19 +1371,19 @@ $$
 \widehat q_j=
 \begin{cases}
 0,
-& a_j\le0,\\[2mm]
-\dfrac{a_j}{d_j},
-& 0<a_j<d_j\sqrt{P_{{\rm U},j}^{\max}},\\[3mm]
+& \mu_j\le0,\\[2mm]
+\dfrac{\mu_j}{\nu_j},
+& 0<\mu_j<\nu_j\sqrt{P_{{\rm U},j}^{\max}},\\[3mm]
 \sqrt{P_{{\rm U},j}^{\max}},
-& a_j\ge d_j\sqrt{P_{{\rm U},j}^{\max}}.
+& \mu_j\ge \nu_j\sqrt{P_{{\rm U},j}^{\max}}.
 \end{cases}
 }
 $$
 
-若 $d_j=0$，目标关于 $q_j$ 退化为线性函数 $2a_jq_j$：当 $a_j<0$ 时取
-$\widehat q_j=0$，当 $a_j>0$ 时取 $\widehat q_j=q_{j,\max}$；当 $a_j=0$ 时区间
+若 $\nu_j=0$，目标关于 $q_j$ 退化为线性函数 $2\mu_jq_j$：当 $\mu_j<0$ 时取
+$\widehat q_j=0$，当 $\mu_j>0$ 时取 $\widehat q_j=q_{j,\max}$；当 $\mu_j=0$ 时区间
 $[0,q_{j,\max}]$ 内任意值均为最优，可约定取 $\widehat q_j=0$。实际数值中也可为
-$d_j$ 加入极小正数以避免除零。最终上行功率为
+$\nu_j$ 加入极小正数以避免除零。最终上行功率为
 
 $$
 p_j=\widehat q_j^2.
@@ -1345,20 +1398,22 @@ $$
 $$
 \widehat{\mathbf Q}
 =
-(\mathbf A_Q+\lambda_{\rm P}\mathbf I)^{-1}\mathbf B_Q,
+(\mathbf A_Q+\lambda_{\rm P}\mathbf I_{N_{\rm T}})^{-1}\mathbf B_Q,
 $$
 
 第 16 节得到满足上行幅度区间约束的 $\{\widehat q_j\}$。由于模型中不存在残余 SI 约束或 SI 候选验收条件，两个资源块可直接更新为
 
+令 $n$ 表示内层迭代编号，则
+
 $$
 \boxed{
-\mathbf Q^{(r+1)}=\widehat{\mathbf Q}
+\mathbf Q^{(n+1)}=\widehat{\mathbf Q}
 },
 $$
 
 $$
 \boxed{
-q_j^{(r+1)}=\widehat q_j,
+q_j^{(n+1)}=\widehat q_j,
 \qquad \forall j\in\mathcal J
 }.
 $$
@@ -1366,13 +1421,13 @@ $$
 其中，$\lambda_{\rm P}$ 的一维搜索保证
 
 $$
-\|\mathbf Q^{(r+1)}\|_F^2\le P_{\rm D}^{\max},
+\|\mathbf Q^{(n+1)}\|_F^2\le P_{\rm D}^{\max},
 $$
 
 而第 16 节的分段闭式解保证
 
 $$
-0\le q_j^{(r+1)}\le\sqrt{P_{{\rm U},j}^{\max}}.
+0\le q_j^{(n+1)}\le\sqrt{P_{{\rm U},j}^{\max}}.
 $$
 
 因此，内层不再需要针对 SI 的阻尼、回溯、拒绝或恢复旧解步骤。更新后重新计算接收波束、辅助变量、真实 SINR 和真实加权和速率即可。
@@ -1395,21 +1450,21 @@ $$
 $$
 4. 更新二次变换辅助变量
 $$
-   \{y_k^{\rm D}\},
+   \{\phi_k^{\rm D}\},
    \quad
-   \{y_j^{\rm U}\},
+   \{\phi_j^{\rm U}\},
    \quad
-   \{\mathbf y_l^{\rm S}\};
+   \{\boldsymbol\phi_l^{\rm S}\};
 $$
 5. 构造 $\mathbf A_Q$ 和 $\mathbf B_Q$，利用总功率拉格朗日乘子更新 $\mathbf Q$；
 6. 利用分段闭式解更新 $\{q_j\}$；
-7. 重新计算真实 SINR 与真实加权和速率 $F_{\rm in}^{(r+1)}$；
+7. 重新计算真实 SINR 与真实加权和速率 $F_{\rm in}^{(n+1)}$；
 8. 当内层相对增益满足
 $$
    \frac{
-   |F_{\rm in}^{(r+1)}-F_{\rm in}^{(r)}|
+   |F_{\rm in}^{(n+1)}-F_{\rm in}^{(n)}|
    }{
-   \max\{1,|F_{\rm in}^{(r)}|\}
+   \max\{1,|F_{\rm in}^{(n)}|\}
    }
    \le\varepsilon_{\rm in}
 $$
@@ -1458,7 +1513,7 @@ $$
 \mathbf g_m
 =
 \left(
-\mathbf I-
+\mathbf I_3-
 \frac{\mathbf c_m\mathbf c_m^T}{L_{\rm c}^2}
 \right)
 \nabla_{\mathbf c_m}F
@@ -1467,15 +1522,15 @@ $$
 
 ### 19.2 中央数值差分
 
-对 $r=1,2,3$，
+对 $a\in\{1,2,3\}$，
 
 $$
-[\nabla_{\mathbf c_m}F]_r
+[\nabla_{\mathbf c_m}F]_a
 \approx
 \frac{
-F(\mathbf c_m+\delta\mathbf e_r)
+F(\mathbf c_m+\delta\mathbf e_a)
 -
-F(\mathbf c_m-\delta\mathbf e_r)
+F(\mathbf c_m-\delta\mathbf e_a)
 }{
 2\delta
 }.
@@ -1488,13 +1543,13 @@ $$
 采用 Polak–Ribiere+ 方向
 
 $$
-\boldsymbol\eta_m^{(t)}
+\boldsymbol\psi_m^{(t)}
 =
 \mathbf g_m^{(t)}
 +
 \beta_m^{(t)}
 \mathcal T
-(\boldsymbol\eta_m^{(t-1)}),
+(\boldsymbol\psi_m^{(t-1)}),
 $$
 
 $$
@@ -1520,7 +1575,7 @@ $$
 $$
 \langle
 \mathbf g_m^{(t)},
-\boldsymbol\eta_m^{(t)}
+\boldsymbol\psi_m^{(t)}
 \rangle
 \le0,
 $$
@@ -1528,7 +1583,7 @@ $$
 则重启为
 
 $$
-\boldsymbol\eta_m^{(t)}=\mathbf g_m^{(t)}.
+\boldsymbol\psi_m^{(t)}=\mathbf g_m^{(t)}.
 $$
 
 ### 19.4 球面回缩
@@ -1541,9 +1596,9 @@ $$
 =
 L_{\rm c}
 \frac{
-\mathbf c_m+\tau_m\boldsymbol\eta_m
+\mathbf c_m+\tau_m\boldsymbol\psi_m
 }{
-\|\mathbf c_m+\tau_m\boldsymbol\eta_m\|_2
+\|\mathbf c_m+\tau_m\boldsymbol\psi_m\|_2
 }
 }.
 $$
@@ -1572,10 +1627,10 @@ F(\mathbf c_m^{\rm cand})
 \ge
 F(\mathbf c_m)
 +
-\xi\tau_m
-\langle\mathbf g_m,\boldsymbol\eta_m\rangle,
+\mu_{\rm A}\tau_m
+\langle\mathbf g_m,\boldsymbol\psi_m\rangle,
 \qquad
-0<\xi<1.
+0<\mu_{\rm A}<1.
 $$
 
 若防碰撞条件或 Armijo 条件失败，则
@@ -1655,6 +1710,8 @@ $$
 (\widetilde{\mathbf c}_{\rm T},\mathbf q_r^{\rm S})
 \|_2
 },
+\qquad
+r=1,\ldots,\min\{R_{\rm S},L\},
 $$
 
 若 $R_{\rm S}>|\mathcal L|$，其余列可由正交补或随机单位向量初始化。
@@ -1723,7 +1780,7 @@ $$
          1. 更新全部 $\{\mathbf u_l\}$；
          2. 更新全部 $\{\mathbf b_j\}$；
          3. 更新 LDT 辅助变量 $\{\eta_k^{\rm D}\}$、$\{\eta_j^{\rm U}\}$ 和 $\{\eta_l^{\rm S}\}$；
-         4. 更新 QT 辅助变量 $\{y_k^{\rm D}\}$、$\{y_j^{\rm U}\}$ 和 $\{\mathbf y_l^{\rm S}\}$；
+         4. 更新 QT 辅助变量 $\{\phi_k^{\rm D}\}$、$\{\phi_j^{\rm U}\}$ 和 $\{\boldsymbol\phi_l^{\rm S}\}$；
          5. 构造 $\mathbf A_Q$ 和 $\mathbf B_Q$，通过 $\lambda_{\rm P}$ 更新 $\mathbf Q$；
          6. 通过分段闭式解更新 $\{q_j\}$；
          7. 重算真实 SINR 和真实 WSR；
