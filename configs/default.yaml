@@ -1,0 +1,68 @@
+system:
+  M: 4
+  N_c: 2
+  K: 1
+  J: 1
+  L: 1
+  R_s: 1
+
+geometry:
+  wavelength: 0.01
+  cable_length: 1.0
+  min_uav_distance: 0.5
+  min_si_distance: 1.0e-3
+
+power:
+  p_dl_max: 1.0
+  p_ul_max: [0.1]
+
+noise:
+  sigma_dl2: [1.0e-10]
+  sigma_bs2: 1.0e-10
+
+si:
+  rho_si: 1.0e-8
+
+weights:
+  dl: [0.3333333333333333]
+  ul: [0.3333333333333333]
+  sensing: [0.3333333333333334]
+
+scene:
+  q_dl:
+    - [10.0, 0.0, 1.0]
+
+  q_ul:
+    - [0.0, 12.0, 1.0]
+
+  q_s:
+    - [8.0, 8.0, 2.0]
+
+channel:
+  alpha_dl: [1.0e-3]
+  alpha_ul: [1.0e-3]
+
+  xi_s: [1.0]
+  beta_t_s: [1.0e-4]
+  beta_r_s: [1.0e-4]
+
+initialization:
+  kappa_ul: 0.5
+  random_seed: 2026
+  max_geometry_trials: 10000
+
+algorithm:
+  max_inner_iter: 100
+  max_outer_iter: 30
+
+  tol_inner: 1.0e-5
+  tol_outer: 1.0e-4
+
+  max_bisection_iter: 100
+  tol_bisection: 1.0e-10
+
+  max_backtracking_iter: 30
+  armijo_mu: 1.0e-4
+  backtracking_factor: 0.5
+
+  finite_diff_delta: 1.0e-5
