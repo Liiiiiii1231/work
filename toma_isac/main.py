@@ -1,27 +1,12 @@
-"""ToMA-ISAC 第一大里程碑主程序。
+"""ToMA-ISAC 第二阶段主程序。
 
-当前版本暂时不运行 inner/outer 优化。
-
-目的只是验证：
-
-SystemConfig
-    ↓
-GeometryState
-    ↓
-ChannelState
-    ↓
-ResourceState
-    ↓
-PerformanceResult
-
-整个系统模型是否能够正确数值运行。
+固定 ToMA 几何，完成内层 FP 资源优化，
+并比较优化前后的 SINR、Rate 和 WSR。
 """
 
 import numpy as np
 
-from channels import (
-    build_channels,
-)
+from channels import build_channels
 from config import load_config
 from geometry import (
     build_geometry,
@@ -32,96 +17,59 @@ from initialization import (
     generate_feasible_endpoints,
     initialize_resources,
 )
-from metrics import (
-    compute_performance,
-)
-from utils import (
-    check_resource_constraints,
-)
+from inner_solver import solve_inner_problem
+from metrics import compute_performance
+from utils import check_resource_constraints
 
 
 def main() -> None:
-    """运行固定 ToMA 条件下的第一大里程碑。"""
-
-    # ==========================================================
-    # 1. 读取系统参数
-    # ==========================================================
+    """运行固定 ToMA 下的内层资源优化。"""
 
     cfg = load_config()
 
-    # 固定随机数种子，
-    # 保证每次调试得到同样的随机初始化结果。
     rng = np.random.default_rng(
         cfg.random_seed
     )
 
-    # ==========================================================
-    # 2. 生成初始 ToMA 端点
-    # ==========================================================
-
-    endpoints = (
-        generate_feasible_endpoints(
-            cfg,
-            rng,
-        )
+    # 生成固定的初始 ToMA 几何
+    endpoints = generate_feasible_endpoints(
+        cfg,
+        rng,
     )
 
-    # 根据 c_m 生成所有 Tx/Rx 阵元位置。
     geometry = build_geometry(
         endpoints,
         cfg,
     )
-
-    # ==========================================================
-    # 3. 根据当前 ToMA 几何生成所有信道
-    # ==========================================================
 
     channels = build_channels(
         geometry,
         cfg,
     )
 
-    # ==========================================================
-    # 4. 初始化 Q、q_j、b_j、u_l
-    # ==========================================================
-
-    resources = (
-        initialize_resources(
-            geometry,
-            channels,
-            cfg,
-            rng,
-        )
+    # 初始化 Q、q_j、b_j、u_l
+    initial_resources = initialize_resources(
+        geometry,
+        channels,
+        cfg,
+        rng,
     )
 
-    # ==========================================================
-    # 5. 检查资源变量是否满足约束
-    # ==========================================================
-
     check_resource_constraints(
-        resources,
+        initial_resources,
         cfg,
     )
 
-    # ==========================================================
-    # 6. 计算真实 SINR、Rate 和 WSR
-    # ==========================================================
-
-    performance = (
-        compute_performance(
-            channels,
-            resources,
-            cfg,
-        )
+    initial_performance = compute_performance(
+        channels,
+        initial_resources,
+        cfg,
     )
-
-    # ==========================================================
-    # 7. 输出结果
-    # ==========================================================
 
     print("=" * 64)
     print(
-        "ToMA-ISAC First Milestone"
+        "ToMA-ISAC Stage 2: "
+        "Inner Resource Optimization"
     )
     print("=" * 64)
 
@@ -132,76 +80,6 @@ def main() -> None:
         f"N_R={cfg.n_rx}, "
         f"D={cfg.d_stream}"
     )
-
-    # ----------------------------------------------------------
-    # 数组尺寸检查
-    # ----------------------------------------------------------
-
-    print("\n[Shapes]")
-
-    print(
-        "endpoints :",
-        geometry.endpoints.shape,
-    )
-
-    print(
-        "tx_pos    :",
-        geometry.tx_positions.shape,
-    )
-
-    print(
-        "rx_pos    :",
-        geometry.rx_positions.shape,
-    )
-
-    print(
-        "h         :",
-        channels.h.shape,
-    )
-
-    print(
-        "f         :",
-        channels.f.shape,
-    )
-
-    print(
-        "G         :",
-        channels.g.shape,
-    )
-
-    print(
-        "H_SI0     :",
-        channels.h_si0.shape,
-    )
-
-    print(
-        "H_RSI     :",
-        channels.h_rsi.shape,
-    )
-
-    print(
-        "Q         :",
-        resources.q_matrix.shape,
-    )
-
-    print(
-        "q_ul      :",
-        resources.q_ul.shape,
-    )
-
-    print(
-        "b_ul      :",
-        resources.b_ul.shape,
-    )
-
-    print(
-        "u_s       :",
-        resources.u_s.shape,
-    )
-
-    # ----------------------------------------------------------
-    # 几何检查
-    # ----------------------------------------------------------
 
     print("\n[Geometry]")
 
@@ -219,33 +97,79 @@ def main() -> None:
         ),
     )
 
-    # ----------------------------------------------------------
-    # 资源约束
-    # ----------------------------------------------------------
+    print("\n[Initial Performance]")
 
-    print("\n[Resources]")
+    print(
+        "DL SINR      =",
+        initial_performance.gamma_dl,
+    )
+
+    print(
+        "UL SINR      =",
+        initial_performance.gamma_ul,
+    )
+
+    print(
+        "Sensing SINR =",
+        initial_performance.gamma_s,
+    )
+
+    print(
+        "Initial WSR  =",
+        initial_performance.weighted_sum_rate,
+    )
+
+    # -------------------- 内层优化 --------------------
+
+    print("\n[Inner Iteration]")
+
+    (
+        optimized_resources,
+        wsr_history,
+    ) = solve_inner_problem(
+        channels,
+        initial_resources,
+        cfg,
+        verbose=True,
+    )
+
+    check_resource_constraints(
+        optimized_resources,
+        cfg,
+    )
+
+    final_performance = compute_performance(
+        channels,
+        optimized_resources,
+        cfg,
+    )
+
+    # -------------------- 最终资源 --------------------
+
+    print("\n[Optimized Resources]")
 
     print(
         "||Q||_F^2 =",
         np.linalg.norm(
-            resources.q_matrix,
+            optimized_resources.q_matrix,
             "fro",
-        )
-        ** 2,
+        ) ** 2,
     )
 
-    # 注意：
-    # q_ul 是幅度。
-    # q_ul**2 才是真实上行功率。
+    print(
+        "UL amplitudes q_j =",
+        optimized_resources.q_ul,
+    )
+
     print(
         "UL powers q_j^2 =",
-        resources.q_ul ** 2,
+        optimized_resources.q_ul ** 2,
     )
 
     print(
         "||b_j|| =",
         np.linalg.norm(
-            resources.b_ul,
+            optimized_resources.b_ul,
             axis=1,
         ),
     )
@@ -253,71 +177,67 @@ def main() -> None:
     print(
         "||u_l|| =",
         np.linalg.norm(
-            resources.u_s,
+            optimized_resources.u_s,
             axis=1,
         ),
     )
 
-    # ----------------------------------------------------------
-    # 三类 SINR
-    # ----------------------------------------------------------
+    # -------------------- 最终性能 --------------------
 
-    print("\n[SINR]")
+    print("\n[Final SINR]")
 
     print(
-        "DL      :",
-        performance.gamma_dl,
+        "DL      =",
+        final_performance.gamma_dl,
     )
 
     print(
-        "UL      :",
-        performance.gamma_ul,
+        "UL      =",
+        final_performance.gamma_ul,
     )
 
     print(
-        "Sensing :",
-        performance.gamma_s,
-    )
-
-    # ----------------------------------------------------------
-    # 三类速率
-    # ----------------------------------------------------------
-
-    print(
-        "\n[Rate: bit/s/Hz]"
+        "Sensing =",
+        final_performance.gamma_s,
     )
 
     print(
-        "DL      :",
-        performance.rate_dl,
+        "\n[Final Rate: bit/s/Hz]"
     )
 
     print(
-        "UL      :",
-        performance.rate_ul,
+        "DL      =",
+        final_performance.rate_dl,
     )
 
     print(
-        "Sensing :",
-        performance.rate_s,
-    )
-
-    # ----------------------------------------------------------
-    # WSR
-    # ----------------------------------------------------------
-
-    print(
-        "\n[Weighted Sum Rate]"
+        "UL      =",
+        final_performance.rate_ul,
     )
 
     print(
-        "WSR =",
-        performance.weighted_sum_rate,
+        "Sensing =",
+        final_performance.rate_s,
+    )
+
+    print("\n[Weighted Sum Rate]")
+
+    print(
+        "Initial WSR =",
+        wsr_history[0],
     )
 
     print(
-        "\nFirst milestone passed."
+        "Final WSR   =",
+        wsr_history[-1],
     )
+
+    print(
+        "Inner iterations =",
+        len(wsr_history) - 1,
+    )
+
+    print("\nStage 2 passed.")
 
 
 if __name__ == "__main__":
