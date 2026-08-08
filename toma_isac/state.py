@@ -59,3 +59,58 @@ class PerformanceResult:
     rate_s: np.ndarray
 
     weighted_sum_rate: float
+
+@dataclass
+class FPState:
+    """内层 Fractional Programming 的辅助变量。
+
+    这里保存的是 LDT 和 QT 为了求解原问题而引入的辅助变量。
+
+   
+    """
+
+    # ============================================================
+    # LDT 辅助变量
+    #
+    # eta_k^D = gamma_k^D
+    # eta_j^U = gamma_j^U
+    # eta_l^S = gamma_l^S
+    # ============================================================
+
+    eta_dl: np.ndarray
+    # shape = (K,)
+    # 对应 {eta_k^D}
+
+    eta_ul: np.ndarray
+    # shape = (J,)
+    # 对应 {eta_j^U}
+
+    eta_s: np.ndarray
+    # shape = (L,)
+    # 对应 {eta_l^S}
+
+    # ============================================================
+    # QT 辅助变量
+    # ============================================================
+
+    phi_dl: np.ndarray
+    # shape = (K,)
+    # complex
+    #
+    # 对应标量：
+    # phi_k^D
+
+    phi_ul: np.ndarray
+    # shape = (J,)
+    # complex
+    #
+    # 对应标量：
+    # phi_j^U
+
+    phi_s: np.ndarray
+    # shape = (L, D)
+    # complex
+    #
+    # 每一行 phi_s[l]
+    # 对应向量：
+    # boldsymbol phi_l^S ∈ C^D
