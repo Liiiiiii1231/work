@@ -1059,13 +1059,6 @@ def solve_inner_problem(
             current_wsr
         )
 
-        if verbose:
-            print(
-                f"Inner iter {inner_iter}: "
-                f"WSR = {current_wsr:.10f}, "
-                f"lambda_P = {lambda_p:.6e}"
-            )
-
         # 精确分块更新理论上应使真实 WSR 非下降
         decrease_tolerance = (
             1e-8
@@ -1089,7 +1082,13 @@ def solve_inner_problem(
             current_wsr,
             previous_wsr,
         )
-
+        if verbose:
+            print(
+                f"Inner iter {inner_iter}: "
+                f"WSR = {current_wsr:.10f}, "
+                f"rel_change = {change:.3e}, "
+                f"lambda_P = {lambda_p:.6e}"
+            )
         if (
             change
             <= cfg.tol_inner
