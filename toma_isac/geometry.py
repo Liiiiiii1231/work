@@ -22,6 +22,7 @@ from state import GeometryState
 def build_geometry(
     endpoints: np.ndarray,
     cfg: SystemConfig,
+    check_constraints: bool = True,
 ) -> GeometryState:
     """由所有 ToMA 端点 c_m 构造发射/接收阵列位置。
 
@@ -135,7 +136,8 @@ def build_geometry(
     )
 
     # 每次构建几何后马上检查是否合法。
-    check_geometry_constraints(
+    if check_constraints:
+        check_geometry_constraints(
         geometry,
         cfg,
     )
