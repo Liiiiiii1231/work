@@ -1,7 +1,7 @@
-"""ToMA-ISAC 第二阶段主程序。
+"""ToMA-ISAC 第三阶段主程序。
 
-固定 ToMA 几何，完成内层 FP 资源优化，
-并比较优化前后的 SINR、Rate 和 WSR。
+先完成固定 ToMA 的内层资源优化，
+再固定资源执行 ToMA 外层位置优化。
 """
 
 import numpy as np
@@ -11,7 +11,6 @@ from config import load_config
 from geometry import (
     build_geometry,
     min_endpoint_distance,
-    min_tx_rx_element_distance,
 )
 from initialization import (
     generate_feasible_endpoints,
@@ -19,11 +18,12 @@ from initialization import (
 )
 from inner_solver import solve_inner_problem
 from metrics import compute_performance
+from outer_solver import solve_outer_problem
 from utils import check_resource_constraints
 
 
 def main() -> None:
-    """运行固定 ToMA 下的内层资源优化。"""
+    """运行第三阶段外层 ToMA 位置优化测试。"""
 
     cfg = load_config()
 
@@ -31,7 +31,7 @@ def main() -> None:
         cfg.random_seed
     )
 
-    # 生成固定的初始 ToMA 几何
+    # 初始几何和信道
     endpoints = generate_feasible_endpoints(
         cfg,
         rng,
@@ -47,88 +47,43 @@ def main() -> None:
         cfg,
     )
 
-    # 初始化 Q、q_j、b_j、u_l
-    initial_resources = initialize_resources(
+    resources = initialize_resources(
         geometry,
         channels,
         cfg,
         rng,
     )
 
-    check_resource_constraints(
-        initial_resources,
-        cfg,
+    print("=" * 64)
+    print(
+        "ToMA-ISAC Stage 3: "
+        "Outer Position Optimization"
     )
+    print("=" * 64)
+
+    # ==========================================================
+    # Stage 2：固定初始 ToMA，优化资源
+    # ==========================================================
 
     initial_performance = compute_performance(
         channels,
-        initial_resources,
+        resources,
         cfg,
     )
 
-    print("=" * 64)
     print(
-        "ToMA-ISAC Stage 2: "
-        "Inner Resource Optimization"
-    )
-    print("=" * 64)
-
-    print(
-        f"M={cfg.m_uav}, "
-        f"N_c={cfg.n_cable}, "
-        f"N_T={cfg.n_tx}, "
-        f"N_R={cfg.n_rx}, "
-        f"D={cfg.d_stream}"
-    )
-
-    print("\n[Geometry]")
-
-    print(
-        "min endpoint distance =",
-        min_endpoint_distance(
-            geometry.endpoints
-        ),
-    )
-
-    print(
-        "min Tx-Rx element distance =",
-        min_tx_rx_element_distance(
-            geometry
-        ),
-    )
-
-    print("\n[Initial Performance]")
-
-    print(
-        "DL SINR      =",
-        initial_performance.gamma_dl,
-    )
-
-    print(
-        "UL SINR      =",
-        initial_performance.gamma_ul,
-    )
-
-    print(
-        "Sensing SINR =",
-        initial_performance.gamma_s,
-    )
-
-    print(
-        "Initial WSR  =",
+        "\nInitial WSR =",
         initial_performance.weighted_sum_rate,
     )
 
-    # -------------------- 内层优化 --------------------
-
-    print("\n[Inner Iteration]")
+    print("\n[Stage 2: Inner Solver]")
 
     (
         optimized_resources,
-        wsr_history,
+        inner_history,
     ) = solve_inner_problem(
         channels,
-        initial_resources,
+        resources,
         cfg,
         verbose=True,
     )
@@ -138,53 +93,81 @@ def main() -> None:
         cfg,
     )
 
+    print(
+        "\nWSR after inner solver =",
+        inner_history[-1],
+    )
+
+    # ==========================================================
+    # Stage 3：固定资源，优化 ToMA 位置
+    # ==========================================================
+
+    print(
+        "\n[Stage 3: Outer Solver]"
+    )
+
+    (
+        optimized_geometry,
+        optimized_channels,
+        outer_history,
+    ) = solve_outer_problem(
+        geometry,
+        optimized_resources,
+        cfg,
+        verbose=True,
+    )
+
     final_performance = compute_performance(
-        channels,
+        optimized_channels,
         optimized_resources,
         cfg,
     )
 
-    # -------------------- 最终资源 --------------------
-
-    print("\n[Optimized Resources]")
+    print(
+        "\n[Final Geometry]"
+    )
 
     print(
-        "||Q||_F^2 =",
+        optimized_geometry.endpoints
+    )
+
+    print(
+        "endpoint norms =",
         np.linalg.norm(
-            optimized_resources.q_matrix,
-            "fro",
-        ) ** 2,
-    )
-
-    print(
-        "UL amplitudes q_j =",
-        optimized_resources.q_ul,
-    )
-
-    print(
-        "UL powers q_j^2 =",
-        optimized_resources.q_ul ** 2,
-    )
-
-    print(
-        "||b_j|| =",
-        np.linalg.norm(
-            optimized_resources.b_ul,
+            optimized_geometry.endpoints,
             axis=1,
         ),
     )
 
     print(
-        "||u_l|| =",
-        np.linalg.norm(
-            optimized_resources.u_s,
-            axis=1,
+        "min endpoint distance =",
+        min_endpoint_distance(
+            optimized_geometry.endpoints
         ),
     )
 
-    # -------------------- 最终性能 --------------------
+    print(
+        "\n[Outer WSR]"
+    )
 
-    print("\n[Final SINR]")
+    print(
+        "Before outer =",
+        outer_history[0],
+    )
+
+    print(
+        "After outer  =",
+        outer_history[-1],
+    )
+
+    print(
+        "Outer sweeps =",
+        len(outer_history) - 1,
+    )
+
+    print(
+        "\n[Final SINR]"
+    )
 
     print(
         "DL      =",
@@ -202,42 +185,13 @@ def main() -> None:
     )
 
     print(
-        "\n[Final Rate: bit/s/Hz]"
+        "\nFinal WSR =",
+        final_performance.weighted_sum_rate,
     )
 
     print(
-        "DL      =",
-        final_performance.rate_dl,
+        "\nStage 3 passed."
     )
-
-    print(
-        "UL      =",
-        final_performance.rate_ul,
-    )
-
-    print(
-        "Sensing =",
-        final_performance.rate_s,
-    )
-
-    print("\n[Weighted Sum Rate]")
-
-    print(
-        "Initial WSR =",
-        wsr_history[0],
-    )
-
-    print(
-        "Final WSR   =",
-        wsr_history[-1],
-    )
-
-    print(
-        "Inner iterations =",
-        len(wsr_history) - 1,
-    )
-
-    print("\nStage 2 passed.")
 
 
 if __name__ == "__main__":
