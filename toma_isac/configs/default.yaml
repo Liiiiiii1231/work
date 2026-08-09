@@ -66,3 +66,4 @@ algorithm:
   backtracking_factor: 0.5
 
   finite_diff_delta: 1.0e-5
+  initial_outer_step: 0.1

@@ -67,6 +67,7 @@ class SystemConfig:
     backtracking_factor: float
 
     finite_diff_delta: float
+    initial_outer_step: float
 
     @property
     def n_tx_uav(self) -> int:
@@ -228,6 +229,10 @@ class SystemConfig:
             raise ValueError(
                 "All WSR weights must sum to 1."
             )
+        if self.initial_outer_step <= 0:
+            raise ValueError(
+        "initial_outer_step must be positive."
+        )
 
 
 def _require_shape(
@@ -400,6 +405,11 @@ def load_config(
         finite_diff_delta=float(
             raw["algorithm"][
                 "finite_diff_delta"
+            ]
+        ),
+        initial_outer_step=float(
+            raw["algorithm"][
+                "initial_outer_step"
             ]
         ),
     )
