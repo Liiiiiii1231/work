@@ -65,7 +65,7 @@ initialization:
 
 algorithm:
   max_inner_iter: 300
-  max_outer_iter: 30
+  max_outer_iter: 400
 
   tol_inner: 1.0e-4
   tol_outer: 1.0e-4
