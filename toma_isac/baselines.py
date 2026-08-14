@@ -66,6 +66,10 @@ class BaselineResult:
     converged: bool
     iterations: int
 
+    # 保存 ToMA 方法最开始的端点，
+    # 用于检查 Fixed-ToMA 和不同方案的公平初始化。
+    initial_endpoints: np.ndarray | None = None
+
 
 def _inner_history_converged(
     history: list[float],
@@ -197,6 +201,8 @@ def run_rcg_toma_traditional(
         cfg,
         rng,
     )
+    # 保存 RCG 优化之前的初始 ToMA。
+    initial_endpoints = endpoints.copy()
 
     geometry = build_geometry(
         endpoints,
@@ -333,18 +339,19 @@ def run_rcg_toma_traditional(
     )
 
     return BaselineResult(
-        name=(
-            "RCG-ToMA + "
-            "Traditional Resource Design"
-        ),
-        geometry=geometry,
-        channels=channels,
-        resources=resources,
-        performance=performance,
-        wsr_history=wsr_history,
-        converged=converged,
-        iterations=iterations,
-    )
+    name=(
+        "RCG-ToMA + "
+        "Traditional Resource Design"
+    ),
+    geometry=geometry,
+    channels=channels,
+    resources=resources,
+    performance=performance,
+    wsr_history=wsr_history,
+    converged=converged,
+    iterations=iterations,
+    initial_endpoints=initial_endpoints,
+)
 
 
 # ============================================================
@@ -368,7 +375,8 @@ def run_fixed_toma_fp(
         cfg,
         rng,
     )
-
+    # Fixed-ToMA 的初始端点之后应始终保持不变。
+    initial_endpoints = endpoints.copy()
     geometry = build_geometry(
         endpoints,
         cfg,
@@ -405,27 +413,27 @@ def run_fixed_toma_fp(
     )
 
     return BaselineResult(
-        name=(
-            "Fixed-ToMA + "
-            "FP Resource Optimization"
-        ),
-        geometry=geometry,
-        channels=channels,
-        resources=resources,
-        performance=performance,
-        wsr_history=list(
-            inner_history
-        ),
-        converged=_inner_history_converged(
-            inner_history,
-            cfg,
-        ),
-        iterations=(
-            len(inner_history)
-            - 1
-        ),
-    )
-
+    name=(
+        "Fixed-ToMA + "
+        "FP Resource Optimization"
+    ),
+    geometry=geometry,
+    channels=channels,
+    resources=resources,
+    performance=performance,
+    wsr_history=list(
+        inner_history
+    ),
+    converged=_inner_history_converged(
+        inner_history,
+        cfg,
+    ),
+    iterations=(
+        len(inner_history)
+        - 1
+    ),
+    initial_endpoints=initial_endpoints,
+)
 
 # ============================================================
 # 4. FPA-UPA baseline geometry
