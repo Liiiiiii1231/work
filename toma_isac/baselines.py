@@ -156,6 +156,40 @@ def build_traditional_resources(
     return resources
 
 
+def _evaluate_traditional_wsr(
+    endpoints: np.ndarray,
+    cfg: SystemConfig,
+) -> float:
+    """按候选 ToMA 位置重新生成传统资源并计算 B1 的真实 WSR。"""
+
+    geometry = build_geometry(
+        endpoints,
+        cfg,
+        check_constraints=False,
+    )
+
+    channels = build_channels(
+        geometry,
+        cfg,
+    )
+
+    resources = build_traditional_resources(
+        geometry,
+        channels,
+        cfg,
+    )
+
+    performance = compute_performance(
+        channels,
+        resources,
+        cfg,
+    )
+
+    return float(
+        performance.weighted_sum_rate
+    )
+
+
 # ============================================================
 # 2. Baseline 1
 #    RCG-ToMA + Traditional Resource Design
@@ -266,6 +300,12 @@ def run_rcg_toma_traditional(
             cfg,
             rcg_state=rcg_state,
             verbose=False,
+            objective_evaluator=lambda candidate_endpoints: (
+                _evaluate_traditional_wsr(
+                    candidate_endpoints,
+                    cfg,
+                )
+            ),
         )
 
         # ToMA 改变后信道已经变化，

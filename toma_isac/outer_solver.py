@@ -8,6 +8,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 
 import numpy as np
@@ -22,7 +23,7 @@ from state import (
     ResourceState,
 )
 from utils import relative_change
-
+OuterObjective = Callable[[np.ndarray], float]
 
 @dataclass
 class OuterRCGState:
@@ -83,6 +84,24 @@ def evaluate_fixed_resource_wsr(
     )
 
 
+def _evaluate_outer_objective(
+    endpoints: np.ndarray,
+    resources: ResourceState,
+    cfg: SystemConfig,
+    objective_evaluator: OuterObjective | None,
+) -> float:
+    """计算外层当前位置对应的目标值。"""
+
+    if objective_evaluator is None:
+        return evaluate_fixed_resource_wsr(
+            endpoints,
+            resources,
+            cfg,
+        )
+
+    return float(
+        objective_evaluator(endpoints)
+    )
 # ============================================================
 # 2. 中央数值差分
 # ============================================================
@@ -92,6 +111,7 @@ def central_difference_gradient(
     endpoint_index: int,
     resources: ResourceState,
     cfg: SystemConfig,
+    objective_evaluator: OuterObjective | None = None,
 ) -> np.ndarray:
     """计算单个 ToMA 端点的三维欧氏数值梯度。"""
 
@@ -121,16 +141,18 @@ def central_difference_gradient(
             axis,
         ] -= delta
 
-        f_plus = evaluate_fixed_resource_wsr(
+        f_plus = _evaluate_outer_objective(
             plus_endpoints,
             resources,
             cfg,
+            objective_evaluator,
         )
 
-        f_minus = evaluate_fixed_resource_wsr(
+        f_minus = _evaluate_outer_objective(
             minus_endpoints,
             resources,
             cfg,
+            objective_evaluator,
         )
 
         gradient[axis] = (
@@ -346,6 +368,7 @@ def armijo_endpoint_update(
     current_wsr: float,
     resources: ResourceState,
     cfg: SystemConfig,
+    objective_evaluator: OuterObjective | None = None,
 ) -> tuple[
     np.ndarray,
     float,
@@ -400,12 +423,11 @@ def armijo_endpoint_update(
         ] = candidate
 
         # 资源保持固定，只重新生成几何、信道和真实 WSR。
-        candidate_wsr = (
-            evaluate_fixed_resource_wsr(
-                candidate_endpoints,
-                resources,
-                cfg,
-            )
+        candidate_wsr = _evaluate_outer_objective(
+            candidate_endpoints,
+            resources,
+            cfg,
+            objective_evaluator,
         )
 
         armijo_rhs = (
@@ -449,6 +471,7 @@ def update_positions_once(
     cfg: SystemConfig,
     rcg_state: OuterRCGState | None = None,
     verbose: bool = False,
+    objective_evaluator: OuterObjective | None = None,
 ) -> tuple[
     GeometryState,
     ChannelState,
@@ -456,7 +479,11 @@ def update_positions_once(
     OuterRCGState,
     int,
 ]:
-    """固定资源，按 Tx -> Rx 顺序更新全部 ToMA 端点一次。"""
+    """按 Tx -> Rx 顺序更新全部 ToMA 端点一次。
+
+    objective_evaluator=None 时保持原 Stage 3/4 行为：
+    固定 resources 评价候选位置。
+    """
 
     if rcg_state is None:
         rcg_state = (
@@ -469,12 +496,11 @@ def update_positions_once(
         geometry.endpoints.copy()
     )
 
-    current_wsr = (
-        evaluate_fixed_resource_wsr(
-            endpoints,
-            resources,
-            cfg,
-        )
+    current_wsr = _evaluate_outer_objective(
+    endpoints,
+    resources,
+    cfg,
+    objective_evaluator,
     )
 
     accepted_count = 0
@@ -497,13 +523,14 @@ def update_positions_once(
     for endpoint_index in endpoint_order:
         # 当前端点的欧氏数值梯度
         euclidean_gradient = (
-            central_difference_gradient(
-                endpoints,
-                endpoint_index,
-                resources,
-                cfg,
-            )
-        )
+    central_difference_gradient(
+        endpoints,
+        endpoint_index,
+        resources,
+        cfg,
+        objective_evaluator=objective_evaluator,
+    )
+    )
 
         # 投影为黎曼梯度
         grad_m = project_to_tangent(
@@ -560,6 +587,7 @@ def update_positions_once(
             current_wsr,
             resources,
             cfg,
+            objective_evaluator=objective_evaluator,
         )
 
         # 保存本轮 RCG 信息，供下一轮使用。

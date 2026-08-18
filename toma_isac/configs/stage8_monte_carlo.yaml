@@ -55,8 +55,8 @@ initialization:
   max_geometry_trials: 10000
 
 algorithm:
-  max_inner_iter: 600
-  max_outer_iter: 400
+  max_inner_iter: 1200
+  max_outer_iter: 1000
 
   tol_inner: 1.0e-4
   tol_outer: 1.0e-4
