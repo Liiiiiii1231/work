@@ -4,6 +4,8 @@
 B1: RCG-ToMA + Traditional Resource Design
 B2: Fixed-ToMA + FP Resource Optimization
 B3: FPA-UPA + FP Resource Optimization
+B4: Fixed-ToMA + Traditional Resource Design
+B5: FPA-UPA + Traditional Resource Design
 
 Proposed 继续直接调用 algorithm.py 中的 run_joint_algorithm()，
 因此这里不重复实现完整联合算法。
@@ -252,14 +254,6 @@ def run_rcg_toma_traditional(
         1,
         number_of_outer_iterations + 1,
     ):
-        # ToMA 改变以后，h / f / G / H_RSI 都会改变，
-        # 因此 traditional resources 必须重新生成。
-        resources = build_traditional_resources(
-            geometry,
-            channels,
-            cfg,
-        )
-
         (
             geometry,
             channels,
@@ -272,6 +266,14 @@ def run_rcg_toma_traditional(
             cfg,
             rcg_state=rcg_state,
             verbose=False,
+        )
+
+        # ToMA 改变后信道已经变化，
+        # traditional resources 必须按新信道重新生成。
+        resources = build_traditional_resources(
+            geometry,
+            channels,
+            cfg,
         )
 
         performance = compute_performance(
@@ -731,4 +733,135 @@ def run_fpa_upa_fp(
             len(inner_history)
             - 1
         ),
+    )
+
+
+# ============================================================
+# 6. Baseline 4
+#    Fixed-ToMA + Traditional Resource Design
+# ============================================================
+
+def run_fixed_toma_traditional(
+    cfg: SystemConfig,
+    rng: np.random.Generator | None = None,
+) -> BaselineResult:
+    """固定随机 ToMA，并使用传统波束与资源设计。"""
+
+    if rng is None:
+        rng = np.random.default_rng(
+            cfg.random_seed
+        )
+
+    endpoints = generate_feasible_endpoints(
+        cfg,
+        rng,
+    )
+    initial_endpoints = endpoints.copy()
+
+    geometry = build_geometry(
+        endpoints,
+        cfg,
+    )
+
+    channels = build_channels(
+        geometry,
+        cfg,
+    )
+
+    resources = build_traditional_resources(
+        geometry,
+        channels,
+        cfg,
+    )
+
+    performance = compute_performance(
+        channels,
+        resources,
+        cfg,
+    )
+
+    check_resource_constraints(
+        resources,
+        cfg,
+    )
+
+    wsr = float(
+        performance.weighted_sum_rate
+    )
+
+    return BaselineResult(
+        name=(
+            "Fixed-ToMA + "
+            "Traditional Resource Design"
+        ),
+        geometry=geometry,
+        channels=channels,
+        resources=resources,
+        performance=performance,
+        wsr_history=[wsr],
+        converged=True,
+        iterations=0,
+        initial_endpoints=initial_endpoints,
+    )
+
+
+# ============================================================
+# 7. Baseline 5
+#    FPA-UPA + Traditional Resource Design
+# ============================================================
+
+def run_fpa_upa_traditional(
+    cfg: SystemConfig,
+    spacing: float | None = None,
+    tx_rx_separation: float | None = None,
+) -> BaselineResult:
+    """固定 UPA，并使用传统波束与资源设计。"""
+
+    geometry = build_fpa_upa_geometry(
+        cfg,
+        spacing=spacing,
+        tx_rx_separation=(
+            tx_rx_separation
+        ),
+    )
+
+    channels = build_channels(
+        geometry,
+        cfg,
+    )
+
+    resources = build_traditional_resources(
+        geometry,
+        channels,
+        cfg,
+    )
+
+    performance = compute_performance(
+        channels,
+        resources,
+        cfg,
+    )
+
+    check_resource_constraints(
+        resources,
+        cfg,
+    )
+
+    wsr = float(
+        performance.weighted_sum_rate
+    )
+
+    return BaselineResult(
+        name=(
+            "FPA-UPA + "
+            "Traditional Resource Design"
+        ),
+        geometry=geometry,
+        channels=channels,
+        resources=resources,
+        performance=performance,
+        wsr_history=[wsr],
+        converged=True,
+        iterations=0,
+        initial_endpoints=None,
     )

@@ -1,4 +1,4 @@
-"""Stage 6：四方案单起点 Baseline 对比。"""
+"""Stage 6：五个 baseline + Proposed 单起点公平对比。"""
 
 from pathlib import Path
 from time import perf_counter
@@ -8,7 +8,9 @@ import numpy as np
 from algorithm import run_joint_algorithm
 from baselines import (
     run_fixed_toma_fp,
+    run_fixed_toma_traditional,
     run_fpa_upa_fp,
+    run_fpa_upa_traditional,
     run_rcg_toma_traditional,
 )
 from config import load_config
@@ -38,7 +40,7 @@ def _run_timed(name, function):
 
 
 def main() -> None:
-    """运行 B1、B2、B3 和 Proposed 的单起点公平对比。"""
+    """运行五个 baseline 和 Proposed 的单起点公平对比。"""
 
     cfg = load_config(CONFIG_PATH)
     seed = cfg.random_seed
@@ -53,9 +55,8 @@ def main() -> None:
     )
     print(f"Single-start seed = {seed}")
 
-    # 每个 ToMA 方案都重新创建同 seed RNG。
-    # 因为三者的第一步都是 generate_feasible_endpoints()，
-    # 所以初始 ToMA 完全一致。
+    # B1/B2/B4/Proposed 都重新创建相同 seed RNG，
+    # 因此随机初始 ToMA 完全一致。
     b1, time_b1 = _run_timed(
         "B1: RCG-ToMA + Traditional Resource Design",
         lambda: run_rcg_toma_traditional(
@@ -83,6 +84,19 @@ def main() -> None:
         ),
     )
 
+    b4, time_b4 = _run_timed(
+        "B4: Fixed-ToMA + Traditional Resource Design",
+        lambda: run_fixed_toma_traditional(
+            cfg,
+            rng=np.random.default_rng(seed),
+        ),
+    )
+
+    b5, time_b5 = _run_timed(
+        "B5: FPA-UPA + Traditional Resource Design",
+        lambda: run_fpa_upa_traditional(cfg),
+    )
+
     proposed, time_proposed = _run_timed(
         "Proposed: RCG-ToMA + FP Resource Optimization",
         lambda: run_joint_algorithm(
@@ -92,11 +106,15 @@ def main() -> None:
         ),
     )
 
-    # --------------------------------------------------------
-    # 基础合法性与收敛检查
-    # --------------------------------------------------------
+    baseline_results = (
+        b1,
+        b2,
+        b3,
+        b4,
+        b5,
+    )
 
-    for result in (b1, b2, b3):
+    for result in baseline_results:
         check_resource_constraints(
             result.resources,
             cfg,
@@ -121,38 +139,27 @@ def main() -> None:
             "Proposed returned non-finite WSR."
         )
 
-    # B2/B3 和 Proposed 都使用收敛型优化器，正式实验要求充分收敛。
-    if not b2.converged:
-        raise RuntimeError(
-            "B2 FP solver did not converge."
-        )
-
-    if not b3.converged:
-        raise RuntimeError(
-            "B3 FP solver did not converge."
-        )
+    # 只有包含迭代优化器的方案需要检查自然收敛。
+    for label, result in (
+        ("B1", b1),
+        ("B2", b2),
+        ("B3", b3),
+    ):
+        if not result.converged:
+            raise RuntimeError(
+                f"{label} did not converge."
+            )
 
     if not proposed.converged:
         raise RuntimeError(
             "Proposed joint algorithm did not converge."
         )
 
-    # B1 也给出收敛标记；若未收敛，说明需要增加外层上限，
-    # 而不是直接拿截断值进行公平比较。
-    if not b1.converged:
-        raise RuntimeError(
-            "B1 did not converge within max_outer_iter."
-        )
-
-    wsr_b1 = float(
-        b1.performance.weighted_sum_rate
-    )
-    wsr_b2 = float(
-        b2.performance.weighted_sum_rate
-    )
-    wsr_b3 = float(
-        b3.performance.weighted_sum_rate
-    )
+    wsr_b1 = float(b1.performance.weighted_sum_rate)
+    wsr_b2 = float(b2.performance.weighted_sum_rate)
+    wsr_b3 = float(b3.performance.weighted_sum_rate)
+    wsr_b4 = float(b4.performance.weighted_sum_rate)
+    wsr_b5 = float(b5.performance.weighted_sum_rate)
     wsr_proposed = float(
         proposed.performance.weighted_sum_rate
     )
@@ -163,9 +170,11 @@ def main() -> None:
     print(f"B1 WSR       = {wsr_b1:.10f}")
     print(f"B2 WSR       = {wsr_b2:.10f}")
     print(f"B3 WSR       = {wsr_b3:.10f}")
+    print(f"B4 WSR       = {wsr_b4:.10f}")
+    print(f"B5 WSR       = {wsr_b5:.10f}")
     print(f"Proposed WSR = {wsr_proposed:.10f}")
 
-    print("\n[Convergence]")
+    print("\n[Convergence / completion]")
     print(
         f"B1: converged={b1.converged}, "
         f"iterations={b1.iterations}"
@@ -178,6 +187,8 @@ def main() -> None:
         f"B3: converged={b3.converged}, "
         f"iterations={b3.iterations}"
     )
+    print("B4: non-iterative traditional design")
+    print("B5: non-iterative traditional design")
     print(
         f"Proposed: converged={proposed.converged}, "
         f"iterations={proposed.outer_iterations}"
@@ -187,22 +198,39 @@ def main() -> None:
     print(f"B1       = {time_b1:.3f}")
     print(f"B2       = {time_b2:.3f}")
     print(f"B3       = {time_b3:.3f}")
+    print(f"B4       = {time_b4:.3f}")
+    print(f"B5       = {time_b5:.3f}")
     print(f"Proposed = {time_proposed:.3f}")
 
     print("\n[Main Ablation Differences]")
     print(
         "Proposed - B1 "
-        "(FP resource-design advantage) = "
+        "(FP gain with RCG-ToMA) = "
         f"{wsr_proposed - wsr_b1:.10f}"
     )
     print(
         "Proposed - B2 "
-        "(ToMA position-optimization gain) = "
+        "(RCG position gain with FP) = "
         f"{wsr_proposed - wsr_b2:.10f}"
     )
     print(
+        "B1 - B4 "
+        "(RCG position gain with traditional design) = "
+        f"{wsr_b1 - wsr_b4:.10f}"
+    )
+    print(
+        "B2 - B4 "
+        "(FP gain with the same Fixed-ToMA) = "
+        f"{wsr_b2 - wsr_b4:.10f}"
+    )
+    print(
+        "B3 - B5 "
+        "(FP gain with the same FPA-UPA) = "
+        f"{wsr_b3 - wsr_b5:.10f}"
+    )
+    print(
         "Proposed - B3 "
-        "(optimized ToMA vs dense FPA-UPA) = "
+        "(optimized ToMA vs FPA-UPA under FP) = "
         f"{wsr_proposed - wsr_b3:.10f}"
     )
 

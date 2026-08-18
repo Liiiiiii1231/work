@@ -1,4 +1,4 @@
-"""测试 Stage 6 三个 baseline 的接口与公平性条件。"""
+"""测试 Stage 6 五个 baseline 的接口与公平性条件。"""
 
 from dataclasses import replace
 from pathlib import Path
@@ -9,7 +9,9 @@ from baselines import (
     build_fpa_upa_geometry,
     build_traditional_resources,
     run_fixed_toma_fp,
+    run_fixed_toma_traditional,
     run_fpa_upa_fp,
+    run_fpa_upa_traditional,
     run_rcg_toma_traditional,
 )
 from channels import build_channels
@@ -38,8 +40,34 @@ def _short_cfg():
     )
 
 
+def _check_traditional_rules(result, cfg) -> None:
+    """检查 traditional resource design 的锁定规则。"""
+
+    check_resource_constraints(
+        result.resources,
+        cfg,
+    )
+
+    assert np.allclose(
+        result.resources.q_ul,
+        cfg.kappa_ul * np.sqrt(cfg.p_ul_max),
+    )
+
+    for k in range(cfg.k_dl):
+        beam = result.resources.q_matrix[:, k]
+        normalized_beam = beam / np.linalg.norm(beam)
+        normalized_h = result.channels.h[k] / np.linalg.norm(
+            result.channels.h[k]
+        )
+
+        assert np.allclose(
+            normalized_beam,
+            normalized_h,
+        )
+
+
 def test_traditional_resources_follow_locked_rules() -> None:
-    """验证 B1 使用 MRT/steering/fixed-UL，而不是 FP。"""
+    """验证 MRT/steering/fixed-UL，而不是 FP。"""
 
     cfg = _short_cfg()
     rng = np.random.default_rng(cfg.random_seed)
@@ -61,7 +89,6 @@ def test_traditional_resources_follow_locked_rules() -> None:
         cfg.kappa_ul * np.sqrt(cfg.p_ul_max),
     )
 
-    # MRT 只要求方向与 h_k 一致；总功率缩放不会改变方向。
     for k in range(cfg.k_dl):
         beam = resources.q_matrix[:, k]
         normalized_beam = beam / np.linalg.norm(beam)
@@ -73,8 +100,8 @@ def test_traditional_resources_follow_locked_rules() -> None:
         )
 
 
-def test_fixed_toma_and_upa_baselines_are_well_formed() -> None:
-    """验证 B2 固定 ToMA，B3 使用固定 UPA，并可调用现有 FP。"""
+def test_fixed_toma_and_upa_fp_baselines_are_well_formed() -> None:
+    """验证 B2 固定 ToMA，B3 使用固定 UPA，并调用现有 FP。"""
 
     cfg = _short_cfg()
 
@@ -123,7 +150,7 @@ def test_fixed_toma_and_upa_baselines_are_well_formed() -> None:
 
 
 def test_rcg_toma_traditional_runs_with_same_initial_seed() -> None:
-    """验证 B1 可执行 RCG，并与其它 ToMA 方案使用同一初始 seed。"""
+    """验证 B1 与其它 ToMA 方案使用同一初始 seed。"""
 
     cfg = _short_cfg()
 
@@ -148,12 +175,11 @@ def test_rcg_toma_traditional_runs_with_same_initial_seed() -> None:
         result.performance.weighted_sum_rate
     )
 
-    check_resource_constraints(
-        result.resources,
+    _check_traditional_rules(
+        result,
         cfg,
     )
 
-    # 最终端点仍满足缆绳定长。
     assert np.allclose(
         np.linalg.norm(
             result.geometry.endpoints,
@@ -161,3 +187,48 @@ def test_rcg_toma_traditional_runs_with_same_initial_seed() -> None:
         ),
         cfg.cable_length,
     )
+
+
+def test_new_traditional_fixed_baselines_are_well_formed() -> None:
+    """验证 B4/B5 不运行 FP 或 RCG，并遵守 traditional rules。"""
+
+    cfg = _short_cfg()
+    seed = cfg.random_seed
+
+    expected_endpoints = generate_feasible_endpoints(
+        cfg,
+        np.random.default_rng(seed),
+    )
+
+    result_b4 = run_fixed_toma_traditional(
+        cfg,
+        rng=np.random.default_rng(seed),
+    )
+
+    assert np.allclose(
+        result_b4.initial_endpoints,
+        expected_endpoints,
+    )
+    assert np.allclose(
+        result_b4.geometry.endpoints,
+        expected_endpoints,
+    )
+    assert result_b4.iterations == 0
+    assert result_b4.converged
+    assert len(result_b4.wsr_history) == 1
+    assert np.isfinite(
+        result_b4.performance.weighted_sum_rate
+    )
+    _check_traditional_rules(result_b4, cfg)
+
+    result_b5 = run_fpa_upa_traditional(cfg)
+
+    assert result_b5.initial_endpoints is None
+    assert result_b5.geometry.endpoints.shape == (0, 3)
+    assert result_b5.iterations == 0
+    assert result_b5.converged
+    assert len(result_b5.wsr_history) == 1
+    assert np.isfinite(
+        result_b5.performance.weighted_sum_rate
+    )
+    _check_traditional_rules(result_b5, cfg)
