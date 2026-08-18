@@ -1,4 +1,4 @@
-"""测试 Stage 7 Multi-start 选择逻辑和接口。"""
+"""测试 Stage 7 Multi-start 选择逻辑和六方案接口。"""
 
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -106,7 +106,7 @@ def test_multi_start_rejects_duplicate_seed_and_nonconvergence() -> None:
 
 
 def test_stage7_all_schemes_use_same_seed_order() -> None:
-    """快速验证四方案 Multi-start 接口共享同一组 seed。"""
+    """快速验证六方案使用同一组 Stage 7 seed。"""
 
     cfg = load_config(CONFIG_PATH)
 
@@ -130,6 +130,8 @@ def test_stage7_all_schemes_use_same_seed_order() -> None:
         "b1",
         "b2",
         "b3",
+        "b4",
+        "b5",
         "proposed",
     }
 
@@ -142,3 +144,22 @@ def test_stage7_all_schemes_use_same_seed_order() -> None:
         assert np.all(
             np.isfinite(scheme_result.wsrs)
         )
+
+    # B4 与其它随机 ToMA baseline 使用相同 seed，
+    # 因而初始 ToMA 必须一致。
+    assert np.allclose(
+        results["b1"].starts[0].result.initial_endpoints,
+        results["b2"].starts[0].result.initial_endpoints,
+    )
+    assert np.allclose(
+        results["b1"].starts[0].result.initial_endpoints,
+        results["b4"].starts[0].result.initial_endpoints,
+    )
+
+    # B5 完全固定，因此不同 seed 下应严格得到相同 WSR。
+    assert np.allclose(
+        results["b5"].wsrs,
+        results["b5"].wsrs[0],
+        rtol=0.0,
+        atol=0.0,
+    )

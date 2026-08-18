@@ -21,7 +21,9 @@ import numpy as np
 from algorithm import run_joint_algorithm
 from baselines import (
     run_fixed_toma_fp,
+    run_fixed_toma_traditional,
     run_fpa_upa_fp,
+    run_fpa_upa_traditional,
     run_rcg_toma_traditional,
 )
 from config import SystemConfig
@@ -91,11 +93,7 @@ def run_multi_start(
     require_convergence: bool = True,
     verbose: bool = False,
 ) -> MultiStartResult:
-    """对一个单起点算法执行统一 Multi-start。
-
-    每个 seed 都重新创建独立随机数生成器的责任交给 run_single，
-    从而避免不同方案因随机数消耗顺序不同而失去公平性。
-    """
+    """对一个单起点算法执行统一 Multi-start。"""
 
     normalized_seeds = tuple(int(seed) for seed in seeds)
 
@@ -181,13 +179,14 @@ def run_stage7_multistart(
     verbose: bool = False,
     require_convergence: bool = True,
 ) -> dict[str, MultiStartResult]:
-    """对 B1、B2、B3 和 Proposed 使用同一组 seed 执行 Multi-start。
+    """对五个 baseline 和 Proposed 执行统一 Multi-start。
 
-    B1、B2 和 Proposed 的每个相同 seed 都会重新创建同 seed RNG，
-    因而它们获得相同的随机初始 ToMA。
+    B1、B2、B4、Proposed 使用相同 seed 重新创建独立 RNG，
+    因而 ToMA 方案获得相同的随机初始化预算。
 
-    B3 的 UPA 几何固定；仍使用同一 seed 列表重复运行，便于统一接口，
-    同时可以检查当前 FP 初始化是否还存在 seed 敏感性。
+    B3、B5 使用固定 UPA。Stage 7 仍按全部 seed 重复运行，
+    用于验证当前固定阵列方案是否对 seed 不敏感；Stage 8
+    大规模 Monte Carlo 时可对已验证的固定方案只运行一次。
     """
 
     seed_tuple = tuple(int(seed) for seed in seeds)
@@ -229,6 +228,31 @@ def run_stage7_multistart(
             cfg,
             rng=np.random.default_rng(seed),
             verbose=False,
+        ),
+        iteration_getter=lambda result: result.iterations,
+        cfg=cfg,
+        require_convergence=require_convergence,
+        verbose=verbose,
+    )
+
+    results["b4"] = run_multi_start(
+        name="B4: Fixed-ToMA + Traditional Resource Design",
+        seeds=seed_tuple,
+        run_single=lambda seed: run_fixed_toma_traditional(
+            cfg,
+            rng=np.random.default_rng(seed),
+        ),
+        iteration_getter=lambda result: result.iterations,
+        cfg=cfg,
+        require_convergence=require_convergence,
+        verbose=verbose,
+    )
+
+    results["b5"] = run_multi_start(
+        name="B5: FPA-UPA + Traditional Resource Design",
+        seeds=seed_tuple,
+        run_single=lambda seed: run_fpa_upa_traditional(
+            cfg,
         ),
         iteration_getter=lambda result: result.iterations,
         cfg=cfg,
