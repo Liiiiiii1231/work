@@ -73,8 +73,8 @@ algorithm:
 
 # Stage 8 专用配置；load_config() 会自动忽略这一节。
 experiment:
-  # 第一轮先跑 3 个 scene，确认流程后再改为 10、50 或 100。
-  n_mc: 3
+  # 第一轮先跑 10 个 scene，确认流程后再改为 50 或 100。
+  n_mc: 10
   scene_seed_start: 8001
 
   # 算法初始化 seed，与 Monte Carlo scene seed 严格分开。
@@ -85,6 +85,6 @@ experiment:
   position_jitter: [1.5, 1.5, 0.25]
 
   sweep:
-    rho_si: [1.0e-10, 1.0e-9, 1.0e-8, 1.0e-7, 1.0e-6]
+    rho_si: [1.0e-8, 1.0e-7, 1.0e-6, 1.0e-5, 1.0e-4]
     p_dl_max: [0.2, 0.5, 1.0, 1.5, 2.0]
     cable_length: [0.5, 0.75, 1.0, 1.25, 1.5]
