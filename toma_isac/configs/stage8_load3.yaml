@@ -1,0 +1,89 @@
+system:
+  M: 4
+  N_c: 2
+  K: 3
+  J: 3
+  L: 3
+  R_s: 3
+
+geometry:
+  wavelength: 0.01
+  cable_length: 1.0
+  min_uav_distance: 0.5
+  min_si_distance: 1.0e-3
+
+power:
+  p_dl_max: 1.0
+  p_ul_max: [0.1, 0.1, 0.1]
+
+noise:
+  sigma_dl2: [1.0e-10, 1.0e-10, 1.0e-10]
+  sigma_bs2: 1.0e-10
+
+si:
+  rho_si: 1.0e-8
+
+weights:
+  dl: [0.1111111111111111, 0.1111111111111111, 0.1111111111111111]
+  ul: [0.1111111111111111, 0.1111111111111111, 0.1111111111111111]
+  sensing: [0.1111111111111111, 0.1111111111111111, 0.1111111111111111]
+
+scene:
+  q_dl:
+    - [10.0, 0.0, 1.0]
+    - [8.0, -6.0, 1.5]
+    - [-9.0, -5.0, 1.2]
+
+  q_ul:
+    - [0.0, 12.0, 1.0]
+    - [-8.0, 9.0, 1.5]
+    - [9.0, 8.0, 1.2]
+
+  q_s:
+    - [8.0, 8.0, 2.0]
+    - [-7.0, 9.0, 2.5]
+    - [0.0, -10.0, 2.0]
+
+channel:
+  alpha_dl: [1.0e-3, 1.0e-3, 1.0e-3]
+  alpha_ul: [1.0e-3, 1.0e-3, 1.0e-3]
+
+  xi_s: [1.0, 1.0, 1.0]
+  beta_t_s: [1.0e-4, 1.0e-4, 1.0e-4]
+  beta_r_s: [1.0e-4, 1.0e-4, 1.0e-4]
+
+initialization:
+  kappa_ul: 0.5
+  random_seed: 2026
+  max_geometry_trials: 10000
+
+algorithm:
+  max_inner_iter: 1200
+  max_outer_iter: 1000
+
+  tol_inner: 1.0e-4
+  tol_outer: 1.0e-4
+
+  max_bisection_iter: 100
+  tol_bisection: 1.0e-10
+
+  max_backtracking_iter: 30
+  armijo_mu: 1.0e-4
+  backtracking_factor: 0.5
+
+  finite_diff_delta: 1.0e-5
+  initial_outer_step: 0.1
+
+experiment:
+  n_mc: 10
+  scene_seed_start: 8001
+
+  multi_start_seeds: [2026, 2027, 2028, 2029, 2030]
+  fixed_upa_seed: 2026
+
+  position_jitter: [1.5, 1.5, 0.25]
+
+  sweep:
+    rho_si: [1.0e-8, 1.0e-7, 1.0e-6, 1.0e-5, 1.0e-4]
+    p_dl_max: [0.2, 0.5, 1.0, 1.5, 2.0]
+    cable_length: [0.5, 0.75, 1.0, 1.25, 1.5]
