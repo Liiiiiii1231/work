@@ -12,11 +12,31 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from stage8 import SCHEME_LABELS, SCHEME_ORDER
+from stage8 import SCHEME_ORDER
 
 
 RESULT_DIR = ROOT / "results" / "stage8"
 FIGURE_DIR = RESULT_DIR / "figures"
+
+# 柱状图横轴使用换行，避免名称过长。
+BAR_SCHEME_LABELS = {
+    "b1": "RCG-ToMA\n+ Traditional",
+    "b2": "Fixed-ToMA\n+ FP",
+    "b3": "FPA-UPA\n+ FP",
+    "b4": "Fixed-ToMA\n+ Traditional",
+    "b5": "FPA-UPA\n+ Traditional",
+    "proposed": "RCG-ToMA\n+ FP",
+}
+
+# 参数扫描和 system-load 图使用完整图例名称。
+LEGEND_SCHEME_LABELS = {
+    "b1": "RCG-ToMA + Traditional",
+    "b2": "Fixed-ToMA + FP",
+    "b3": "FPA-UPA + FP",
+    "b4": "Fixed-ToMA + Traditional",
+    "b5": "FPA-UPA + Traditional",
+    "proposed": "RCG-ToMA + FP (Proposed)",
+}
 
 
 def _read_csv(
@@ -56,7 +76,7 @@ def plot_monte_carlo_bar() -> None:
         stds.append(np.std(values, ddof=0))
 
     labels = [
-        SCHEME_LABELS[key]
+        BAR_SCHEME_LABELS[key]
         for key in SCHEME_ORDER
     ]
 
@@ -65,7 +85,7 @@ def plot_monte_carlo_bar() -> None:
         exist_ok=True,
     )
 
-    plt.figure(figsize=(8.0, 5.0))
+    plt.figure(figsize=(11.0, 5.5))
 
     x = np.arange(len(labels))
 
@@ -76,7 +96,11 @@ def plot_monte_carlo_bar() -> None:
         capsize=4,
     )
 
-    plt.xticks(x, labels)
+    plt.xticks(
+        x,
+        labels,
+        fontsize=9,
+    )
     plt.ylabel("Average WSR")
     plt.xlabel("Scheme")
     plt.grid(axis="y", alpha=0.3)
@@ -120,7 +144,7 @@ def plot_sweep(
         exist_ok=True,
     )
 
-    plt.figure(figsize=(8.0, 5.0))
+    plt.figure(figsize=(10.0, 5.5))
 
     for key in SCHEME_ORDER:
         means = []
@@ -145,7 +169,7 @@ def plot_sweep(
             values,
             means,
             marker="o",
-            label=SCHEME_LABELS[key],
+            label=LEGEND_SCHEME_LABELS[key],
         )
 
     if log_x:
@@ -154,7 +178,7 @@ def plot_sweep(
     plt.xlabel(x_label)
     plt.ylabel("Average WSR")
     plt.grid(alpha=0.3)
-    plt.legend()
+    plt.legend(fontsize=9)
     plt.tight_layout()
 
     plt.savefig(
@@ -193,7 +217,7 @@ def plot_system_load() -> None:
         exist_ok=True,
     )
 
-    plt.figure(figsize=(8.0, 5.0))
+    plt.figure(figsize=(10.0, 5.5))
 
     for key in SCHEME_ORDER:
         means = []
@@ -215,7 +239,7 @@ def plot_system_load() -> None:
             loads,
             means,
             marker="o",
-            label=SCHEME_LABELS[key],
+            label=LEGEND_SCHEME_LABELS[key],
         )
 
     plt.xticks(loads)
@@ -226,7 +250,7 @@ def plot_system_load() -> None:
 
     plt.ylabel("Average WSR")
     plt.grid(alpha=0.3)
-    plt.legend()
+    plt.legend(fontsize=9)
     plt.tight_layout()
 
     plt.savefig(
