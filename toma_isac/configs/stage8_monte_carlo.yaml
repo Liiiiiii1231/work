@@ -68,7 +68,7 @@ algorithm:
   armijo_mu: 1.0e-4
   backtracking_factor: 0.5
 
-  finite_diff_delta: 1.0e-5
+  finite_diff_delta: 1.0e-6
   initial_outer_step: 0.1
 
 # Stage 8 专用配置；load_config() 会自动忽略这一节。
