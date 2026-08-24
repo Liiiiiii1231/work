@@ -33,6 +33,20 @@ class OuterRCGState:
     previous_directions: list[np.ndarray | None]
 
 
+@dataclass(frozen=True)
+class EndpointRCGDiagnostic:
+    """记录一次端点 RCG 更新的诊断量。"""
+
+    endpoint_index: int
+    group: str
+    grad_norm: float
+    beta: float
+    accepted: bool
+    step_size: float
+    backtracking_steps: int
+    wsr_after_update: float
+
+
 def create_outer_rcg_state(
     cfg: SystemConfig,
 ) -> OuterRCGState:
@@ -472,6 +486,7 @@ def update_positions_once(
     rcg_state: OuterRCGState | None = None,
     verbose: bool = False,
     objective_evaluator: OuterObjective | None = None,
+    diagnostic_records: list[EndpointRCGDiagnostic] | None = None,
 ) -> tuple[
     GeometryState,
     ChannelState,
@@ -541,11 +556,12 @@ def update_positions_once(
             cfg,
         )
 
-        # 梯度几乎为零时不再试探。
-        if (
+        grad_norm = float(
             np.linalg.norm(grad_m)
-            <= 1e-12
-        ):
+        )
+
+        # 梯度几乎为零时不再试探。
+        if grad_norm <= 1e-12:
             rcg_state.previous_gradients[
                 endpoint_index
             ] = grad_m.copy()
@@ -553,6 +569,24 @@ def update_positions_once(
             rcg_state.previous_directions[
                 endpoint_index
             ] = grad_m.copy()
+
+            if diagnostic_records is not None:
+                diagnostic_records.append(
+                    EndpointRCGDiagnostic(
+                        endpoint_index=endpoint_index,
+                        group=(
+                            "Tx"
+                            if endpoint_index < cfg.n_tx_uav
+                            else "Rx"
+                        ),
+                        grad_norm=grad_norm,
+                        beta=0.0,
+                        accepted=False,
+                        step_size=0.0,
+                        backtracking_steps=0,
+                        wsr_after_update=float(current_wsr),
+                    )
+                )
 
             continue
 
@@ -610,6 +644,42 @@ def update_positions_once(
             )
 
             accepted_count += 1
+
+        if accepted and step_size > 0.0:
+            ratio = step_size / cfg.initial_outer_step
+            if ratio >= 1.0:
+                backtracking_steps = 0
+            else:
+                backtracking_steps = int(
+                    round(
+                        np.log(ratio)
+                        / np.log(cfg.backtracking_factor)
+                    )
+                )
+                backtracking_steps = max(
+                    0,
+                    backtracking_steps,
+                )
+        else:
+            backtracking_steps = cfg.max_backtracking_iter
+
+        if diagnostic_records is not None:
+            diagnostic_records.append(
+                EndpointRCGDiagnostic(
+                    endpoint_index=endpoint_index,
+                    group=(
+                        "Tx"
+                        if endpoint_index < cfg.n_tx_uav
+                        else "Rx"
+                    ),
+                    grad_norm=grad_norm,
+                    beta=float(beta),
+                    accepted=bool(accepted),
+                    step_size=float(step_size),
+                    backtracking_steps=backtracking_steps,
+                    wsr_after_update=float(current_wsr),
+                )
+            )
 
         if verbose:
             group = (

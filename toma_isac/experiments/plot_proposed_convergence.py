@@ -9,6 +9,7 @@ import sys
 
 import matplotlib.pyplot as plt
 import numpy as np
+from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -108,7 +109,7 @@ def plot_convergence(
     history: np.ndarray,
     output_stem: Path,
 ) -> None:
-    """绘制 Proposed WSR vs Outer iteration。"""
+    """绘制完整 WSR 曲线，并放大后期收敛区域。"""
 
     if history.ndim != 1 or history.size < 2:
         raise ValueError(
@@ -116,47 +117,141 @@ def plot_convergence(
         )
 
     if not np.all(np.isfinite(history)):
-        raise ValueError("history contains non-finite values.")
+        raise ValueError(
+            "history contains non-finite values."
+        )
 
     iterations = np.arange(history.size)
+    final_iteration = int(iterations[-1])
+    final_wsr = float(history[-1])
 
     output_stem.parent.mkdir(
         parents=True,
         exist_ok=True,
     )
 
-    plt.figure(figsize=(8.0, 5.0))
+    fig, ax = plt.subplots(
+        figsize=(9.0, 5.5)
+    )
 
-    plt.plot(
+    ax.plot(
         iterations,
         history,
         linewidth=1.8,
         label="RCG-ToMA + FP (Proposed)",
     )
 
-    plt.scatter(
-        [iterations[-1]],
-        [history[-1]],
-        s=35,
+    # 最终停止点即该次运行的收敛迭代。
+    ax.axvline(
+        final_iteration,
+        linestyle="--",
+        linewidth=1.2,
+        label=f"Converged at iteration {final_iteration}",
+    )
+
+    ax.scatter(
+        [final_iteration],
+        [final_wsr],
+        s=40,
         zorder=3,
     )
 
-    plt.xlabel("Outer iteration")
-    plt.ylabel("WSR")
-    plt.grid(alpha=0.3)
-    plt.legend()
-    plt.tight_layout()
+    ax.set_xlabel("Outer iteration")
+    ax.set_ylabel("WSR")
+    ax.grid(alpha=0.3)
+    ax.legend(loc="upper left")
 
-    plt.savefig(
+    # -------------------------------------------------
+    # Inset：自动放大最后约 35% 的 outer iterations。
+    # 对 305 次收敛的情况，大约显示 198~305。
+    # -------------------------------------------------
+    zoom_start = max(
+        1,
+        int(np.floor(0.65 * final_iteration)),
+    )
+
+    zoom_history = history[zoom_start:]
+    zoom_min = float(np.min(zoom_history))
+    zoom_max = float(np.max(zoom_history))
+
+    y_span = zoom_max - zoom_min
+
+    if y_span <= 0.0:
+        y_padding = max(
+            1.0e-3,
+            0.01 * abs(zoom_min),
+        )
+    else:
+        y_padding = 0.15 * y_span
+
+    axins = ax.inset_axes(
+        [0.50, 0.18, 0.45, 0.36]
+    )
+
+    axins.plot(
+        iterations,
+        history,
+        linewidth=1.5,
+    )
+
+    axins.axvline(
+        final_iteration,
+        linestyle="--",
+        linewidth=1.0,
+    )
+
+    axins.scatter(
+        [final_iteration],
+        [final_wsr],
+        s=28,
+        zorder=3,
+    )
+
+    axins.set_xlim(
+        zoom_start,
+        final_iteration + max(2, int(0.02 * final_iteration)),
+    )
+
+    axins.set_ylim(
+        zoom_min - y_padding,
+        zoom_max + y_padding,
+    )
+
+    axins.set_title(
+        "Late-stage convergence",
+        fontsize=9,
+    )
+
+    axins.tick_params(
+        axis="both",
+        labelsize=8,
+    )
+
+    axins.grid(alpha=0.25)
+
+    # 在主图中框出被放大的区域，并连到 inset。
+    mark_inset(
+        ax,
+        axins,
+        loc1=2,
+        loc2=4,
+        fc="none",
+        ec="0.5",
+        linewidth=0.8,
+    )
+
+    fig.tight_layout()
+
+    fig.savefig(
         output_stem.with_suffix(".png"),
         dpi=300,
     )
 
-    plt.savefig(
+    fig.savefig(
         output_stem.with_suffix(".pdf"),
     )
 
-    plt.close()
+    plt.close(fig)
 
 
 def main() -> None:
@@ -173,6 +268,8 @@ def main() -> None:
     )
 
     args = parser.parse_args()
+
+    print("[plot version] inset-v2")
 
     cfg = load_config(CONFIG_PATH)
     experiment_cfg = load_stage8_experiment_config(
@@ -213,7 +310,7 @@ def main() -> None:
         )
 
     stem = (
-        f"proposed_convergence_scene_{scene_seed}"
+        f"proposed_convergence_scene_{scene_seed}_with_inset"
     )
 
     csv_path = RESULT_DIR / f"{stem}.csv"
@@ -232,10 +329,19 @@ def main() -> None:
     print("\nBest Proposed start")
     print(f"  scene seed = {scene_seed}")
     print(f"  best multi-start seed = {best.seed}")
-    print(f"  outer iterations = {algorithm_result.outer_iterations}")
-    print(f"  converged = {algorithm_result.converged}")
-    print(f"  initial WSR = {history[0]:.10f}")
-    print(f"  final WSR = {history[-1]:.10f}")
+    print(
+        "  outer iterations = "
+        f"{algorithm_result.outer_iterations}"
+    )
+    print(
+        f"  converged = {algorithm_result.converged}"
+    )
+    print(
+        f"  initial WSR = {history[0]:.10f}"
+    )
+    print(
+        f"  final WSR = {history[-1]:.10f}"
+    )
     print(f"CSV saved to: {csv_path}")
     print(
         "Figures saved to: "
