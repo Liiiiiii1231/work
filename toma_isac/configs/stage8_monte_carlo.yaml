@@ -73,8 +73,8 @@ algorithm:
 
   # Stage 8A 最终版：窗口平台停止。
   # 先保持关闭，用 compare_window_plateau.py 选定阈值后再启用。
-  plateau_window: 0
-  tol_window: 0.0
+  plateau_window: 10
+  tol_window: 1.4e-3
 
 # Stage 8 专用配置；load_config() 会自动忽略这一节。
 experiment:
@@ -88,6 +88,19 @@ experiment:
 
   # 在 Stage 7 名义位置附近做均匀随机扰动 [x, y, z]，单位 m。
   position_jitter: [1.5, 1.5, 0.25]
+
+  # 每个 Monte Carlo scene 只抽样一次，并在该 scene 的整个优化中固定。
+  # 采用单位平均功率的公共复标量 Rayleigh 衰落，不改变球面波阵列结构。
+  fading:
+    enabled: true
+    model: scalar_rayleigh
+
+  # B6: 平面 MA + FP。Tx/Rx 从 B3 的 UPA 初始化，
+  # 每个阵元在各自 y-z 正方形区域内独立移动。
+  ma:
+    region_size: 1.0       # m，移动区域边长
+    min_spacing: 5.0e-3    # m = lambda/2
+    initial_step: 0.1      # m
 
   sweep:
     rho_si: [1.0e-8, 1.0e-7, 1.0e-6, 1.0e-5, 1.0e-4]

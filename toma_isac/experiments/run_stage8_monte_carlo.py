@@ -44,6 +44,11 @@ def main() -> None:
         f"L={cfg.l_target}, R_S={cfg.r_sensing}"
     )
     print(f"Multi-start seeds = {experiment_cfg.multi_start_seeds}")
+    print(
+        "Scene fading = "
+        f"{experiment_cfg.fading_model} "
+        f"(enabled={experiment_cfg.fading_enabled})"
+    )
 
     scenes = run_monte_carlo(
         cfg,

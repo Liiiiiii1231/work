@@ -3,10 +3,13 @@
 本文件只负责实验编排，不重新实现 FP、RCG、SINR 或 WSR。
 
 Stage 8 中：
-- scene seed 只改变 q_dl / q_ul / q_s；
+- scene seed 控制 q_dl / q_ul / q_s 与 scene-level 随机衰落；
+- 同一个 scene 内的随机衰落在整个 FP/RCG 优化过程中保持固定；
+- 同一个 scene 的所有方案共享完全相同的随机衰落 realization；
 - Multi-start seed 只控制算法初始 ToMA；
 - B1/B2/B4/Proposed 使用相同 Multi-start seed 集合；
-- B3/B5 为固定 UPA，每个 scene 只运行一次。
+- B3/B5 为固定 UPA，每个 scene 只运行一次；
+- B6 为 MA + FP，从与 B3 相同的 UPA 初始化后优化阵元位置。
 """
 
 from __future__ import annotations
@@ -28,6 +31,7 @@ from baselines import (
     run_rcg_toma_traditional,
 )
 from config import SystemConfig
+from ma_baseline import run_ma_fp
 from multistart import MultiStartResult, run_multi_start
 
 
@@ -37,6 +41,7 @@ SCHEME_ORDER = (
     "b3",
     "b4",
     "b5",
+    "b6",
     "proposed",
 )
 
@@ -46,6 +51,7 @@ SCHEME_LABELS = {
     "b3": "B3",
     "b4": "B4",
     "b5": "B5",
+    "b6": "B6",
     "proposed": "Proposed",
 }
 
@@ -59,6 +65,11 @@ class Stage8ExperimentConfig:
     multi_start_seeds: tuple[int, ...]
     fixed_upa_seed: int
     position_jitter: np.ndarray
+    fading_enabled: bool
+    fading_model: str
+    ma_region_size: float
+    ma_min_spacing: float
+    ma_initial_step: float
     rho_si_values: tuple[float, ...]
     p_dl_max_values: tuple[float, ...]
     cable_length_values: tuple[float, ...]
@@ -78,6 +89,20 @@ class Stage8ExperimentConfig:
 
         if np.any(self.position_jitter < 0.0):
             raise ValueError("position_jitter must be nonnegative.")
+
+        if self.fading_model not in {"scalar_rayleigh"}:
+            raise ValueError(
+                "fading_model must be 'scalar_rayleigh'."
+            )
+
+        if self.ma_region_size <= 0.0:
+            raise ValueError("ma_region_size must be positive.")
+
+        if self.ma_min_spacing <= 0.0:
+            raise ValueError("ma_min_spacing must be positive.")
+
+        if self.ma_initial_step <= 0.0:
+            raise ValueError("ma_initial_step must be positive.")
 
         if any(value < 0.0 or value > 1.0 for value in self.rho_si_values):
             raise ValueError("rho_si sweep values must lie in [0, 1].")
@@ -109,6 +134,9 @@ class SceneSummary:
     q_dl: np.ndarray
     q_ul: np.ndarray
     q_s: np.ndarray
+    alpha_dl: np.ndarray
+    alpha_ul: np.ndarray
+    xi_s: np.ndarray
     schemes: dict[str, SchemeSummary]
 
 
@@ -145,6 +173,36 @@ def load_stage8_experiment_config(
             experiment["position_jitter"],
             dtype=float,
         ),
+        fading_enabled=bool(
+            experiment.get("fading", {}).get(
+                "enabled",
+                False,
+            )
+        ),
+        fading_model=str(
+            experiment.get("fading", {}).get(
+                "model",
+                "scalar_rayleigh",
+            )
+        ),
+        ma_region_size=float(
+            experiment.get("ma", {}).get(
+                "region_size",
+                1.0,
+            )
+        ),
+        ma_min_spacing=float(
+            experiment.get("ma", {}).get(
+                "min_spacing",
+                0.5 * float(raw["geometry"]["wavelength"]),
+            )
+        ),
+        ma_initial_step=float(
+            experiment.get("ma", {}).get(
+                "initial_step",
+                0.1,
+            )
+        ),
         rho_si_values=tuple(
             float(value) for value in sweep["rho_si"]
         ),
@@ -160,12 +218,35 @@ def load_stage8_experiment_config(
     return cfg
 
 
+def _unit_power_complex_rayleigh(
+    rng: np.random.Generator,
+    size: int,
+) -> np.ndarray:
+    """生成 E[|z|^2]=1 的复标量 Rayleigh 衰落系数。"""
+
+    return (
+        rng.standard_normal(size)
+        + 1j * rng.standard_normal(size)
+    ) / np.sqrt(2.0)
+
+
 def make_scene_config(
     base_cfg: SystemConfig,
     scene_seed: int,
     position_jitter: np.ndarray,
+    randomize_fading: bool = False,
+    fading_model: str = "scalar_rayleigh",
 ) -> SystemConfig:
-    """由 scene seed 随机扰动用户与目标位置。"""
+    """由 scene seed 生成位置与 scene-level 随机衰落。
+
+    位置扰动继续使用原来的 scene_seed 随机流，从而保持 Stage 8A
+    已使用场景的位置可复现性。随机衰落使用独立的确定性随机流。
+
+    当 randomize_fading=True 时，只随机化通信/感知链路的公共复路径
+    增益；近场球面波阵列响应以及直接 SI 几何信道仍按原模型计算。
+    同一 cfg 会在整个 scene 的 FP/RCG 过程中反复复用，因此 fading
+    realization 不会随 outer/inner iteration 重新采样。
+    """
 
     jitter = np.asarray(position_jitter, dtype=float)
 
@@ -174,10 +255,10 @@ def make_scene_config(
             "position_jitter must be a nonnegative array of shape (3,)."
         )
 
-    rng = np.random.default_rng(int(scene_seed))
+    position_rng = np.random.default_rng(int(scene_seed))
 
     def _perturb(points: np.ndarray) -> np.ndarray:
-        delta = rng.uniform(
+        delta = position_rng.uniform(
             low=-jitter,
             high=jitter,
             size=points.shape,
@@ -198,11 +279,43 @@ def make_scene_config(
             "Scene perturbation produced a non-positive z coordinate."
         )
 
+    alpha_dl = base_cfg.alpha_dl.copy()
+    alpha_ul = base_cfg.alpha_ul.copy()
+    xi_s = base_cfg.xi_s.copy()
+
+    if randomize_fading:
+        if fading_model != "scalar_rayleigh":
+            raise ValueError(
+                "fading_model must be 'scalar_rayleigh'."
+            )
+
+        # 与位置随机流分离；不会改变 Stage 8A 原 scene 的位置。
+        fading_seed = np.random.SeedSequence(
+            [int(scene_seed), 20260826]
+        )
+        fading_rng = np.random.default_rng(fading_seed)
+
+        alpha_dl *= _unit_power_complex_rayleigh(
+            fading_rng,
+            base_cfg.k_dl,
+        )
+        alpha_ul *= _unit_power_complex_rayleigh(
+            fading_rng,
+            base_cfg.j_ul,
+        )
+        xi_s *= _unit_power_complex_rayleigh(
+            fading_rng,
+            base_cfg.l_target,
+        )
+
     cfg = replace(
         base_cfg,
         q_dl=q_dl,
         q_ul=q_ul,
         q_s=q_s,
+        alpha_dl=alpha_dl,
+        alpha_ul=alpha_ul,
+        xi_s=xi_s,
     )
     cfg.validate()
     return cfg
@@ -240,13 +353,20 @@ def run_stage8_scene(
     require_convergence: bool = True,
     verbose: bool = False,
     upa_tx_rx_separation: float | None = None,
+    randomize_fading: bool = False,
+    fading_model: str = "scalar_rayleigh",
+    ma_region_size: float | None = None,
+    ma_min_spacing: float | None = None,
+    ma_initial_step: float | None = None,
 ) -> SceneSummary:
-    """运行一个 Monte Carlo scene 的六方案公平对比。"""
+    """运行一个 Monte Carlo scene 的七方案公平对比。"""
 
     scene_cfg = make_scene_config(
         cfg,
         scene_seed=scene_seed,
         position_jitter=position_jitter,
+        randomize_fading=randomize_fading,
+        fading_model=fading_model,
     )
 
     seeds = tuple(int(seed) for seed in multi_start_seeds)
@@ -347,6 +467,25 @@ def run_stage8_scene(
         verbose=False,
     )
 
+    # B6 从与 B3 相同的 UPA 初始化；位置优化为传统平面 MA，资源使用 FP。
+    results["b6"] = run_multi_start(
+        name="B6: MA + FP Resource Optimization",
+        seeds=(int(fixed_upa_seed),),
+        run_single=lambda seed: run_ma_fp(
+            scene_cfg,
+            rng=np.random.default_rng(seed),
+            verbose=False,
+            tx_rx_separation=upa_tx_rx_separation,
+            region_size=ma_region_size,
+            min_spacing=ma_min_spacing,
+            initial_step=ma_initial_step,
+        ),
+        iteration_getter=lambda result: result.iterations,
+        cfg=scene_cfg,
+        require_convergence=require_convergence,
+        verbose=False,
+    )
+
     summaries = {
         key: _summarize_multistart(results[key])
         for key in SCHEME_ORDER
@@ -364,6 +503,9 @@ def run_stage8_scene(
         q_dl=scene_cfg.q_dl.copy(),
         q_ul=scene_cfg.q_ul.copy(),
         q_s=scene_cfg.q_s.copy(),
+        alpha_dl=scene_cfg.alpha_dl.copy(),
+        alpha_ul=scene_cfg.alpha_ul.copy(),
+        xi_s=scene_cfg.xi_s.copy(),
         schemes=summaries,
     )
 
@@ -375,6 +517,9 @@ def run_monte_carlo(
     require_convergence: bool = True,
     verbose: bool = False,
     upa_tx_rx_separation: float | None = None,
+    ma_region_size: float | None = None,
+    ma_min_spacing: float | None = None,
+    ma_initial_step: float | None = None,
 ) -> list[SceneSummary]:
     """运行多个独立 scene 的 Monte Carlo 实验。"""
 
@@ -397,6 +542,23 @@ def run_monte_carlo(
             require_convergence=require_convergence,
             verbose=verbose,
             upa_tx_rx_separation=upa_tx_rx_separation,
+            randomize_fading=experiment_cfg.fading_enabled,
+            fading_model=experiment_cfg.fading_model,
+            ma_region_size=(
+                experiment_cfg.ma_region_size
+                if ma_region_size is None
+                else ma_region_size
+            ),
+            ma_min_spacing=(
+                experiment_cfg.ma_min_spacing
+                if ma_min_spacing is None
+                else ma_min_spacing
+            ),
+            ma_initial_step=(
+                experiment_cfg.ma_initial_step
+                if ma_initial_step is None
+                else ma_initial_step
+            ),
         )
         summaries.append(summary)
 
@@ -406,7 +568,7 @@ def run_monte_carlo(
 def summarize_monte_carlo(
     scenes: Sequence[SceneSummary],
 ) -> dict[str, tuple[float, float]]:
-    """返回六方案 WSR 的 mean/std。"""
+    """返回七方案 WSR 的 mean/std。"""
 
     if len(scenes) == 0:
         raise ValueError("scenes must not be empty.")
@@ -501,6 +663,9 @@ def save_monte_carlo_results(
         q_dl=np.stack([scene.q_dl for scene in scenes]),
         q_ul=np.stack([scene.q_ul for scene in scenes]),
         q_s=np.stack([scene.q_s for scene in scenes]),
+        alpha_dl=np.stack([scene.alpha_dl for scene in scenes]),
+        alpha_ul=np.stack([scene.alpha_ul for scene in scenes]),
+        xi_s=np.stack([scene.xi_s for scene in scenes]),
         wsr=wsr_matrix,
     )
 

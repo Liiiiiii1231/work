@@ -138,6 +138,9 @@ def test_system_load_results_can_be_saved(
             q_dl=np.zeros((load, 3)),
             q_ul=np.zeros((load, 3)),
             q_s=np.zeros((load, 3)),
+            alpha_dl=np.ones(load, dtype=np.complex128),
+            alpha_ul=np.ones(load, dtype=np.complex128),
+            xi_s=np.ones(load, dtype=np.complex128),
             schemes=schemes,
         )
 

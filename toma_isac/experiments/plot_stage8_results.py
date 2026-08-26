@@ -25,6 +25,7 @@ BAR_SCHEME_LABELS = {
     "b3": "FPA-UPA\n+ FP",
     "b4": "Fixed-ToMA\n+ Traditional",
     "b5": "FPA-UPA\n+ Traditional",
+    "b6": "MA\n+ FP",
     "proposed": "RCG-ToMA\n+ FP",
 }
 
@@ -35,6 +36,7 @@ LEGEND_SCHEME_LABELS = {
     "b3": "FPA-UPA + FP",
     "b4": "Fixed-ToMA + Traditional",
     "b5": "FPA-UPA + Traditional",
+    "b6": "MA + FP",
     "proposed": "RCG-ToMA + FP (Proposed)",
 }
 
@@ -51,7 +53,7 @@ def _read_csv(
 
 
 def plot_monte_carlo_bar() -> None:
-    """绘制六方案平均 WSR 柱状图。"""
+    """绘制七方案平均 WSR 柱状图。"""
 
     path = (
         RESULT_DIR
