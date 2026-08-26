@@ -3,6 +3,7 @@
 from pathlib import Path
 import csv
 import sys
+from collections.abc import Callable
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -40,6 +41,8 @@ LEGEND_SCHEME_LABELS = {
     "proposed": "RCG-ToMA + FP (Proposed)",
 }
 
+WSR_LABEL = "Average WSR (bit/s/Hz)"
+
 
 def _read_csv(
     path: Path,
@@ -55,11 +58,7 @@ def _read_csv(
 def plot_monte_carlo_bar() -> None:
     """绘制七方案平均 WSR 柱状图。"""
 
-    path = (
-        RESULT_DIR
-        / "stage8_monte_carlo.csv"
-    )
-
+    path = RESULT_DIR / "stage8_monte_carlo.csv"
     rows = _read_csv(path)
 
     means = []
@@ -67,28 +66,18 @@ def plot_monte_carlo_bar() -> None:
 
     for key in SCHEME_ORDER:
         values = np.asarray(
-            [
-                float(row[f"{key}_wsr"])
-                for row in rows
-            ],
+            [float(row[f"{key}_wsr"]) for row in rows],
             dtype=float,
         )
 
         means.append(np.mean(values))
         stds.append(np.std(values, ddof=0))
 
-    labels = [
-        BAR_SCHEME_LABELS[key]
-        for key in SCHEME_ORDER
-    ]
+    labels = [BAR_SCHEME_LABELS[key] for key in SCHEME_ORDER]
 
-    FIGURE_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
+    FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
     plt.figure(figsize=(11.0, 5.5))
-
     x = np.arange(len(labels))
 
     plt.bar(
@@ -98,13 +87,9 @@ def plot_monte_carlo_bar() -> None:
         capsize=4,
     )
 
-    plt.xticks(
-        x,
-        labels,
-        fontsize=9,
-    )
-    plt.ylabel("Average WSR")
+    plt.xticks(x, labels, fontsize=9)
     plt.xlabel("Scheme")
+    plt.ylabel(WSR_LABEL)
     plt.grid(axis="y", alpha=0.3)
     plt.tight_layout()
 
@@ -112,40 +97,42 @@ def plot_monte_carlo_bar() -> None:
         FIGURE_DIR / "monte_carlo_wsr.png",
         dpi=300,
     )
-
     plt.savefig(
         FIGURE_DIR / "monte_carlo_wsr.pdf"
     )
-
     plt.close()
 
 
 def plot_sweep(
     parameter_name: str,
     x_label: str,
-    log_x: bool = False,
+    x_transform: Callable[[np.ndarray], np.ndarray] | None = None,
+    x_ticks: np.ndarray | None = None,
 ) -> None:
     """绘制一个参数的 Average WSR sweep。"""
 
-    path = (
-        RESULT_DIR
-        / f"stage8_sweep_{parameter_name}.csv"
-    )
-
+    path = RESULT_DIR / f"stage8_sweep_{parameter_name}.csv"
     rows = _read_csv(path)
 
-    values = sorted(
-        {
-            float(row["parameter_value"])
-            for row in rows
-        }
+    values = np.asarray(
+        sorted(
+            {
+                float(row["parameter_value"])
+                for row in rows
+            }
+        ),
+        dtype=float,
     )
 
-    FIGURE_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
+    if x_transform is None:
+        plot_values = values
+    else:
+        plot_values = np.asarray(
+            x_transform(values),
+            dtype=float,
+        )
 
+    FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     plt.figure(figsize=(10.0, 5.5))
 
     for key in SCHEME_ORDER:
@@ -156,55 +143,42 @@ def plot_sweep(
                 float(row[f"{key}_wsr"])
                 for row in rows
                 if np.isclose(
-                    float(
-                        row["parameter_value"]
-                    ),
+                    float(row["parameter_value"]),
                     value,
                 )
             ]
-
-            means.append(
-                np.mean(samples)
-            )
+            means.append(np.mean(samples))
 
         plt.plot(
-            values,
+            plot_values,
             means,
             marker="o",
             label=LEGEND_SCHEME_LABELS[key],
         )
 
-    if log_x:
-        plt.xscale("log")
+    if x_ticks is not None:
+        plt.xticks(x_ticks)
 
     plt.xlabel(x_label)
-    plt.ylabel("Average WSR")
+    plt.ylabel(WSR_LABEL)
     plt.grid(alpha=0.3)
     plt.legend(fontsize=9)
     plt.tight_layout()
 
     plt.savefig(
-        FIGURE_DIR
-        / f"wsr_vs_{parameter_name}.png",
+        FIGURE_DIR / f"wsr_vs_{parameter_name}.png",
         dpi=300,
     )
-
     plt.savefig(
-        FIGURE_DIR
-        / f"wsr_vs_{parameter_name}.pdf"
+        FIGURE_DIR / f"wsr_vs_{parameter_name}.pdf"
     )
-
     plt.close()
 
 
 def plot_system_load() -> None:
-    """绘制 Average WSR vs System Load。"""
+    """绘制 Average WSR vs 用户/目标数量。"""
 
-    path = (
-        RESULT_DIR
-        / "stage8_sweep_system_load.csv"
-    )
-
+    path = RESULT_DIR / "stage8_sweep_system_load.csv"
     rows = _read_csv(path)
 
     loads = sorted(
@@ -214,11 +188,7 @@ def plot_system_load() -> None:
         }
     )
 
-    FIGURE_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
+    FIGURE_DIR.mkdir(parents=True, exist_ok=True)
     plt.figure(figsize=(10.0, 5.5))
 
     for key in SCHEME_ORDER:
@@ -228,14 +198,9 @@ def plot_system_load() -> None:
             samples = [
                 float(row[f"{key}_wsr"])
                 for row in rows
-                if int(
-                    row["system_load"]
-                ) == load
+                if int(row["system_load"]) == load
             ]
-
-            means.append(
-                np.mean(samples)
-            )
+            means.append(np.mean(samples))
 
         plt.plot(
             loads,
@@ -245,99 +210,88 @@ def plot_system_load() -> None:
         )
 
     plt.xticks(loads)
-
-    plt.xlabel(
-        r"System load ($K=J=L=R_S$)"
-    )
-
-    plt.ylabel("Average WSR")
+    plt.xlabel(r"Number of users/targets ($K=J=L$)")
+    plt.ylabel(WSR_LABEL)
     plt.grid(alpha=0.3)
     plt.legend(fontsize=9)
     plt.tight_layout()
 
     plt.savefig(
-        FIGURE_DIR
-        / "wsr_vs_system_load.png",
+        FIGURE_DIR / "wsr_vs_system_load.png",
         dpi=300,
     )
-
     plt.savefig(
-        FIGURE_DIR
-        / "wsr_vs_system_load.pdf"
+        FIGURE_DIR / "wsr_vs_system_load.pdf"
     )
-
     plt.close()
 
 
+def _rho_to_db(values: np.ndarray) -> np.ndarray:
+    """将残余 SI 功率比例 rho_SI 转换为 dB。"""
+
+    if np.any(values <= 0.0):
+        raise ValueError(
+            "rho_si must be positive when converting to dB."
+        )
+
+    return 10.0 * np.log10(values)
+
+
 def main() -> None:
-    monte_carlo_csv = (
-        RESULT_DIR
-        / "stage8_monte_carlo.csv"
-    )
+    monte_carlo_csv = RESULT_DIR / "stage8_monte_carlo.csv"
 
     if monte_carlo_csv.exists():
         plot_monte_carlo_bar()
-
-        print(
-            "Generated Monte Carlo bar chart."
-        )
+        print("Generated Monte Carlo bar chart.")
 
     sweep_specs = (
         (
             "rho_si",
-            r"Residual SI factor $\rho_{SI}$",
-            True,
+            r"Residual SI level $10\log_{10}(\rho_{\mathrm{SI}})$ (dB)",
+            _rho_to_db,
+            np.asarray([-30.0, -20.0, -10.0, 0.0]),
         ),
         (
             "p_dl_max",
-            r"$P_{DL}^{max}$",
-            False,
+            r"Maximum DL transmit power $P_{\mathrm{DL}}^{\max}$ (W)",
+            None,
+            None,
         ),
         (
             "cable_length",
-            "Cable length (m)",
-            False,
+            r"Cable length $L_{\mathrm{c}}$ (m)",
+            None,
+            None,
         ),
     )
 
     for (
         parameter_name,
         x_label,
-        log_x,
+        x_transform,
+        x_ticks,
     ) in sweep_specs:
-        path = (
-            RESULT_DIR
-            / f"stage8_sweep_{parameter_name}.csv"
-        )
+        path = RESULT_DIR / f"stage8_sweep_{parameter_name}.csv"
 
         if path.exists():
             plot_sweep(
                 parameter_name,
                 x_label=x_label,
-                log_x=log_x,
+                x_transform=x_transform,
+                x_ticks=x_ticks,
             )
-
             print(
                 "Generated sweep plot: "
                 f"{parameter_name}"
             )
 
-    system_load_csv = (
-        RESULT_DIR
-        / "stage8_sweep_system_load.csv"
-    )
+    system_load_csv = RESULT_DIR / "stage8_sweep_system_load.csv"
 
     if system_load_csv.exists():
         plot_system_load()
+        print("Generated sweep plot: system_load")
 
-        print(
-            "Generated sweep plot: "
-            "system_load"
-        )
-
-    print(
-        f"Figures saved to: {FIGURE_DIR}"
-    )
+    print(f"Figures saved to: {FIGURE_DIR}")
 
 
 if __name__ == "__main__":

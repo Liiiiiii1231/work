@@ -5,104 +5,125 @@ system:
   J: 2
   L: 2
   R_s: 2
-
 geometry:
   wavelength: 0.01
   cable_length: 1.0
   min_uav_distance: 0.5
-  min_si_distance: 1.0e-3
-
+  min_si_distance: 0.001
 power:
   p_dl_max: 1.0
-  p_ul_max: [0.1, 0.1]
-
+  p_ul_max:
+  - 0.1
+  - 0.1
 noise:
-  sigma_dl2: [1.0e-10, 1.0e-10]
+  sigma_dl2:
+  - 1.0e-10
+  - 1.0e-10
   sigma_bs2: 1.0e-10
-
 si:
-  rho_si: 1.0e-8
-
+  rho_si: 1.0e-08
 weights:
-  dl: [0.16666666666666666, 0.16666666666666666]
-  ul: [0.16666666666666666, 0.16666666666666666]
-  sensing: [0.16666666666666666, 0.16666666666666666]
-
+  dl:
+  - 0.16666666666666666
+  - 0.16666666666666666
+  ul:
+  - 0.16666666666666666
+  - 0.16666666666666666
+  sensing:
+  - 0.16666666666666666
+  - 0.16666666666666666
 scene:
   q_dl:
-    - [10.0, 0.0, 1.0]
-    - [8.0, -6.0, 1.5]
-
+  - - 10.0
+    - 0.0
+    - 1.0
+  - - 8.0
+    - -6.0
+    - 1.5
   q_ul:
-    - [0.0, 12.0, 1.0]
-    - [-8.0, 9.0, 1.5]
-
+  - - 0.0
+    - 12.0
+    - 1.0
+  - - -8.0
+    - 9.0
+    - 1.5
   q_s:
-    - [8.0, 8.0, 2.0]
-    - [-7.0, 9.0, 2.5]
-
+  - - 8.0
+    - 8.0
+    - 2.0
+  - - -7.0
+    - 9.0
+    - 2.5
 channel:
-  alpha_dl: [1.0e-3, 1.0e-3]
-  alpha_ul: [1.0e-3, 1.0e-3]
-
-  xi_s: [1.0, 1.0]
-  beta_t_s: [1.0e-4, 1.0e-4]
-  beta_r_s: [1.0e-4, 1.0e-4]
-
+  alpha_dl:
+  - 0.001
+  - 0.001
+  alpha_ul:
+  - 0.001
+  - 0.001
+  xi_s:
+  - 1.0
+  - 1.0
+  beta_t_s:
+  - 0.0001
+  - 0.0001
+  beta_r_s:
+  - 0.0001
+  - 0.0001
 initialization:
   kappa_ul: 0.5
   random_seed: 2026
   max_geometry_trials: 10000
-
 algorithm:
   max_inner_iter: 1200
   max_outer_iter: 1000
-
-  tol_inner: 1.0e-4
-  tol_outer: 1.0e-4
-
+  tol_inner: 0.0001
+  tol_outer: 0.0001
   max_bisection_iter: 100
   tol_bisection: 1.0e-10
-
   max_backtracking_iter: 30
-  armijo_mu: 1.0e-4
+  armijo_mu: 0.0001
   backtracking_factor: 0.5
-
-  finite_diff_delta: 1.0e-6
+  finite_diff_delta: 1.0e-06
   initial_outer_step: 0.1
-
-  # Stage 8A 最终版：窗口平台停止。
-  # 先保持关闭，用 compare_window_plateau.py 选定阈值后再启用。
   plateau_window: 10
-  tol_window: 1.4e-3
-
-# Stage 8 专用配置；load_config() 会自动忽略这一节。
+  tol_window: 0.0014
 experiment:
-  # 第一轮先跑 10 个 scene，确认流程后再改为 50 或 100。
   n_mc: 10
   scene_seed_start: 8001
-
-  # 算法初始化 seed，与 Monte Carlo scene seed 严格分开。
-  multi_start_seeds: [2026, 2027, 2028, 2029, 2030]
+  multi_start_seeds:
+  - 2026
+  - 2027
+  - 2028
+  - 2029
+  - 2030
   fixed_upa_seed: 2026
-
-  # 在 Stage 7 名义位置附近做均匀随机扰动 [x, y, z]，单位 m。
-  position_jitter: [1.5, 1.5, 0.25]
-
-  # 每个 Monte Carlo scene 只抽样一次，并在该 scene 的整个优化中固定。
-  # 采用单位平均功率的公共复标量 Rayleigh 衰落，不改变球面波阵列结构。
+  position_jitter:
+  - 1.5
+  - 1.5
+  - 0.25
   fading:
     enabled: true
     model: scalar_rayleigh
-
-  # B6: 平面 MA + FP。Tx/Rx 从 B3 的 UPA 初始化，
-  # 每个阵元在各自 y-z 正方形区域内独立移动。
   ma:
-    region_size: 1.0       # m，移动区域边长
-    min_spacing: 5.0e-3    # m = lambda/2
-    initial_step: 0.1      # m
-
+    region_size: 1.0
+    min_spacing: 0.005
+    initial_step: 0.1
   sweep:
-    rho_si: [1.0e-8, 1.0e-7, 1.0e-6, 1.0e-5, 1.0e-4]
-    p_dl_max: [0.2, 0.5, 1.0, 1.5, 2.0]
-    cable_length: [0.5, 0.75, 1.0, 1.25, 1.5]
+    rho_si:
+    - 0.001
+    - 0.01
+    - 0.1
+    - 1.0
+    p_dl_max:
+    - 0.2
+    - 0.5
+    - 1.0
+    - 1.5
+    - 2.0
+    cable_length:
+    - 0.5
+    - 0.75
+    - 1.0
+    - 1.25
+    - 1.5

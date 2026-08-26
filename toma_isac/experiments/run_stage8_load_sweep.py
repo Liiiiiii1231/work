@@ -27,9 +27,10 @@ from stage8 import (
 
 
 CONFIG_PATHS = {
-    1: ROOT / "configs" / "stage8_load1.yaml",
-    2: ROOT / "configs" / "stage8_monte_carlo.yaml",
     3: ROOT / "configs" / "stage8_load3.yaml",
+    4: ROOT / "configs" / "stage8_load4.yaml",
+    5: ROOT / "configs" / "stage8_load5.yaml",
+    6: ROOT / "configs" / "stage8_load6.yaml",
 }
 
 OUTPUT_DIR = ROOT / "results" / "stage8"
@@ -43,13 +44,21 @@ def _validate_load_config(load: int, cfg) -> None:
         cfg.k_dl,
         cfg.j_ul,
         cfg.l_target,
-        cfg.r_sensing,
     )
 
-    if dimensions != (load, load, load, load):
+    if dimensions != (load, load, load):
         raise ValueError(
-            f"load={load} requires K=J=L=R_s={load}, "
+            f"load={load} requires K=J=L={load}, "
             f"but got {dimensions}."
+        )
+
+    expected_r_s = min(load, cfg.n_tx)
+
+    if cfg.r_sensing != expected_r_s:
+        raise ValueError(
+            f"load={load} requires "
+            f"R_s=min(L,N_T)={expected_r_s}, "
+            f"but got R_s={cfg.r_sensing}."
         )
 
 
@@ -95,7 +104,7 @@ def save_system_load_results(
                 "K": int(load),
                 "J": int(load),
                 "L": int(load),
-                "R_s": int(load),
+                "R_s": int(min(load, 4)),
                 "scene_seed": int(scene.scene_seed),
             }
 
@@ -145,11 +154,11 @@ def save_system_load_results(
 
 
 def run_system_load_sweep(
-    loads: tuple[int, ...] = (1, 2, 3),
+    loads: tuple[int, ...] = (3, 4, 5, 6),
     n_mc: int | None = None,
     verbose: bool = True,
 ) -> dict[int, list[SceneSummary]]:
-    """运行 load=1/2/3 的六方案 Monte Carlo。"""
+    """运行 K=J=L=3/4/5/6 的七方案 Monte Carlo。"""
 
     if len(loads) == 0:
         raise ValueError("loads must not be empty.")
@@ -178,7 +187,7 @@ def run_system_load_sweep(
             print("\n" + "=" * 80)
             print(
                 f"System load = {load} "
-                f"(K=J=L=R_s={load})"
+                f"(K=J=L={load}, R_s={cfg.r_sensing})"
             )
             print("=" * 80)
 
@@ -227,8 +236,8 @@ def main() -> None:
         nargs="+",
         type=int,
         choices=tuple(CONFIG_PATHS),
-        default=[1, 2, 3],
-        help="System loads to run. Default: 1 2 3.",
+        default=[3, 4, 5, 6],
+        help="User/target loads to run. Default: 3 4 5 6.",
     )
 
     parser.add_argument(

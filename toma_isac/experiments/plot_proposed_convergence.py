@@ -146,7 +146,7 @@ def plot_convergence(
         final_iteration,
         linestyle="--",
         linewidth=1.2,
-        label=f"Converged at iteration {final_iteration}",
+        label=f"Stopped at iteration {final_iteration}",
     )
 
     ax.scatter(
@@ -156,8 +156,8 @@ def plot_convergence(
         zorder=3,
     )
 
-    ax.set_xlabel("Outer iteration")
-    ax.set_ylabel("WSR")
+    ax.set_xlabel("Joint AO iteration")
+    ax.set_ylabel("WSR (bit/s/Hz)")
     ax.grid(alpha=0.3)
     ax.legend(loc="upper left")
 
@@ -218,7 +218,7 @@ def plot_convergence(
     )
 
     axins.set_title(
-        "Late-stage convergence",
+        "Late-stage behavior",
         fontsize=9,
     )
 
