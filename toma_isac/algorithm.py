@@ -50,9 +50,11 @@ class AlgorithmResult:
     joint_wsr_history: list[float]
     inner_wsr_histories: list[list[float]]
     accepted_position_counts: list[int]
+    window_gain_history: list[float]
 
     converged: bool
     outer_iterations: int
+    stop_reason: str
 
 
 # ============================================================
@@ -136,6 +138,8 @@ def run_joint_algorithm(
         int
     ] = []
 
+    window_gain_history: list[float] = []
+
     # 保存各端点上一轮的 RCG 信息。
     rcg_state: OuterRCGState = (
         create_outer_rcg_state(
@@ -147,6 +151,12 @@ def run_joint_algorithm(
     consecutive_small_changes = 0
     converged = False
     outer_iterations = 0
+    stop_reason = "max_outer_iterations"
+
+    plateau_enabled = (
+        cfg.plateau_window >= 2
+        and cfg.tol_window > 0.0
+    )
 
     if verbose:
         print(
@@ -313,35 +323,77 @@ def run_joint_algorithm(
             )
 
         # ----------------------------------------------------
-        # Step 5：连续两次满足外层容差才停止
+        # Step 5：原始单步 WSR 收敛条件
         # ----------------------------------------------------
 
-        if (
-            change
-            <= cfg.tol_outer
-        ):
+        if change <= cfg.tol_outer:
             consecutive_small_changes += 1
         else:
             consecutive_small_changes = 0
 
+        # ----------------------------------------------------
+        # Step 6：窗口平台条件
+        # ----------------------------------------------------
+
+        window_gain = float("nan")
+
         if (
-            consecutive_small_changes
-            >= 2
+            plateau_enabled
+            and outer_iter >= cfg.plateau_window
         ):
+            reference_wsr = joint_wsr_history[
+                outer_iter - cfg.plateau_window
+            ]
+
+            window_gain = (
+                current_joint_wsr - reference_wsr
+            ) / max(
+                1.0,
+                abs(reference_wsr),
+            )
+
+            # 联合 WSR 理论上非下降；只消除机器精度级负值。
+            window_gain = max(0.0, float(window_gain))
+
+        window_gain_history.append(window_gain)
+
+        if verbose and np.isfinite(window_gain):
+            print(
+                f"  window({cfg.plateau_window}) gain = "
+                f"{window_gain:.3e}"
+            )
+
+        # 优先保留原始停止规则；窗口规则只作为附加早停。
+        if consecutive_small_changes >= 2:
             converged = True
+            stop_reason = "outer_tolerance"
 
             if verbose:
                 print(
-                    "Joint algorithm converged "
-                    f"at iteration "
+                    "Joint algorithm converged by "
+                    "outer tolerance at iteration "
                     f"{outer_iter}."
                 )
 
             break
 
-        previous_joint_wsr = (
-            current_joint_wsr
-        )
+        if (
+            np.isfinite(window_gain)
+            and window_gain <= cfg.tol_window
+        ):
+            converged = True
+            stop_reason = "window_plateau"
+
+            if verbose:
+                print(
+                    "Joint algorithm reached a WSR plateau "
+                    f"at iteration {outer_iter}: "
+                    f"window_gain={window_gain:.3e}."
+                )
+
+            break
+
+        previous_joint_wsr = current_joint_wsr
 
     # ========================================================
     # 3. 最终检查
@@ -379,6 +431,8 @@ def run_joint_algorithm(
         accepted_position_counts=(
             accepted_position_counts
         ),
+        window_gain_history=window_gain_history,
         converged=converged,
         outer_iterations=outer_iterations,
+        stop_reason=stop_reason,
     )

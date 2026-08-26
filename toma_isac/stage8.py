@@ -98,6 +98,7 @@ class SchemeSummary:
     iterations: int
     runtime_s: float
     n_starts: int
+    stop_reason: str = "not_applicable"
 
 
 @dataclass(frozen=True)
@@ -220,6 +221,13 @@ def _summarize_multistart(
         iterations=int(best.iterations),
         runtime_s=float(result.total_runtime_s),
         n_starts=len(result.starts),
+        stop_reason=str(
+            getattr(
+                best.result,
+                "stop_reason",
+                "not_applicable",
+            )
+        ),
     )
 
 
@@ -429,6 +437,7 @@ def _scene_csv_fieldnames() -> list[str]:
                 f"{key}_iterations",
                 f"{key}_runtime_s",
                 f"{key}_n_starts",
+                f"{key}_stop_reason",
             ]
         )
 
@@ -470,6 +479,7 @@ def save_monte_carlo_results(
                 row[f"{key}_iterations"] = item.iterations
                 row[f"{key}_runtime_s"] = item.runtime_s
                 row[f"{key}_n_starts"] = item.n_starts
+                row[f"{key}_stop_reason"] = item.stop_reason
 
             writer.writerow(row)
 

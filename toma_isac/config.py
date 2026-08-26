@@ -69,6 +69,10 @@ class SystemConfig:
     finite_diff_delta: float
     initial_outer_step: float
 
+    # 联合 AO 的性能平台停止条件。0 表示关闭。
+    plateau_window: int = 0
+    tol_window: float = 0.0
+
     @property
     def n_tx_uav(self) -> int:
         return self.m_uav // 2
@@ -231,8 +235,35 @@ class SystemConfig:
             )
         if self.initial_outer_step <= 0:
             raise ValueError(
-        "initial_outer_step must be positive."
+                "initial_outer_step must be positive."
+            )
+
+        if self.plateau_window < 0:
+            raise ValueError(
+                "plateau_window must be nonnegative."
+            )
+
+        if self.tol_window < 0.0:
+            raise ValueError(
+                "tol_window must be nonnegative."
+            )
+
+        plateau_enabled = (
+            self.plateau_window > 0
+            or self.tol_window > 0.0
         )
+
+        if plateau_enabled:
+            if self.plateau_window < 2:
+                raise ValueError(
+                    "plateau_window must be at least 2 "
+                    "when plateau stopping is enabled."
+                )
+            if self.tol_window <= 0.0:
+                raise ValueError(
+                    "tol_window must be positive "
+                    "when plateau stopping is enabled."
+                )
 
 
 def _require_shape(
@@ -411,6 +442,19 @@ def load_config(
             raw["algorithm"][
                 "initial_outer_step"
             ]
+        ),
+
+        plateau_window=int(
+            raw["algorithm"].get(
+                "plateau_window",
+                0,
+            )
+        ),
+        tol_window=float(
+            raw["algorithm"].get(
+                "tol_window",
+                0.0,
+            )
         ),
     )
 

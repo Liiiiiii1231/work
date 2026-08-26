@@ -71,6 +71,11 @@ algorithm:
   finite_diff_delta: 1.0e-6
   initial_outer_step: 0.1
 
+  # Stage 8A 最终版：窗口平台停止。
+  # 先保持关闭，用 compare_window_plateau.py 选定阈值后再启用。
+  plateau_window: 0
+  tol_window: 0.0
+
 # Stage 8 专用配置；load_config() 会自动忽略这一节。
 experiment:
   # 第一轮先跑 10 个 scene，确认流程后再改为 50 或 100。
