@@ -257,12 +257,6 @@ def main() -> None:
             None,
             None,
         ),
-        (
-            "cable_length",
-            r"Cable length $L_{\mathrm{c}}$ (m)",
-            None,
-            None,
-        ),
     )
 
     for (

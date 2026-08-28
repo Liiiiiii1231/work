@@ -1,13 +1,14 @@
-"""Stage 8B-5：Stage 8 全流程小规模 smoke test。
+"""Stage 8 正式大规模仿真入口（不再运行 cable-length sweep）。
 
-默认 n_mc=2，依次执行：
+依次执行：
 1. Monte Carlo 七方案；
-2. rho_si / P_DL,max / cable_length 参数扫描；
-3. K=J=L=3/4/5/6 system-load 扫描；
-4. 检查新 CSV 是否包含 7 个方案且数值有限；
-5. 统一重画 Stage 8 结果图。
+2. rho_si 参数扫描；
+3. P_DL,max 参数扫描；
+4. K=J=L=3/4/5/6 system-load 扫描；
+5. 检查新 CSV 是否包含 7 个方案且数值有限；
+6. 重画正式 Stage 8 结果图。
 
-本脚本不会修改正式 YAML，只通过各实验入口的 --n-mc 覆盖样本数。
+Cable-length sweep 已从正式主图与大规模重跑流程中移除。
 """
 
 from __future__ import annotations
@@ -213,7 +214,7 @@ def _validate_system_load(
             )
 
 
-def _preflight() -> tuple[np.ndarray, np.ndarray]:
+def _preflight() -> np.ndarray:
     """在长时间运行前先检查正式设置是否已接入。"""
 
     if tuple(SCHEME_ORDER) != EXPECTED_SCHEMES:
@@ -264,11 +265,6 @@ def _preflight() -> tuple[np.ndarray, np.ndarray]:
         experiment_cfg.p_dl_max_values,
         dtype=float,
     )
-    cable_values = np.asarray(
-        experiment_cfg.cable_length_values,
-        dtype=float,
-    )
-
     for load in EXPECTED_LOADS:
         path = ROOT / "configs" / f"stage8_load{load}.yaml"
         if not path.exists():
@@ -286,10 +282,9 @@ def _preflight() -> tuple[np.ndarray, np.ndarray]:
     print(f"  delta         = {cfg.finite_diff_delta:.1e}")
     print(f"  rho_si        = {rho_values.tolist()}")
     print(f"  p_dl_max      = {p_values.tolist()}")
-    print(f"  cable_length  = {cable_values.tolist()}")
     print(f"  system loads  = {EXPECTED_LOADS}")
 
-    return p_values, cable_values
+    return p_values
 
 
 def main() -> None:
@@ -298,29 +293,28 @@ def main() -> None:
         "--n-mc",
         type=int,
         default=2,
-        help="Small Monte Carlo size for every smoke-test experiment.",
+        help="Monte Carlo size for the formal Stage 8 experiments.",
     )
     args = parser.parse_args()
 
     if args.n_mc < 1:
         raise ValueError("--n-mc must be >= 1.")
 
-    # 第一次建议 n_mc=2。3 会明显增加耗时。
     n_mc = int(args.n_mc)
 
-    p_values, cable_values = _preflight()
+    p_values = _preflight()
 
     start_time = time.time()
 
     _run(
-        "1/6 Monte Carlo: random fading + 7 schemes",
+        "1/5 Monte Carlo: random fading + 7 schemes",
         "experiments/run_stage8_monte_carlo.py",
         "--n-mc",
         str(n_mc),
     )
 
     _run(
-        "2/6 rho_si sweep",
+        "2/5 rho_si sweep",
         "experiments/run_stage8_sweeps.py",
         "--parameter",
         "rho_si",
@@ -329,7 +323,7 @@ def main() -> None:
     )
 
     _run(
-        "3/6 DL-power sweep",
+        "3/5 DL-power sweep",
         "experiments/run_stage8_sweeps.py",
         "--parameter",
         "p_dl_max",
@@ -338,16 +332,7 @@ def main() -> None:
     )
 
     _run(
-        "4/6 cable-length sweep",
-        "experiments/run_stage8_sweeps.py",
-        "--parameter",
-        "cable_length",
-        "--n-mc",
-        str(n_mc),
-    )
-
-    _run(
-        "5/6 system-load sweep",
+        "4/5 system-load sweep",
         "experiments/run_stage8_load_sweep.py",
         "--loads",
         "3",
@@ -375,23 +360,17 @@ def main() -> None:
         n_mc,
         start_time,
     )
-    _validate_parameter_sweep(
-        "cable_length",
-        cable_values,
-        n_mc,
-        start_time,
-    )
     _validate_system_load(n_mc, start_time)
 
     print("CSV validation passed: all new files contain 7 schemes and finite WSRs.")
 
     _run(
-        "6/6 Regenerate Stage 8 figures with final axis units",
+        "5/5 Regenerate Stage 8 figures",
         "experiments/plot_stage8_results.py",
     )
 
     print("\n" + "=" * 92)
-    print("Stage 8B-5 FULL SMOKE TEST PASSED")
+    print("Stage 8 FINAL RUN PASSED")
     print("=" * 92)
     print(f"n_mc = {n_mc}")
     print("Checked:")
@@ -399,7 +378,6 @@ def main() -> None:
     print("  - B1~B6 + Proposed")
     print("  - rho_si = 1e-3, 1e-2, 1e-1, 1")
     print("  - P_DL,max sweep")
-    print("  - cable-length sweep")
     print("  - K=J=L = 3,4,5,6")
     print("  - regenerated result figures")
     print(f"Results: {RESULT_DIR}")
