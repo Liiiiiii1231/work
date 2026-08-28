@@ -160,6 +160,94 @@ def _ma_geometry_is_feasible(
     return bool(np.min(si_distances) >= cfg.min_si_distance)
 
 
+
+def _randomize_initial_ma_geometry(
+    base_geometry: GeometryState,
+    tx_center: np.ndarray,
+    rx_center: np.ndarray,
+    region_size: float,
+    min_spacing: float,
+    initial_jitter_fraction: float,
+    cfg: SystemConfig,
+    rng: np.random.Generator,
+) -> GeometryState:
+    """在固定 UPA 周围生成一组随机可行 MA 初始位置。
+
+    - Tx/Rx 仍位于各自固定 x 平面；
+    - 只对 y-z 坐标加随机扰动；
+    - 扰动范围由 initial_jitter_fraction * (region_size/2) 控制；
+    - 最终必须满足移动区域、同阵列最小间距和 Tx/Rx SI 数值安全。
+    """
+
+    if not (0.0 < initial_jitter_fraction <= 1.0):
+        raise ValueError(
+            "initial_jitter_fraction must lie in (0, 1]."
+        )
+
+    jitter_half = (
+        0.5 * float(region_size) * float(initial_jitter_fraction)
+    )
+    half = 0.5 * float(region_size)
+
+    for _ in range(int(cfg.max_geometry_trials)):
+        tx_candidate = base_geometry.tx_positions.copy()
+        rx_candidate = base_geometry.rx_positions.copy()
+
+        tx_candidate[:, 1:] += rng.uniform(
+            low=-jitter_half,
+            high=jitter_half,
+            size=(cfg.n_tx, 2),
+        )
+        rx_candidate[:, 1:] += rng.uniform(
+            low=-jitter_half,
+            high=jitter_half,
+            size=(cfg.n_rx, 2),
+        )
+
+        tx_candidate[:, 1] = np.clip(
+            tx_candidate[:, 1],
+            tx_center[1] - half,
+            tx_center[1] + half,
+        )
+        tx_candidate[:, 2] = np.clip(
+            tx_candidate[:, 2],
+            tx_center[2] - half,
+            tx_center[2] + half,
+        )
+        rx_candidate[:, 1] = np.clip(
+            rx_candidate[:, 1],
+            rx_center[1] - half,
+            rx_center[1] + half,
+        )
+        rx_candidate[:, 2] = np.clip(
+            rx_candidate[:, 2],
+            rx_center[2] - half,
+            rx_center[2] + half,
+        )
+
+        # 固定两个 MA 平面的 x 坐标。
+        tx_candidate[:, 0] = tx_center[0]
+        rx_candidate[:, 0] = rx_center[0]
+
+        if _ma_geometry_is_feasible(
+            tx_candidate,
+            rx_candidate,
+            tx_center,
+            rx_center,
+            region_size,
+            min_spacing,
+            cfg,
+        ):
+            return _build_ma_geometry(
+                tx_candidate,
+                rx_candidate,
+                cfg,
+            )
+
+    raise RuntimeError(
+        "Failed to generate a feasible randomized MA initial geometry."
+    )
+
 def _evaluate_ma_wsr(
     tx_positions: np.ndarray,
     rx_positions: np.ndarray,
@@ -408,6 +496,8 @@ def run_ma_fp(
     min_spacing: float | None = None,
     initial_step: float | None = None,
     max_outer_iterations: int | None = None,
+    randomize_initial_geometry: bool = False,
+    initial_jitter_fraction: float = 0.5,
 ) -> MABaselineResult:
     """运行 B6：MA + FP Resource Optimization。
 
@@ -444,21 +534,18 @@ def run_ma_fp(
         else int(max_outer_iterations)
     )
 
-    geometry = build_fpa_upa_geometry(
+    base_geometry = build_fpa_upa_geometry(
         cfg,
         spacing=spacing,
         tx_rx_separation=tx_rx_separation,
     )
 
-    initial_tx_positions = geometry.tx_positions.copy()
-    initial_rx_positions = geometry.rx_positions.copy()
-
-    tx_center = np.mean(initial_tx_positions, axis=0)
-    rx_center = np.mean(initial_rx_positions, axis=0)
+    tx_center = np.mean(base_geometry.tx_positions, axis=0)
+    rx_center = np.mean(base_geometry.rx_positions, axis=0)
 
     if not _ma_geometry_is_feasible(
-        geometry.tx_positions,
-        geometry.rx_positions,
+        base_geometry.tx_positions,
+        base_geometry.rx_positions,
         tx_center,
         rx_center,
         region_size,
@@ -468,6 +555,23 @@ def run_ma_fp(
         raise ValueError(
             "Initial UPA is not feasible for the selected MA region/min_spacing."
         )
+
+    if randomize_initial_geometry:
+        geometry = _randomize_initial_ma_geometry(
+            base_geometry,
+            tx_center=tx_center,
+            rx_center=rx_center,
+            region_size=region_size,
+            min_spacing=min_spacing,
+            initial_jitter_fraction=initial_jitter_fraction,
+            cfg=cfg,
+            rng=rng,
+        )
+    else:
+        geometry = base_geometry
+
+    initial_tx_positions = geometry.tx_positions.copy()
+    initial_rx_positions = geometry.rx_positions.copy()
 
     channels = build_channels(geometry, cfg)
     resources = initialize_resources(

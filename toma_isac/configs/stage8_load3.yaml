@@ -128,6 +128,11 @@ experiment:
     region_size: 1.0
     min_spacing: 0.005
     initial_step: 0.1
+
+    # B6: Multi-start MA + FP
+    # start 1 = 固定 UPA；其余起点 = 随机可行 MA 初始几何。
+    n_starts: 3
+    initial_jitter_fraction: 0.5
   sweep:
     rho_si:
     - 0.001

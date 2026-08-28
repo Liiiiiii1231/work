@@ -9,7 +9,7 @@ Stage 8 中：
 - Multi-start seed 只控制算法初始 ToMA；
 - B1/B2/B4/Proposed 使用相同 Multi-start seed 集合；
 - B3/B5 为固定 UPA，每个 scene 只运行一次；
-- B6 为 MA + FP，从与 B3 相同的 UPA 初始化后优化阵元位置。
+- B6 为 MA + FP，采用 1 个固定 UPA 起点 + 多个随机可行 MA 起点后取最佳结果。
 """
 
 from __future__ import annotations
@@ -70,6 +70,8 @@ class Stage8ExperimentConfig:
     ma_region_size: float
     ma_min_spacing: float
     ma_initial_step: float
+    ma_n_starts: int
+    ma_initial_jitter_fraction: float
     rho_si_values: tuple[float, ...]
     p_dl_max_values: tuple[float, ...]
     cable_length_values: tuple[float, ...]
@@ -103,6 +105,14 @@ class Stage8ExperimentConfig:
 
         if self.ma_initial_step <= 0.0:
             raise ValueError("ma_initial_step must be positive.")
+
+        if self.ma_n_starts <= 0:
+            raise ValueError("ma_n_starts must be positive.")
+
+        if not (0.0 < self.ma_initial_jitter_fraction <= 1.0):
+            raise ValueError(
+                "ma_initial_jitter_fraction must lie in (0, 1]."
+            )
 
         if any(value < 0.0 or value > 1.0 for value in self.rho_si_values):
             raise ValueError("rho_si sweep values must lie in [0, 1].")
@@ -201,6 +211,18 @@ def load_stage8_experiment_config(
             experiment.get("ma", {}).get(
                 "initial_step",
                 0.1,
+            )
+        ),
+        ma_n_starts=int(
+            experiment.get("ma", {}).get(
+                "n_starts",
+                3,
+            )
+        ),
+        ma_initial_jitter_fraction=float(
+            experiment.get("ma", {}).get(
+                "initial_jitter_fraction",
+                0.5,
             )
         ),
         rho_si_values=tuple(
@@ -344,6 +366,56 @@ def _summarize_multistart(
     )
 
 
+
+def make_ma_start_seeds(
+    scene_seed: int,
+    fixed_upa_seed: int,
+    n_starts: int,
+) -> tuple[int, ...]:
+    """为同一个 scene 生成确定性的 MA multi-start seeds。
+
+    第一组始终使用 fixed_upa_seed，对应原始固定 UPA 初始几何。
+    其余 seeds 仅依赖 scene_seed / fixed_upa_seed，因此同一 scene 在
+    不同 rho_si 扫描点会得到完全相同的一组 MA 初始几何。
+    """
+
+    n_starts = int(n_starts)
+
+    if n_starts <= 0:
+        raise ValueError("n_starts must be positive.")
+
+    seeds = [int(fixed_upa_seed)]
+
+    if n_starts == 1:
+        return tuple(seeds)
+
+    seed_sequence = np.random.SeedSequence(
+        [
+            int(scene_seed),
+            int(fixed_upa_seed),
+            20260826,
+        ]
+    )
+
+    candidates = seed_sequence.generate_state(
+        max(8, 4 * n_starts),
+        dtype=np.uint32,
+    )
+
+    for value in candidates:
+        candidate = int(value)
+
+        if candidate not in seeds:
+            seeds.append(candidate)
+
+        if len(seeds) == n_starts:
+            break
+
+    if len(seeds) != n_starts:
+        raise RuntimeError("Failed to create unique MA start seeds.")
+
+    return tuple(seeds)
+
 def run_stage8_scene(
     cfg: SystemConfig,
     scene_seed: int,
@@ -358,6 +430,8 @@ def run_stage8_scene(
     ma_region_size: float | None = None,
     ma_min_spacing: float | None = None,
     ma_initial_step: float | None = None,
+    ma_n_starts: int = 3,
+    ma_initial_jitter_fraction: float = 0.5,
 ) -> SceneSummary:
     """运行一个 Monte Carlo scene 的七方案公平对比。"""
 
@@ -376,6 +450,12 @@ def run_stage8_scene(
 
     if len(set(seeds)) != len(seeds):
         raise ValueError("multi_start_seeds must be unique.")
+
+    ma_start_seeds = make_ma_start_seeds(
+        scene_seed=scene_seed,
+        fixed_upa_seed=fixed_upa_seed,
+        n_starts=ma_n_starts,
+    )
 
     if verbose:
         print(f"\nScene seed = {scene_seed}")
@@ -467,10 +547,13 @@ def run_stage8_scene(
         verbose=False,
     )
 
-    # B6 从与 B3 相同的 UPA 初始化；位置优化为传统平面 MA，资源使用 FP。
+    # B6 使用真正的 MA multi-start：
+    # 第 1 个起点为与 B3 相同的固定 UPA；
+    # 其余起点在同一移动区域内生成随机可行 MA 初始几何。
+    # 同一个 scene 在不同 rho_si 点复用完全相同的 ma_start_seeds。
     results["b6"] = run_multi_start(
-        name="B6: MA + FP Resource Optimization",
-        seeds=(int(fixed_upa_seed),),
+        name="B6: Multi-start MA + FP Resource Optimization",
+        seeds=ma_start_seeds,
         run_single=lambda seed: run_ma_fp(
             scene_cfg,
             rng=np.random.default_rng(seed),
@@ -479,6 +562,10 @@ def run_stage8_scene(
             region_size=ma_region_size,
             min_spacing=ma_min_spacing,
             initial_step=ma_initial_step,
+            randomize_initial_geometry=(
+                int(seed) != int(fixed_upa_seed)
+            ),
+            initial_jitter_fraction=ma_initial_jitter_fraction,
         ),
         iteration_getter=lambda result: result.iterations,
         cfg=scene_cfg,
@@ -520,6 +607,8 @@ def run_monte_carlo(
     ma_region_size: float | None = None,
     ma_min_spacing: float | None = None,
     ma_initial_step: float | None = None,
+    ma_n_starts: int | None = None,
+    ma_initial_jitter_fraction: float | None = None,
 ) -> list[SceneSummary]:
     """运行多个独立 scene 的 Monte Carlo 实验。"""
 
@@ -558,6 +647,16 @@ def run_monte_carlo(
                 experiment_cfg.ma_initial_step
                 if ma_initial_step is None
                 else ma_initial_step
+            ),
+            ma_n_starts=(
+                experiment_cfg.ma_n_starts
+                if ma_n_starts is None
+                else int(ma_n_starts)
+            ),
+            ma_initial_jitter_fraction=(
+                experiment_cfg.ma_initial_jitter_fraction
+                if ma_initial_jitter_fraction is None
+                else float(ma_initial_jitter_fraction)
             ),
         )
         summaries.append(summary)
