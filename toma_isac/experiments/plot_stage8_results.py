@@ -56,7 +56,7 @@ def _read_csv(
 
 
 def plot_monte_carlo_bar() -> None:
-    """绘制七方案平均 WSR 柱状图。"""
+    """绘制七方案平均 WSR 柱状图，并标出平均 WSR 数值。"""
 
     path = RESULT_DIR / "stage8_monte_carlo.csv"
     rows = _read_csv(path)
@@ -70,21 +70,49 @@ def plot_monte_carlo_bar() -> None:
             dtype=float,
         )
 
-        means.append(np.mean(values))
-        stds.append(np.std(values, ddof=0))
+        means.append(float(np.mean(values)))
+        stds.append(float(np.std(values, ddof=0)))
 
     labels = [BAR_SCHEME_LABELS[key] for key in SCHEME_ORDER]
+
+    means_array = np.asarray(means, dtype=float)
+    stds_array = np.asarray(stds, dtype=float)
 
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
     plt.figure(figsize=(11.0, 5.5))
     x = np.arange(len(labels))
 
-    plt.bar(
+    bars = plt.bar(
         x,
-        means,
-        yerr=stds,
+        means_array,
+        yerr=stds_array,
         capsize=4,
+    )
+
+    # 在误差棒上方标出各方案的平均 WSR，保留两位小数。
+    error_top = means_array + stds_array
+    max_top = float(np.max(error_top))
+    text_offset = max(0.08, 0.015 * max_top)
+
+    for bar, mean, top in zip(
+        bars,
+        means_array,
+        error_top,
+    ):
+        plt.text(
+            bar.get_x() + bar.get_width() / 2.0,
+            top + text_offset,
+            f"{mean:.2f}",
+            ha="center",
+            va="bottom",
+            fontsize=9,
+        )
+
+    # 给数值标签预留顶部空间，避免被裁剪。
+    plt.ylim(
+        0.0,
+        max_top + 4.0 * text_offset,
     )
 
     plt.xticks(x, labels, fontsize=9)

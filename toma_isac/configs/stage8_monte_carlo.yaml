@@ -103,8 +103,7 @@ experiment:
   - 1.5
   - 0.25
   fading:
-    enabled: true
-    model: scalar_rayleigh
+    enabled: false
   ma:
     region_size: 1.0
     min_spacing: 0.005
