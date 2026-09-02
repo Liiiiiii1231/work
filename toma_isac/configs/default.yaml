@@ -21,7 +21,7 @@ noise:
   sigma_bs2: 1.0e-10
 
 si:
-  rho_si: 1.0e-8
+  rho_si: 1.0e-10
 
 weights:
   dl: [0.3333333333333333]

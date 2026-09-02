@@ -25,6 +25,7 @@ from outer_solver import (
     OuterRCGState,
     create_outer_rcg_state,
     update_positions_once,
+    update_positions_once_fp_aware,
 )
 from state import (
     ChannelState,
@@ -66,8 +67,14 @@ def run_joint_algorithm(
     rng: np.random.Generator | None = None,
     verbose: bool = False,
     max_outer_iterations: int | None = None,
+    position_update_mode: str = "original",
+    fp_aware_candidate_iters: int = 2,
 ) -> AlgorithmResult:
-    """执行一次完整的单起点 ToMA-ISAC 联合优化。"""
+    """执行一次完整的单起点 ToMA-ISAC 联合优化。
+
+    position_update_mode="original" 保持原固定资源 Armijo；
+    position_update_mode="fp_aware" 使用候选位置 warm-start FP Armijo。
+    """
 
     if rng is None:
         rng = np.random.default_rng(
@@ -83,6 +90,23 @@ def run_joint_algorithm(
     if number_of_outer_iterations <= 0:
         raise ValueError(
             "max_outer_iterations must be positive."
+        )
+
+    if position_update_mode not in {
+        "original",
+        "fp_aware",
+    }:
+        raise ValueError(
+            "position_update_mode must be "
+            "'original' or 'fp_aware'."
+        )
+
+    if (
+        position_update_mode == "fp_aware"
+        and fp_aware_candidate_iters <= 0
+    ):
+        raise ValueError(
+            "fp_aware_candidate_iters must be positive."
         )
 
     # ========================================================
@@ -221,22 +245,41 @@ def run_joint_algorithm(
             )
 
         # ----------------------------------------------------
-        # Step 2：固定资源，依次更新 Tx 和 Rx ToMA
+        # Step 2：按所选模式更新 Tx 和 Rx ToMA
         # ----------------------------------------------------
 
-        (
-            geometry,
-            channels,
-            wsr_after_positions,
-            rcg_state,
-            accepted_count,
-        ) = update_positions_once(
-            geometry,
-            resources,
-            cfg,
-            rcg_state=rcg_state,
-            verbose=False,
-        )
+        if position_update_mode == "original":
+            (
+                geometry,
+                channels,
+                wsr_after_positions,
+                rcg_state,
+                accepted_count,
+            ) = update_positions_once(
+                geometry,
+                resources,
+                cfg,
+                rcg_state=rcg_state,
+                verbose=False,
+            )
+        else:
+            (
+                geometry,
+                channels,
+                resources,
+                wsr_after_positions,
+                rcg_state,
+                accepted_count,
+            ) = update_positions_once_fp_aware(
+                geometry,
+                resources,
+                cfg,
+                rcg_state=rcg_state,
+                candidate_fp_iterations=(
+                    fp_aware_candidate_iters
+                ),
+                verbose=False,
+            )
 
         accepted_position_counts.append(
             accepted_count

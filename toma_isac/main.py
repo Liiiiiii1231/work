@@ -29,6 +29,8 @@ def main() -> None:
         cfg,
         rng=rng,
         verbose=True,
+        position_update_mode="fp_aware",
+        fp_aware_candidate_iters=2,
     )
 
     geometry = result.geometry
@@ -173,7 +175,7 @@ def main() -> None:
     )
 
     print(
-        "\nStage 4 passed."
+        "\nFP-aware-2 Proposed optimization completed."
     )
 
 

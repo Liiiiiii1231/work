@@ -267,6 +267,8 @@ def run_stage7_multistart(
             cfg,
             rng=np.random.default_rng(seed),
             verbose=False,
+            position_update_mode="fp_aware",
+            fp_aware_candidate_iters=2,
         ),
         iteration_getter=lambda result: result.outer_iterations,
         cfg=cfg,

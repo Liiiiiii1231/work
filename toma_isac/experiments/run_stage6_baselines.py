@@ -98,11 +98,13 @@ def main() -> None:
     )
 
     proposed, time_proposed = _run_timed(
-        "Proposed: RCG-ToMA + FP Resource Optimization",
+    "Proposed: RCG-ToMA + FP Resource Optimization",
         lambda: run_joint_algorithm(
             cfg,
             rng=np.random.default_rng(seed),
             verbose=False,
+            position_update_mode="fp_aware",
+            fp_aware_candidate_iters=2,
         ),
     )
 

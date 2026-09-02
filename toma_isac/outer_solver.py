@@ -9,13 +9,14 @@
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 
 import numpy as np
 
 from channels import build_channels
 from config import SystemConfig
 from geometry import build_geometry
+from inner_solver import solve_inner_problem
 from metrics import compute_performance
 from state import (
     ChannelState,
@@ -45,6 +46,25 @@ class EndpointRCGDiagnostic:
     step_size: float
     backtracking_steps: int
     wsr_after_update: float
+
+
+@dataclass(frozen=True)
+class FPAwareEndpointDiagnostic:
+    """记录一次 FP-aware 端点更新的诊断量。"""
+
+    endpoint_index: int
+    group: str
+    grad_norm: float
+    beta: float
+    accepted: bool
+    step_size: float
+    backtracking_steps: int
+    wsr_after_update: float
+    fixed_wsr_at_candidate: float
+    aware_wsr_at_candidate: float
+    candidate_fp_iterations: int
+    candidate_fp_calls: int
+    total_candidate_fp_iterations: int
 
 
 def create_outer_rcg_state(
@@ -472,6 +492,342 @@ def armijo_endpoint_update(
         current_wsr,
         False,
         0.0,
+    )
+
+
+# ============================================================
+# 7A. FP-aware Armijo 回溯
+# ============================================================
+
+def armijo_endpoint_update_fp_aware(
+    endpoints: np.ndarray,
+    endpoint_index: int,
+    gradient: np.ndarray,
+    direction: np.ndarray,
+    current_wsr: float,
+    resources: ResourceState,
+    cfg: SystemConfig,
+    candidate_fp_iterations: int = 2,
+) -> tuple[
+    np.ndarray,
+    ResourceState,
+    float,
+    bool,
+    float,
+    int,
+    float,
+    float,
+    int,
+    int,
+    int,
+]:
+    """候选位置先 warm-start FP，再用联合 WSR 做 Armijo 判断。"""
+
+    if candidate_fp_iterations <= 0:
+        raise ValueError(
+            "candidate_fp_iterations must be positive."
+        )
+
+    current_point = endpoints[endpoint_index]
+    step_size = cfg.initial_outer_step
+    directional_derivative = float(
+        np.dot(gradient, direction)
+    )
+
+    candidate_cfg = replace(
+        cfg,
+        max_inner_iter=candidate_fp_iterations,
+    )
+
+    last_fixed_wsr = float("nan")
+    last_aware_wsr = float("nan")
+    last_fp_iterations = 0
+    candidate_fp_calls = 0
+    total_candidate_fp_iterations = 0
+
+    for backtracking_steps in range(
+        cfg.max_backtracking_iter
+    ):
+        candidate = sphere_retraction(
+            current_point,
+            direction,
+            step_size,
+            cfg,
+        )
+
+        if not is_collision_free(
+            endpoints,
+            endpoint_index,
+            candidate,
+            cfg,
+        ):
+            step_size *= cfg.backtracking_factor
+            continue
+
+        candidate_endpoints = endpoints.copy()
+        candidate_endpoints[endpoint_index] = candidate
+
+        candidate_geometry = build_geometry(
+            candidate_endpoints,
+            cfg,
+            check_constraints=False,
+        )
+        candidate_channels = build_channels(
+            candidate_geometry,
+            cfg,
+        )
+
+        fixed_performance = compute_performance(
+            candidate_channels,
+            resources,
+            cfg,
+        )
+        fixed_wsr = float(
+            fixed_performance.weighted_sum_rate
+        )
+
+        candidate_resources, inner_history = (
+            solve_inner_problem(
+                candidate_channels,
+                resources,
+                candidate_cfg,
+                verbose=False,
+            )
+        )
+
+        candidate_fp_calls += 1
+        fp_iterations = len(inner_history) - 1
+        total_candidate_fp_iterations += fp_iterations
+
+        aware_wsr = float(inner_history[-1])
+        last_fixed_wsr = fixed_wsr
+        last_aware_wsr = aware_wsr
+        last_fp_iterations = fp_iterations
+
+        armijo_rhs = (
+            current_wsr
+            + cfg.armijo_mu
+            * step_size
+            * directional_derivative
+        )
+
+        if aware_wsr >= armijo_rhs:
+            return (
+                candidate,
+                candidate_resources,
+                aware_wsr,
+                True,
+                step_size,
+                backtracking_steps,
+                fixed_wsr,
+                aware_wsr,
+                fp_iterations,
+                candidate_fp_calls,
+                total_candidate_fp_iterations,
+            )
+
+        step_size *= cfg.backtracking_factor
+
+    return (
+        current_point.copy(),
+        resources,
+        current_wsr,
+        False,
+        0.0,
+        cfg.max_backtracking_iter,
+        last_fixed_wsr,
+        last_aware_wsr,
+        last_fp_iterations,
+        candidate_fp_calls,
+        total_candidate_fp_iterations,
+    )
+
+
+def update_positions_once_fp_aware(
+    geometry: GeometryState,
+    resources: ResourceState,
+    cfg: SystemConfig,
+    rcg_state: OuterRCGState | None = None,
+    candidate_fp_iterations: int = 2,
+    verbose: bool = False,
+    diagnostic_records: list[FPAwareEndpointDiagnostic] | None = None,
+) -> tuple[
+    GeometryState,
+    ChannelState,
+    ResourceState,
+    float,
+    OuterRCGState,
+    int,
+]:
+    """执行一次 FP-aware Tx -> Rx ToMA 更新。
+
+    梯度、PR+、RCG 方向与原方法一致；区别仅在候选位置会以
+    当前资源为 warm start，运行少量 FP 后再进行 Armijo 判断。
+    被接受的候选资源与候选位置同步更新。
+    """
+
+    if rcg_state is None:
+        rcg_state = create_outer_rcg_state(cfg)
+
+    if candidate_fp_iterations <= 0:
+        raise ValueError(
+            "candidate_fp_iterations must be positive."
+        )
+
+    endpoints = geometry.endpoints.copy()
+    current_resources = resources
+    current_wsr = evaluate_fixed_resource_wsr(
+        endpoints,
+        current_resources,
+        cfg,
+    )
+
+    accepted_count = 0
+    endpoint_order = (
+        list(range(cfg.n_tx_uav))
+        + list(range(cfg.n_tx_uav, cfg.m_uav))
+    )
+
+    for endpoint_index in endpoint_order:
+        euclidean_gradient = central_difference_gradient(
+            endpoints,
+            endpoint_index,
+            current_resources,
+            cfg,
+            objective_evaluator=None,
+        )
+
+        grad_m = project_to_tangent(
+            endpoints[endpoint_index],
+            euclidean_gradient,
+            cfg,
+        )
+        grad_norm = float(np.linalg.norm(grad_m))
+        group = (
+            "Tx"
+            if endpoint_index < cfg.n_tx_uav
+            else "Rx"
+        )
+
+        if grad_norm <= 1e-12:
+            rcg_state.previous_gradients[
+                endpoint_index
+            ] = grad_m.copy()
+            rcg_state.previous_directions[
+                endpoint_index
+            ] = grad_m.copy()
+
+            if diagnostic_records is not None:
+                diagnostic_records.append(
+                    FPAwareEndpointDiagnostic(
+                        endpoint_index=endpoint_index,
+                        group=group,
+                        grad_norm=grad_norm,
+                        beta=0.0,
+                        accepted=False,
+                        step_size=0.0,
+                        backtracking_steps=0,
+                        wsr_after_update=float(current_wsr),
+                        fixed_wsr_at_candidate=float("nan"),
+                        aware_wsr_at_candidate=float("nan"),
+                        candidate_fp_iterations=0,
+                        candidate_fp_calls=0,
+                        total_candidate_fp_iterations=0,
+                    )
+                )
+            continue
+
+        direction, beta = compute_rcg_direction(
+            endpoints[endpoint_index],
+            grad_m,
+            rcg_state.previous_gradients[endpoint_index],
+            rcg_state.previous_directions[endpoint_index],
+            cfg,
+        )
+
+        (
+            candidate,
+            candidate_resources,
+            candidate_wsr,
+            accepted,
+            step_size,
+            backtracking_steps,
+            fixed_wsr,
+            aware_wsr,
+            fp_iterations,
+            candidate_fp_calls,
+            total_candidate_fp_iterations,
+        ) = armijo_endpoint_update_fp_aware(
+            endpoints,
+            endpoint_index,
+            grad_m,
+            direction,
+            current_wsr,
+            current_resources,
+            cfg,
+            candidate_fp_iterations,
+        )
+
+        rcg_state.previous_gradients[
+            endpoint_index
+        ] = grad_m.copy()
+        rcg_state.previous_directions[
+            endpoint_index
+        ] = direction.copy()
+
+        if accepted:
+            endpoints[endpoint_index] = candidate
+            current_resources = candidate_resources
+            current_wsr = candidate_wsr
+            accepted_count += 1
+
+        if diagnostic_records is not None:
+            diagnostic_records.append(
+                FPAwareEndpointDiagnostic(
+                    endpoint_index=endpoint_index,
+                    group=group,
+                    grad_norm=grad_norm,
+                    beta=float(beta),
+                    accepted=bool(accepted),
+                    step_size=float(step_size),
+                    backtracking_steps=int(backtracking_steps),
+                    wsr_after_update=float(current_wsr),
+                    fixed_wsr_at_candidate=float(fixed_wsr),
+                    aware_wsr_at_candidate=float(aware_wsr),
+                    candidate_fp_iterations=int(fp_iterations),
+                    candidate_fp_calls=int(candidate_fp_calls),
+                    total_candidate_fp_iterations=int(
+                        total_candidate_fp_iterations
+                    ),
+                )
+            )
+
+        if verbose:
+            print(
+                f"  {group} endpoint {endpoint_index}: "
+                f"accepted={accepted}, "
+                f"beta={beta:.3e}, "
+                f"step={step_size:.3e}, "
+                f"WSR={current_wsr:.10f}"
+            )
+
+    final_geometry = build_geometry(
+        endpoints,
+        cfg,
+        check_constraints=False,
+    )
+    final_channels = build_channels(
+        final_geometry,
+        cfg,
+    )
+
+    return (
+        final_geometry,
+        final_channels,
+        current_resources,
+        current_wsr,
+        rcg_state,
+        accepted_count,
     )
 
 

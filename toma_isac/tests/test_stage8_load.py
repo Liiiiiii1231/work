@@ -2,8 +2,16 @@
 
 from dataclasses import replace
 from pathlib import Path
+import sys
 
 import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 
 from config import load_config
 from experiments.run_stage8_load_sweep import (
@@ -16,7 +24,6 @@ from stage8 import (
     load_stage8_experiment_config,
     run_stage8_scene,
 )
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -47,7 +54,9 @@ def test_system_load_yaml_shapes_are_consistent() -> None:
         cfg = load_config(path)
 
         experiment_cfg = (
-            load_stage8_experiment_config(path)
+            load_stage8_experiment_config(
+                path
+            )
         )
 
         assert cfg.k_dl == load
@@ -55,19 +64,42 @@ def test_system_load_yaml_shapes_are_consistent() -> None:
         assert cfg.l_target == load
         assert cfg.r_sensing == load
 
-        assert cfg.p_ul_max.shape == (load,)
-        assert cfg.sigma_dl2.shape == (load,)
+        assert cfg.p_ul_max.shape == (
+            load,
+        )
+        assert cfg.sigma_dl2.shape == (
+            load,
+        )
 
-        assert cfg.q_dl.shape == (load, 3)
-        assert cfg.q_ul.shape == (load, 3)
-        assert cfg.q_s.shape == (load, 3)
+        assert cfg.q_dl.shape == (
+            load,
+            3,
+        )
+        assert cfg.q_ul.shape == (
+            load,
+            3,
+        )
+        assert cfg.q_s.shape == (
+            load,
+            3,
+        )
 
-        assert cfg.alpha_dl.shape == (load,)
-        assert cfg.alpha_ul.shape == (load,)
+        assert cfg.alpha_dl.shape == (
+            load,
+        )
+        assert cfg.alpha_ul.shape == (
+            load,
+        )
 
-        assert cfg.xi_s.shape == (load,)
-        assert cfg.beta_t_s.shape == (load,)
-        assert cfg.beta_r_s.shape == (load,)
+        assert cfg.xi_s.shape == (
+            load,
+        )
+        assert cfg.beta_t_s.shape == (
+            load,
+        )
+        assert cfg.beta_r_s.shape == (
+            load,
+        )
 
         total_weight = (
             np.sum(cfg.weight_dl)
@@ -75,11 +107,15 @@ def test_system_load_yaml_shapes_are_consistent() -> None:
             + np.sum(cfg.weight_s)
         )
 
-        assert np.isclose(total_weight, 1.0)
+        assert np.isclose(
+            total_weight,
+            1.0,
+        )
+
         assert experiment_cfg.n_mc == 10
 
 
-def test_load3_runs_through_six_scheme_interface() -> None:
+def test_load3_runs_through_seven_scheme_interface() -> None:
     """验证 load=3 没有隐藏的二维写死。"""
 
     path = _config_path(3)
@@ -87,7 +123,9 @@ def test_load3_runs_through_six_scheme_interface() -> None:
     cfg = load_config(path)
 
     experiment_cfg = (
-        load_stage8_experiment_config(path)
+        load_stage8_experiment_config(
+            path
+        )
     )
 
     short_cfg = replace(
@@ -104,16 +142,22 @@ def test_load3_runs_through_six_scheme_interface() -> None:
         position_jitter=experiment_cfg.position_jitter,
         require_convergence=False,
         verbose=False,
+        ma_n_starts=1,
     )
 
-    assert tuple(result.schemes) == SCHEME_ORDER
+    assert tuple(
+        result.schemes
+    ) == SCHEME_ORDER
 
     for key in SCHEME_ORDER:
         assert np.isfinite(
             result.schemes[key].wsr
         )
 
-        assert result.schemes[key].n_starts == 1
+        assert (
+            result.schemes[key].n_starts
+            == 1
+        )
 
 
 def test_system_load_results_can_be_saved(
@@ -121,7 +165,9 @@ def test_system_load_results_can_be_saved(
 ) -> None:
     """验证合并 CSV/NPZ 保存。"""
 
-    def _scene(load: int) -> SceneSummary:
+    def _scene(
+        load: int,
+    ) -> SceneSummary:
         schemes = {
             key: SchemeSummary(
                 wsr=float(load),
@@ -135,12 +181,27 @@ def test_system_load_results_can_be_saved(
 
         return SceneSummary(
             scene_seed=8000 + load,
-            q_dl=np.zeros((load, 3)),
-            q_ul=np.zeros((load, 3)),
-            q_s=np.zeros((load, 3)),
-            alpha_dl=np.ones(load, dtype=np.complex128),
-            alpha_ul=np.ones(load, dtype=np.complex128),
-            xi_s=np.ones(load, dtype=np.complex128),
+            q_dl=np.zeros(
+                (load, 3)
+            ),
+            q_ul=np.zeros(
+                (load, 3)
+            ),
+            q_s=np.zeros(
+                (load, 3)
+            ),
+            alpha_dl=np.ones(
+                load,
+                dtype=np.complex128,
+            ),
+            alpha_ul=np.ones(
+                load,
+                dtype=np.complex128,
+            ),
+            xi_s=np.ones(
+                load,
+                dtype=np.complex128,
+            ),
             schemes=schemes,
         )
 
@@ -158,12 +219,19 @@ def test_system_load_results_can_be_saved(
     assert csv_path.exists()
     assert npz_path.exists()
 
-    data = np.load(npz_path)
+    data = np.load(
+        npz_path
+    )
 
-    assert data["system_load"].tolist() == [
+    assert data[
+        "system_load"
+    ].tolist() == [
         1,
         2,
         3,
     ]
 
-    assert data["wsr"].shape == (3, 6)
+    assert data["wsr"].shape == (
+        3,
+        len(SCHEME_ORDER),
+    )

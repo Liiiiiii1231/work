@@ -1,0 +1,3 @@
+mode,scene_seed,start_seed,outer_iterations,converged,stop_reason,final_wsr,runtime_s
+original,8001,2029,302,True,outer_tolerance,10.997438827855824,7.118886800017208
+fp_aware,8001,2029,99,True,outer_tolerance,11.739143176623342,12.332594100036658
