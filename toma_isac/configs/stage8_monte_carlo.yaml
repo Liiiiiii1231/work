@@ -21,7 +21,7 @@ noise:
   - 1.0e-10
   sigma_bs2: 1.0e-10
 si:
-  rho_si: 1.0e-08
+  rho_si: 1.0e-10
 weights:
   dl:
   - 0.16666666666666666
@@ -91,43 +91,49 @@ algorithm:
 experiment:
   n_mc: 10
   scene_seed_start: 8001
+
   multi_start_seeds:
-  - 2026
-  - 2027
-  - 2028
-  - 2029
-  - 2030
+    - 2026
+    - 2027
+    - 2028
+    - 2029
+    - 2030
+
   fixed_upa_seed: 2026
+
   position_jitter:
-  - 1.5
-  - 1.5
-  - 0.25
+    - 1.5
+    - 1.5
+    - 0.25
+
   fading:
     enabled: false
+
   ma:
     region_size: 1.0
     min_spacing: 0.005
     initial_step: 0.1
-
-    # B6: Multi-start MA + FP
-    # start 1 = 固定 UPA；其余起点 = 随机可行 MA 初始几何。
     n_starts: 3
     initial_jitter_fraction: 0.5
+
   sweep:
     rho_si:
-    - 0.001
-    - 0.01
-    - 0.1
-    - 1.0
+    - 1.0e-06
+    - 1.0e-05
+    - 1.0e-04
+    - 1.0e-03
+    - 1.0e-02
+
     p_dl_max:
-    - 0.2
-    - 0.5
-    - 1.0
-    - 1.5
-    - 2.0
+      - 0.2
+      - 0.5
+      - 1.0
+      - 1.5
+      - 2.0
+
     cable_length:
-    - 0.5
-    - 0.75
-    - 1.0
-    - 1.25
-    - 1.5
+      - 0.5
+      - 0.75
+      - 1.0
+      - 1.25
+      - 1.5

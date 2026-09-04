@@ -23,7 +23,10 @@ from stage8 import (
     load_stage8_experiment_config,
     make_scene_config,
 )
-
+from outer_solver import (
+    central_difference_gradient,
+    project_to_tangent,
+)
 
 CONFIG_PATH = ROOT / "configs" / "stage8_monte_carlo.yaml"
 RESULT_DIR = ROOT / "results" / "stage8"
@@ -295,7 +298,72 @@ def main() -> None:
 
     best = result.best_start
     algorithm_result = best.result
+    # ============================================================
+    # 计算最终停止点的固定当前资源黎曼梯度
+    # ============================================================
 
+    scene_cfg = make_scene_config(
+        cfg,
+        scene_seed=scene_seed,
+        position_jitter=experiment_cfg.position_jitter,
+    )
+
+    final_endpoints = (
+        algorithm_result.geometry.endpoints.copy()
+    )
+
+    final_resources = (
+        algorithm_result.resources
+    )
+
+    final_grad_norms = []
+
+    for endpoint_index in range(scene_cfg.m_uav):
+        euclidean_gradient = central_difference_gradient(
+            final_endpoints,
+            endpoint_index,
+            final_resources,
+            scene_cfg,
+            objective_evaluator=None,
+        )
+
+        riemannian_gradient = project_to_tangent(
+            final_endpoints[endpoint_index],
+            euclidean_gradient,
+            scene_cfg,
+        )
+
+        grad_norm = float(
+            np.linalg.norm(riemannian_gradient)
+        )
+
+        final_grad_norms.append(grad_norm)
+
+    print("\nFinal Riemannian gradient norms")
+
+    for endpoint_index, grad_norm in enumerate(
+        final_grad_norms
+    ):
+        group = (
+            "Tx"
+            if endpoint_index < scene_cfg.n_tx_uav
+            else "Rx"
+        )
+
+        print(
+            f"  {group} endpoint {endpoint_index}: "
+            f"||grad|| = {grad_norm:.6e}"
+        )
+
+    print(
+        "  mean ||grad|| = "
+        f"{np.mean(final_grad_norms):.6e}"
+    )
+
+    print(
+        "  max  ||grad|| = "
+        f"{np.max(final_grad_norms):.6e}"
+    )
     history = np.asarray(
         algorithm_result.joint_wsr_history,
         dtype=float,

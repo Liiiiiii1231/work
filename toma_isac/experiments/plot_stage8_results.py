@@ -27,7 +27,7 @@ BAR_SCHEME_LABELS = {
     "b4": "Fixed-ToMA\n+ Traditional",
     "b5": "FPA-UPA\n+ Traditional",
     "b6": "MA\n+ FP",
-    "proposed": "RCG-ToMA\n+ FP",
+    "proposed": "FP-aware\nRCG-ToMA\n+ FP",
 }
 
 # 参数扫描和 system-load 图使用完整图例名称。
@@ -38,7 +38,7 @@ LEGEND_SCHEME_LABELS = {
     "b4": "Fixed-ToMA + Traditional",
     "b5": "FPA-UPA + Traditional",
     "b6": "MA + FP",
-    "proposed": "RCG-ToMA + FP (Proposed)",
+    "proposed": "FP-aware RCG-ToMA + FP (Proposed)",
 }
 
 WSR_LABEL = "Average WSR (bit/s/Hz)"
@@ -277,13 +277,13 @@ def main() -> None:
             "rho_si",
             r"Residual SI level $10\log_{10}(\rho_{\mathrm{SI}})$ (dB)",
             _rho_to_db,
-            np.asarray([-30.0, -20.0, -10.0, 0.0]),
+            np.asarray([-60.0, -50.0, -40.0, -30.0, -20.0])
         ),
         (
             "p_dl_max",
             r"Maximum DL transmit power $P_{\mathrm{DL}}^{\max}$ (W)",
             None,
-            None,
+            np.asarray([0.2, 0.5, 1.0, 1.5, 2.0]),
         ),
     )
 
