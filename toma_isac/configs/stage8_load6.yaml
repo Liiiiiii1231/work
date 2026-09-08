@@ -29,7 +29,7 @@ noise:
   - 1.0e-10
   sigma_bs2: 1.0e-10
 si:
-  rho_si: 1.0e-08
+  rho_si: 1.0e-10
 weights:
   dl:
   - 0.05555555555555555
@@ -152,7 +152,7 @@ initialization:
   max_geometry_trials: 10000
 algorithm:
   max_inner_iter: 1200
-  max_outer_iter: 1000
+  max_outer_iter: 1500
   tol_inner: 0.0001
   tol_outer: 0.0001
   max_bisection_iter: 100
@@ -179,12 +179,11 @@ experiment:
   - 1.5
   - 0.25
   fading:
-    enabled: true
-    model: scalar_rayleigh
+    enabled: false
   ma:
-    region_size: 1.0
+    region_size: 0.03
     min_spacing: 0.005
-    initial_step: 0.1
+    initial_step: 0.003
 
     # B6: Multi-start MA + FP
     # start 1 = 固定 UPA；其余起点 = 随机可行 MA 初始几何。

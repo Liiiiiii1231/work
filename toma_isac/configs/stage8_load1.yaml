@@ -21,7 +21,7 @@ noise:
   sigma_bs2: 1.0e-10
 
 si:
-  rho_si: 1.0e-8
+  rho_si: 1.0e-10
 
 weights:
   dl: [0.3333333333333333]
@@ -53,7 +53,7 @@ initialization:
 
 algorithm:
   max_inner_iter: 1200
-  max_outer_iter: 1000
+  max_outer_iter: 1500
 
   tol_inner: 1.0e-4
   tol_outer: 1.0e-4
@@ -80,15 +80,14 @@ experiment:
   # 每个 Monte Carlo scene 只抽样一次，并在该 scene 的整个优化中固定。
   # 采用单位平均功率的公共复标量 Rayleigh 衰落，不改变球面波阵列结构。
   fading:
-    enabled: true
-    model: scalar_rayleigh
+    enabled: false
 
   # B6: 平面 MA + FP。Tx/Rx 从 B3 的 UPA 初始化，
   # 每个阵元在各自 y-z 正方形区域内独立移动。
   ma:
-    region_size: 1.0       # m，移动区域边长
+    region_size: 0.03     # m，移动区域边长
     min_spacing: 5.0e-3    # m = lambda/2
-    initial_step: 0.1      # m
+    initial_step: 0.003      # m
 
   sweep:
     rho_si: [1.0e-8, 1.0e-7, 1.0e-6, 1.0e-5, 1.0e-4]

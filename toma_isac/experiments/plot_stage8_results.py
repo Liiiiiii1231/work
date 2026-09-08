@@ -277,7 +277,7 @@ def main() -> None:
             "rho_si",
             r"Residual SI level $10\log_{10}(\rho_{\mathrm{SI}})$ (dB)",
             _rho_to_db,
-            np.asarray([-60.0, -50.0, -40.0, -30.0, -20.0])
+            np.asarray([ -50.0, -40.0, -30.0, -20.0, -10.0 ])
         ),
         (
             "p_dl_max",

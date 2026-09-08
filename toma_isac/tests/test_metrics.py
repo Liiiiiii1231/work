@@ -7,8 +7,8 @@ import numpy as np
 
 from config import load_config
 from metrics import (
-    build_a_s,
-    build_a_u,
+    build_sensing_interference_covariance,
+    build_uplink_interference_covariance,
     compute_performance,
 )
 from state import (
@@ -150,48 +150,55 @@ def test_metrics_match_manual_calculation() -> None:
     )
 
     # ==========================================================
-    # 1. 检查 A_U
+    # 1. 检查 C_U
     #
-    # A_U
+    # C_U
     # =
-    # G_0 + G_1 + H_RSI
+    # G_0 R G_0^H + G_1 R G_1^H
+    # + H_RSI R H_RSI^H
     #
-    # 第一项因此为 1+2+1=4。
+    # R[0,0]=3，第一项因此为 3*(1+4+1)=18。
     # ==========================================================
 
-    expected_a_u = np.zeros_like(
-        g_0
+    expected_c_u = np.zeros(
+        (cfg.n_rx, cfg.n_rx),
+        dtype=np.complex128,
     )
 
-    expected_a_u[0, 0] = 4.0
+    expected_c_u[0, 0] = 18.0
 
     assert np.allclose(
-        build_a_u(channels),
-        expected_a_u,
-    )
-
-    # ==========================================================
-    # 2. 检查 A_S,0
-    #
-    # A_S,0
-    # =
-    # G_1 + H_RSI
-    #
-    # 第一项为 2+1=3。
-    # ==========================================================
-
-    expected_a_s_0 = np.zeros_like(
-        g_0
-    )
-
-    expected_a_s_0[0, 0] = 3.0
-
-    assert np.allclose(
-        build_a_s(
+        build_uplink_interference_covariance(
             channels,
+            q_matrix,
+        ),
+        expected_c_u,
+    )
+
+    # ==========================================================
+    # 2. 检查 C_S,0
+    #
+    # C_S,0
+    # =
+    # G_1 R G_1^H + H_RSI R H_RSI^H
+    #
+    # 第一项为 3*(4+1)=15。
+    # ==========================================================
+
+    expected_c_s_0 = np.zeros(
+        (cfg.n_rx, cfg.n_rx),
+        dtype=np.complex128,
+    )
+
+    expected_c_s_0[0, 0] = 15.0
+
+    assert np.allclose(
+        build_sensing_interference_covariance(
+            channels,
+            q_matrix,
             0,
         ),
-        expected_a_s_0,
+        expected_c_s_0,
     )
 
     # ==========================================================
@@ -244,19 +251,19 @@ def test_metrics_match_manual_calculation() -> None:
     # =
     # 1
     #
-    # ||b_0^H A_U Q||^2
+    # b_0^H C_U b_0
     # =
-    # 48
+    # 18
     #
     # noise = 1
     #
     # gamma_U,0
     # =
-    # 1 / 50
+    # 1 / 20
     # ==========================================================
 
     expected_gamma_ul_0 = (
-        1.0 / 50.0
+        1.0 / 20.0
     )
 
     assert np.isclose(
@@ -279,21 +286,21 @@ def test_metrics_match_manual_calculation() -> None:
     # =
     # 2
     #
-    # ||u_0^H A_S,0 Q||^2
+    # u_0^H C_S,0 u_0
     # =
-    # 27
+    # 15
     #
     # noise = 1
     #
     # gamma_S,0
     # =
-    # 3 / 30
+    # 3 / 18
     # =
-    # 0.1
+    # 1/6
     # ==========================================================
 
     expected_gamma_s_0 = (
-        3.0 / 30.0
+        3.0 / 18.0
     )
 
     assert np.isclose(

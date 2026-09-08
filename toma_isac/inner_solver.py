@@ -13,8 +13,9 @@ from scipy.linalg import eigh
 
 from config import SystemConfig
 from metrics import (
-    build_a_s,
-    build_a_u,
+    build_sensing_interference_covariance,
+    build_transmit_interference_gram,
+    build_uplink_interference_covariance,
     compute_performance,
 )
 from state import (
@@ -72,8 +73,9 @@ def update_sensing_combiners(
 
     for ell in range(cfg.l_target):
         g_l = channels.g[ell]
-        a_s_l = build_a_s(
+        c_s_l = build_sensing_interference_covariance(
             channels,
+            resources.q_matrix,
             ell,
         )
 
@@ -85,11 +87,7 @@ def update_sensing_combiners(
         )
 
         # 干扰加噪声协方差 D_l^S
-        d_l = (
-            a_s_l
-            @ q_q_h
-            @ a_s_l.conj().T
-        )
+        d_l = c_s_l.copy()
 
         # UL 用户对感知接收端的干扰
         for j in range(cfg.j_ul):
@@ -137,12 +135,10 @@ def update_uplink_combiners(
 ) -> np.ndarray:
     """用 MMSE / 最大-SINR方向更新全部上行接收波束 b_j。"""
 
-    q_q_h = (
-        resources.q_matrix
-        @ resources.q_matrix.conj().T
+    c_u = build_uplink_interference_covariance(
+        channels,
+        resources.q_matrix,
     )
-
-    a_u = build_a_u(channels)
 
     b_new = np.empty(
         (cfg.j_ul, cfg.n_rx),
@@ -156,11 +152,7 @@ def update_uplink_combiners(
 
     for j in range(cfg.j_ul):
         # 感知回波和 RSI 产生的干扰协方差
-        d_j = (
-            a_u
-            @ q_q_h
-            @ a_u.conj().T
-        )
+        d_j = c_u.copy()
 
         # 其他 UL 用户干扰
         for i in range(cfg.j_ul):
@@ -281,7 +273,10 @@ def update_qt_variables(
         dtype=np.complex128,
     )
 
-    a_u = build_a_u(channels)
+    c_u = build_uplink_interference_covariance(
+        channels,
+        q_matrix,
+    )
 
     for j in range(cfg.j_ul):
         b_j = resources.b_ul[j]
@@ -301,11 +296,12 @@ def update_qt_variables(
             )
 
         t_ul += (
-            np.linalg.norm(
-                b_j.conj()
-                @ a_u
-                @ q_matrix
-            ) ** 2
+            np.real(
+                np.vdot(
+                    b_j,
+                    c_u @ b_j,
+                )
+            )
         )
 
         t_ul += cfg.sigma_bs2
@@ -332,8 +328,9 @@ def update_qt_variables(
     for ell in range(cfg.l_target):
         u_l = resources.u_s[ell]
         g_l = channels.g[ell]
-        a_s_l = build_a_s(
+        c_s_l = build_sensing_interference_covariance(
             channels,
+            q_matrix,
             ell,
         )
 
@@ -358,11 +355,12 @@ def update_qt_variables(
             )
 
         t_s += (
-            np.linalg.norm(
-                u_l.conj()
-                @ a_s_l
-                @ q_matrix
-            ) ** 2
+            np.real(
+                np.vdot(
+                    u_l,
+                    c_s_l @ u_l,
+                )
+            )
         )
 
         t_s += cfg.sigma_bs2
@@ -468,19 +466,12 @@ def build_q_matrices(
 
     # -------------------- UL --------------------
 
-    a_u = build_a_u(channels)
-
     for j in range(cfg.j_ul):
         b_j = resources.b_ul[j]
 
-        x_j = (
-            a_u.conj().T
-            @ b_j
-        )
-
-        c_ul = np.outer(
-            x_j,
-            x_j.conj(),
+        c_ul = build_transmit_interference_gram(
+            channels,
+            b_j,
         )
 
         common_weight = (
@@ -505,18 +496,8 @@ def build_q_matrices(
         u_l = resources.u_s[ell]
         g_l = channels.g[ell]
 
-        a_s_l = build_a_s(
-            channels,
-            ell,
-        )
-
         g_des = (
             g_l.conj().T
-            @ u_l
-        )
-
-        g_int = (
-            a_s_l.conj().T
             @ u_l
         )
 
@@ -525,9 +506,10 @@ def build_q_matrices(
             g_des.conj(),
         )
 
-        c_int = np.outer(
-            g_int,
-            g_int.conj(),
+        c_int = build_transmit_interference_gram(
+            channels,
+            u_l,
+            excluded_target=ell,
         )
 
         common_weight = (
@@ -719,6 +701,9 @@ def update_transmit_matrix(
     # 二分搜索 lambda_P
     # ----------------------------------------------------------
 
+    # lambda_high 已经由前面的 bracket 搜索保证：
+    # ||Q(lambda_high)||_F^2 <= P_DL,max
+    # 因此始终保留一份“可行侧”候选解。
     q_candidate = q_high
     lambda_candidate = lambda_high
 
@@ -746,30 +731,30 @@ def update_transmit_matrix(
             ) ** 2
         )
 
-        q_candidate = q_mid
-        lambda_candidate = lambda_mid
-
-        if abs(
-            power_mid
-            - cfg.p_dl_max
-        ) <= cfg.tol_bisection:
-            break
-
-        # lambda 越大，Q 的功率越小
-        if (
-            power_mid
-            > cfg.p_dl_max
-        ):
+        # lambda 越大，Q 的功率越小。
+        if power_mid > cfg.p_dl_max:
+            # 当前点功率超限，只更新不可行侧。
             lambda_low = lambda_mid
-        else:
-            lambda_high = lambda_mid
 
+        else:
+            # 当前点满足功率约束：
+            # 更新可行侧，并保存为最终候选。
+            lambda_high = lambda_mid
+            q_candidate = q_mid
+            lambda_candidate = lambda_mid
+
+            if (
+                cfg.p_dl_max
+                - power_mid
+                <= cfg.tol_bisection
+            ):
+                break
     final_power = (
         np.linalg.norm(
-            q_candidate,
+             q_candidate,
             "fro",
         ) ** 2
-    )
+     )
 
     if (
         final_power
@@ -778,7 +763,7 @@ def update_transmit_matrix(
     ):
         raise RuntimeError(
             "Q update violates "
-            "the BS power constraint."
+             "the BS power constraint."
         )
 
     return (

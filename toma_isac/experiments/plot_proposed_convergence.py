@@ -136,17 +136,17 @@ def plot_convergence(
     )
 
     fig, ax = plt.subplots(
-        figsize=(9.0, 5.5)
-    )
+    figsize=(9.0, 5.5)
+)
 
     ax.plot(
         iterations,
         history,
         linewidth=1.8,
-        label="RCG-ToMA + FP (Proposed)",
+        label="FP-aware RCG-ToMA + FP (Proposed)",
     )
 
-    # 最终停止点即该次运行的收敛迭代。
+    # 最终停止位置
     ax.axvline(
         final_iteration,
         linestyle="--",
@@ -164,11 +164,20 @@ def plot_convergence(
     ax.set_xlabel("Joint AO iteration")
     ax.set_ylabel("WSR (bit/s/Hz)")
     ax.grid(alpha=0.3)
-    ax.legend(loc="upper left")
+
+    # ============================================================
+    # 图例移到主图上方，避免遮挡收敛曲线
+    # ============================================================
+    ax.legend(
+        loc="lower left",
+        bbox_to_anchor=(0.0, 1.01),
+        ncol=2,
+        frameon=True,
+        borderaxespad=0.0,
+    )
 
     # -------------------------------------------------
-    # Inset：自动放大最后约 35% 的 outer iterations。
-    # 对 305 次收敛的情况，大约显示 198~305。
+    # Inset：自动放大最后约 35% 的 Joint AO iterations
     # -------------------------------------------------
     zoom_start = max(
         1,
@@ -214,7 +223,10 @@ def plot_convergence(
 
     axins.set_xlim(
         zoom_start,
-        final_iteration + max(2, int(0.02 * final_iteration)),
+        final_iteration + max(
+            2,
+            int(0.02 * final_iteration),
+        ),
     )
 
     axins.set_ylim(
@@ -234,7 +246,7 @@ def plot_convergence(
 
     axins.grid(alpha=0.25)
 
-    # 在主图中框出被放大的区域，并连到 inset。
+    # 主图中标出放大区域并连接 inset
     mark_inset(
         ax,
         axins,
@@ -245,7 +257,30 @@ def plot_convergence(
         linewidth=0.8,
     )
 
-    fig.tight_layout()
+    # ============================================================
+    # 给顶部图例留出空间
+    # ============================================================
+    fig.subplots_adjust(
+        left=0.10,
+        right=0.98,
+        bottom=0.12,
+        top=0.88,
+    )
+
+    fig.savefig(
+        output_stem.with_suffix(".png"),
+        dpi=300,
+        bbox_inches="tight",
+        pad_inches=0.12,
+    )
+
+    fig.savefig(
+        output_stem.with_suffix(".pdf"),
+        bbox_inches="tight",
+        pad_inches=0.12,
+    )
+
+    plt.close(fig)
 
     fig.savefig(
         output_stem.with_suffix(".png"),

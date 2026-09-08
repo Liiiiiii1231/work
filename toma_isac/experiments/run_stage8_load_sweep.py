@@ -31,6 +31,7 @@ CONFIG_PATHS = {
     4: ROOT / "configs" / "stage8_load4.yaml",
     5: ROOT / "configs" / "stage8_load5.yaml",
     6: ROOT / "configs" / "stage8_load6.yaml",
+    7: ROOT / "configs" / "stage8_load7.yaml",
 }
 
 OUTPUT_DIR = ROOT / "results" / "stage8"
@@ -154,11 +155,11 @@ def save_system_load_results(
 
 
 def run_system_load_sweep(
-    loads: tuple[int, ...] = (3, 4, 5, 6),
+    loads: tuple[int, ...] = (3, 4, 5, 6, 7),
     n_mc: int | None = None,
     verbose: bool = True,
 ) -> dict[int, list[SceneSummary]]:
-    """运行 K=J=L=3/4/5/6 的七方案 Monte Carlo。"""
+    """运行 K=J=L=3/4/5/6/7 的七方案 Monte Carlo。"""
 
     if len(loads) == 0:
         raise ValueError("loads must not be empty.")
@@ -236,8 +237,8 @@ def main() -> None:
         nargs="+",
         type=int,
         choices=tuple(CONFIG_PATHS),
-        default=[3, 4, 5, 6],
-        help="User/target loads to run. Default: 3 4 5 6.",
+        default=[3, 4, 5, 6, 7],
+        help="User/target loads to run. Default: 3 4 5 6 7.",
     )
 
     parser.add_argument(

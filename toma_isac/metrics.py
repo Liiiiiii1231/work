@@ -36,60 +36,128 @@ from state import (
 )
 from utils import (
     check_finite,
+    hermitianize,
     split_transmit_matrix,
 )
 
 
-def build_a_u(
+def build_uplink_interference_covariance(
     channels: ChannelState,
+    q_matrix: np.ndarray,
 ) -> np.ndarray:
-    """构造 UL SINR 中的聚合干扰信道 A_U。
+    """构造 UL 的回波与残余 SI 干扰协方差 C_U。
 
     数学模型：
 
-    A_U
+    C_U
     =
-    sum_l G_l
-    + H_RSI
+    sum_l G_l R G_l^H
+    + H_RSI R H_RSI^H,
+
+    其中 R = Q Q^H。各分量在功率/协方差域累加，
+    不包含 echo--echo 或 echo--RSI 交叉项。
 
     返回：
-        shape = (N_R, N_T)
+        shape = (N_R, N_R)
     """
 
-    return (
-        np.sum(
-            channels.g,
-            axis=0,
-        )
-        + channels.h_rsi
+    transmit_covariance = (
+        q_matrix
+        @ q_matrix.conj().T
     )
 
+    covariance = (
+        channels.h_rsi
+        @ transmit_covariance
+        @ channels.h_rsi.conj().T
+    )
 
-def build_a_s(
+    for g_l in channels.g:
+        covariance += (
+            g_l
+            @ transmit_covariance
+            @ g_l.conj().T
+        )
+
+    return hermitianize(covariance)
+
+
+def build_sensing_interference_covariance(
     channels: ChannelState,
+    q_matrix: np.ndarray,
     ell: int,
 ) -> np.ndarray:
-    """构造目标 ell 的 A_S,l。
+    """构造目标 ell 的其他回波与残余 SI 协方差 C_S,l。
 
     数学模型：
 
-    A_S,l
+    C_S,l
     =
-    sum_{i != l} G_i
-    + H_RSI
+    sum_{i != l} G_i R G_i^H
+    + H_RSI R H_RSI^H,
+
+    其中 R = Q Q^H。各分量在功率/协方差域累加，
+    不包含 echo--echo 或 echo--RSI 交叉项。
 
     返回：
-        shape = (N_R, N_T)
+        shape = (N_R, N_R)
     """
 
-    return (
-        np.sum(
-            channels.g,
-            axis=0,
-        )
-        - channels.g[ell]
-        + channels.h_rsi
+    transmit_covariance = (
+        q_matrix
+        @ q_matrix.conj().T
     )
+
+    covariance = (
+        channels.h_rsi
+        @ transmit_covariance
+        @ channels.h_rsi.conj().T
+    )
+
+    for index, g_i in enumerate(channels.g):
+        if index == ell:
+            continue
+
+        covariance += (
+            g_i
+            @ transmit_covariance
+            @ g_i.conj().T
+        )
+
+    return hermitianize(covariance)
+
+
+def build_transmit_interference_gram(
+    channels: ChannelState,
+    combiner: np.ndarray,
+    excluded_target: int | None = None,
+) -> np.ndarray:
+    """构造 Q 子问题中的无交叉项发射侧干扰 Gram 矩阵。
+
+    返回
+
+    sum_i G_i^H c c^H G_i
+    + H_RSI^H c c^H H_RSI，
+
+    其中 ``excluded_target`` 用于感知目标的干扰集合。
+    """
+
+    gram = np.outer(
+        channels.h_rsi.conj().T @ combiner,
+        (channels.h_rsi.conj().T @ combiner).conj(),
+    )
+
+    for index, g_i in enumerate(channels.g):
+        if index == excluded_target:
+            continue
+
+        projected = g_i.conj().T @ combiner
+        gram += np.outer(
+            projected,
+            projected.conj(),
+        )
+
+    return hermitianize(gram)
 
 
 def compute_downlink_sinr(
@@ -204,9 +272,10 @@ def compute_uplink_sinr(
         dtype=float,
     )
 
-    # A_U
-    a_u = build_a_u(
-        channels
+    # C_U：各目标回波与残余 SI 的协方差分别累加。
+    c_u = build_uplink_interference_covariance(
+        channels,
+        resources.q_matrix,
     )
 
     for j in range(
@@ -264,18 +333,18 @@ def compute_uplink_sinr(
             )
 
         # ======================================================
-        # 感知回波 + RSI：
+        # 感知回波 + RSI 的无交叉项协方差功率：
         #
-        # ||b_j^H A_U Q||_2^2
+        # b_j^H C_U b_j
         # ======================================================
 
         fd_interference = (
-            np.linalg.norm(
-                b_j.conj()
-                @ a_u
-                @ resources.q_matrix
+            np.real(
+                np.vdot(
+                    b_j,
+                    c_u @ b_j,
+                )
             )
-            ** 2
         )
 
         # 因为 ||b_j||=1，
@@ -313,9 +382,10 @@ def compute_sensing_sinr(
     ):
         u_l = resources.u_s[ell]
 
-        # A_S,l
-        a_s = build_a_s(
+        # C_S,l：其他目标回波与残余 SI 的协方差分别累加。
+        c_s = build_sensing_interference_covariance(
             channels,
+            resources.q_matrix,
             ell,
         )
 
@@ -360,18 +430,18 @@ def compute_sensing_sinr(
             )
 
         # ======================================================
-        # 其他目标回波 + RSI：
+        # 其他目标回波 + RSI 的无交叉项协方差功率：
         #
-        # ||u_l^H A_S,l Q||_2^2
+        # u_l^H C_S,l u_l
         # ======================================================
 
         other_echo_and_si = (
-            np.linalg.norm(
-                u_l.conj()
-                @ a_s
-                @ resources.q_matrix
+            np.real(
+                np.vdot(
+                    u_l,
+                    c_s @ u_l,
+                )
             )
-            ** 2
         )
 
         denominator = (

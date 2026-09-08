@@ -5,7 +5,7 @@
 > **模型改动说明。** 本模型在原“单套 ToMA 共锚点全双工近场 ISAC”框架上作三项核心修改：  
 > 1. 将原先多个、但只通过总和起作用的感知协方差 $\{\mathbf S_l\}$ 合并为总感知协方差，并进一步写成多波束因子形式 $\mathbf S=\mathbf V\mathbf V^H$；  
 > 2. 将内层的 SCA-SDR/SDP 替换为拉格朗日对偶变换（LDT）、二次变换（QT）与总功率拉格朗日乘子相结合的分式规划算法；  
-> 3. 完全删除残余自干扰功率阈值、显式 SI 约束、候选解 SI 检查和 SI 缩放初始化；同时取消残余 SI 的前端—基带分层建模，将被动隔离、模拟消除和数字消除的综合效果统一表示为等效残余自干扰信道 $\mathbf H_{\rm RSI}=\sqrt{\rho_{\rm SI}}\mathbf H_{\rm SI}^{0}$。该信道仅进入上行与感知 SINR 分母，不构成任何可行性条件或验收条件。  
+> 3. 完全删除残余自干扰功率阈值、显式 SI 约束、候选解 SI 检查和 SI 缩放初始化；同时取消残余 SI 的前端—基带分层建模，将被动隔离、模拟消除和数字消除的综合效果统一表示为等效残余自干扰信道 $\mathbf H_{\rm RSI}=\sqrt{\rho_{\rm SI}}\mathbf H_{\rm SI}^{0}$。该信道仅进入上行与感知 SINR 分母，不构成任何可行性条件或验收条件；目标回波与残余 SI 的二阶干扰统计采用互不相关的协方差累加模型，不保留 echo--echo 或 echo--RSI 交叉项。
 >
 > 因此，联合优化问题只保留收发功率、接收波束单位范数、缆绳定长和子无人机防碰撞约束；内层 FP 闭式更新与外层黎曼位置优化的主体结构保持不变，同时省去所有与 SI 阈值有关的回溯和检测步骤。
 
@@ -566,6 +566,8 @@ $$
 (\mathbf0,\sigma_{\rm BS}^2\mathbf I_{N_{\rm R}}).
 $$
 
+虽然目标回波与残余 SI 在接收信号层面叠加，但本文在 SINR 的二阶统计建模中将不同目标回波和残余 SI 视为互不相关的干扰分量。因此，各分量的协方差在功率域分别累加，不保留不同回波之间以及回波与残余 SI 之间的交叉协方差项。该处理避免把依赖瞬时相位的 echo--SI 相干抵消解释为稳定的干扰抑制增益，同时仍保留 $\mathbf H_{\rm RSI}=\mathbf H_{\rm RSI}(C)$ 对收发阵列几何和发射协方差的依赖。
+
 ---
 
 ## 8. 通信与感知性能
@@ -608,12 +610,17 @@ $$
 
 ### 8.2 上行 SINR 与速率
 
-令 $\|\mathbf b_j\|_2=1$，并定义
+令 $\|\mathbf b_j\|_2=1$，并定义上行回波与残余 SI 的干扰协方差
 
 $$
-\mathbf A_{\rm U}
+\boxed{
+\mathbf C_{\rm U}
 =
-\sum_{l\in\mathcal L}\mathbf G_l+\mathbf H_{\rm RSI}.
+\sum_{l\in\mathcal L}
+\mathbf G_l\mathbf R_x\mathbf G_l^H
++
+\mathbf H_{\rm RSI}\mathbf R_x\mathbf H_{\rm RSI}^H
+}.
 $$
 
 第 $j$ 个上行用户的 SINR 为
@@ -629,7 +636,7 @@ q_j^2|\mathbf b_j^H\mathbf f_j|^2
 \sum_{i\ne j}
 q_i^2|\mathbf b_j^H\mathbf f_i|^2
 +
-\|\mathbf b_j^H\mathbf A_{\rm U}\mathbf Q\|_2^2
+\mathbf b_j^H\mathbf C_{\rm U}\mathbf b_j
 +\sigma_{\rm BS}^2
 }
 }.
@@ -645,14 +652,17 @@ $$
 
 ### 8.3 感知 SINR 与感知速率
 
-令 $\|\mathbf u_l\|_2=1$，并定义
+令 $\|\mathbf u_l\|_2=1$，并定义目标 $l$ 对应的其他回波与残余 SI 干扰协方差
 
 $$
-\mathbf A_{{\rm S},l}
+\boxed{
+\mathbf C_{{\rm S},l}
 =
-\sum_{i\in\mathcal L\setminus\{l\}}\mathbf G_i
+\sum_{i\in\mathcal L\setminus\{l\}}
+\mathbf G_i\mathbf R_x\mathbf G_i^H
 +
-\mathbf H_{\rm RSI}.
+\mathbf H_{\rm RSI}\mathbf R_x\mathbf H_{\rm RSI}^H
+}.
 $$
 
 目标 $l$ 的期望回波功率为
@@ -674,7 +684,7 @@ $$
 \sum_{j\in\mathcal J}
 q_j^2|\mathbf u_l^H\mathbf f_j|^2
 +
-\|\mathbf u_l^H\mathbf A_{{\rm S},l}\mathbf Q\|_2^2
+\mathbf u_l^H\mathbf C_{{\rm S},l}\mathbf u_l
 +\sigma_{\rm BS}^2
 }
 }.
@@ -801,7 +811,7 @@ $$
 $$
 
 内层不使用 SDP，也不引入通信协方差变量
-$\mathbf W_k=\mathbf w_k\mathbf w_k^H$，因此不存在 SDR 和秩一恢复步骤。与原模型相比，接收波束、LDT、QT、发射矩阵和上行功率的更新公式保持不变；仅删除 SI 约束验收和相关回溯。
+$\mathbf W_k=\mathbf w_k\mathbf w_k^H$，因此不存在 SDR 和秩一恢复步骤。接收波束、QT 总功率和发射矩阵二次项均按第 7.2 节的互不相关协方差假设展开；上行功率更新的结构保持不变。模型仍不包含 SI 约束验收和相关回溯。
 
 外层采用 FP-aware 黎曼位置更新：位置梯度仍在当前资源固定条件下计算，但每个可行候选位置均以当前资源为 warm start，在候选信道上执行最多 2 次内层 FP 更新后再进行 Armijo 验收；一旦验收通过，候选位置及其候选资源同步进入下一端点更新。该步骤仅改变候选点评价方式，不改变 (P1)、内层 FP 更新或 RCG 主体。
 
@@ -827,9 +837,7 @@ $$
 \sum_{j\in\mathcal J}
 q_j^2\mathbf f_j\mathbf f_j^H
 +
-\mathbf A_{{\rm S},l}
-\mathbf Q\mathbf Q^H
-\mathbf A_{{\rm S},l}^H
+\mathbf C_{{\rm S},l}
 +
 \sigma_{\rm BS}^2\mathbf I_{N_{\rm R}}.
 $$
@@ -859,7 +867,7 @@ $$
 =
 \sum_{i\ne j}q_i^2\mathbf f_i\mathbf f_i^H
 +
-\mathbf A_{\rm U}\mathbf Q\mathbf Q^H\mathbf A_{\rm U}^H
+\mathbf C_{\rm U}
 +
 \sigma_{\rm BS}^2\mathbf I_{N_{\rm R}}.
 $$
@@ -974,7 +982,7 @@ T_j^{\rm U}
 \sum_{i\in\mathcal J}
 q_i^2|\mathbf b_j^H\mathbf f_i|^2
 +
-\|\mathbf b_j^H\mathbf A_{\rm U}\mathbf Q\|_2^2
+\mathbf b_j^H\mathbf C_{\rm U}\mathbf b_j
 +
 \sigma_{\rm BS}^2.
 $$
@@ -990,7 +998,7 @@ T_l^{\rm S}
 \sum_{j\in\mathcal J}
 q_j^2|\mathbf u_l^H\mathbf f_j|^2\\
 &+
-\|\mathbf u_l^H\mathbf A_{{\rm S},l}\mathbf Q\|_2^2
+\mathbf u_l^H\mathbf C_{{\rm S},l}\mathbf u_l
 +
 \sigma_{\rm BS}^2.
 \end{aligned}
@@ -1139,9 +1147,12 @@ $$
 $$
 \mathbf C_j^{\rm U}
 =
-\mathbf A_{\rm U}^H
+\sum_{i\in\mathcal L}
+\mathbf G_i^H\mathbf b_j\mathbf b_j^H\mathbf G_i
++
+\mathbf H_{\rm RSI}^H
 \mathbf b_j\mathbf b_j^H
-\mathbf A_{\rm U},
+\mathbf H_{\rm RSI},
 $$
 
 $$
@@ -1155,9 +1166,12 @@ $$
 $$
 \mathbf C_{l,{\rm int}}^{\rm S}
 =
-\mathbf A_{{\rm S},l}^H
+\sum_{i\in\mathcal L\setminus\{l\}}
+\mathbf G_i^H\mathbf u_l\mathbf u_l^H\mathbf G_i
++
+\mathbf H_{\rm RSI}^H
 \mathbf u_l\mathbf u_l^H
-\mathbf A_{{\rm S},l}.
+\mathbf H_{\rm RSI}.
 $$
 
 收集所有关于 $\mathbf Q$ 的负二次项：
@@ -2047,7 +2061,7 @@ $$
 
 ## 27. 可直接用于论文的系统与算法描述
 
-> 本文研究一种单套 ToMA 辅助的全双工近场 ISAC 系统。主无人机固定于全局坐标原点，全部发射和接收拖曳缆绳共用同一物理锚点，偶数个拖曳子无人机被固定等分为发射组和接收组。下行、上行和目标回波采用纯 LoS USW 信道，保留逐阵元精确球面波距离相位；共锚点近距离直接 SI 则逐收发阵元对保留自由空间距离幅度衰减和球面波相位，并通过综合残余系数形成统一的等效残余 SI 信道。为避免多个不可辨识感知协方差造成变量冗余，将总感知协方差写成多波束因子形式 $\mathbf S=\mathbf V\mathbf V^H$，并将通信波束和感知波束合并为发射矩阵 $\mathbf Q=[\mathbf W,\mathbf V]$。统一的等效残余 SI 继续进入上行与感知 SINR 分母，以反映全双工收发同时工作造成的性能损失，但系统不设置任何残余 SI 功率阈值、显式约束或候选解检测条件。系统联合优化通信与感知波束、上行功率、接收波束以及收发 ToMA 三维端点位置，以最大化上下行通信和感知速率的加权和。固定位置时，采用最大 SINR 接收器、拉格朗日对偶变换、二次变换及总功率拉格朗日乘子，获得发射矩阵和上行功率幅度的闭式或一维搜索更新；位置梯度仍在当前资源固定条件下计算，而每个几何可行候选位置均以当前资源为 warm start 执行最多 2 次内层 FP 更新，再按 FP-aware Armijo 条件验收，并同步接受候选位置与候选资源。该方法避免通用 SDP、通信协方差秩一恢复、SI 对偶变量和 SI 候选筛选，形成一种 FP－拉格朗日资源优化与 FP-aware 球面黎曼位置更新交替进行的联合优化算法。
+> 本文研究一种单套 ToMA 辅助的全双工近场 ISAC 系统。主无人机固定于全局坐标原点，全部发射和接收拖曳缆绳共用同一物理锚点，偶数个拖曳子无人机被固定等分为发射组和接收组。下行、上行和目标回波采用纯 LoS USW 信道，保留逐阵元精确球面波距离相位；共锚点近距离直接 SI 则逐收发阵元对保留自由空间距离幅度衰减和球面波相位，并通过综合残余系数形成统一的等效残余 SI 信道。为避免多个不可辨识感知协方差造成变量冗余，将总感知协方差写成多波束因子形式 $\mathbf S=\mathbf V\mathbf V^H$，并将通信波束和感知波束合并为发射矩阵 $\mathbf Q=[\mathbf W,\mathbf V]$。目标回波和残余 SI 在接收信号层面仍然叠加，但在 SINR 的二阶统计中作为互不相关分量分别累加协方差，不保留 echo--echo 或 echo--RSI 交叉项。统一的等效残余 SI 继续进入上行与感知 SINR 分母，以反映全双工收发同时工作造成的性能损失，但系统不设置任何残余 SI 功率阈值、显式约束或候选解检测条件。系统联合优化通信与感知波束、上行功率、接收波束以及收发 ToMA 三维端点位置，以最大化上下行通信和感知速率的加权和。固定位置时，采用最大 SINR 接收器、拉格朗日对偶变换、二次变换及总功率拉格朗日乘子，获得发射矩阵和上行功率幅度的闭式或一维搜索更新；位置梯度仍在当前资源固定条件下计算，而每个几何可行候选位置均以当前资源为 warm start 执行最多 2 次内层 FP 更新，再按 FP-aware Armijo 条件验收，并同步接受候选位置与候选资源。该方法避免通用 SDP、通信协方差秩一恢复、SI 对偶变量和 SI 候选筛选，形成一种 FP－拉格朗日资源优化与 FP-aware 球面黎曼位置更新交替进行的联合优化算法。
 
 ---
 

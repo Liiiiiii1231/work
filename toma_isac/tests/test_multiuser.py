@@ -6,7 +6,7 @@ import numpy as np
 
 from algorithm import run_joint_algorithm
 from config import load_config
-from metrics import build_a_s
+from metrics import build_sensing_interference_covariance
 from utils import (
     check_resource_constraints,
     split_transmit_matrix,
@@ -88,23 +88,28 @@ def test_multiuser_joint_algorithm() -> None:
     )
 
     # ========================================================
-    # 2. 多目标 A_S,l
+    # 2. 多目标 C_S,l
     # ========================================================
 
-    # L=2 时，目标 0 的干扰应包含 G_1 + H_RSI。
-    a_s_0 = build_a_s(
+    # L=2 时，目标 0 的干扰协方差应分别累加 G_1 和 H_RSI。
+    c_s_0 = build_sensing_interference_covariance(
         channels,
+        resources.q_matrix,
         0,
     )
 
-    expected_a_s_0 = (
-        channels.g[1]
-        + channels.h_rsi
+    r_matrix = (
+        resources.q_matrix
+        @ resources.q_matrix.conj().T
+    )
+    expected_c_s_0 = (
+        channels.g[1] @ r_matrix @ channels.g[1].conj().T
+        + channels.h_rsi @ r_matrix @ channels.h_rsi.conj().T
     )
 
     assert np.allclose(
-        a_s_0,
-        expected_a_s_0,
+        c_s_0,
+        expected_c_s_0,
     )
 
     # ========================================================
