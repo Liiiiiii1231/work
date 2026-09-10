@@ -105,8 +105,8 @@ algorithm:
   backtracking_factor: 0.5
   finite_diff_delta: 1.0e-06
   initial_outer_step: 0.1
-  plateau_window: 10
-  tol_window: 0.0014
+  plateau_window: 0
+  tol_window: 0.0
 experiment:
   n_mc: 10
   scene_seed_start: 8001
@@ -127,9 +127,6 @@ experiment:
     region_size: 0.03
     min_spacing: 0.005
     initial_step: 0.003
-
-    # B6: Multi-start MA + FP
-    # start 1 = 固定 UPA；其余起点 = 随机可行 MA 初始几何。
     n_starts: 3
     initial_jitter_fraction: 0.5
   sweep:

@@ -181,8 +181,8 @@ algorithm:
   backtracking_factor: 0.5
   finite_diff_delta: 1.0e-06
   initial_outer_step: 0.1
-  plateau_window: 10
-  tol_window: 0.0014
+  plateau_window: 0
+  tol_window: 0.0
 experiment:
   n_mc: 10
   scene_seed_start: 8001

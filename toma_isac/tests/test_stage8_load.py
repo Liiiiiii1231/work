@@ -31,13 +31,6 @@ ROOT = Path(__file__).resolve().parents[1]
 def _config_path(load: int) -> Path:
     """返回对应 system load 的配置文件。"""
 
-    if load == 2:
-        return (
-            ROOT
-            / "configs"
-            / "stage8_monte_carlo.yaml"
-        )
-
     return (
         ROOT
         / "configs"
@@ -46,9 +39,9 @@ def _config_path(load: int) -> Path:
 
 
 def test_system_load_yaml_shapes_are_consistent() -> None:
-    """验证 load=1/2/3 的 shape 和权重。"""
+    """验证 load=3~7 的 shape、权重和感知流数。"""
 
-    for load in (1, 2, 3):
+    for load in (3, 4, 5, 6, 7):
         path = _config_path(load)
 
         cfg = load_config(path)
@@ -62,7 +55,10 @@ def test_system_load_yaml_shapes_are_consistent() -> None:
         assert cfg.k_dl == load
         assert cfg.j_ul == load
         assert cfg.l_target == load
-        assert cfg.r_sensing == load
+        assert cfg.r_sensing == min(
+            load,
+            cfg.n_tx,
+        )
 
         assert cfg.p_ul_max.shape == (
             load,
@@ -208,9 +204,8 @@ def test_system_load_results_can_be_saved(
     csv_path, npz_path = (
         save_system_load_results(
             {
-                1: [_scene(1)],
-                2: [_scene(2)],
-                3: [_scene(3)],
+                load: [_scene(load)]
+                for load in (3, 4, 5, 6, 7)
             },
             tmp_path,
         )
@@ -226,12 +221,14 @@ def test_system_load_results_can_be_saved(
     assert data[
         "system_load"
     ].tolist() == [
-        1,
-        2,
         3,
+        4,
+        5,
+        6,
+        7,
     ]
 
     assert data["wsr"].shape == (
-        3,
+        5,
         len(SCHEME_ORDER),
     )
