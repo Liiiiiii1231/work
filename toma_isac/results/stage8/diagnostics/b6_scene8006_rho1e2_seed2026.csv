@@ -1,2 +1,0 @@
-scene_seed,rho_si,start_seed,max_outer_diagnostic,iterations,converged,stop_reason,initial_wsr,final_wsr,final_relative_change,final_last20_gain,final_last50_gain,wsr_at_1000,relative_change_at_1000,previous20_gain_at_1000,previous50_gain_at_1000,runtime_s
-8006,0.01,2026,1500,1088,True,outer_tolerance,0.8173051339372172,10.180223137187506,9.403796215618287e-05,0.0020313030606388008,0.005361807903940326,10.08171053274154,0.00011415624116540744,0.002325259957014773,0.00597744045017305,40.51199779997114

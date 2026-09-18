@@ -20,6 +20,7 @@ Proposed 继续直接调用 algorithm.py 中的 run_joint_algorithm()，
 from __future__ import annotations
 
 from dataclasses import dataclass
+from copy import deepcopy
 
 import numpy as np
 
@@ -405,6 +406,8 @@ def run_fixed_toma_fp(
     cfg: SystemConfig,
     rng: np.random.Generator | None = None,
     verbose: bool = False,
+    initial_endpoints: np.ndarray | None = None,
+    initial_resources: ResourceState | None = None,
 ) -> BaselineResult:
     """固定初始 ToMA，只执行完整 FP resource optimization。"""
 
@@ -413,12 +416,19 @@ def run_fixed_toma_fp(
             cfg.random_seed
         )
 
-    endpoints = generate_feasible_endpoints(
-        cfg,
-        rng,
-    )
+    if initial_endpoints is None:
+        endpoints = generate_feasible_endpoints(
+            cfg,
+            rng,
+        )
+    else:
+        endpoints = np.asarray(
+            initial_endpoints,
+            dtype=float,
+        ).copy()
+
     # Fixed-ToMA 的初始端点之后应始终保持不变。
-    initial_endpoints = endpoints.copy()
+    initial_endpoints_saved = endpoints.copy()
     geometry = build_geometry(
         endpoints,
         cfg,
@@ -429,12 +439,15 @@ def run_fixed_toma_fp(
         cfg,
     )
 
-    resources = initialize_resources(
-        geometry,
-        channels,
-        cfg,
-        rng,
-    )
+    if initial_resources is None:
+        resources = initialize_resources(
+            geometry,
+            channels,
+            cfg,
+            rng,
+        )
+    else:
+        resources = deepcopy(initial_resources)
 
     resources, inner_history = solve_inner_problem(
         channels,
@@ -474,7 +487,7 @@ def run_fixed_toma_fp(
         len(inner_history)
         - 1
     ),
-    initial_endpoints=initial_endpoints,
+    initial_endpoints=initial_endpoints_saved,
 )
 
 # ============================================================
@@ -707,6 +720,7 @@ def run_fpa_upa_fp(
     verbose: bool = False,
     spacing: float | None = None,
     tx_rx_separation: float | None = None,
+    initial_resources: ResourceState | None = None,
 ) -> BaselineResult:
     """固定 UPA 几何，并使用与 Proposed 相同的 FP 资源优化。"""
 
@@ -728,12 +742,15 @@ def run_fpa_upa_fp(
         cfg,
     )
 
-    resources = initialize_resources(
-        geometry,
-        channels,
-        cfg,
-        rng,
-    )
+    if initial_resources is None:
+        resources = initialize_resources(
+            geometry,
+            channels,
+            cfg,
+            rng,
+        )
+    else:
+        resources = deepcopy(initial_resources)
 
     resources, inner_history = solve_inner_problem(
         channels,

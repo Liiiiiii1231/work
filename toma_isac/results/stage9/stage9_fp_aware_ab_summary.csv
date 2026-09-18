@@ -1,3 +1,0 @@
-mode,candidate_fp_iterations,outer_iterations,converged,final_wsr,runtime_s,total_accepted_endpoints
-original,0,302,True,10.997438827855824,8.750311200041324,1208
-fp_aware,3,77,True,11.678575831029452,14.93015050003305,308

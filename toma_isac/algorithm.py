@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from copy import deepcopy
 
 import numpy as np
 
@@ -69,6 +70,8 @@ def run_joint_algorithm(
     max_outer_iterations: int | None = None,
     position_update_mode: str = "original",
     fp_aware_candidate_iters: int = 2,
+    initial_endpoints: np.ndarray | None = None,
+    initial_resources: ResourceState | None = None,
 ) -> AlgorithmResult:
     """执行一次完整的单起点 ToMA-ISAC 联合优化。
 
@@ -113,10 +116,16 @@ def run_joint_algorithm(
     # 1. 初始化几何、信道和资源
     # ========================================================
 
-    endpoints = generate_feasible_endpoints(
-        cfg,
-        rng,
-    )
+    if initial_endpoints is None:
+        endpoints = generate_feasible_endpoints(
+            cfg,
+            rng,
+        )
+    else:
+        endpoints = np.asarray(
+            initial_endpoints,
+            dtype=float,
+        ).copy()
 
     geometry = build_geometry(
         endpoints,
@@ -128,12 +137,15 @@ def run_joint_algorithm(
         cfg,
     )
 
-    resources = initialize_resources(
-        geometry,
-        channels,
-        cfg,
-        rng,
-    )
+    if initial_resources is None:
+        resources = initialize_resources(
+            geometry,
+            channels,
+            cfg,
+            rng,
+        )
+    else:
+        resources = deepcopy(initial_resources)
 
     check_resource_constraints(
         resources,

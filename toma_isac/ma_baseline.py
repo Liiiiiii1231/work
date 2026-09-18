@@ -15,6 +15,7 @@ B6: MA + FP Resource Optimization
 from __future__ import annotations
 
 from dataclasses import dataclass
+from copy import deepcopy
 
 import numpy as np
 
@@ -498,6 +499,9 @@ def run_ma_fp(
     max_outer_iterations: int | None = None,
     randomize_initial_geometry: bool = False,
     initial_jitter_fraction: float = 0.5,
+    initial_tx_positions: np.ndarray | None = None,
+    initial_rx_positions: np.ndarray | None = None,
+    initial_resources: ResourceState | None = None,
 ) -> MABaselineResult:
     """运行 B6：MA + FP Resource Optimization。
 
@@ -556,7 +560,31 @@ def run_ma_fp(
             "Initial UPA is not feasible for the selected MA region/min_spacing."
         )
 
-    if randomize_initial_geometry:
+    if (initial_tx_positions is None) != (initial_rx_positions is None):
+        raise ValueError(
+            "initial_tx_positions and initial_rx_positions "
+            "must be provided together."
+        )
+
+    if initial_tx_positions is not None:
+        geometry = _build_ma_geometry(
+            initial_tx_positions,
+            initial_rx_positions,
+            cfg,
+        )
+        if not _ma_geometry_is_feasible(
+            geometry.tx_positions,
+            geometry.rx_positions,
+            tx_center,
+            rx_center,
+            region_size,
+            min_spacing,
+            cfg,
+        ):
+            raise ValueError(
+                "Provided MA warm-start geometry is infeasible."
+            )
+    elif randomize_initial_geometry:
         geometry = _randomize_initial_ma_geometry(
             base_geometry,
             tx_center=tx_center,
@@ -570,16 +598,19 @@ def run_ma_fp(
     else:
         geometry = base_geometry
 
-    initial_tx_positions = geometry.tx_positions.copy()
-    initial_rx_positions = geometry.rx_positions.copy()
+    initial_tx_positions_saved = geometry.tx_positions.copy()
+    initial_rx_positions_saved = geometry.rx_positions.copy()
 
     channels = build_channels(geometry, cfg)
-    resources = initialize_resources(
-        geometry,
-        channels,
-        cfg,
-        rng,
-    )
+    if initial_resources is None:
+        resources = initialize_resources(
+            geometry,
+            channels,
+            cfg,
+            rng,
+        )
+    else:
+        resources = deepcopy(initial_resources)
 
     check_resource_constraints(resources, cfg)
 
@@ -681,6 +712,6 @@ def run_ma_fp(
         converged=converged,
         iterations=iterations,
         stop_reason=stop_reason,
-        initial_tx_positions=initial_tx_positions,
-        initial_rx_positions=initial_rx_positions,
+        initial_tx_positions=initial_tx_positions_saved,
+        initial_rx_positions=initial_rx_positions_saved,
     )

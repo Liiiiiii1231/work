@@ -1,3 +1,0 @@
-label,finite_diff_delta,initial_wsr,final_wsr,outer_iterations,converged,runtime_s,verified_stop_iteration
-old,1e-05,1.240526608822528,11.001612568664072,305,True,7.869345099985367,305
-new,1e-06,1.240526608822528,10.997364669127865,302,True,7.785604200005764,302
