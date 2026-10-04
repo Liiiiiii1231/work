@@ -40,11 +40,7 @@ scene:
     - [-7.0, 9.0, 2.5]
 
 channel:
-  alpha_dl: [1.0e-3, 1.0e-3]
-  alpha_ul: [1.0e-3, 1.0e-3]
   xi_s: [1.0, 1.0]
-  beta_t_s: [1.0e-4, 1.0e-4]
-  beta_r_s: [1.0e-4, 1.0e-4]
 
 initialization:
   kappa_ul: 0.5

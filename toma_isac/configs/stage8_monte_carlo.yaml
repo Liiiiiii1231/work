@@ -97,36 +97,12 @@ scene:
     - 19.3295
     - 20.0
 channel:
-  alpha_dl:
-  - 0.001
-  - 0.001
-  - 0.001
-  - 0.001
-  - 0.001
-  alpha_ul:
-  - 0.001
-  - 0.001
-  - 0.001
-  - 0.001
-  - 0.001
   xi_s:
   - 1.0
   - 1.0
   - 1.0
   - 1.0
   - 1.0
-  beta_t_s:
-  - 0.0001
-  - 0.0001
-  - 0.0001
-  - 0.0001
-  - 0.0001
-  beta_r_s:
-  - 0.0001
-  - 0.0001
-  - 0.0001
-  - 0.0001
-  - 0.0001
 initialization:
   kappa_ul: 0.5
   random_seed: 2026
@@ -168,18 +144,21 @@ experiment:
     n_starts: 3
     initial_jitter_fraction: 0.5
   sweep:
+    # Residual-SI power ratio: -40, -30, -20, -10, 0 dB.
     rho_si:
-    - 1.0e-05
     - 0.0001
     - 0.001
     - 0.01
     - 0.1
-    p_dl_max:
-    - 0.2
-    - 0.5
     - 1.0
-    - 1.5
-    - 2.0
+    # P_DL,max is stored in watts internally. These values correspond to
+    # 20, 25, 30, 35, and 40 dBm.
+    p_dl_max:
+    - 0.1
+    - 0.31622776601683794
+    - 1.0
+    - 3.1622776601683795
+    - 10.0
     cable_length:
     - 0.5
     - 0.75

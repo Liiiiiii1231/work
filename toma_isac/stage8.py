@@ -31,6 +31,7 @@ from baselines import (
     run_rcg_toma_traditional,
 )
 from config import SystemConfig
+from channels import communication_path_gains
 from ma_baseline import run_ma_fp
 from multistart import MultiStartResult, run_multi_start
 
@@ -264,8 +265,9 @@ def make_scene_config(
     位置扰动继续使用原来的 scene_seed 随机流，从而保持 Stage 8A
     已使用场景的位置可复现性。随机衰落使用独立的确定性随机流。
 
-    当 randomize_fading=True 时，只随机化通信/感知链路的公共复路径
-    增益；近场球面波阵列响应以及直接 SI 几何信道仍按原模型计算。
+    路径损耗不在本文件中计算，而由 channels.py 根据当前 q 与波长
+    统一构造。当 randomize_fading=True 时这里只生成 scene-level 的
+    单位功率复衰落乘子；正式纯 LoS 仿真保持关闭。
     同一 cfg 会在整个 scene 的 FP/RCG 过程中反复复用，因此 fading
     realization 不会随 outer/inner iteration 重新采样。
     """
@@ -301,9 +303,18 @@ def make_scene_config(
             "Scene perturbation produced a non-positive z coordinate."
         )
 
-    alpha_dl = base_cfg.alpha_dl.copy()
-    alpha_ul = base_cfg.alpha_ul.copy()
-    xi_s = base_cfg.xi_s.copy()
+    fading_dl = np.ones(
+        base_cfg.k_dl,
+        dtype=np.complex128,
+    )
+    fading_ul = np.ones(
+        base_cfg.j_ul,
+        dtype=np.complex128,
+    )
+    fading_s = np.ones(
+        base_cfg.l_target,
+        dtype=np.complex128,
+    )
 
     if randomize_fading:
         if fading_model != "scalar_rayleigh":
@@ -311,21 +322,21 @@ def make_scene_config(
                 "fading_model must be 'scalar_rayleigh'."
             )
 
-        # 与位置随机流分离；不会改变 Stage 8A 原 scene 的位置。
+        # 与位置随机流分离；不会改变原 scene 的位置。
         fading_seed = np.random.SeedSequence(
             [int(scene_seed), 20260826]
         )
         fading_rng = np.random.default_rng(fading_seed)
 
-        alpha_dl *= _unit_power_complex_rayleigh(
+        fading_dl = _unit_power_complex_rayleigh(
             fading_rng,
             base_cfg.k_dl,
         )
-        alpha_ul *= _unit_power_complex_rayleigh(
+        fading_ul = _unit_power_complex_rayleigh(
             fading_rng,
             base_cfg.j_ul,
         )
-        xi_s *= _unit_power_complex_rayleigh(
+        fading_s = _unit_power_complex_rayleigh(
             fading_rng,
             base_cfg.l_target,
         )
@@ -335,9 +346,9 @@ def make_scene_config(
         q_dl=q_dl,
         q_ul=q_ul,
         q_s=q_s,
-        alpha_dl=alpha_dl,
-        alpha_ul=alpha_ul,
-        xi_s=xi_s,
+        fading_dl=fading_dl,
+        fading_ul=fading_ul,
+        fading_s=fading_s,
     )
     cfg.validate()
     return cfg
@@ -587,14 +598,18 @@ def run_stage8_scene(
         )
         print(values)
 
+    alpha_dl, alpha_ul = communication_path_gains(
+        scene_cfg
+    )
+
     return SceneSummary(
         scene_seed=int(scene_seed),
         q_dl=scene_cfg.q_dl.copy(),
         q_ul=scene_cfg.q_ul.copy(),
         q_s=scene_cfg.q_s.copy(),
-        alpha_dl=scene_cfg.alpha_dl.copy(),
-        alpha_ul=scene_cfg.alpha_ul.copy(),
-        xi_s=scene_cfg.xi_s.copy(),
+        alpha_dl=alpha_dl.copy(),
+        alpha_ul=alpha_ul.copy(),
+        xi_s=(scene_cfg.xi_s * scene_cfg.fading_s).copy(),
         schemes=summaries,
     )
 

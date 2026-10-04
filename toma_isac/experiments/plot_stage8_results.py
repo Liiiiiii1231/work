@@ -469,21 +469,50 @@ def _rho_to_db(
     )
 
 
+def _watt_to_dbm(
+    values: np.ndarray,
+) -> np.ndarray:
+    """将发射功率从 W 转换为 dBm。"""
+
+    if np.any(values <= 0.0):
+        raise ValueError(
+            "p_dl_max must be positive "
+            "when converting to dBm."
+        )
+
+    return (
+        10.0
+        * np.log10(values)
+        + 30.0
+    )
+
+
+def _remove_obsolete_monte_carlo_figures() -> None:
+    """删除已不再作为正式论文图的 Monte Carlo 柱状图。"""
+
+    removed = False
+
+    for suffix in (".png", ".pdf"):
+        path = FIGURE_DIR / f"monte_carlo_wsr{suffix}"
+
+        if path.exists():
+            path.unlink()
+            removed = True
+
+    if removed:
+        print("Removed obsolete Monte Carlo figure.")
+
+
 def main() -> None:
     """生成 Stage 8 正式论文图。"""
 
-    monte_carlo_csv = (
-        RESULT_DIR
-        / "stage8_monte_carlo.csv"
+    FIGURE_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
     )
 
-    if monte_carlo_csv.exists():
-        plot_monte_carlo_bar()
-
-        print(
-            "Generated Monte Carlo "
-            "bar chart."
-        )
+    # Monte Carlo 柱状图不再作为正式论文图。
+    _remove_obsolete_monte_carlo_figures()
 
     sweep_specs = (
         (
@@ -497,11 +526,11 @@ def main() -> None:
             _rho_to_db,
             np.asarray(
                 [
-                    -50.0,
                     -40.0,
                     -30.0,
                     -20.0,
                     -10.0,
+                    0.0,
                 ]
             ),
         ),
@@ -509,16 +538,16 @@ def main() -> None:
             "p_dl_max",
             (
                 r"Maximum DL transmit power "
-                r"$P_{\mathrm{DL}}^{\max}$ (W)"
+                r"$P_{\mathrm{DL}}^{\max}$ (dBm)"
             ),
-            None,
+            _watt_to_dbm,
             np.asarray(
                 [
-                    0.2,
-                    0.5,
-                    1.0,
-                    1.5,
-                    2.0,
+                    20.0,
+                    25.0,
+                    30.0,
+                    35.0,
+                    40.0,
                 ]
             ),
         ),

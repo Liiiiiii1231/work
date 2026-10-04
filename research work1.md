@@ -311,7 +311,33 @@ $$
 
 ### 4.2 下行与上行通信信道
 
-第 $k$ 个下行用户的信道为
+由于全部 ToMA 缆绳共用位于主无人机坐标原点的公共锚点，定义第 $k$ 个下行用户和第 $j$ 个上行用户相对于公共锚点的参考传播距离分别为
+
+$$
+r_k^{\rm D}
+=
+\|\mathbf q_k^{\rm D}\|_2,
+\qquad
+r_j^{\rm U}
+=
+\|\mathbf q_j^{\rm U}\|_2.
+$$
+
+在纯 LoS 自由空间传播条件下，对应链路的公共幅度路径增益分别取为
+
+$$
+\boxed{
+\alpha_k^{\rm D}
+=
+\frac{\lambda}{4\pi r_k^{\rm D}},
+\qquad
+\alpha_j^{\rm U}
+=
+\frac{\lambda}{4\pi r_j^{\rm U}}
+}.
+$$
+
+因此，第 $k$ 个下行用户的信道为
 
 $$
 \mathbf h_k
@@ -331,20 +357,54 @@ $$
 (\widetilde{\mathbf c}_{\rm R},\mathbf q_j^{\rm U}).
 $$
 
-其中 $\alpha_k^{\rm D}$ 与 $\alpha_j^{\rm U}$ 为对应链路的公共复路径增益。
+上述 USW 模型将同一用户链路在阵列内部近似一致的幅度衰减归入公共路径增益，而阵列响应仍利用逐阵元精确传播距离保留近场球面波相位。
 
 ### 4.3 目标双程回波信道
 
-令 $\xi_l^{\rm S}$ 表示第 $l$ 个目标的复反射系数。进一步令
-$\beta_{{\rm T},l}^{\rm S}\ge0$ 和 $\beta_{{\rm R},l}^{\rm S}\ge0$
-分别表示发射端至目标以及目标至接收端两段链路的功率增益，因此公共双程复幅度系数中使用其平方根：
+由于发射和接收 ToMA 共用位于原点的公共锚点，定义第 $l$ 个感知目标相对于发射端和接收端公共参考点的传播距离分别为
 
 $$
+r_{{\rm T},l}^{\rm S}
+=
+\|\mathbf q_l^{\rm S}\|_2,
+\qquad
+r_{{\rm R},l}^{\rm S}
+=
+\|\mathbf q_l^{\rm S}\|_2.
+$$
+
+在自由空间纯 LoS 条件下，发射端至目标以及目标至接收端的单程功率路径增益分别定义为
+
+$$
+\boxed{
+\beta_{{\rm T},l}^{\rm S}
+=
+\left(
+\frac{\lambda}
+{4\pi r_{{\rm T},l}^{\rm S}}
+\right)^2,
+\qquad
+\beta_{{\rm R},l}^{\rm S}
+=
+\left(
+\frac{\lambda}
+{4\pi r_{{\rm R},l}^{\rm S}}
+\right)^2
+}.
+$$
+
+令 $\xi_l^{\rm S}$ 表示第 $l$ 个目标的复反射系数，则公共双程复幅度系数为
+
+$$
+\boxed{
 \alpha_l^{\rm S}
 =
 \xi_l^{\rm S}
-\sqrt{\beta_{{\rm T},l}^{\rm S}
-\beta_{{\rm R},l}^{\rm S}}.
+\sqrt{
+\beta_{{\rm T},l}^{\rm S}
+\beta_{{\rm R},l}^{\rm S}
+}
+}.
 $$
 
 第 $l$ 个目标的双程回波矩阵写为
@@ -369,6 +429,8 @@ e^{-jk_0\left(
 \|\mathbf p_i^{\rm T}-\mathbf q_l^{\rm S}\|_2
 \right)}.
 $$
+
+因此，目标回波同时体现了发射端至目标和目标至接收端的双程自由空间传播损耗，以及逐阵元精确距离产生的近场球面波相位。
 
 ### 4.4 共锚点直接 SI 信道
 

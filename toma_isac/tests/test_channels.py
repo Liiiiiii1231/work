@@ -44,8 +44,14 @@ def test_channel_formulas_match_model() -> None:
         axis=1,
     )
 
+    alpha_dl = (
+        cfg.wavelength
+        / (4.0 * np.pi * np.linalg.norm(cfg.q_dl[0]))
+        * cfg.fading_dl[0]
+    )
+
     expected_h = (
-        cfg.alpha_dl[0]
+        alpha_dl
         * np.exp(
             1j
             * cfg.k0
@@ -70,8 +76,14 @@ def test_channel_formulas_match_model() -> None:
         axis=1,
     )
 
+    alpha_ul = (
+        cfg.wavelength
+        / (4.0 * np.pi * np.linalg.norm(cfg.q_ul[0]))
+        * cfg.fading_ul[0]
+    )
+
     expected_f = (
-        cfg.alpha_ul[0]
+        alpha_ul
         * np.exp(
             1j
             * cfg.k0
@@ -102,12 +114,17 @@ def test_channel_formulas_match_model() -> None:
         axis=1,
     )
 
+    sensing_amp = (
+        cfg.wavelength
+        / (4.0 * np.pi * np.linalg.norm(cfg.q_s[0]))
+    )
+    beta_t_s = sensing_amp ** 2
+    beta_r_s = sensing_amp ** 2
+
     alpha_s = (
         cfg.xi_s[0]
-        * np.sqrt(
-            cfg.beta_t_s[0]
-            * cfg.beta_r_s[0]
-        )
+        * cfg.fading_s[0]
+        * np.sqrt(beta_t_s * beta_r_s)
     )
 
     expected_g = (

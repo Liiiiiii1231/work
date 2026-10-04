@@ -59,7 +59,6 @@ TASKS = {
 FORMAL_ORDER = (
     "tests",
     "convergence",
-    "monte_carlo",
     "p_dl_max",
     "rho_si",
     "system_load",
@@ -119,6 +118,43 @@ def validate_configs() -> None:
     if exp.ma_n_starts != 3:
         raise RuntimeError("MA baseline must use n_starts=3.")
 
+    expected_p_dbm = np.asarray(
+        [20.0, 25.0, 30.0, 35.0, 40.0],
+        dtype=float,
+    )
+    actual_p_dbm = (
+        10.0
+        * np.log10(np.asarray(exp.p_dl_max_values, dtype=float))
+        + 30.0
+    )
+    if not np.allclose(
+        actual_p_dbm,
+        expected_p_dbm,
+        rtol=0.0,
+        atol=1.0e-10,
+    ):
+        raise RuntimeError(
+            "P_DL,max sweep must be 20:5:40 dBm."
+        )
+
+    expected_rho_db = np.asarray(
+        [-40.0, -30.0, -20.0, -10.0, 0.0],
+        dtype=float,
+    )
+    actual_rho_db = (
+        10.0
+        * np.log10(np.asarray(exp.rho_si_values, dtype=float))
+    )
+    if not np.allclose(
+        actual_rho_db,
+        expected_rho_db,
+        rtol=0.0,
+        atol=1.0e-10,
+    ):
+        raise RuntimeError(
+            "rho_si sweep must be -40:10:0 dB."
+        )
+
     if cfg.plateau_window != 0 or cfg.tol_window != 0.0:
         raise RuntimeError(
             "Formal main config must disable window plateau stopping."
@@ -164,6 +200,8 @@ def validate_configs() -> None:
     print("  fading = OFF")
     print("  MA region = 30 lambda x 30 lambda")
     print("  MA starts = 3")
+    print("  P_DL,max sweep = 20, 25, 30, 35, 40 dBm")
+    print("  rho_si sweep = -40, -30, -20, -10, 0 dB")
     print("  load sweep = 3, 4, 5, 6, 7")
     print("  window plateau stop = OFF")
 

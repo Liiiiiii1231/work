@@ -52,9 +52,8 @@ class TradeoffConfig:
             raise ValueError("omega_comm must not be empty.")
         if len(set(self.omega_comm)) != len(self.omega_comm):
             raise ValueError("omega_comm values must be unique.")
-        if any(not (0.0 < value < 1.0) for value in self.omega_comm):
-            raise ValueError("Each omega_comm must lie strictly in (0, 1).")
-
+        if any(not (0.0 <= value <= 1.0) for value in self.omega_comm):
+            raise ValueError("Each omega_comm must lie in [0, 1].")
 
 @dataclass(frozen=True)
 class TradeoffRecord:
@@ -95,8 +94,8 @@ def make_group_weights(
     """通信总权重平均分给 DL/UL 两组，组内用户等权。"""
 
     omega_comm = float(omega_comm)
-    if not 0.0 < omega_comm < 1.0:
-        raise ValueError("omega_comm must lie strictly in (0, 1).")
+    if not 0.0 <= omega_comm <= 1.0:
+        raise ValueError("omega_comm must lie in [0, 1].")
 
     omega_sensing = 1.0 - omega_comm
 

@@ -195,39 +195,39 @@ def test_scene_level_fading_is_reproducible_and_fixed() -> None:
     )
 
     assert np.allclose(
-        scene_a.alpha_dl,
-        scene_b.alpha_dl,
+        scene_a.fading_dl,
+        scene_b.fading_dl,
     )
     assert np.allclose(
-        scene_a.alpha_ul,
-        scene_b.alpha_ul,
+        scene_a.fading_ul,
+        scene_b.fading_ul,
     )
     assert np.allclose(
-        scene_a.xi_s,
-        scene_b.xi_s,
+        scene_a.fading_s,
+        scene_b.fading_s,
     )
 
     assert not np.allclose(
-        scene_a.alpha_dl,
-        scene_c.alpha_dl,
+        scene_a.fading_dl,
+        scene_c.fading_dl,
     )
     assert not np.allclose(
-        scene_a.alpha_ul,
-        scene_c.alpha_ul,
+        scene_a.fading_ul,
+        scene_c.fading_ul,
     )
     assert not np.allclose(
-        scene_a.xi_s,
-        scene_c.xi_s,
+        scene_a.fading_s,
+        scene_c.fading_s,
     )
 
     # base_cfg 不被 scene 构造原地修改。
     assert np.allclose(
-        cfg.alpha_dl,
-        load_config(CONFIG_PATH).alpha_dl,
+        cfg.fading_dl,
+        load_config(CONFIG_PATH).fading_dl,
     )
     assert np.allclose(
-        cfg.alpha_ul,
-        load_config(CONFIG_PATH).alpha_ul,
+        cfg.fading_ul,
+        load_config(CONFIG_PATH).fading_ul,
     )
     assert np.allclose(
         cfg.xi_s,
@@ -298,14 +298,14 @@ def test_parameter_changes_do_not_change_same_scene_fading() -> None:
         scene_b.q_s,
     )
     assert np.allclose(
-        scene_a.alpha_dl,
-        scene_b.alpha_dl,
+        scene_a.fading_dl,
+        scene_b.fading_dl,
     )
     assert np.allclose(
-        scene_a.alpha_ul,
-        scene_b.alpha_ul,
+        scene_a.fading_ul,
+        scene_b.fading_ul,
     )
     assert np.allclose(
-        scene_a.xi_s,
-        scene_b.xi_s,
+        scene_a.fading_s,
+        scene_b.fading_s,
     )

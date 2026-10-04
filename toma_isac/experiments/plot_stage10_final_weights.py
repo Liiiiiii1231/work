@@ -65,10 +65,27 @@ def main() -> None:
         for target in (0.0, 0.50, 1.0):
             if np.any(np.isclose(omega, target)):
                 idx = int(np.argmin(np.abs(omega - target)))
+
+                # 单独调整 FPA-UPA + FP 的标签位置，避免文字重叠
+                if (
+                    SCHEME_LABELS[scheme] == "FPA-UPA + FP"
+                    and np.isclose(target, 0.50)
+                ):
+                    offset = (8, 10)
+
+                elif (
+                    SCHEME_LABELS[scheme] == "FPA-UPA + FP"
+                    and np.isclose(target, 1.00)
+                ):
+                    offset = (8, -16)
+
+                else:
+                    offset = (6, 6)
+
                 ax.annotate(
                     rf"$\omega_C={omega[idx]:.2f}$",
                     (rc[idx], rs[idx]),
-                    xytext=(6, 6),
+                    xytext=offset,
                     textcoords="offset points",
                     fontsize=9,
                 )

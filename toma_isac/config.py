@@ -41,11 +41,13 @@ class SystemConfig:
     q_s: np.ndarray
 
     # 信道参数
-    alpha_dl: np.ndarray
-    alpha_ul: np.ndarray
     xi_s: np.ndarray
-    beta_t_s: np.ndarray
-    beta_r_s: np.ndarray
+
+    # 场景级可选小尺度复衰落乘子。
+    # 正式纯 LoS 仿真默认全 1，不需要在 YAML 中配置。
+    fading_dl: np.ndarray
+    fading_ul: np.ndarray
+    fading_s: np.ndarray
 
     # 初始化参数
     kappa_ul: float
@@ -183,33 +185,27 @@ class SystemConfig:
         )
 
         _require_shape(
-            self.alpha_dl,
-            (self.k_dl,),
-            "alpha_dl",
-        )
-
-        _require_shape(
-            self.alpha_ul,
-            (self.j_ul,),
-            "alpha_ul",
-        )
-
-        _require_shape(
             self.xi_s,
             (self.l_target,),
             "xi_s",
         )
 
         _require_shape(
-            self.beta_t_s,
-            (self.l_target,),
-            "beta_t_s",
+            self.fading_dl,
+            (self.k_dl,),
+            "fading_dl",
         )
 
         _require_shape(
-            self.beta_r_s,
+            self.fading_ul,
+            (self.j_ul,),
+            "fading_ul",
+        )
+
+        _require_shape(
+            self.fading_s,
             (self.l_target,),
-            "beta_r_s",
+            "fading_s",
         )
 
         all_weights = np.concatenate(
@@ -363,25 +359,24 @@ def load_config(
             dtype=float,
         ),
 
-        alpha_dl=np.asarray(
-            raw["channel"]["alpha_dl"],
-            dtype=np.complex128,
-        ),
-        alpha_ul=np.asarray(
-            raw["channel"]["alpha_ul"],
-            dtype=np.complex128,
-        ),
         xi_s=np.asarray(
             raw["channel"]["xi_s"],
             dtype=np.complex128,
         ),
-        beta_t_s=np.asarray(
-            raw["channel"]["beta_t_s"],
-            dtype=float,
+
+        # 正式模型中的路径损耗由 channels.py 根据 q 与 lambda 实时计算。
+        # 这里仅初始化可选 scene-level 小尺度衰落乘子。
+        fading_dl=np.ones(
+            int(raw["system"]["K"]),
+            dtype=np.complex128,
         ),
-        beta_r_s=np.asarray(
-            raw["channel"]["beta_r_s"],
-            dtype=float,
+        fading_ul=np.ones(
+            int(raw["system"]["J"]),
+            dtype=np.complex128,
+        ),
+        fading_s=np.ones(
+            int(raw["system"]["L"]),
+            dtype=np.complex128,
         ),
 
         kappa_ul=float(

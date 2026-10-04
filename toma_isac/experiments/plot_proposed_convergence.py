@@ -1,4 +1,4 @@
-"""Stage 8：绘制 Proposed 的外层联合迭代收敛曲线。"""
+"""Stage 8：仅绘制 Proposed 算法的收敛曲线。"""
 
 from __future__ import annotations
 
@@ -28,6 +28,7 @@ from outer_solver import (
     project_to_tangent,
 )
 
+
 CONFIG_PATH = ROOT / "configs" / "stage8_monte_carlo.yaml"
 RESULT_DIR = ROOT / "results" / "stage8"
 FIGURE_DIR = RESULT_DIR / "figures"
@@ -50,15 +51,15 @@ def run_proposed_convergence(
     )
 
     return run_multi_start(
-        name="Proposed: RCG-ToMA + FP",
+        name="Proposed: FP-aware RCG-ToMA + FP",
         seeds=multi_start_seeds,
         run_single=lambda seed: run_joint_algorithm(
-                scene_cfg,
-                rng=np.random.default_rng(seed),
-                verbose=False,
-                position_update_mode="fp_aware",
-                fp_aware_candidate_iters=2,
-            ),
+            scene_cfg,
+            rng=np.random.default_rng(seed),
+            verbose=False,
+            position_update_mode="fp_aware",
+            fp_aware_candidate_iters=2,
+        ),
         iteration_getter=lambda result: result.outer_iterations,
         cfg=scene_cfg,
         require_convergence=require_convergence,
@@ -70,7 +71,7 @@ def save_convergence_csv(
     history: np.ndarray,
     path: Path,
 ) -> None:
-    """保存 iteration、WSR 和相邻迭代相对变化。"""
+    """保存 Proposed 的外层迭代 WSR 与相邻迭代相对变化。"""
 
     path.parent.mkdir(
         parents=True,
@@ -114,7 +115,7 @@ def plot_convergence(
     history: np.ndarray,
     output_stem: Path,
 ) -> None:
-    """绘制完整 WSR 曲线，并放大后期收敛区域。"""
+    """只绘制 Proposed 的 WSR 收敛曲线。"""
 
     if history.ndim != 1 or history.size < 2:
         raise ValueError(
@@ -136,17 +137,21 @@ def plot_convergence(
     )
 
     fig, ax = plt.subplots(
-    figsize=(9.0, 5.5)
-)
+        figsize=(9.0, 5.5)
+    )
 
+    # Proposed 主曲线。
     ax.plot(
         iterations,
         history,
-        linewidth=1.8,
+        marker="o",
+        markevery=max(1, history.size // 10),
+        linewidth=2.5,
+        markersize=5.2,
         label="FP-aware RCG-ToMA + FP (Proposed)",
     )
 
-    # 最终停止位置
+    # 最终停止位置。
     ax.axvline(
         final_iteration,
         linestyle="--",
@@ -157,17 +162,14 @@ def plot_convergence(
     ax.scatter(
         [final_iteration],
         [final_wsr],
-        s=40,
-        zorder=3,
+        s=42,
+        zorder=4,
     )
 
     ax.set_xlabel("Joint AO iteration")
     ax.set_ylabel("WSR (bit/s/Hz)")
     ax.grid(alpha=0.3)
 
-    # ============================================================
-    # 图例移到主图上方，避免遮挡收敛曲线
-    # ============================================================
     ax.legend(
         loc="lower left",
         bbox_to_anchor=(0.0, 1.01),
@@ -176,9 +178,7 @@ def plot_convergence(
         borderaxespad=0.0,
     )
 
-    # -------------------------------------------------
-    # Inset：自动放大最后约 35% 的 Joint AO iterations
-    # -------------------------------------------------
+    # 放大后期收敛区域。
     zoom_start = max(
         1,
         int(np.floor(0.65 * final_iteration)),
@@ -187,7 +187,6 @@ def plot_convergence(
     zoom_history = history[zoom_start:]
     zoom_min = float(np.min(zoom_history))
     zoom_max = float(np.max(zoom_history))
-
     y_span = zoom_max - zoom_min
 
     if y_span <= 0.0:
@@ -205,7 +204,10 @@ def plot_convergence(
     axins.plot(
         iterations,
         history,
-        linewidth=1.5,
+        marker="o",
+        markevery=max(1, history.size // 10),
+        linewidth=1.6,
+        markersize=3.8,
     )
 
     axins.axvline(
@@ -218,14 +220,15 @@ def plot_convergence(
         [final_iteration],
         [final_wsr],
         s=28,
-        zorder=3,
+        zorder=4,
     )
 
     axins.set_xlim(
         zoom_start,
-        final_iteration + max(
+        final_iteration
+        + max(
             2,
-            int(0.02 * final_iteration),
+            int(0.02 * max(final_iteration, 1)),
         ),
     )
 
@@ -246,7 +249,6 @@ def plot_convergence(
 
     axins.grid(alpha=0.25)
 
-    # 主图中标出放大区域并连接 inset
     mark_inset(
         ax,
         axins,
@@ -257,9 +259,6 @@ def plot_convergence(
         linewidth=0.8,
     )
 
-    # ============================================================
-    # 给顶部图例留出空间
-    # ============================================================
     fig.subplots_adjust(
         left=0.10,
         right=0.98,
@@ -282,17 +281,6 @@ def plot_convergence(
 
     plt.close(fig)
 
-    fig.savefig(
-        output_stem.with_suffix(".png"),
-        dpi=300,
-    )
-
-    fig.savefig(
-        output_stem.with_suffix(".pdf"),
-    )
-
-    plt.close(fig)
-
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -309,7 +297,7 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    print("[plot version] inset-v2")
+    print("[plot version] proposed-only-v1")
 
     cfg = load_config(CONFIG_PATH)
     experiment_cfg = load_stage8_experiment_config(
@@ -322,6 +310,9 @@ def main() -> None:
         else int(args.scene_seed)
     )
 
+    # ============================================================
+    # 1. Proposed multi-start
+    # ============================================================
     result = run_proposed_convergence(
         cfg,
         scene_seed=scene_seed,
@@ -333,10 +324,10 @@ def main() -> None:
 
     best = result.best_start
     algorithm_result = best.result
-    # ============================================================
-    # 计算最终停止点的固定当前资源黎曼梯度
-    # ============================================================
 
+    # ============================================================
+    # 2. 最终停止点的固定当前资源黎曼梯度，仅作诊断记录
+    # ============================================================
     scene_cfg = make_scene_config(
         cfg,
         scene_seed=scene_seed,
@@ -346,11 +337,7 @@ def main() -> None:
     final_endpoints = (
         algorithm_result.geometry.endpoints.copy()
     )
-
-    final_resources = (
-        algorithm_result.resources
-    )
-
+    final_resources = algorithm_result.resources
     final_grad_norms = []
 
     for endpoint_index in range(scene_cfg.m_uav):
@@ -399,6 +386,10 @@ def main() -> None:
         "  max  ||grad|| = "
         f"{np.max(final_grad_norms):.6e}"
     )
+
+    # ============================================================
+    # 3. 保存 Proposed 收敛历史
+    # ============================================================
     history = np.asarray(
         algorithm_result.joint_wsr_history,
         dtype=float,
@@ -426,11 +417,17 @@ def main() -> None:
         csv_path,
     )
 
+    # ============================================================
+    # 4. 只绘制 Proposed
+    # ============================================================
     plot_convergence(
         history,
         figure_stem,
     )
 
+    # ============================================================
+    # 5. 输出结果
+    # ============================================================
     print("\nBest Proposed start")
     print(f"  scene seed = {scene_seed}")
     print(f"  best multi-start seed = {best.seed}")
@@ -447,9 +444,10 @@ def main() -> None:
     print(
         f"  final WSR = {history[-1]:.10f}"
     )
-    print(f"CSV saved to: {csv_path}")
+
+    print(f"\nProposed CSV saved to: {csv_path}")
     print(
-        "Figures saved to: "
+        "Proposed figures saved to: "
         f"{figure_stem.with_suffix('.png')} and "
         f"{figure_stem.with_suffix('.pdf')}"
     )

@@ -80,20 +80,16 @@ def test_system_load_yaml_shapes_are_consistent() -> None:
             3,
         )
 
-        assert cfg.alpha_dl.shape == (
-            load,
-        )
-        assert cfg.alpha_ul.shape == (
-            load,
-        )
-
         assert cfg.xi_s.shape == (
             load,
         )
-        assert cfg.beta_t_s.shape == (
+        assert cfg.fading_dl.shape == (
             load,
         )
-        assert cfg.beta_r_s.shape == (
+        assert cfg.fading_ul.shape == (
+            load,
+        )
+        assert cfg.fading_s.shape == (
             load,
         )
 
