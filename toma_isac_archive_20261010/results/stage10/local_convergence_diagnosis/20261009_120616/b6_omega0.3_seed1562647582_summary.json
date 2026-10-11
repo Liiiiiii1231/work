@@ -1,0 +1,23 @@
+{
+  "scheme": "b6",
+  "omega_comm": 0.3,
+  "seed": 1562647582,
+  "converged": true,
+  "stop_reason": "outer_tolerance",
+  "iterations": 110,
+  "runtime_s": 7.8829,
+  "sum_rate_dl": 0.0,
+  "sum_rate_ul": 50.557091235264195,
+  "sum_rate_comm": 50.557091235264195,
+  "sum_rate_sensing": 0.0,
+  "weighted_sum_rate": 1.516712737057926,
+  "tx_power_W": 2.0458679861054367e-259,
+  "ul_power_W_each": [
+    0.03858989190330749,
+    0.028581812013030884,
+    0.045983439938906,
+    0.013788154525177034,
+    0.0
+  ],
+  "zero_ul_count": 1
+}

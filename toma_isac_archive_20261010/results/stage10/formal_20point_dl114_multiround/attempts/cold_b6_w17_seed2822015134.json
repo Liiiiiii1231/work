@@ -1,0 +1,18 @@
+{
+  "scheme": "b6",
+  "omega_comm": 0.7,
+  "seed": 2822015134,
+  "origin_omega": 0.7,
+  "method": "cold",
+  "converged": true,
+  "iterations": 128,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 42.89083453363599,
+  "sum_rate_ul": 24.946738767013798,
+  "sum_rate_comm": 67.83757330064978,
+  "sum_rate_sensing": 2.7247476247298064,
+  "weighted_sum_rate": 4.9121149885292725,
+  "state_file": "cold_states\\cold_b6_w17_seed2822015134.npz",
+  "runtime_s": 16.3284,
+  "status": "ok"
+}

@@ -1,0 +1,19 @@
+{
+  "scheme": "b6",
+  "omega_comm": 0.54,
+  "seed": 1562647582,
+  "origin_omega": 0.2,
+  "method": "anchor_refined",
+  "converged": true,
+  "iterations": 11,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 3.5270156109811377,
+  "sum_rate_ul": 41.38715584175257,
+  "sum_rate_comm": 44.91417145273371,
+  "sum_rate_sensing": 8.792709660810115,
+  "weighted_sum_rate": 3.2342945472421514,
+  "state_file": "refined_states\\b6_target_0.540.npz",
+  "initial_feasible_wsr": 3.22994781269239,
+  "runtime_s": 1.1341,
+  "status": "ok"
+}

@@ -1,0 +1,9 @@
+﻿omega_comm,omega_sensing,scheme,scheme_label,sum_rate_dl,sum_rate_ul,sum_rate_comm,sum_rate_sensing,weighted_sum_rate,best_seed,iterations,runtime_s,n_starts,n_refinements,converged,selection_kind,origin_omega,state_file
+0.005,0.995,b6,MA + FP,0.44972829562793626,0.0,0.44972829562793626,34.543548693041934,6.874391054063159,1562647582,280,35.0171,3,2,True,cold_converged,0.005,cold_states\cold_b6_w00_seed1562647582.npz
+0.005,0.995,proposed,FP-aware RCG-ToMA + FP (Proposed),0.5228671168604889,0.0,0.5228671168604889,37.89346266922452,7.5410605047341095,2028,28,11.2535,3,2,True,cold_converged,0.005,cold_states\cold_proposed_w00_seed2028.npz
+0.3,0.7,b6,MA + FP,0.4745963836287598,0.0,0.4745963836287598,34.58177115765251,4.855685853580214,1562647582,12,1.6113,3,2,True,warm_converged,0.005,warm_states\warm_b6_w01_rank01_from0.005_seed1562647582.npz
+0.3,0.7,proposed,FP-aware RCG-ToMA + FP (Proposed),0.6550573169467862,0.0,0.6550573169467862,37.883554813930026,5.3233493934586065,2028,3,1.1831,3,2,True,warm_converged,0.005,warm_states\warm_proposed_w01_rank01_from0.005_seed2028.npz
+0.5,0.5,b6,MA + FP,0.6693339503265847,0.0,0.6693339503265847,34.64653189887302,3.498119887403632,1562647582,48,6.2404,3,2,True,warm_converged,0.005,warm_states\warm_b6_w02_rank01_from0.005_seed1562647582.npz
+0.5,0.5,proposed,FP-aware RCG-ToMA + FP (Proposed),0.9333395286765362,0.0,0.9333395286765362,37.79158334762184,3.8258253111960108,2028,5,1.9579,3,2,True,warm_converged,0.005,warm_states\warm_proposed_w02_rank01_from0.005_seed2028.npz
+0.6,0.4,b6,MA + FP,0.0,50.6642127452105,50.6642127452105,0.0,3.0398527647126294,1562647582,2,0.2587,3,2,True,warm_converged,0.5,warm_states\warm_b6_w03_rank01_from0.5_seed1562647582.npz
+0.6,0.4,proposed,FP-aware RCG-ToMA + FP (Proposed),3.7388923725627077,44.08651202495763,47.82540439752034,8.880055622328129,3.5799287136374702,2028,5,2.437,3,2,True,warm_converged,0.3,warm_states\warm_proposed_w03_rank01_from0.3_seed2028.npz

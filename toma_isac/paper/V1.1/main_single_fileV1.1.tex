@@ -38,7 +38,18 @@ Towed movable antenna (ToMA), integrated sensing and communication (ISAC), near-
 % 你完成英文引言后，直接替换下面这一段占位文字。
 % ============================================================
 \section{Introduction}
-Your introduction goes here.
+
+The main contributions of this paper are summarized as follows:
+\begin{enumerate}
+    \item \textbf{ToMA-assisted full-duplex near-field ISAC modeling and joint problem formulation:}
+    We consider a full-duplex near-field ISAC system consisting of a main UAV and multiple towed sub-UAVs. The transmit and receive ToMA arrays are reconfigured in three-dimensional space through fixed-length cables, with the antenna elements on each cable moving in a coupled manner as its endpoint changes. Near-field spherical-wave models are adopted for the communication and sensing channels, while the two-way target-echo attenuation and geometry-dependent residual self-interference are taken into account. Subject to fixed cable lengths, inter-UAV collision-avoidance constraints, and transmit-power limits, we formulate a weighted sum-rate (WSR) maximization problem that jointly optimizes the ToMA geometry, transmit beamformers, UL transmit powers, and UL communication and sensing receive beamformers.
+
+    \item \textbf{Two-layer alternating optimization integrating FP and FP-aware RCG:}
+    To tackle the formulated nonconvex problem, we develop a two-layer alternating optimization framework comprising inner-layer resource optimization and outer-layer ToMA geometry optimization. In the inner layer, the Lagrangian dual transform (LDT) and quadratic transform (QT) are employed to handle the nonconvex fractional structure of the communication and sensing rate expressions. The transmit beamformers, UL transmit amplitudes, and UL communication and sensing receive beamformers are then updated alternately. In the outer layer, Riemannian conjugate gradient (RCG) optimization on spherical manifolds is used to update the cable-constrained ToMA endpoints. In particular, to alleviate the mismatch between a candidate geometry and the current resource allocation, an FP-aware candidate-evaluation mechanism is incorporated into the position search. Each candidate geometry is evaluated after a limited number of warm-start FP resource updates, and the updated geometry and resource state are accepted jointly according to an Armijo-type criterion. Multiple initializations are further employed to mitigate sensitivity to the initial solution.
+
+    \item \textbf{Numerical evaluation under various benchmarks and system conditions:}
+    We compare the proposed method with benchmark schemes based on fixed ToMA arrays, fixed uniform planar arrays (UPAs), and conventional independently movable antennas (MAs). The proposed method is evaluated in terms of convergence behavior, maximum DL transmit power, residual self-interference, system load, and the communication--sensing trade-off. Numerical results show that the proposed scheme achieves favorable WSR performance under the considered scenarios and parameter settings. In particular, it attains the highest numerical WSR among the four FP-based schemes at all 20 tested communication-weight values in the trade-off experiment. These results indicate that joint ToMA geometry reconfiguration and communication--sensing resource optimization can achieve competitive system performance despite the cable-coupled movement constraints.
+\end{enumerate}
 
 \section{System Model and Problem Formulation}
 \label{sec:system_model}
@@ -167,9 +178,17 @@ $\beta_{{\rm R},l}^{\rm S}
 =(\lambda/(4\pi r_{{\rm R},l}^{\rm S}))^2$,
 respectively.
 
-Let $\xi_l^{\rm S}$ denote the complex reflection coefficient of
-target $l$. The equivalent round-trip complex amplitude coefficient
-is then defined as
+Let $A_l\ge0$ denote the effective radar cross section (RCS) of
+sensing target $l$, measured in $\mathrm{m}^2$. The corresponding
+dimensionless equivalent scattering amplitude factor is defined as
+\[
+\xi_l^{\rm S}=\frac{\sqrt{4\pi A_l}}{\lambda}.
+\]
+This factor is real and nonnegative; no additional random target
+scattering phase is introduced. The one-way propagation losses remain
+accounted for by $\beta_{{\rm T},l}^{\rm S}$ and
+$\beta_{{\rm R},l}^{\rm S}$. The equivalent round-trip amplitude
+coefficient is then defined as
 \begin{equation}
 \alpha_l^{\rm S}
 =
@@ -180,6 +199,19 @@ is then defined as
 }.
 \label{eq:round_trip_coeff}
 \end{equation}
+Substitution gives the equivalent round-trip power gain
+\[
+|\alpha_l^{\rm S}|^2
+=\frac{\lambda^2 A_l}
+{(4\pi)^3(r_{{\rm T},l}^{\rm S})^2(r_{{\rm R},l}^{\rm S})^2}.
+\]
+This normalization agrees with the point-target bistatic radar equation
+with unit element gains and no additional system loss~\cite{mathworks_radar_equation}.
+Array and beamforming gains remain represented by the array responses
+and the transmit and receive beamformers. Neither RCS nor propagation
+loss is applied again beyond the factors already included in
+$\alpha_l^{\rm S}$. With the common anchor, the range product in the
+denominator reduces to $\|\mathbf q_l^{\rm S}\|_2^4$.
 Accordingly, the round-trip sensing channel matrix associated with
 target $l$ is given by
 \begin{equation}
@@ -204,7 +236,7 @@ Hence, the sensing channel depends jointly on the geometries of both
 the transmit and receive ToMA arrays.
 
 We assume that the target location $\mathbf q_l^{\rm S}$ and the
-reflection coefficient $\xi_l^{\rm S}$ are available at the main UAV,
+effective RCS $A_l$ (and hence $\xi_l^{\rm S}$) are available at the main UAV,
 either known a priori or estimated from previous sensing observations.
 Together with the distance-dependent propagation gains above, this
 enables the main UAV to construct $\mathbf G_l$ for the subsequent
@@ -1218,10 +1250,454 @@ N_{\rm start}I_{\rm out}
 \end{aligned}
 \label{eq:complexity_alg3}
 \end{equation}
+% ============================================================
+% IV. Simulation Results and Analysis
+% ============================================================
+\section{Simulation Results and Analysis}
+\label{sec:simulation}
+
+In this section, numerical simulations are conducted to evaluate the
+performance of the proposed ToMA-assisted near-field full-duplex ISAC
+system. We first present the simulation setup and benchmark schemes.
+Then, the convergence behavior of the proposed algorithm is examined.
+Finally, the impacts of the maximum DL transmit power, residual
+self-interference (SI), and system load on the achievable weighted sum
+rate (WSR) are investigated.Finally, the communication--sensing trade-off performance of different antenna architectures is examined.
+
+% ============================================================
+% A. Simulation Setup and Benchmark Schemes
+% ============================================================
+\subsection{Simulation Setup and Benchmark Schemes}
+\label{subsec:simulation_setup}
+
+Unless otherwise specified, the simulation parameters are summarized in
+Table~\ref{tab:simulation_parameters}. The carrier frequency is set to
+$30$ GHz, corresponding to a wavelength of $\lambda=0.01$ m. The main
+UAV is located approximately $20$ m above the ground, while the
+communication users and sensing targets are randomly distributed within
+a region approximately $40$ m away from the main UAV, with horizontal
+distances ranging from $30$ m to $35$ m.
+
+The system consists of $M=4$ towed sub-UAVs, and each cable is equipped
+with $N_{\rm c}=2$ uniformly distributed antenna elements. Therefore,
+the transmit and receive ToMA arrays both contain
+$N_{\rm T}=N_{\rm R}=4$ antenna elements. Unless otherwise stated, the
+numbers of DL users, UL users, and sensing targets are set to
+$K=J=L=5$, respectively, while the number of independent sensing
+waveforms is set to $R_{\rm S}=4$. The cable length is
+$L_{\rm c}=1$ m, and the minimum safety distance between any two towed
+sub-UAVs is $D_{\rm UAV}=0.5$ m.
+
+The maximum DL transmit power of the main UAV is set to
+$P_{\rm D}^{\max}=30$ dBm, while the maximum transmit power of each UL
+user is $P_{{\rm U},j}^{\max}=20$ dBm. The noise powers at the DL users
+and the main UAV receiver are both set to $-114$ dBm. Unless otherwise
+specified in the residual-SI sensitivity experiment, the nominal
+residual-SI level is set to
+$10\log_{10}(\rho_{\rm SI})=-100$ dB. All sensing targets are modeled
+as vehicles with the same fixed effective RCS, $A_l=10\,\mathrm{m}^2$.
+This is a simplified equivalent point-target assumption that does not
+model aspect-dependent RCS variations. With $\lambda=0.01$ m, the
+RCS-based amplitude factor is $\xi_l^{\rm S}\approx1121.0$.
+No additional random target scattering phase is introduced.
+
+The communication and sensing path gains are determined according to
+the actual propagation distances between the common anchor point of the
+main UAV and the corresponding users or sensing targets, rather than
+using fixed large-scale channel gains.
+
+For the proposed algorithm, the maximum numbers of inner FP iterations
+and joint AO iterations are set to
+$I_{\rm in}^{\max}=1200$ and $I_{\rm out}^{\max}=1500$, respectively.
+The inner and outer convergence tolerances are both set to $10^{-4}$.
+The central finite-difference step size is $\delta=10^{-6}$, the initial
+RCG step size is $\tau_0=0.1$, the Armijo parameter is
+$\mu_{\rm A}=10^{-4}$, and the backtracking factor is
+$\zeta_{\rm out}=0.5$. The maximum number of Armijo backtracking steps
+for each ToMA endpoint is $I_{\rm A}=30$. Unless otherwise specified,
+$N_{\rm start}=5$ feasible initial ToMA geometries are adopted, and the
+solution with the largest final WSR is retained.
+
+\begin{table}[!t]
+\caption{Simulation Parameters}
+\label{tab:simulation_parameters}
+\centering
+\renewcommand{\arraystretch}{1.08}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{c|l|c}
+\hline
+\textbf{Parameter} & \textbf{Description} & \textbf{Value} \\
+\hline
+$f_c$ & Carrier frequency & $30$ GHz \\
+$\lambda$ & Carrier wavelength & $0.01$ m \\
+$M$ & Number of towed sub-UAVs & $4$ \\
+$N_{\rm c}$ & Antenna elements per cable & $2$ \\
+$N_{\rm T},N_{\rm R}$ & Number of Tx/Rx antenna elements & $4$ \\
+$K,J,L$ & Numbers of DL/UL users and targets & $5$ \\
+$R_{\rm S}$ & Number of sensing waveforms & $4$ \\
+$L_{\rm c}$ & Cable length & $1$ m \\
+$D_{\rm UAV}$ & Minimum inter-UAV distance & $0.5$ m \\
+$P_{\rm D}^{\max}$ & Maximum DL transmit power & $30$ dBm \\
+$P_{{\rm U},j}^{\max}$ & Maximum UL transmit power & $20$ dBm \\
+$\sigma_k^2,\sigma_{\rm BS}^2$ & Noise power & $-114$ dBm \\
+$10\log_{10}(\rho_{\rm SI})$ & Nominal residual-SI level & $-100$ dB \\
+$A_l$ & Effective vehicle RCS & $10\,\mathrm{m}^2$ \\
+$\xi_l^{\rm S}$ & Equivalent scattering amplitude factor & $\approx1121.0$ \\
+$I_{\rm in}^{\max}$ & Maximum inner FP iterations & $1200$ \\
+$I_{\rm out}^{\max}$ & Maximum joint AO iterations & $1500$ \\
+$\varepsilon_{\rm in},\varepsilon_{\rm out}$ & Convergence tolerance & $10^{-4}$ \\
+$\delta$ & Central finite-difference step & $10^{-6}$ \\
+$\tau_0$ & Initial RCG step size & $0.1$ \\
+$\mu_{\rm A}$ & Armijo parameter & $10^{-4}$ \\
+$\zeta_{\rm out}$ & Backtracking factor & $0.5$ \\
+$I_{\rm A}$ & Maximum Armijo backtracking steps & $30$ \\
+$N_{\rm start}$ & Number of ToMA initializations & $5$ \\
+\hline
+\end{tabular}}
+\end{table}
+
+To comprehensively evaluate the proposed method, the following benchmark
+schemes are considered. The RCG-ToMA + Traditional scheme optimizes the
+ToMA geometry using RCG while adopting conventional beamforming and
+resource allocation as defined below. The Fixed-ToMA + FP scheme fixes the ToMA geometry
+and employs the same FP-based resource optimization as the proposed
+method. The FPA-UPA + FP scheme employs a fixed uniform planar array
+(UPA) together with FP-based resource optimization. The Fixed-ToMA +
+Traditional and FPA-UPA + Traditional schemes employ conventional
+resource allocation with fixed ToMA and fixed UPA geometries,
+respectively. In addition, the MA + FP scheme adopts conventional
+independently movable antennas and applies the same FP-based resource
+optimization framework.
+
+Here, Traditional denotes conventional beamforming and resource
+allocation: DL beams use maximum-ratio transmission (MRT), and sensing
+beams use normalized near-field transmit array responses at the target
+locations. The transmit beams are jointly scaled to satisfy the DL
+power constraint, while each UL transmit amplitude is fixed at
+$q_j=\kappa_{\rm U}\sqrt{P_{{\rm U},j}^{\max}}$. The sensing and UL
+receive combiners are updated using the same maximum-SINR
+(MMSE-equivalent for UL) rules as in the FP-based schemes. No FP updates
+of the transmit beamforming matrix or UL transmit amplitudes are
+performed. For RCG-ToMA + Traditional, these conventional resources are
+reconstructed using the updated channels when evaluating candidate
+geometries and after each geometry update.
+
+For the MA + FP benchmark, each antenna element can independently move
+within a two-dimensional region of
+$0.30\,{\rm m}\times0.30\,{\rm m}$, while the minimum antenna spacing is
+set to $\lambda/2=0.005$ m. Three different initial antenna positions
+are used for multi-start optimization. Except for these
+scheme-specific settings, all other simulation parameters are identical
+to those listed in Table~\ref{tab:simulation_parameters} to ensure a
+fair comparison.
+
+The proposed FP-aware RCG-ToMA + FP method jointly optimizes the
+communication--sensing resources and the ToMA geometry. Different from
+a conventional fixed-resource geometry search, each candidate ToMA
+geometry is partially re-adapted through a limited number of warm-start
+FP updates before the FP-aware Armijo acceptance test is performed.
+
+% ============================================================
+% B. Convergence
+% ============================================================
+\subsection{Convergence Behavior of the Proposed Algorithm}
+\label{subsec:convergence}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_convergence.png}
+    \caption{Convergence behavior of the proposed FP-aware RCG-ToMA + FP
+    algorithm in a representative random realization.}
+    \label{fig:convergence}
+\end{figure}
+
+Fig.~\ref{fig:convergence} illustrates the convergence behavior of the
+proposed FP-aware RCG-ToMA + FP algorithm in a representative random
+realization. The WSR increases rapidly during the initial joint AO
+iterations, rising from approximately $0.55$ bit/s/Hz to more than
+$6.1$ bit/s/Hz after the first iteration. This substantial improvement
+indicates that the joint adaptation of communication--sensing resources
+and ToMA geometry can effectively enhance the initial system
+configuration.
+
+As the iterations proceed, the WSR continues to improve at a gradually
+decreasing rate. The enlarged late-stage region shows that small
+performance gains are still obtained during the later iterations, while
+the variation in WSR becomes progressively smaller. The algorithm
+terminates at the 26th joint AO iteration with a final WSR of
+approximately $6.460$ bit/s/Hz.
+
+These results demonstrate the numerical convergence behavior of the
+proposed joint optimization method under the considered simulation
+setting. However, since the original optimization problem is nonconvex,
+the observed convergence does not guarantee global optimality.
+
+% ============================================================
+% C. Maximum DL Transmit Power
+% ============================================================
+\subsection{Impact of the Maximum DL Transmit Power}
+\label{subsec:pdl}
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_pdl.png}
+    \caption{Average WSR versus the maximum DL transmit power
+    $P_{\rm D}^{\max}$.}
+    \label{fig:pdl}
+\end{figure}
+
+Fig.~\ref{fig:pdl} shows the average WSR of different schemes versus the
+maximum DL transmit power $P_{\rm D}^{\max}$. As
+$P_{\rm D}^{\max}$ increases from $20$ dBm to $40$ dBm, the FP-based
+schemes generally achieve improved or nearly stable WSR performance. In
+particular, FPA-UPA + FP exhibits a relatively noticeable improvement,
+while the proposed method, MA + FP, and Fixed-ToMA + FP show more
+moderate gains.
+
+In contrast, RCG-ToMA + Traditional and Fixed-ToMA + Traditional exhibit
+decreasing WSR trends, whereas FPA-UPA + Traditional remains almost
+unchanged. These results indicate that the implemented traditional
+beamforming and resource-allocation strategies do not necessarily
+exploit an increased transmit-power budget effectively. In the
+considered full-duplex ISAC system, additional transmission power may
+also affect the interference experienced by the UL communication and
+sensing receivers. Therefore, the observed performance of these
+traditional benchmark strategies should not be interpreted as the
+globally optimal WSR under the corresponding power constraints.
+
+The proposed FP-aware RCG-ToMA + FP method consistently achieves the
+highest average WSR over the entire investigated transmit-power range,
+followed by MA + FP. This demonstrates that the coupled movement of
+antenna elements along ToMA cables can still provide effective spatial
+reconfiguration capabilities when combined with joint
+communication--sensing resource optimization.
+
+Furthermore, the proposed method outperforms Fixed-ToMA + FP,
+illustrating the performance benefit associated with optimizing the ToMA
+geometry. Meanwhile, Fixed-ToMA + FP and FPA-UPA + FP outperform their
+corresponding traditional-resource counterparts, respectively. Since
+each comparison pair employs the same antenna architecture, these
+results support the effectiveness of FP-based communication--sensing
+resource allocation.
+
+% ============================================================
+% D. Residual Self-Interference
+% ============================================================
+\subsection{Impact of Residual Self-Interference}
+\label{subsec:rsi}
+
+Fig.~\ref{fig:rsi} shows the average WSR of different schemes versus the
+residual-SI level.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_rsi.png}
+    \caption{Average WSR versus the residual-SI level
+    $10\log_{10}(\rho_{\rm SI})$.}
+    \label{fig:rsi}
+\end{figure}
+
+To investigate the sensitivity of the system performance to
+residual self-interference (SI), the residual-SI level
+$10\log_{10}(\rho_{\rm SI})$ is varied from $-50$ dB to
+$-10$ dB. This range is considered for the residual-SI
+sensitivity analysis, whereas the nominal residual-SI level
+remains $-100$ dB, as specified in
+Table~\ref{tab:simulation_parameters}.
+
+As shown in Fig.~\ref{fig:rsi}, the average WSR of the
+considered schemes generally decreases as the residual-SI
+level increases. This behavior is consistent with the adopted
+full-duplex ISAC model, where a larger $\rho_{\rm SI}$
+increases the residual interference experienced by the main
+UAV receiver. Since residual SI contributes to the
+interference covariance matrices of both the UL communication
+and sensing links, stronger residual SI reduces their
+achievable SINRs for fixed transmission and reception
+strategies, thereby limiting the overall WSR performance.
+
+The proposed FP-aware RCG-ToMA + FP method consistently
+achieves the highest average WSR across the entire
+investigated residual-SI range, followed by MA + FP.
+Although the WSR of both schemes decreases as residual SI
+becomes stronger, the proposed method maintains a clear
+performance advantage over MA + FP. This result demonstrates
+the effectiveness of jointly optimizing the ToMA geometry
+and communication--sensing resources under the considered
+residual-SI conditions.
+
+Furthermore, the FP-based schemes generally outperform
+their corresponding traditional-resource benchmarks.
+In particular, the performance improvement of
+Fixed-ToMA + FP over Fixed-ToMA + Traditional and that
+of FPA-UPA + FP over FPA-UPA + Traditional highlight
+the importance of resource optimization in full-duplex
+ISAC systems. These observations indicate that combining
+antenna geometry optimization with FP-based resource
+allocation provides effective performance improvements
+across different residual-SI levels.
+
+% ============================================================
+% E. System Load
+% ============================================================
+\subsection{Impact of System Load}
+\label{subsec:system_load}
+
+Fig.~\ref{fig:load} investigates the average WSR under different system
+loads by simultaneously varying the numbers of DL users, UL users, and
+sensing targets, where $K=J=L$.
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_load.png}
+    \caption{Average WSR versus the system load, where $K=J=L$.}
+    \label{fig:load}
+\end{figure}
+
+It can be observed that the average WSR of all schemes decreases as
+$K=J=L$ increases from $3$ to $7$. This degradation is mainly caused by
+two factors. First, the available transmit power, antenna elements, and
+spatial degrees of freedom remain limited, while an increasing number
+of communication users and sensing targets must share these resources.
+Second, increasing the system load intensifies multiuser interference,
+inter-target echo interference, and competition between communication
+and sensing tasks.
+
+Despite the increasing system load, the proposed FP-aware RCG-ToMA + FP
+method maintains the highest average WSR over the entire considered
+range. MA + FP achieves the second-best performance, while Fixed-ToMA +
+FP and FPA-UPA + FP exhibit further performance degradation. These
+results demonstrate that the joint optimization of ToMA geometry and
+communication--sensing resources can more effectively exploit the
+available spatial and power-domain degrees of freedom when the system
+needs to simultaneously serve multiple communication users and sensing
+targets.
+
+The schemes employing traditional resource allocation experience more
+pronounced performance degradation as the system load increases, with
+FPA-UPA + Traditional exhibiting the lowest overall performance. This
+further confirms that joint resource optimization becomes increasingly
+important in heavily loaded multiuser and multitarget ISAC systems.
+
+It should be emphasized that the horizontal axis in
+Fig.~\ref{fig:load} represents $K=J=L$, rather than
+$K=J=L=R_{\rm S}$.
+
+The WSR is evaluated using normalized communication and sensing weights,
+with every active DL user, UL user, and sensing target assigned the
+weight $1/(K+J+L)$. Consequently, the decrease in WSR as the system load
+increases reflects the change in normalized weighted performance and
+should not be directly interpreted as a decrease in the unweighted
+aggregate sum rate of all communication users and sensing targets.
+
+\subsection{Communication--Sensing Trade-off Performance}
+\label{subsec:tradeoff}
+
+To evaluate the communication--sensing trade-off under different antenna
+architectures, Fig.~\ref{fig:tradeoff} plots the sum communication rate
+against the sum sensing rate achieved by four FP-based schemes. The two
+performance measures are defined as
+\begin{equation}
+\begin{aligned}
+R_{\rm C} &= \sum_{k\in\mathcal K} R_k^{\rm D}
+          + \sum_{j\in\mathcal J} R_j^{\rm U}, \\
+R_{\rm S} &= \sum_{l\in\mathcal L} R_l^{\rm S}.
+\end{aligned}
+\label{eq:tradeoff_sum_rates}
+\end{equation}
+For the considered setting with $K=J=L=5$, the group-weighted objective
+is given by
+\begin{equation}
+F(\omega_{\rm C})=
+\frac{\omega_{\rm C}}{10}R_{\rm C}
++\frac{1-\omega_{\rm C}}{5}R_{\rm S},
+\label{eq:tradeoff_group_weight}
+\end{equation}
+where $\omega_{\rm C}\in[0.001,0.9]$ is evaluated at 20 specified
+weight values. Each weight is optimized using independent cold-start
+initializations, without transferring solutions between different
+weights. Fixed-ToMA + FP, FPA-UPA + FP, MA + FP, and the proposed method
+use 5, 1, 3, and 5 initializations, respectively. For each scheme and
+weight, the converged candidate with the highest achieved WSR is
+selected. All four schemes are evaluated under the same user and target
+locations and common physical parameters, while employing their
+respective antenna geometries and optimization procedures.
+% ============================================================
+% F.
+% ============================================================
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_tradeoff.png}
+\caption{Communication--sensing trade-off achieved by different FP-based
+schemes under independent cold-start initialization. Each marker is an
+optimized operating point for one communication weight, and connecting
+lines are provided only as visual guides.}
+\label{fig:tradeoff}
+\end{figure*}
+
+As shown in Fig.~\ref{fig:tradeoff}, the obtained operating points
+exhibit an overall trade-off: giving more weight to communication
+generally increases $R_{\rm C}$ at the expense of $R_{\rm S}$. This
+behavior reflects the coupling of transmit power, antenna spatial
+degrees of freedom, UL power allocation, and communication--sensing
+beamforming. The trend is not necessarily monotonic between every pair
+of sampled weights because the underlying problem is nonconvex and each
+weight is solved independently.
+
+The proposed FP-aware RCG-ToMA + FP scheme achieves the highest WSR
+among the four schemes at all 20 investigated weight values. Among its
+sampled operating points, the maximum sum sensing rate is approximately
+$38.15$ bit/s/Hz, while the maximum sum communication rate is
+approximately $98.01$ bit/s/Hz; both maxima exceed the corresponding
+sampled maxima of the benchmark schemes. At $\omega_{\rm C}=0.1$, the
+proposed method achieves approximately
+$(R_{\rm C},R_{\rm S})=(29.51,26.71)$ bit/s/Hz, illustrating an
+operating point with appreciable communication and sensing performance.
+These observations support the effectiveness of coupling ToMA geometry
+reconfiguration with FP-based resource optimization under the
+considered simulation conditions.
+
+The benchmark schemes exhibit different achievable operating-point
+patterns. MA + FP obtains competitive intermediate operating points,
+whereas Fixed-ToMA + FP is limited by its fixed cable-array geometry.
+FPA-UPA + FP attains relatively low sensing rates over its sampled
+operating points. These differences may be associated with the distinct
+geometric feasible regions, array responses, and position-optimization
+procedures. In particular, independent element movement in MA and cable-coupled
+movement in ToMA result in distinct geometric constraints, and their
+feasible regions need not be nested.Hence, comparisons between
+points having different communication rates should not be interpreted
+as proof that one scheme universally dominates another at a fixed
+communication rate.
+
+Some sampled points display abrupt changes or slight non-monotonic
+variations. Such behavior is consistent with independently initialized
+numerical optimization of a nonconvex problem, potentially involving
+different local solutions and resource-allocation regimes. Nevertheless,
+the plots alone do not uniquely identify the cause of each transition.
+Moreover, the connecting line segments do not imply that every
+intermediate point has been obtained or is feasible. Since the sweep
+does not include $\omega_{\rm C}=0$ or $1$, and global optimality is not
+guaranteed, Fig.~\ref{fig:tradeoff} represents the achieved discrete
+trade-off operating points rather than a globally optimal Pareto
+frontier.
+
+Overall, the proposed scheme achieves favorable communication--sensing
+performance across the investigated weights and extends the range of
+high-rate operating points observed in this experiment, despite the
+coupled antenna-position constraints imposed by the ToMA architecture.
+
 % 参考文献。
 % 如果以后使用 references.bib，推荐采用下面两行。
 % ============================================================
 % \bibliographystyle{IEEEtran}
 % \bibliography{references}
+
+\begin{thebibliography}{1}
+\bibitem{mathworks_radar_equation}
+MathWorks, \emph{Radar Equation}, Radar Toolbox Documentation.
+Accessed: Oct. 10, 2026. [Online]. Available:
+\url{https://www.mathworks.com/help/radar/ug/radar-equation.html}
+\end{thebibliography}
 
 \end{document}

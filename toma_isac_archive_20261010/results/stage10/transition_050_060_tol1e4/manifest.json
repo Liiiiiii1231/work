@@ -1,0 +1,40 @@
+{
+  "sha256": "ce8309ceb30f676bf4650ce5270abfbf70843752a43aaeedd1bdf8b8ccf25c20",
+  "parameters": {
+    "weights": [
+      0.5,
+      0.52,
+      0.54,
+      0.55,
+      0.56,
+      0.58,
+      0.6
+    ],
+    "schemes": [
+      "proposed",
+      "b6"
+    ],
+    "starts": 3,
+    "refine_top": 2,
+    "physical_scene": "SystemConfig(m_uav=4, n_cable=2, k_dl=5, j_ul=5, l_target=5, r_sensing=4, wavelength=0.01, cable_length=1.0, min_uav_distance=0.5, min_si_distance=0.001, p_dl_max=1.0, p_ul_max=array([0.1, 0.1, 0.1, 0.1, 0.1]), sigma_dl2=array([1.e-10, 1.e-10, 1.e-10, 1.e-10, 1.e-10]), sigma_bs2=3.981071705534969e-15, rho_si=1e-10, weight_dl=array([0.06666667, 0.06666667, 0.06666667, 0.06666667, 0.06666667]), weight_ul=array([0.06666667, 0.06666667, 0.06666667, 0.06666667, 0.06666667]), weight_s=array([0.06666667, 0.06666667, 0.06666667, 0.06666667, 0.06666667]), q_dl=array([[  8.67620179, -32.20111795,  20.        ],\n       [ 24.14411804, -23.29385952,  20.        ],\n       [ 32.75496294,  -9.20449993,  20.        ],\n       [ 33.50059194,   8.85220915,  20.        ],\n       [ 23.43148275,  23.42056309,  20.        ]]), q_ul=array([[ 14.68163444, -30.64403246,  20.        ],\n       [ 27.37422385, -19.14625092,  20.        ],\n       [ 33.12960543,  -2.45290602,  20.        ],\n       [ 30.52158502,  14.23629666,  20.        ],\n       [ 19.77438587,  27.23359718,  20.        ]]), q_s=array([[  2.45938596, -33.83054875,  20.        ],\n       [ 19.01855629, -27.58234833,  20.        ],\n       [ 30.45756071, -14.33993501,  20.        ],\n       [ 33.49241704,   3.40967438,  20.        ],\n       [ 27.16971312,  19.61061718,  20.        ]]), xi_s=array([1120.99824328+0.j, 1120.99824328+0.j, 1120.99824328+0.j,\n       1120.99824328+0.j, 1120.99824328+0.j]), fading_dl=array([1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j]), fading_ul=array([1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j]), fading_s=array([1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j, 1.+0.j]), kappa_ul=0.5, random_seed=2026, max_geometry_trials=10000, max_inner_iter=1200, max_outer_iter=1500, tol_inner=0.0001, tol_outer=0.0001, max_bisection_iter=100, tol_bisection=1e-10, max_backtracking_iter=30, armijo_mu=0.0001, backtracking_factor=0.5, finite_diff_delta=1e-06, initial_outer_step=0.1, plateau_window=0, tol_window=0.0)",
+    "ma_params": [
+      0.3,
+      0.005,
+      0.03,
+      0.5
+    ],
+    "code_hashes": {
+      "algorithm.py": "8a12fd0a34229ec966cfecbeee3cce85004b600e42acb275f3f67413b76ae297",
+      "baselines.py": "996a81c10c94a78a40c0c4cd775cd3ef790f9d4128dff04756a90e52d8d4c3db",
+      "ma_baseline.py": "c0b777177778801973001d10f275d17b98d1dbe655e86b5febd35828f579444a",
+      "inner_solver.py": "b80956336d572763b36e20e38faa49ad6da4cf6e038366e822e8aeb9e60dd353",
+      "metrics.py": "57be413ec915cedcda7fe7bc20f93a3e561a35b488dbb128e6847984ca4805a7",
+      "config.py": "87c3c383cb2ef2f5fb3b3e0c28e8301caa350eb7daae7110b29b88990e45840b",
+      "stage8.py": "9e1b0346c9df46a2df4319b9634da40180fccf5837c163c2743dd0764a9a04fd",
+      "experiments/run_stage10_tradeoff.py": "0560ae719f0304ae2c1715b8b896ffc80e94ce08c12dd129c8feb145fa53fd36",
+      "experiments/run_stage10_pool_refinement.py": "cec234942e4695d1f12cfe8e3dd2c910352138b1c3e1b5be54cda6be15098879",
+      "experiments/run_stage10_transition_probe.py": "9209ae16cf3e5b449ae412d933c2134d83ccf52611d979220e52a31d8ecd6397",
+      "configs/stage10_tradeoff.yaml": "52a65998ce282a11af87bd4c681d7b4e855654102323a4540921bdd7e27f278b"
+    }
+  }
+}

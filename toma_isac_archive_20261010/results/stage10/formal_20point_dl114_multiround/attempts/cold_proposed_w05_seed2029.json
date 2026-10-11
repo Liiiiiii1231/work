@@ -1,0 +1,18 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.1,
+  "seed": 2029,
+  "origin_omega": 0.1,
+  "method": "cold",
+  "converged": true,
+  "iterations": 36,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 2.2862422442473416,
+  "sum_rate_ul": 27.392744428486708,
+  "sum_rate_comm": 29.678986672734048,
+  "sum_rate_sensing": 17.58300902608754,
+  "weighted_sum_rate": 3.461731491423098,
+  "state_file": "cold_states\\cold_proposed_w05_seed2029.npz",
+  "runtime_s": 11.6539,
+  "status": "ok"
+}

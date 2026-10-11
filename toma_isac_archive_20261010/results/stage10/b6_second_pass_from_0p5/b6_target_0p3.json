@@ -1,0 +1,19 @@
+{
+  "target_omega": 0.3,
+  "source_omega": 0.5,
+  "source_seed": 1562647582,
+  "prior_selected_wsr": 4.855685853580214,
+  "source_reweighted_wsr": 4.87059448435202,
+  "new_wsr": 4.872017335899007,
+  "new_rate_comm": 0.6586891667208773,
+  "new_rate_sensing": 34.65897614926701,
+  "new_converged": true,
+  "new_iterations": 3,
+  "new_stop_reason": "outer_tolerance",
+  "new_runtime_s": 0.323,
+  "best_selected_wsr": 4.872017335899007,
+  "best_selected_from": "warm_converged",
+  "improved_vs_prior": 0.016331482318793,
+  "state_file": "b6_target_0p3.npz",
+  "source_hash": "5799afdb7f57d3f3895aec010f65d0bdf6cc9d4da562de5ea97376bac35a27c8"
+}

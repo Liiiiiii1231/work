@@ -357,6 +357,69 @@ def _element_gradient_yz(
     return gradient
 
 
+
+
+def _project_to_ma_feasible_tangent(
+    gradient: np.ndarray,
+    positions: np.ndarray,
+    index: int,
+    center: np.ndarray,
+    region_size: float,
+    min_spacing: float,
+) -> np.ndarray:
+    """计算二维梯度在盒边界及活动阵元间距约束下的可行锥投影。
+
+    对活动阵元间距约束 ||p_i-p_j|| >= d_min，线性化后
+    一阶可行方向 v 满足 (p_i-p_j)·v >= 0（固定其他阵元）。
+    这里仅生成额外候选方向；原有梯度搜索仍然保留。
+    所有最终候选依旧经过完整非线性几何约束检查。
+    """
+    g = np.asarray(gradient, dtype=float).reshape(2)
+    p = np.asarray(positions[index, 1:], dtype=float)
+    normals = []
+    half = region_size / 2.0
+    boundary_tol = 1.0e-10
+    active_tol = max(1.0e-10, 1.0e-5 * min_spacing)
+
+    for ax in range(2):
+        if p[ax] <= center[ax + 1] - half + boundary_tol:
+            n = np.zeros(2, dtype=float)
+            n[ax] = 1.0
+            normals.append(n)
+        if p[ax] >= center[ax + 1] + half - boundary_tol:
+            n = np.zeros(2, dtype=float)
+            n[ax] = -1.0
+            normals.append(n)
+
+    for j in range(len(positions)):
+        if j == index:
+            continue
+        sep = p - np.asarray(positions[j, 1:], dtype=float)
+        d = float(np.linalg.norm(sep))
+        if 1.0e-15 < d <= min_spacing + active_tol:
+            normals.append(sep / d)
+
+    if not normals:
+        return g.copy()
+
+    def direction_allowed(d: np.ndarray) -> bool:
+        tol = 1.0e-12 * max(1.0, float(np.linalg.norm(d)))
+        return all(float(n @ d) >= -tol for n in normals)
+
+    # 在 R^2 中，投影到半空间交得到的凸锥，只可能落在
+    # 原梯度本身、某个活动边界对应的射线上，或原点。
+    candidates = [np.zeros(2, dtype=float)]
+    if direction_allowed(g):
+        candidates.append(g.copy())
+    for n in normals:
+        tangent = np.array([-n[1], n[0]], dtype=float)
+        v = float(np.dot(g, tangent)) * tangent
+        if direction_allowed(v):
+            candidates.append(v)
+
+    return min(candidates, key=lambda v: float(np.dot(v - g, v - g)))
+
+
 def _update_ma_positions_once(
     geometry: GeometryState,
     resources: ResourceState,
@@ -402,82 +465,85 @@ def _update_ma_positions_once(
             if grad_norm <= 1.0e-12:
                 continue
 
-            # 归一化后，step 直接表示实际移动距离的量级（m）。
-            direction = gradient / grad_norm
-            step = float(initial_step)
+            # 原始方向仍保留，用于避免改动现有 MA 基线的有效搜索路径。
+            # 额外搜索投影到活动几何约束的可行方向。
+            original_direction = gradient / grad_norm
+            current_positions = tx_positions if group == "tx" else rx_positions
+            feasible_grad = _project_to_ma_feasible_tangent(
+                gradient, current_positions, index, center,
+                region_size, min_spacing,
+            )
+            feasible_norm = float(np.linalg.norm(feasible_grad))
+            candidate_directions = [original_direction]
+            if feasible_norm > 1.0e-12:
+                feasible_direction = feasible_grad / feasible_norm
+                if not np.allclose(feasible_direction, original_direction, atol=1e-10):
+                    candidate_directions.append(feasible_direction)
 
-            for _ in range(cfg.max_backtracking_iter):
-                tx_candidate = tx_positions.copy()
-                rx_candidate = rx_positions.copy()
-                candidate_positions = (
-                    tx_candidate if group == "tx" else rx_candidate
-                )
-
-                current_position = candidate_positions[index].copy()
-                candidate_position = current_position.copy()
-                candidate_position[1:] += step * direction
-
-                half = 0.5 * region_size
-                candidate_position[1] = np.clip(
-                    candidate_position[1],
-                    center[1] - half,
-                    center[1] + half,
-                )
-                candidate_position[2] = np.clip(
-                    candidate_position[2],
-                    center[2] - half,
-                    center[2] + half,
-                )
-                candidate_position[0] = center[0]
-
-                candidate_positions[index] = candidate_position
-
-                displacement = (
-                    candidate_position[1:]
-                    - current_position[1:]
-                )
-
-                if np.linalg.norm(displacement) <= 1.0e-15:
-                    step *= cfg.backtracking_factor
-                    continue
-
-                if not _ma_geometry_is_feasible(
-                    tx_candidate,
-                    rx_candidate,
-                    tx_center,
-                    rx_center,
-                    region_size,
-                    min_spacing,
-                    cfg,
-                ):
-                    step *= cfg.backtracking_factor
-                    continue
-
-                candidate_wsr, candidate_geometry, candidate_channels = (
-                    _evaluate_ma_wsr(
-                        tx_candidate,
-                        rx_candidate,
-                        resources,
-                        cfg,
+            # 两条方向从同一状态出发。各自进行原有的 Armijo 回溯，
+            # 最后接受本次单阵元搜索中真实 WSR 最高的可行候选。
+            best_move = None
+            best_wsr = current_wsr
+            for direction in candidate_directions:
+                step = float(initial_step)
+                for _ in range(cfg.max_backtracking_iter):
+                    tx_candidate = tx_positions.copy()
+                    rx_candidate = rx_positions.copy()
+                    candidate_positions = (
+                        tx_candidate if group == "tx" else rx_candidate
                     )
-                )
 
-                armijo_rhs = (
-                    current_wsr
-                    + cfg.armijo_mu
-                    * float(np.dot(gradient, displacement))
-                )
+                    previous_position = candidate_positions[index].copy()
+                    candidate_position = previous_position.copy()
+                    candidate_position[1:] += step * direction
 
-                if candidate_wsr >= armijo_rhs:
-                    tx_positions = tx_candidate
-                    rx_positions = rx_candidate
-                    current_wsr = candidate_wsr
-                    current_geometry = candidate_geometry
-                    current_channels = candidate_channels
-                    accepted_count += 1
-                    break
+                    half = 0.5 * region_size
+                    candidate_position[1] = np.clip(
+                        candidate_position[1],
+                        center[1] - half, center[1] + half,
+                    )
+                    candidate_position[2] = np.clip(
+                        candidate_position[2],
+                        center[2] - half, center[2] + half,
+                    )
+                    candidate_position[0] = center[0]
+                    candidate_positions[index] = candidate_position
 
-                step *= cfg.backtracking_factor
+                    displacement = candidate_position[1:] - previous_position[1:]
+                    if np.linalg.norm(displacement) <= 1.0e-15:
+                        step *= cfg.backtracking_factor
+                        continue
+
+                    if not _ma_geometry_is_feasible(
+                        tx_candidate, rx_candidate, tx_center, rx_center,
+                        region_size, min_spacing, cfg,
+                    ):
+                        step *= cfg.backtracking_factor
+                        continue
+
+                    candidate_wsr, candidate_geometry, candidate_channels = (
+                        _evaluate_ma_wsr(
+                            tx_candidate, rx_candidate, resources, cfg,
+                        )
+                    )
+                    armijo_rhs = (
+                        current_wsr
+                        + cfg.armijo_mu * float(np.dot(gradient, displacement))
+                    )
+                    if candidate_wsr >= max(current_wsr, armijo_rhs):
+                        if candidate_wsr > best_wsr:
+                            best_wsr = candidate_wsr
+                            best_move = (
+                                tx_candidate, rx_candidate,
+                                candidate_geometry, candidate_channels,
+                            )
+                        break
+                    step *= cfg.backtracking_factor
+
+            if best_move is not None:
+                tx_positions, rx_positions, current_geometry, current_channels = best_move
+                current_wsr = best_wsr
+                accepted_count += 1
 
     return (
         current_geometry,

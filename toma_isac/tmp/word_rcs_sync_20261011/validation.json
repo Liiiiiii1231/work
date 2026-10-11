@@ -1,0 +1,15 @@
+{
+    "unchangedOriginalParagraphsWithFormatting":  247,
+    "originalParagraphs":  250,
+    "xmlValid":  true,
+    "comments":  3,
+    "modifiedOriginalTextParagraphs":  2,
+    "changedPackageParts":  [
+                                "word/comments.xml",
+                                "word/_rels/document.xml.rels",
+                                "word/document.xml",
+                                "[Content_Types].xml"
+                            ],
+    "addedParagraphs":  9,
+    "finalParagraphs":  259
+}

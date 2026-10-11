@@ -1,0 +1,21 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.8,
+  "seed": 2026,
+  "origin_omega": 0.46,
+  "method": "cross_weight_refined",
+  "converged": true,
+  "iterations": 2,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 64.00532482962942,
+  "sum_rate_ul": 34.00873901812018,
+  "sum_rate_comm": 98.0140638477496,
+  "sum_rate_sensing": 0.020921829622077122,
+  "weighted_sum_rate": 7.841961981004851,
+  "state_file": "warm_states\\warm_proposed_w18_r01_srccd8130e695609a.npz",
+  "round": 1,
+  "source_state_file": "cold_states\\cold_proposed_w12_seed2026.npz",
+  "initial_feasible_wsr": 7.841773638155861,
+  "runtime_s": 0.6599,
+  "status": "ok"
+}

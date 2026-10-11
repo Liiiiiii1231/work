@@ -1,0 +1,18 @@
+{
+  "scheme": "b2",
+  "omega_comm": 0.3,
+  "seed": 2027,
+  "origin_omega": 0.3,
+  "method": "cold",
+  "converged": true,
+  "iterations": 78,
+  "stop_reason": "not_recorded",
+  "sum_rate_dl": 59.719428214441876,
+  "sum_rate_ul": 26.941159958017693,
+  "sum_rate_comm": 86.66058817245957,
+  "sum_rate_sensing": 0.05460547952677888,
+  "weighted_sum_rate": 2.607462412307536,
+  "state_file": "cold_states\\cold_b2_w07_seed2027.npz",
+  "runtime_s": 0.1741,
+  "status": "ok"
+}

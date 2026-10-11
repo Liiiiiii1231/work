@@ -1,0 +1,7 @@
+Working directory: D:\Vs codeProjects\research work1\toma_isac
+Command: D:\miniconda\envs\toma_isac\python.exe -u experiments/plot_proposed_convergence.py
+
+[plot version] proposed-only-v1
+  seed=2026 ... WSR=3.6546838174, iterations=9, time=0.932s
+  seed=2027 ... WSR=3.6410331647, iterations=14, time=1.475s
+  seed=2028 ...

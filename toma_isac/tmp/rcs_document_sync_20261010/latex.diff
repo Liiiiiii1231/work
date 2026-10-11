@@ -1,0 +1,96 @@
+--- paper_before.tex
++++ paper\V1.1\main_single_fileV1.1.tex
+@@ -167,9 +167,17 @@
+ =(\lambda/(4\pi r_{{\rm R},l}^{\rm S}))^2$,
+ respectively.
+ 
+-Let $\xi_l^{\rm S}$ denote the complex reflection coefficient of
+-target $l$. The equivalent round-trip complex amplitude coefficient
+-is then defined as
++Let $A_l\ge0$ denote the effective radar cross section (RCS) of
++sensing target $l$, measured in $\mathrm{m}^2$. The corresponding
++dimensionless equivalent scattering amplitude factor is defined as
++\[
++\xi_l^{\rm S}=\frac{\sqrt{4\pi A_l}}{\lambda}.
++\]
++This factor is real and nonnegative; no additional random target
++scattering phase is introduced. The one-way propagation losses remain
++accounted for by $\beta_{{\rm T},l}^{\rm S}$ and
++$\beta_{{\rm R},l}^{\rm S}$. The equivalent round-trip amplitude
++coefficient is then defined as
+ \begin{equation}
+ \alpha_l^{\rm S}
+ =
+@@ -180,6 +188,19 @@
+ }.
+ \label{eq:round_trip_coeff}
+ \end{equation}
++Substitution gives the equivalent round-trip power gain
++\[
++|\alpha_l^{\rm S}|^2
++=\frac{\lambda^2 A_l}
++{(4\pi)^3(r_{{\rm T},l}^{\rm S})^2(r_{{\rm R},l}^{\rm S})^2}.
++\]
++This normalization agrees with the point-target bistatic radar equation
++with unit element gains and no additional system loss~\cite{mathworks_radar_equation}.
++Array and beamforming gains remain represented by the array responses
++and the transmit and receive beamformers. Neither RCS nor propagation
++loss is applied again beyond the factors already included in
++$\alpha_l^{\rm S}$. With the common anchor, the range product in the
++denominator reduces to $\|\mathbf q_l^{\rm S}\|_2^4$.
+ Accordingly, the round-trip sensing channel matrix associated with
+ target $l$ is given by
+ \begin{equation}
+@@ -204,7 +225,7 @@
+ the transmit and receive ToMA arrays.
+ 
+ We assume that the target location $\mathbf q_l^{\rm S}$ and the
+-reflection coefficient $\xi_l^{\rm S}$ are available at the main UAV,
++effective RCS $A_l$ (and hence $\xi_l^{\rm S}$) are available at the main UAV,
+ either known a priori or estimated from previous sensing observations.
+ Together with the distance-dependent propagation gains above, this
+ enables the main UAV to construct $\mathbf G_l$ for the subsequent
+@@ -1259,11 +1280,15 @@
+ The maximum DL transmit power of the main UAV is set to
+ $P_{\rm D}^{\max}=30$ dBm, while the maximum transmit power of each UL
+ user is $P_{{\rm U},j}^{\max}=20$ dBm. The noise powers at the DL users
+-and the main UAV receiver are both set to $-70$ dBm. Unless otherwise
++and the main UAV receiver are both set to $-114$ dBm. Unless otherwise
+ specified in the residual-SI sensitivity experiment, the nominal
+ residual-SI level is set to
+-$10\log_{10}(\rho_{\rm SI})=-100$ dB. The normalized complex reflection
+-coefficient of each sensing target is set to $\xi_l^{\rm S}=1$.
++$10\log_{10}(\rho_{\rm SI})=-100$ dB. All sensing targets are modeled
++as vehicles with the same fixed effective RCS, $A_l=10\,\mathrm{m}^2$.
++This is a simplified equivalent point-target assumption that does not
++model aspect-dependent RCS variations. With $\lambda=0.01$ m, the
++RCS-based amplitude factor is $\xi_l^{\rm S}\approx1121.0$.
++No additional random target scattering phase is introduced.
+ 
+ The communication and sensing path gains are determined according to
+ the actual propagation distances between the common anchor point of the
+@@ -1303,9 +1328,10 @@
+ $D_{\rm UAV}$ & Minimum inter-UAV distance & $0.5$ m \\
+ $P_{\rm D}^{\max}$ & Maximum DL transmit power & $30$ dBm \\
+ $P_{{\rm U},j}^{\max}$ & Maximum UL transmit power & $20$ dBm \\
+-$\sigma_k^2,\sigma_{\rm BS}^2$ & Noise power & $-70$ dBm \\
++$\sigma_k^2,\sigma_{\rm BS}^2$ & Noise power & $-114$ dBm \\
+ $10\log_{10}(\rho_{\rm SI})$ & Nominal residual-SI level & $-100$ dB \\
+-$\xi_l^{\rm S}$ & Target reflection coefficient & $1$ \\
++$A_l$ & Effective vehicle RCS & $10\,\mathrm{m}^2$ \\
++$\xi_l^{\rm S}$ & Equivalent scattering amplitude factor & $\approx1121.0$ \\
+ $I_{\rm in}^{\max}$ & Maximum inner FP iterations & $1200$ \\
+ $I_{\rm out}^{\max}$ & Maximum joint AO iterations & $1500$ \\
+ $\varepsilon_{\rm in},\varepsilon_{\rm out}$ & Convergence tolerance & $10^{-4}$ \\
+@@ -1542,4 +1568,11 @@
+ % \bibliographystyle{IEEEtran}
+ % \bibliography{references}
+ 
++\begin{thebibliography}{1}
++\bibitem{mathworks_radar_equation}
++MathWorks, \emph{Radar Equation}, Radar Toolbox Documentation.
++Accessed: Oct. 10, 2026. [Online]. Available:
++\url{https://www.mathworks.com/help/radar/ug/radar-equation.html}
++\end{thebibliography}
++
+ \end{document}

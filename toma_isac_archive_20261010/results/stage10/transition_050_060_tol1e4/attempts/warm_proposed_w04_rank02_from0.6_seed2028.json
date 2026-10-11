@@ -1,0 +1,18 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.56,
+  "seed": 2028,
+  "origin_omega": 0.6,
+  "method": "cross_weight_refined",
+  "converged": true,
+  "iterations": 3,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 3.7253951557920826,
+  "sum_rate_ul": 42.473833113923234,
+  "sum_rate_comm": 46.19922826971532,
+  "sum_rate_sensing": 8.699169891532792,
+  "weighted_sum_rate": 3.3526837335589437,
+  "state_file": "warm_states\\warm_proposed_w04_rank02_from0.6_seed2028.npz",
+  "runtime_s": 0.9207,
+  "status": "ok"
+}

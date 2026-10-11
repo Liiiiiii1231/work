@@ -1,0 +1,18 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.005,
+  "seed": 2028,
+  "origin_omega": 0.005,
+  "method": "anchor_cold",
+  "converged": true,
+  "iterations": 28,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 0.5228671168604889,
+  "sum_rate_ul": 0.0,
+  "sum_rate_comm": 0.5228671168604889,
+  "sum_rate_sensing": 37.89346266922452,
+  "weighted_sum_rate": 7.5410605047341095,
+  "state_file": "anchor_states\\anchor_proposed.npz",
+  "runtime_s": 10.2225,
+  "status": "ok"
+}

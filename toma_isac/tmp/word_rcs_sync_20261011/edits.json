@@ -1,0 +1,62 @@
+{
+  "replacements": [
+    {
+      "index": 26,
+      "old": "对于第 \\(l\\) 个感知目标，由于发射和接收 ToMA 共用位于坐标原点的同一锚点，其参考传播距离定义为 \\(r_{{\\rm T},l}^{\\rm S}=\\|\\mathbf q_l^{\\rm S}\\|_2\\) 和 \\(r_{{\\rm R},l}^{\\rm S}=\\|\\mathbf q_l^{\\rm S}\\|_2\\)。相应的发射 ToMA 至目标和目标至接收 ToMA 两段单程自由空间功率增益分别为 \\(\\beta_{{\\rm T},l}^{\\rm S}=(\\lambda/(4\\pi r_{{\\rm T},l}^{\\rm S}))^2\\) 和 \\(\\beta_{{\\rm R},l}^{\\rm S}=(\\lambda/(4\\pi r_{{\\rm R},l}^{\\rm S}))^2\\)。令 \\(\\xi_l^{\\rm S}\\) 表示第 \\(l\\) 个目标的复反射系数，则其等效双程复幅度系数定义为",
+      "new": "对于第 \\(l\\) 个感知目标，由于发射和接收 ToMA 共用位于坐标原点的同一锚点，其参考传播距离定义为 \\(r_{{\\rm T},l}^{\\rm S}=\\|\\mathbf q_l^{\\rm S}\\|_2\\) 和 \\(r_{{\\rm R},l}^{\\rm S}=\\|\\mathbf q_l^{\\rm S}\\|_2\\)。相应的发射 ToMA 至目标和目标至接收 ToMA 两段单程自由空间功率增益分别为 \\(\\beta_{{\\rm T},l}^{\\rm S}=(\\lambda/(4\\pi r_{{\\rm T},l}^{\\rm S}))^2\\) 和 \\(\\beta_{{\\rm R},l}^{\\rm S}=(\\lambda/(4\\pi r_{{\\rm R},l}^{\\rm S}))^2\\)。令 \\(A_l\\ge0\\) 表示第 \\(l\\) 个感知目标的有效雷达散射截面（radar cross section, RCS），单位为 \\(\\mathrm{m}^2\\)。由 RCS 换算得到的无量纲等效散射幅度因子定义为"
+    },
+    {
+      "index": 30,
+      "old": "其中 \\(\\mathbf G_l\\in\\mathbb C^{N_{\\rm R}\\times N_{\\rm T}}\\)。其第 \\((s,i)\\) 个元素同时包含从第 \\(i\\) 个发射阵元传播至目标以及由目标返回第 \\(s\\) 个接收阵元的双程传播相位，即\\[ e^{-jk_0\\left( \\|\\mathbf p_i^{\\rm T}-\\mathbf q_l^{\\rm S}\\|_2 + \\|\\mathbf p_s^{\\rm R}-\\mathbf q_l^{\\rm S}\\|_2 \\right)}. \\]因此，目标感知信道同时受到发射 ToMA 和接收 ToMA 几何位置的影响。本文假设主无人机已经获得或通过先前的感知过程估计得到目标位置 \\(\\mathbf q_l^{\\rm S}\\) 以及目标反射系数 \\(\\xi_l^{\\rm S}\\)，结合上述距离相关传播增益，主无人机即可构造目标感知信道 \\(\\mathbf G_l\\)并进行后续的通信、感知资源和 ToMA 位置联合设计。",
+      "new": "其中 \\(\\mathbf G_l\\in\\mathbb C^{N_{\\rm R}\\times N_{\\rm T}}\\)。其第 \\((s,i)\\) 个元素同时包含从第 \\(i\\) 个发射阵元传播至目标以及由目标返回第 \\(s\\) 个接收阵元的双程传播相位，即\\[ e^{-jk_0\\left( \\|\\mathbf p_i^{\\rm T}-\\mathbf q_l^{\\rm S}\\|_2 + \\|\\mathbf p_s^{\\rm R}-\\mathbf q_l^{\\rm S}\\|_2 \\right)}. \\]因此，目标感知信道同时受到发射 ToMA 和接收 ToMA 几何位置的影响。本文假设主无人机已经获得或通过先前的感知过程估计得到目标位置 \\(\\mathbf q_l^{\\rm S}\\) 以及目标有效 RCS \\(A_l\\)（从而确定 \\(\\xi_l^{\\rm S}\\)），结合上述距离相关传播增益，主无人机即可构造目标感知信道 \\(\\mathbf G_l\\)并进行后续的通信、感知资源和 ToMA 位置联合设计。"
+    }
+  ],
+  "inserts": [
+    {
+      "after": 26,
+      "template": 27,
+      "text": "\\[ \\xi_l^{\\rm S}=\\frac{\\sqrt{4\\pi A_l}}{\\lambda}. \\]"
+    },
+    {
+      "after": 26,
+      "template": 25,
+      "text": "其中，\\(\\xi_l^{\\rm S}\\) 为非负实数，不额外引入目标散射随机相位。发射端至目标和目标至接收端的单程传播损耗仍分别由 \\(\\beta_{{\\rm T},l}^{\\rm S}\\) 与 \\(\\beta_{{\\rm R},l}^{\\rm S}\\) 表示。因此，等效双程幅度系数定义为"
+    },
+    {
+      "after": 27,
+      "template": 25,
+      "text": "代入 RCS 散射幅度定义可得等价的双程幅度系数及功率增益："
+    },
+    {
+      "after": 27,
+      "template": 27,
+      "text": "\\[ \\alpha_l^{\\rm S}=\\frac{\\lambda\\sqrt{A_l}}{(4\\pi)^{3/2}r_{{\\rm T},l}^{\\rm S}r_{{\\rm R},l}^{\\rm S}}, \\]"
+    },
+    {
+      "after": 27,
+      "template": 27,
+      "text": "\\[ |\\alpha_l^{\\rm S}|^2=\\frac{\\lambda^2 A_l}{(4\\pi)^3(r_{{\\rm T},l}^{\\rm S})^2(r_{{\\rm R},l}^{\\rm S})^2}. \\]"
+    },
+    {
+      "after": 27,
+      "template": 25,
+      "text": "上述无量纲功率增益与单位阵元增益、无额外系统损耗时的点目标双基地雷达方程一致[1]。阵列和波束赋形增益仍由阵列响应及收发波束体现，不能在现有双程路径损耗之外再次乘入 RCS 或其他传播损耗。由于收发阵列共用锚点，参考距离乘积 \\((r_{{\\rm T},l}^{\\rm S})^2(r_{{\\rm R},l}^{\\rm S})^2\\) 等于 \\(\\|\\mathbf q_l^{\\rm S}\\|_2^4\\)；逐阵元精确距离仍用于刻画球面波传播相位。"
+    },
+    {
+      "after": 236,
+      "template": 236,
+      "text": "所有感知目标均建模为车辆，并采用相同且固定的有效 RCS：\\(A_l=10\\,\\mathrm{m}^2\\)。这是简化的等效散射点目标假设，不建模车辆 RCS 随姿态或观测方向的变化。在 \\(\\lambda=0.01\\,\\mathrm m\\) 时，\\(\\xi_l^{\\rm S}=\\sqrt{4\\pi A_l}/\\lambda=1120.998243\\ldots\\approx1121.0\\)，不额外引入目标散射随机相位。下行用户与主无人机接收端的噪声功率均为 \\(-114\\,\\mathrm{dBm}\\)，即 \\(3.981071705534969\\times10^{-15}\\,\\mathrm W\\)。"
+    },
+    {
+      "after": 249,
+      "template": 235,
+      "text": "参考文献"
+    },
+    {
+      "after": 249,
+      "template": 25,
+      "text": "[1] MathWorks. Radar Equation. Radar Toolbox Documentation. https://www.mathworks.com/help/radar/ug/radar-equation.html（访问日期：2026年10月10日）。"
+    }
+  ],
+  "originalHash": "1c0aab6097d0dea4f076ea466e1f3190d0d324f1f335507e38e0a308faacc5ef"
+}

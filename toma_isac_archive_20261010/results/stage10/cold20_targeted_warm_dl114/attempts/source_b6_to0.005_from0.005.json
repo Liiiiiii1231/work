@@ -1,0 +1,19 @@
+{
+  "role": "source",
+  "scheme": "b6",
+  "omega_comm": 0.005,
+  "source_weight": 0.005,
+  "seed": 1562647582,
+  "converged": true,
+  "status": "ok",
+  "iterations": 279,
+  "stop_reason": "outer_tolerance",
+  "runtime_s": 27.326,
+  "direct_reweight_wsr": "",
+  "sum_rate_dl": 0.6908743959709449,
+  "sum_rate_ul": 0.0,
+  "sum_rate_comm": 0.6908743959709449,
+  "sum_rate_sensing": 34.54586690804163,
+  "weighted_sum_rate": 6.874972951898271,
+  "state_file": "states\\source_b6_to0.005_from0.005.npz"
+}

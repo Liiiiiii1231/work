@@ -1,0 +1,6 @@
+SYNTAX_OK 51
+IMPORT_OK 34
+FORMAL_ENTRYPOINTS_OK_14_POINT_UNCHANGED
+COLD20_CSV_OK {'b2': 20, 'b3': 20, 'b6': 20, 'proposed': 20}
+mkdir -p failed for path C:\Users\27809\.matplotlib: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\27809\\.matplotlib'
+Matplotlib created a temporary cache directory at C:\Users\27809\AppData\Local\Temp\matplotlib-eoc1_zlm because there was an issue with the default path ({configdir}); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.

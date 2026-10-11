@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.17)  3 OCT 2026 00:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.17)  11 OCT 2026 15:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -316,65 +316,119 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (d:/texlive/2026/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 57.
  (d:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 57.
  (d:/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1{d:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{d:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
 ] [2] [3] [4] [5] [6] [7]
-Underfull \hbox (badness 2941) in paragraph at lines 1122--1125
+Underfull \hbox (badness 2941) in paragraph at lines 1154--1157
 [] []\OT1/ptm/m/n/10 Apply Al-go-rithm 2[] to $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C[]; []\OT1/cmr/m/n/10 )$ \OT1/ptm/m/n/10 and ob-tain
  []
 
-
-Underfull \hbox (badness 4846) in paragraph at lines 1171--1187
+[8]
+Underfull \hbox (badness 4846) in paragraph at lines 1203--1219
 \OT1/ptm/m/n/10 for a fixed ToMA ge-om-e-try. Its main com-pu-ta-tional
  []
 
 
-Underfull \hbox (badness 2020) in paragraph at lines 1171--1187
+Underfull \hbox (badness 2020) in paragraph at lines 1203--1219
 \OT1/ptm/m/n/10 Let $\OML/cmm/m/it/10 I[]$ \OT1/ptm/m/n/10 de-note the num-ber of in-ner FP it-er-a-tions, $\OML/cmm/m/it/10 I[]$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1171--1187
+Underfull \hbox (badness 10000) in paragraph at lines 1203--1219
 \OT1/ptm/m/n/10 dur-ing the brack-et-ing and bi-sec-tion pro-ce-dures, and
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 1171--1187
+Underfull \hbox (badness 1360) in paragraph at lines 1203--1219
 \OT1/ptm/m/n/10 de-fine $\OML/cmm/m/it/10 D \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 K \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 R[]$\OT1/ptm/m/n/10 . Let $\OML/cmm/m/it/10 C[]$ \OT1/ptm/m/n/10 de-note the dom-i-nant
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1171--1187
+Underfull \hbox (badness 10000) in paragraph at lines 1203--1219
 \OMS/cmsy/m/n/10 O  []$\OT1/ptm/m/n/10 .
  []
 
-[8] (./main_single_fileV1.1.aux)
+[9]
+Underfull \hbox (badness 2435) in paragraph at lines 1394--1399
+\OT1/ptm/m/n/10 op-ti-mizes the communication--sensing re-sources and the
+ []
+
+<figures/fig_convergence.png, id=49, 631.158pt x 371.7087pt>
+File: figures/fig_convergence.png Graphic file (type png)
+<use figures/fig_convergence.png>
+Package pdftex.def Info: figures/fig_convergence.png  used on input line 1408.
+(pdftex.def)             Requested size: 252.0pt x 148.40858pt.
+[10 <./figures/fig_convergence.png>]
+<figures/fig_pdl.png, id=61, 715.2321pt x 387.6081pt>
+File: figures/fig_pdl.png Graphic file (type png)
+<use figures/fig_pdl.png>
+Package pdftex.def Info: figures/fig_pdl.png  used on input line 1443.
+(pdftex.def)             Requested size: 252.0pt x 136.56386pt.
+
+Underfull \hbox (badness 1448) in paragraph at lines 1475--1482
+[]\OT1/ptm/m/n/10 Furthermore, the pro-posed method out-per-forms Fixed-
+ []
+
+<figures/fig_rsi.png, id=62, 715.2321pt x 387.6081pt>
+File: figures/fig_rsi.png Graphic file (type png)
+<use figures/fig_rsi.png>
+Package pdftex.def Info: figures/fig_rsi.png  used on input line 1494.
+(pdftex.def)             Requested size: 252.0pt x 136.56386pt.
+
+Underfull \hbox (badness 3849) in paragraph at lines 1500--1507
+[]\OT1/ptm/m/n/10 To in-ves-ti-gate the sen-si-tiv-ity of the sys-tem per-for-
+ []
+
+<figures/fig_load.png, id=63, 715.2321pt x 387.6081pt>
+File: figures/fig_load.png Graphic file (type png)
+<use figures/fig_load.png>
+Package pdftex.def Info: figures/fig_load.png  used on input line 1552.
+(pdftex.def)             Requested size: 252.0pt x 136.56386pt.
+[11 <./figures/fig_pdl.png> <./figures/fig_rsi.png>]
+<figures/fig_tradeoff.png, id=69, 604.35788pt x 360.44662pt>
+File: figures/fig_tradeoff.png Graphic file (type png)
+<use figures/fig_tradeoff.png>
+Package pdftex.def Info: figures/fig_tradeoff.png  used on input line 1630.
+(pdftex.def)             Requested size: 474.71906pt x 283.13272pt.
+
+Underfull \hbox (badness 4441) in paragraph at lines 1660--1672
+[]\OT1/ptm/m/n/10 The bench-mark schemes ex-hibit dif-fer-ent achiev-able
+ []
+
+[12 <./figures/fig_load.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1685--1689
+[]\OT1/ptm/m/n/10 Overall, the pro-posed scheme achieves fa-vor-able
+ []
+
+[13
+
+ <./figures/fig_tradeoff.png>] (./main_single_fileV1.1.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4732 strings out of 467525
- 81137 string characters out of 5423209
- 522063 words of memory out of 5000000
- 33586 multiletter control sequences out of 15000+600000
- 663729 words of font info for 107 fonts, out of 8000000 for 9000
+ 4824 strings out of 467525
+ 83072 string characters out of 5423209
+ 518492 words of memory out of 5000000
+ 33666 multiletter control sequences out of 15000+600000
+ 671417 words of font info for 125 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
  57i,12n,65p,1352b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main_single_fileV1.1.pdf (8 pages, 274402 bytes).
+<d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main_single_fileV1.1.pdf (13 pages, 1339038 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
- 75 compressed objects within 1 object stream
+ 180 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

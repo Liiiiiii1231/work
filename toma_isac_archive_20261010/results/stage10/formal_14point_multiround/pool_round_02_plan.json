@@ -1,0 +1,565 @@
+{
+  "round": 2,
+  "jobs": [
+    {
+      "omega_comm": 0.001,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w01_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src588737551ee295.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w03_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w04_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w00_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src588737551ee295.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w00_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w03_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w00_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src588737551ee295.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w00_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w04_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w01_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src588737551ee295.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w00_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w04_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w03_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src588737551ee295.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w03_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w00_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w03_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src588737551ee295.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w04_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w03_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w07_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w05_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w07_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w05_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w08_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w06_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w08_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w09_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w07_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w06_r01_srcae65f6e0c18ee6.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w07_r01_src49d1c8965f4528.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w09_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w07_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w09_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w07_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w08_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w07_r01_srce084f202314acb.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w10_r01_srca64a8838962f2d.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w11_r01_src5001306f70c668.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w08_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w07_r01_src77339811be43a4.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w08_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w07_r01_src76b78a929b9458.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w12_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w11_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w09_r01_srca64a8838962f2d.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w12_r01_src5001306f70c668.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w11_r01_src66c11dfa490708.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w07_seed2822015134.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w11_r01_src58cd98aa2c66ab.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w08_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w12_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w10_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w10_r01_srca64a8838962f2d.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w09_r01_srca64a8838962f2d.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w10_r01_src66c11dfa490708.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w12_r01_src389ee2e01d3b8e.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w13_r01_src4340c74d1156d1.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w12_r01_src4340c74d1156d1.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w11_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w10_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w10_r01_srca64a8838962f2d.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w13_r01_src5001306f70c668.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w11_r01_src389ee2e01d3b8e.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w13_r01_src02be0484520633.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w13_r01_src4340c74d1156d1.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w11_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w12_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b2",
+      "source_state_file": "warm_states\\warm_b2_w11_r01_src5b76cdcf837ad5.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w10_r01_srca64a8838962f2d.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b3",
+      "source_state_file": "warm_states\\warm_b3_w12_r01_src5001306f70c668.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w11_r01_src389ee2e01d3b8e.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b6",
+      "source_state_file": "warm_states\\warm_b6_w12_r01_src389ee2e01d3b8e.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "proposed",
+      "source_state_file": "warm_states\\warm_proposed_w12_r01_src4340c74d1156d1.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w11_seed2026.npz"
+    }
+  ]
+}

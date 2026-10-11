@@ -1,0 +1,36 @@
+{
+  "config_sha256": "9355b5f0f0219e4b3b60c1fbd8728242fac8453935f7c9d17fa8e9c18910fef7",
+  "reference_sha256": "6a8da5dd9092657eec6e48e8591e72c4dc10a65f96a517d6878c4dfeb9e1563e",
+  "planned_targets": [
+    [
+      "proposed",
+      0.05,
+      0.001
+    ],
+    [
+      "proposed",
+      0.2,
+      0.001
+    ],
+    [
+      "b6",
+      0.2,
+      0.005
+    ],
+    [
+      "b2",
+      0.2,
+      0.001
+    ]
+  ],
+  "solver_sha256": {
+    "algorithm.py": "8a12fd0a34229ec966cfecbeee3cce85004b600e42acb275f3f67413b76ae297",
+    "baselines.py": "996a81c10c94a78a40c0c4cd775cd3ef790f9d4128dff04756a90e52d8d4c3db",
+    "ma_baseline.py": "c0b777177778801973001d10f275d17b98d1dbe655e86b5febd35828f579444a",
+    "inner_solver.py": "b80956336d572763b36e20e38faa49ad6da4cf6e038366e822e8aeb9e60dd353",
+    "outer_solver.py": "d33ff8cdc7770079fdd859e8623e9a01a4270459970ae1899a630aa47cebdd5b",
+    "channels.py": "a72f233e337f24eb84ab1ccafc13437a2da1a4a502816aec2df671448e4eb2d0",
+    "metrics.py": "57be413ec915cedcda7fe7bc20f93a3e561a35b488dbb128e6847984ca4805a7",
+    "experiments/run_stage10_targeted20.py": "76fa44600df964ca930cc9dcedacd9bbd81b0f8075b20f9499adfcdb7ed4561c"
+  }
+}

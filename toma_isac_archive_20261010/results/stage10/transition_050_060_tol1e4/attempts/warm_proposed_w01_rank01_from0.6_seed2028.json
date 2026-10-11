@@ -1,0 +1,18 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.52,
+  "seed": 2028,
+  "origin_omega": 0.6,
+  "method": "cross_weight_refined",
+  "converged": true,
+  "iterations": 5,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 3.713718707442726,
+  "sum_rate_ul": 42.46333737270531,
+  "sum_rate_comm": 46.177056080148034,
+  "sum_rate_sensing": 8.719051049982996,
+  "weighted_sum_rate": 3.238235816966066,
+  "state_file": "warm_states\\warm_proposed_w01_rank01_from0.6_seed2028.npz",
+  "runtime_s": 1.495,
+  "status": "ok"
+}

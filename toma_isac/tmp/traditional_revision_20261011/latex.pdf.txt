@@ -1,0 +1,918 @@
+                                                                                                                                   1
+
+
+
+
+        Towed Movable Antenna-Assisted Near-Field
+                       Integrated
+              Sensing and Communication
+                                                       Author Name
+
+
+
+  Abstract—Your abstract goes here.                                 Moreover, to account for the self-interference (SI) caused
+   Index Terms—Towed movable antenna (ToMA), integrated          by simultaneous transmission and reception in the full-duplex
+sensing and communication (ISAC), near-field, full-duplex, an-   mode, we adopt a unified equivalent residual self-interference
+tenna position optimization.                                     (RSI) model. Specifically, the aggregate residual effect after
+                                                                 passive isolation, analog cancellation, and digital cancellation
+                     I. I NTRODUCTION                            is represented by HRSI . The RSI is not imposed as an
+                                                                 additional feasibility constraint; instead, it affects the system
+  Your introduction goes here.                                   weighted sum rate (WSR) through the SINRs of the UL
+                                                                 communication and sensing links.
+    II. S YSTEM M ODEL AND P ROBLEM F ORMULATION
+   Consider a ToMA-aided full-duplex near-field integrated
+sensing and communication (ISAC) system. The main UAV            A. ToMA Geometry Model
+serves as the central platform for communication and sensing        To describe the three-dimensional (3D) geometry of the
+and is assumed to hover at a fixed location. It tows multiple    ToMA arrays, we establish a global 3D Cartesian coordinate
+UAVs through M fixed-length cables to form reconfigurable        system O−xyz centered at the main UAV, with the common
+transmit and receive arrays. All cables are attached to a com-   cable anchor point coinciding with the origin, i.e., q0 = o = 0.
+mon anchor point on the main UAV, where half of the towing       Let the sets of DL users, UL users, and sensing targets be
+UAVs constitute the transmit ToMA array and the remaining        K = {1, . . . , K}, J = {1, . . . , J}, and L = {1, . . . , L},
+half constitute the receive ToMA array. Over the same time-      respectively. Their 3D coordinates are denoted by qD           U
+                                                                                                                          k , qj ,
+                                                                          S      3
+frequency resource, the transmit ToMA array simultaneously       and ql ∈ R , where k ∈ K, j ∈ J , and l ∈ L.
+communicates with K downlink (DL) users and illuminates L           The system contains M towing UAVs, where M is as-
+sensing targets, while the receive ToMA array simultaneously     sumed to be even. Define the towing-UAV index set as
+receives communication signals from J uplink (UL) users and      M = {1, . . . , M }. The first M/2 UAVs form the transmit
+reflected echoes from multiple sensing targets. In this paper,   ToMA array, while the remaining M/2 UAVs form the receive
+the trajectory, global translation, and attitude of the main     ToMA array, i.e., MT = {1, . . . , M/2} and MR = {M/2 +
+UAV are not optimized. Instead, the system performance is        1, . . . , M }. The transmit/receive role of each towing UAV
+enhanced by jointly optimizing the ToMA geometry and the         remains fixed within one optimization interval. Each cable
+communication and sensing resources.                             carries Nc uniformly distributed antenna elements. Hence, the
+   Unlike conventional fixed-position antenna (FPA) arrays       transmit and receive arrays each contain NT = NR = M Nc /2
+and movable antenna (MA) architectures in which individual       antenna elements.
+antenna elements can move independently, the ToMA array             Let cm ∈ R3 denote the endpoint position of the m-th
+reconfigures its geometry by adjusting the positions of the      towing UAV relative to the main UAV. Since the antenna
+towing UAVs, such that multiple antenna elements mounted         elements are uniformly distributed along the m-th cable, the
+on the same cable move in a coupled manner. Since the array      position of its n-th antenna element is given by
+aperture of the ToMA varies with the towing-UAV positions,                                n
+the near-field operating region is determined according to the                    pm,n =    cm ,      n = 1, . . . , Nc .      (1)
+                                                                                         Nc
+actual apertures of the transmit and receive ToMA arrays. Let
+DT and DR denote the effective apertures of the transmit         Therefore, all antenna-element positions on the same cable are
+and receive ToMA arrays, respectively. For x ∈ {T, R}, the       jointly determined by the corresponding endpoint cm .
+corresponding radiative
+                      p near-field region can be approximately      For a transmit cable m ∈ MT , define the global transmit-
+characterized as 0.62 Dx3 /λ < r < 2Dx2 /λ, where λ denotes      antenna index as i = (m − 1)Nc + n, and let pT         i := pm,n ,
+the carrier wavelength. In this paper, the communication users   i = 1, . . . , NT . Similarly, for a receive cable m ∈ MR , define
+and sensing targets are considered to lie within the radiative   the global receive-antenna index as s = m − M       2 − 1 Nc +n,
+near-field region of the ToMA arrays. Accordingly, spherical-    and let pR  s := pm,n , s = 1, . . . , NR .
+wave channel models are adopted for the communication and           The endpoint positions associated with the       transmit
+                                                                                                                       T       and
+sensing links.                                                   receive ToMA arrays are stacked as e        cT = cTm m∈MT and
+                                                                                                                                         2
+
+
+        T
+cR = cTm m∈M , respectively. The joint ToMA endpoint-
+e                                                                       are retained in the array response vectors to characterize the
+                   R
+position vector is further defined as e  c = [e        cTR ]T . Since
+                                                 cTT , e                near-field spherical-wave phases.
+the communication, sensing, and SI channels all vary with                  For sensing target l, since the transmit and receive ToMA
+these endpoint positions, e   c constitutes the key geometric           arrays share the same anchor point at the origin, the reference
+                                                                                                               S
+optimization variable of the proposed ToMA system.                      propagation distances are given by rT,l                    S
+                                                                                                                  = ∥qSl ∥2 and rR,l  =
+                                                                           S
+   Since all cables have a fixed length Lc , the endpoint of each       ∥ql ∥2 . Accordingly, the one-way free-space power gains of
+towing UAV must satisfy                                                 the transmit-ToMA-to-target and target-to-receive-ToMA links
+                                                                              S              S
+                                                                        are βT,l  = (λ/(4πrT,l            S
+                                                                                                ))2 and βR,l             S
+                                                                                                              = (λ/(4πrR,l ))2 , respec-
+                  ∥cm ∥2 = Lc ,        ∀m ∈ M.                   (2)    tively.
+In addition, to avoid collisions among the towing UAVs, the                Let Al ≥ 0 denote the effective radar cross section (RCS)
+endpoint positions are constrained by                                   of sensing target l, measured in m2 . The corresponding
+                                                                        dimensionless equivalent scattering amplitude factor is defined
+            ∥cm − cm′ ∥2 ≥ DUAV ,           ∀m ̸= m′ .           (3)    as                             √
+Thus, each towing UAV is constrained to move on a sphere                                          S      4πAl
+                                                                                                 ξl =          .
+centered at the main UAV with radius Lc , while also satisfying                                           λ
+the minimum inter-UAV safety-distance requirement.                      This factor is real and nonnegative; no additional random target
+                                                                        scattering phase is introduced. The one-way propagation losses
+                                                                                                    S         S
+B. Near-Field Channel Model                                             remain accounted for by βT,l    and βR,l . The equivalent round-
+   We consider a quasi-static narrowband line-of-sight (LoS)            trip amplitude coefficient is then defined as
+propagation environment and adopt the uniform spherical                                                 q
+wave (USW) model for the communication, sensing, and SI                                        αlS = ξlS βT,l
+                                                                                                           S βS .
+                                                                                                                R,l                  (8)
+channels. Unlike the conventional far-field plane-wave model,
+the near-field spherical-wave model preserves the actual prop-          Substitution gives the equivalent round-trip power gain
+agation distance between each antenna element and each user                                                 λ2 Al
+or target, thereby capturing the phase variations induced by                             |αlS |2 =           S )2 (r S )2
+                                                                                                                          .
+                                                                                                     (4π)3 (rT,l    R,l
+ToMA geometry reconfiguration. Let λ denote the carrier
+wavelength and define the wavenumber as k0 = 2π/λ. For                  This normalization agrees with the point-target bistatic radar
+an arbitrary spatial position q, the near-field array response          equation with unit element gains and no additional system
+vectors of the transmit and receive ToMA arrays are respec-             loss [1]. Array and beamforming gains remain represented by
+tively defined as                                                       the array responses and the transmit and receive beamformers.
+                             h       T
+                                            iNT                         Neither RCS nor propagation loss is applied again beyond
+                    cT , q) = ejk0 ∥pi −q∥2
+                aT (e                           ,          (4)          the factors already included in αlS . With the common anchor,
+                                               i=1
+                                                                        the range product in the denominator reduces to ∥qSl ∥42 .
+and                          h       R
+                                            iNR                         Accordingly, the round-trip sensing channel matrix associated
+                    cR , q) = ejk0 ∥ps −q∥2
+                aR (e                           .                (5)    with target l is given by
+                                               s=1
+
+Here, ∥pT                 R
+          i − q∥2 and ∥ps − q∥2 represent the actual prop-                       Gl = αlS a∗R (e
+                                                                                               cR , qSl )aH  cT , qSl ),      l ∈ L,
+                                                                                                          T (e                         (9)
+agation distances from the i-th transmit antenna and the
+s-th receive antenna to position q, respectively. Therefore,            where Gl ∈ CNR ×NT . The (s, i)-th entry contains the round-
+changing the towing-UAV endpoint positions alters the an-               trip propagation phase from the i-th transmit antenna to the
+tenna coordinates and, consequently, the spherical-wave phase           target and then from the target to the s-th receive antenna,
+                                                                                       T   S       R   S
+responses of the corresponding links.                                   i.e., e−jk0 (∥pi −ql ∥2 +∥ps −ql ∥2 ) . Hence, the sensing channel
+   Let rkD = ∥qD            U      U
+                 k ∥2 and rj = ∥qj ∥2 denote the reference              depends jointly on the geometries of both the transmit and
+propagation distances from the common anchor point at the               receive ToMA arrays.
+main UAV to DL user k and UL user j, respectively. Un-                     We assume that the target location qSl and the effective RCS
+der free-space LoS propagation, the corresponding common                Al (and hence ξlS ) are available at the main UAV, either known
+amplitude path gains are modeled as αkD = λ/(4πrkD ) and                a priori or estimated from previous sensing observations.
+αjU = λ/(4πrjU ), respectively.                                         Together with the distance-dependent propagation gains above,
+   Accordingly, the DL channel of user k is expressed as                this enables the main UAV to construct Gl for the subsequent
+               hk = αkD aT (e
+                            cT , qD          k ∈ K,                     joint design of communication resources, sensing resources,
+                                  k ),                           (6)
+                                                                        and ToMA positions.
+while the UL channel of user j is                                          Since the main UAV operates in the full-duplex mode, the
+                                                                        simultaneous operation of the transmit and receive ToMA ar-
+                             cR , qU
+                fj = αjU aR (e     j ),      j ∈ J.              (7)
+                                                                        rays results in direct SI through the propagation paths between
+Thus, the USW model absorbs the approximately common                    transmit and receive antenna elements. Define the distance
+amplitude attenuation across the array into the link-specific           between the i-th transmit antenna and the s-th receive antenna
+path gain, while the element-wise exact propagation distances           as dSI           R       T
+                                                                              s,i = ∥ps − pi ∥2 . Taking the actual Tx–Rx antenna
+                                                                                                                                                3
+
+
+
+distance into account, the (s, i)-th entry of the uncancelled           where nk ∼ CN (0, σk2 ) denotes the additive white Gaussian
+direct SI channel H0SI ∈ CNR ×NT is modeled as                          noise (AWGN) at DL user k. Since the UL users have limited
+                                   λ           SI
+                                                                        transmit power and the high-frequency signals considered in
+                  [H0SI ]s,i =       SI
+                                        e−jk0 ds,i .             (10)   this paper experience severe propagation attenuation, the co-
+                                 4πds,i
+                                                                        channel interference from UL users to DL users is neglected.
+Here, the free-space amplitude attenuation is represented by               While transmitting the DL ISAC signal, the main UAV
+λ/(4πdSI s,i ), while the propagation phase is determined by            simultaneously receives the communication signals from the
+the actual distance between the transmit and receive antenna            UL users and the reflected echoes from multiple sensing
+elements. To avoid a singularity when dSI  s,i → 0, we assume           targets through the receive ToMA array. Let dU      j denote the
+that the system deployment guarantees dSI             min
+                                              s,i ≥ dSI    > 0          normalized communication symbol transmitted by UL user j,
+for every Tx–Rx antenna pair, i.e., a minimum spacing is                satisfying E[|dU  2                                2
+                                                                                       j | ] = 1. Furthermore, let pj = qj with qj ≥ 0,
+maintained between the transmit and receive antenna elements.           where pj is the transmit power of UL user j and qj is the
+   In practical full-duplex systems, SI is typically suppressed         corresponding nonnegative transmit-amplitude variable. After
+through passive isolation, analog cancellation, and digital             aggregate SI cancellation, the signal received at the main UAV
+cancellation. Instead of explicitly modeling each cancellation          is given by
+stage, we characterize their aggregate effect by an equivalent                        X                   X
+RSI channel. Let 0 ≤ ρSI ≤ 1 denote the residual SI power                  yBS =           qj fj dU
+                                                                                                  j   +       Gl x + HRSI x +nBS ,
+                                                                                                                       | {z }
+ratio after SI cancellation. The equivalent RSI channel is then                       j∈J                 l∈L          residual SI
+                                                                                      | {z }              |  {z  }
+defined as                                                                         UL communication signal    target reflections
+                                √
+                        HRSI = ρSI H0SI .                  (11)                                                             (16)
+                                                                                                 2
+                                                                        where nBS ∼ CN (0, σBS     INR ) denotes the AWGN at the
+The direct SI channel H0SI depends on the transmit and receive          receive side of the main UAV.
+ToMA geometries, whereas ρSI characterizes the overall SI
+suppression capability of the system. The matrix HRSI thus
+                                                                        D. Communication and Sensing Performance Metrics
+represents the equivalent residual SI channel.
+                                                                           For DL user k, the desired signal power is |hH     2
+                                                                                                                        k wk | , while
+C. Full-Duplex ISAC Signal Model                                        the remaining DL communication beams and the sensing
+   The main UAV simultaneously transmits multiuser DL com-              beams are treated as interference. Hence, the SINR of DL
+munication signals and sensing signals through the transmit             user k is
+ToMA array. Define the DL communication beamforming                                          |hH
+                                                                                               k wk |
+                                                                                                     2
+                                                                          γkD = X                                  ,     k ∈ K, (17)
+matrix as W = [w1 , . . . , wK ] ∈ CNT ×K , where wk denotes                            |hH     2      H    2
+                                                                                          k wi | + ∥hk V∥2 + σk
+                                                                                                                 2
+
+the transmit beamformer for DL user k. Define the sensing                         i∈K\{k}
+beamforming matrix as V = [v1 , . . . , vRS ] ∈ CNT ×RS , where                             PRS
+RS denotes the number of independent sensing waveforms.                 where ∥hH      2
+                                                                                  k V∥2 =
+                                                                                                    H     2
+                                                                                              r=1 |hk vr | represents the aggregate
+The combined transmit beamforming matrix is defined as                  interference power caused by the sensing beams at DL user
+                                                                        k. The corresponding achievable DL rate is defined as
+                Q = [W, V] ∈ CNT ×(K+RS ) .                      (12)
+                                                                                           RkD = log2 1 + γkD .
+                                                                                                              
+                                                                                                                               (18)
+  Let d = [dD              D T
+              1 , . . . , dK ] denote the DL communication sym-
+bol vector, satisfying E[ddH ] = IK . Let z = [z1 , . . . , zRS ]T         To detect the data transmitted by UL user j, the main UAV
+denote the vector of independent sensing waveforms, satis-              employs a receive beamformer bj ∈ CNR with ∥bj ∥22 = 1.
+fying E[zzH ] = IRS . The communication symbols d and                   Since multiple target echoes and RSI are simultaneously
+sensing waveforms z are assumed to be mutually independent.             present at the receiver of the main UAV, define the target-
+Accordingly, the full-duplex ISAC signal transmitted by the             echo-plus-RSI interference covariance matrix for UL detection
+main UAV is expressed as                                                as                 X
+                                                 RS                                CU =        Gl Rx GH                H
+                                                                                                        l + HRSI Rx HRSI .       (19)
+                                 X               X
+          x = Wd + Vz =                wk dD
+                                           k +         vr zr .   (13)                         l∈L
+
+                                 k∈K             r=1                    The first term represents the aggregate interference covari-
+  The corresponding transmit covariance matrix is                       ance contributed by all target echoes, while the second term
+                                                                        represents the RSI covariance. The two types of interference
+         Rx = E[xxH ] = WWH + VVH = QQH ,                        (14)   are accumulated separately in the power domain, and their
+and hence the total transmit power at the main UAV is                   cross-covariance terms are neglected. Accordingly, the post-
+Tr(Rx ) = ∥Q∥2F .                                                       combining SINR of UL user j is
+  The signal received by DL user k consists of the desired                                          qj2 |bH     2
+                                                                                                          j fj |
+communication signal, multiuser interference from the other               γjU =     X                                              ,   j ∈ J.
+DL users, the sensing signal, and receiver noise, i.e.,                                      qi2 |bH     2   H          2
+                                                                                                   j fi | + bj CU bj + σBS
+                                 X                                                i∈J \{j}
+            ykD = hH      D
+                    k wk dk +          hH       D
+                                         k wi d i                                                                                 (20)
+                               i∈K\{k}                  (15)            The first term in the denominator represents the multiuser in-
+                       H
+                   + hk Vz + nk ,                                       terference from the other UL users, the second term represents
+                                                                                                                                        4
+
+
+
+the equivalent interference caused by target echoes and RSI,          weights, the system can prioritize the relative performance of
+and the last term is the receiver noise. The corresponding            DL communication, UL communication, and target sensing.
+achievable UL rate is                                                 Accordingly, the joint ToMA geometry and communication–
+                                                                      sensing resource design problem is formulated as
+                     RjU = log2 1 + γjU .
+                                       
+                                                        (21)
+                                                                        (P1)      max F (Ξ)
+   For sensing target l, the main UAV employs a sensing                            Ξ
+
+receive beamformer ul ∈ CNR with ∥ul ∥22 = 1. For point-                   s.t.    C1 : ∥ul ∥22 = 1,      ∀l ∈ L,
+target detection, a higher output SINR generally corresponds                       C2 : ∥bj ∥22 = 1,      ∀j ∈ J ,
+to better target-detection performance. Therefore, the output                      C3 : ∥Q∥2F ≤ PDmax ,                              (26)
+SINR serves as an effective and tractable metric for sensing                                    q
+                                                                                                  max ,
+                                                                                   C4 : 0 ≤ qj ≤ PU,j               ∀j ∈ J ,
+performance. When detecting target l, the reflected echoes
+from the other targets and the RSI are treated as interference.                    C5 : ∥cm ∥2 = Lc ,       ∀m ∈ M,
+Accordingly, define the corresponding interference covariance
+matrix as                                                                          C6 : ∥cm − cm′ ∥2 ≥ DUAV ,           ∀m ̸= m′ .
+                   X                                                  Constraints C1 and C2 normalize the sensing and UL receive
+         CS,l =          Gi Rx GH                H
+                                 i + HRSI Rx HRSI .        (22)
+                                                                      beamformers, respectively. Constraint C3 limits the maximum
+                   i∈L\{l}
+                                                                      total DL transmit power of the main UAV, while C4 limits the
+Following the same treatment as in the UL communication               maximum transmit power of each UL user. Constraint C5 is
+link, the desired echo power of target l after applying ul is         the fixed-length cable constraint, which confines each towing-
+∥uH        2
+   l Gl Q∥2 . Thus, the sensing SINR corresponding to target          UAV endpoint to a sphere centered at the main UAV with
+l is                                                                  radius Lc . Constraint C6 guarantees that the distance between
+                                 2                                    any two towing UAVs is no smaller than the minimum safety
+                       uH
+                        l Gl Q 2
+  γlS = X                                        ,   l ∈ L. (23)      distance DUAV .
+               qj2 |uH     2   H            2
+                     l fj | + ul CS,l ul + σBS                           Since the communication, sensing, and SI channels are
+         j∈J                                                          all nonlinearly coupled with the ToMA geometry, while the
+The first term in the denominator represents the interference         transmit beamformers, UL transmit powers, and receive beam-
+from all UL users, the second term captures the interference          formers jointly appear in multiple fractional SINR expres-
+caused by the echoes from the other targets and RSI, and the          sions, problem (P1) is a non-convex optimization problem
+last term represents the receiver noise at the main UAV. To           with highly coupled variables and non-convex geometric con-
+characterize the sensing performance within the same rate-            straints. Consequently, obtaining a globally optimal solution
+based framework as the communication links, we further                directly is challenging.
+define the sensing-rate metric of target l as
+                                                                               III. J OINT T O MA G EOMETRY AND
+                     RlS = log2 1 + γlS .
+                                        
+                                                         (24)          C OMMUNICATION –S ENSING R ESOURCE O PTIMIZATION
+                                                                         Alternating optimization (AO) is widely used to solve
+E. Problem Formulation                                                various optimization problems in wireless communication sys-
+   Based on the above communication and sensing perfor-               tems. It decomposes the original problem into several more
+mance metrics, we jointly optimize the ToMA geometry,                 tractable subproblems and optimizes one block of variables at
+the transmit beamforming at the main UAV, the UL users’               a time while keeping the remaining blocks fixed. Following
+transmit powers, and the communication and sensing receive            this principle, we decompose the original problem into two
+beamformers. Define the set of joint optimization variables           interrelated subproblems, namely, resource optimization and
+as Ξ = {e       cR , Q, {ul }l∈L , {bj }j∈J , {qj }j∈J }. Here, e
+           cT , e                                               cT    ToMA geometry optimization. For the resource-optimization
+and e cR denote the endpoint-position vectors of the trans-           subproblem with fixed ToMA geometry, a fractional program-
+mit and receive ToMA arrays, respectively; Q is the joint             ming (FP)-based method is employed to alternately update
+communication-and-sensing transmit beamforming matrix; ul             the communication and sensing resources. For the geometry-
+and bj are the receive beamformers for sensing target l and UL        optimization subproblem with the current resource state fixed,
+user j, respectively; and qj is the transmit-amplitude variable       a Riemannian conjugate gradient (RCG) method is used to
+of UL user j.                                                         update the endpoints of the towing UAVs. Furthermore, to
+   The optimization objective is to maximize the weighted sum         alleviate the resource mismatch caused by changes in the
+rate, given by                                                        ToMA geometry, an FP-aware candidate-evaluation mech-
+                X              X               X                      anism is incorporated into the position-update procedure,
+      F (Ξ) =        ωkD RkD +      ωjU RjU +       ωlS RlS ,  (25)   thereby enabling joint optimization of the ToMA geometry
+                k∈K           j∈J            l∈L                      and communication–sensing resources.
+where ωkD , ωjU , and ωlS are the nonnegative performance
+weights assigned to DL user k, UL user j, and sens-                   A. FP-Based Inner Resource Optimization
+ing
+P target   l, P             satisfying ωkD , ωjU , ωlS ≥ 0 and
+              respectively, P                                           We adopt an FP framework to handle the optimization
+        D             U             S
+   k∈K ωk +     j∈J ωj +      l∈L ωl = 1. By adjusting these          objective for fixed ToMA endpoint positions through the
+                                                                                                                                           5
+
+
+
+Lagrangian dual transform (LDT) and the quadratic transform             For the sensing link, since the target echo is generated by all
+(QT).                                                                communication and sensing streams in Q, let D = K+RS and
+   1) Receive Beamformer Update: We first fix Q, {qj }, and          introduce the vector auxiliary variable ϕSl ∈ CD . Its optimal
+all ToMA position variables. For sensing target l, define the        update is
+desired target-echo covariance and the interference-plus-noise                                      QH GH  l ul
+                                                                                            ϕS⋆
+                                                                                              l  =              .                 (35)
+covariance as CSl = Gl QQH GH            S            2    H
+                                              P                                                           S
+                                l and Dl =      j∈J qj fj fj +                                          Tl
+          2
+CS,l + σBS INR , respectively.                                          3) Joint Transmit Beamforming Matrix Update: With the
+   Since the sensing SINR with respect to ul forms a general-        receive beamformers, auxiliary variables, and UL transmit
+ized Rayleigh quotient, the maximum-SINR receive direction           amplitudes fixed, define
+is given by the dominant generalized eigenvector of the matrix
+pair (CSl , DSl ). Hence,                                                      CD       H
+                                                                                k = hk hk ,
+                                                                                    X
+               u
+               bl                                                              CU
+                                                                                j =     GH      H       H       H
+                                                                                          i bj bj Gi + HRSI bj bj HRSI ,
+      u⋆l =                  b l = eigvecmax CSl , DSl .
+                                                      
+                     ,       u                               (27)                      i∈L
+               ul ∥2
+              ∥b
+                                                                            CSl,des = GH     H
+                                                                                       l ul ul Gl ,
+         user j, define its interference-plus-noise covariance
+   For ULP                                                                             X
+as DU  =             2     H          2                                     CSl,int =        GH      H
+                                                                                               i ul ul Gi
+     j     i∈J \{j} qi fi fi + CU + σBS INR . The correspond-
+ing maximum-SINR/MMSE receive direction is then given by                               i∈L\{l}
+
+                                      −1                                               + HH       H
+                                                                                          RSI ul ul HRSI .
+                                 (DU
+                                   j )   fj
+                         b⋆j =     U
+                                              .              (28)    Accordingly, the negative quadratic terms with respect to Q
+                               ∥(Dj )−1 fj ∥2
+                                                                     can be collected as
+  2) LDT and QT Auxiliary Variable Update: Define the
+LDT auxiliary variables as ηkD , ηjU , and ηlS , respectively. For               X
+arbitrary A ≥ 0 and B > 0, the LDT identity is                          AQ =          ω̄kD (1 + ηkD )|ϕD  2 D
+                                                                                                       k | Ck
+                                       "                                        k∈K
+                                                                                  X
+                   A        1                                                   +         ω̄jU (1 + ηjU )|ϕU  2 U
+                                                                                                           j | Cj                       (36)
+          log2 1 +      =        max ln(1 + η) − η
+                   B       ln 2 η≥0                                                 j∈J
+                                                              (29)                  X
+                                                                                          ω̄lS (1 + ηlS )∥ϕSl ∥22 CSl,des + CSl,int ,
+                                                      #                                                                            
+                                                 A                              +
+                                 + (1 + η)              .                           l∈L
+                                             A+B
+                                                                     where AQ ⪰ 0.
+   The optimal auxiliary variable satisfies η ⋆ = A/B = γ.                   (D)
+                                                                       Let ek denote the k-th standard basis vector in RD ,
+Therefore, in each inner iteration, the three types of LDT           which selects the k-th DL communication beam from Q. The
+auxiliary variables can be directly updated as ηkD = γkD ,           corresponding linear term can be written as
+ηjU = γjU , and ηlS = γlS . We further define the rescaled weights                      X                          (D) T
+as ω̄kD = ωkD / ln 2, ω̄jU = ωjU / ln 2, and ω̄lS = ωlS / ln 2. To              BQ =        ω̄kD (1 + ηkD )ϕD
+                                                                                                            k hk (ek )
+facilitate the subsequent QT, the total received powers of the                             k∈K
+                                                                                               X                                        (37)
+                                                                                                                            S H
+three types of links are defined as follows. For DL user k,                                +         ω̄lS (1 + ηlS )GH
+                                                                                                                     l ul (ϕl ) .
+                                                                                               l∈L
+                         TkD = ∥hH   2    2
+                                 k Q∥2 + σk .                (30)
+                                                                       After removing the terms independent of Q, the transmit-
+  For UL user j,                                                     beamforming-matrix update can be formulated as
+                                                                           max 2 Re Tr(BH                 H
+               X                                                                      
+         TjU =   qi2 |bH                                                                     Q Q) − Tr(Q AQ Q)
+                             2   H          2
+                       j fi | + bj CU bj + σBS .             (31)            Q
+                   i∈J
+                                                                                                                          (P-Q)
+                                                                             s.t. ∥Q∥2F ≤ PDmax .
+  For sensing target l,
+                                       X                               To handle the total transmit-power constraint, introduce a
+              TlS = ∥uH      2
+                      l Gl Q∥2 +             qj2 |uH
+                                                   l fj |
+                                                         2           Lagrange multiplier λP ≥ 0. From the first-order optimality
+                                       j∈J                   (32)    condition, we obtain
+                            H            2
+                         + ul CS,l ul + σBS .                                          b = (AQ + λP IN )−1 BQ .
+                                                                                       Q                                                (38)
+                                                                                                      T
+
+   Next, QT auxiliary variables are introduced. For the DL              If the unconstrained solution already satisfies the power
+link, let ϕD
+           k ∈ C. Its optimal update is                              constraint, we set λP = 0; otherwise, the unique λP > 0 is
+                                   hH                                determined through a one-dimensional bisection search such
+                                    k wk
+                            ϕD⋆
+                             k =         .                   (33)    that
+                                    TkD                                                                   2
+                                                                                   (AQ + λP INT )−1 BQ F = PDmax .            (39)
+  For the UL link, introduce ϕU
+                              j ∈ C, which is updated as
+                                                                       The resulting Q
+                                                                                     b can then be directly decomposed colum-
+                                qj bHj fj                            nwise into the DL communication beamformers and sensing
+                           ϕU⋆
+                            j =           .                  (34)
+                                   TjU                               beamformers.
+                                                                                                                                         6
+
+
+
+   4) UL Transmit-Amplitude Update: With Q and the re-                 Algorithm 1 FP-Based Inner Resource Optimization
+maining auxiliary variables fixed, the terms related to the UL         Require: Fixed ToMA geometry C, the corresponding chan-
+                                                                                                               (0)
+transmit amplitude qj can be written as 2µj qj − νj qj2 + const.,          nels, initial feasible Q(0) and {qj }, and inner tolerance
+                                                                                                              max
+where                                                                      εin , maximum inner iterations Iin       .
+                                          ∗ H
+            µj = ω̄jU (1 + ηjU ) Re{(ϕUj ) bj fj }          (40)       Ensure: Optimized resource state R⋆ .
+                                                                                                                              (0)
+                                                                        1: Set n = 0 and compute the initial true WSR Fin .
+and
+                                                                        2: repeat
+                      X
+              νj =          ω̄iU (1 + ηiU )|ϕU  2 H
+                                             i | |bi fj |
+                                                         2
+                                                                                                                              (n+1)
+                      i∈J
+                                                                        3:    Update all sensing receive beamformers {ul             }l∈L
+                      X                                         (41)          according to (27).
+                  +         ω̄lS (1 + ηlS )∥ϕSl ∥22 |uH
+                                                      l fj |
+                                                            2
+                                                                                                                          (n+1)
+                                                                        4:    Update all UL receive beamformers {bj             }j∈J ac-
+                      l∈L
+              q                                                               cording to (28).
+Let qj,max =       max . When ν > 0, the optimal solution to
+                  PU,j         j                                        5:    Compute the current true SINRs and update the LDT
+this one-dimensional concave quadratic problem is                             variables {ηkD }, {ηjU }, and {ηlS }.
+                                                                       6:    Compute {TkD }, {TjU }, and {TlS }, and update the QT
+                    0,      µj ≤ 0,                                           variables {ϕD         U           S
+                                                                                            k }, {ϕj }, and {ϕl }.
+                  
+                  
+                  µ
+                      j                                                 7:    Construct AQ and BQ according to (36) and (37).
+            qbj =       ,   0 < µj < νj qj,max ,                (42)
+                  
+                   νj                                                  8:    Determine λP by one-dimensional bisection when nec-
+                   qj,max , µj ≥ νj qj,max .
+                  
+                                                                              essary, and update Q(n+1) according to (38).
+   Accordingly, the final transmit power of UL user j is given          9:    Compute {µj , νj }j∈J and update all UL transmit am-
+                                                                                           (n+1)
+by pj = qbj2 . For the degenerate case νj = 0, the corresponding              plitudes {qj       }j∈J according to (42).
+                                                                                                                                   (n+1)
+endpoint of the interval [0, qj,max ] is selected by maximizing        10:    Recompute the true SINRs and the true WSR Fin              .
+the linear objective 2µj qj .                                          11:    Set n ← n + 1.
+                                                                                      (n)      (n−1)
+   5) Inner Resource Alternating Update: For fixed ToMA                            |Fin − Fin        |                  max
+                                                                       12: until
+                                                                                              (n−1)
+                                                                                                       ≤ εin or n ≥ Iin
+geometry, the inner resource optimization sequentially updates                    max{1, |Fin       |}
+the sensing receive beamformers, UL receive beamformers,                                          (n)     (n)
+                                                                       13: Set R⋆ = {Q(n) , {qj }, {ul }, {bj }}.
+                                                                                                                    (n)
+LDT auxiliary variables, QT auxiliary variables, joint transmit        14: return R .  ⋆
+matrix, and UL transmit amplitudes. After each resource
+update, the true SINRs and the true WSR are recomputed,
+and the above procedure is repeated until the prescribed inner            Since the ToMA endpoint positions affect the commu-
+stopping criterion is satisfied.                                       nication, sensing, and RSI channels through the antenna-
+                                                                       element coordinates, deriving an analytical expression for the
+B. FP-Aware RCG-Based ToMA Position Optimization                       gradient of F with respect to cm is cumbersome. Therefore,
+   We employ an RCG method to sequentially update the                  we approximate the Euclidean gradient using a central finite
+ToMA endpoints over the spherical manifolds while enforc-              difference. For the a-th coordinate, a ∈ {1, 2, 3},
+ing the collision-avoidance condition to preserve geometric                             F (cm + δea , Rt ) − F (cm − δea , Rt )
+feasibility. All transmit and receive endpoints are updated in            [∇cm F ]a ≈                                           , (43)
+                                                                                                             2δ
+a prescribed order. At the beginning of each endpoint update,          where δ > 0 is the finite-difference step size and ea is the a-
+let the current complete ToMA geometry and current resource            th standard basis vector in R3 . For each function evaluation,
+state be denoted by Ct and Rt , respectively, where Rt contains        the antenna-element coordinates and the associated channels
+Q, {qj }, {ul }, and {bj }. During the position-gradient compu-        are regenerated according to the perturbed endpoint, while
+tation and RCG search-direction construction for the current           the resource variables remain fixed at the current Rt . These
+endpoint, the resource state Rt is kept fixed. Therefore, the          perturbed points are used only for gradient estimation and are
+position gradient used in this work is gt = gradC F (Ct , Rt ),        not treated as admissible ToMA positions.
+i.e., the ToMA geometry gradient under the fixed current                  2) RCG Search Direction and Spherical Retraction: To
+resource state, rather than the gradient of the exact reduced          exploit the directional information from the previous position
+objective Φ(C) = F (C, R⋆ (C)). The limited FP updates at a            update, we adopt a Polak–Ribiere+ (PR+) RCG search direc-
+candidate position are used only for the subsequent candidate          tion, given by
+evaluation.                                                                                                             
+   1) Riemannian Gradient Computation: Since constraint C5                             ψ (t)
+                                                                                         m   = g (t)
+                                                                                                 m   + β (t)
+                                                                                                         m   T   ψ (t−1)
+                                                                                                                   m       ,      (44)
+requires each endpoint to satisfy ∥cm ∥2 = Lc , the feasible
+position of the m-th towing UAV lies on the spherical manifold         where T (·) denotes the vector transport that maps the tan-
+Sm = {c ∈ R3 : cT c = L2c }. At the current endpoint                   gent vector from the previous tangent space to the current
+                                                                                                             (t)               (t)   (t)
+cm , the tangent space is Tcm Sm = {v ∈ R3 : cTm v = 0}.               one. The PR+ coefficient is βm = max{0, ⟨gm , gm −
+                                                                            (t−1)      (t−1) 2
+Hence, the Euclidean gradient of the WSR with respect to               T (gm )⟩/∥gm ∥2 }. If the resulting direction does not
+                                                                                                    (t)
+cm is first computed and then orthogonally projected onto              guarantee ascent, i.e., ⟨gm , ψ (t)m ⟩ ≤ 0, the search direction is
+                                                                                              (t)
+the tangent space, yielding the Riemannian gradient gm =               restarted as ψ (t)
+                                                                                      m   = g m   ,  thereby  ensuring an ascent direction
+(I3 − cm cTm /L2c )∇cm F .                                             for the subsequent search.
+                                                                                                                                       7
+
+
+
+   Since directly moving along a tangent direction generally         Algorithm 2 FP-Aware RCG-Based ToMA Position Optimiza-
+leaves the spherical manifold, a retraction is used to map the       tion
+trial point back onto the sphere. Given a trial step size τm > 0,    Require: Current ToMA geometry C, resource state R, finite-
+the candidate endpoint is constructed as                                  difference step δ, initial step size τ0 , Armijo parameter
+                                                                          µA , backtracking factor ζout , and maximum backtracking
+                                 cm + τ m ψ m
+              ccand
+               m (τm ) = Lc                     .            (45)         iterations IA .
+                                ∥cm + τm ψ m ∥2                      Ensure: Updated ToMA geometry C + and resource state R+ .
+    The normalization directly gives ∥ccand
+                                         m ∥2 = Lc , so C5 is          1: Set (Ct , Rt ) ← (C, R).
+automatically satisfied at each position update. In addition,          2: for each endpoint m in the prescribed Tx–Rx update order
+the candidate position must satisfy the collision-avoidance               do
+constraint ∥ccand
+               m    − cm′ ∥2 ≥ DUAV for all m′ ̸= m. If this           3:    Compute ∇cm F (Ct , Rt ) using the central finite differ-
+condition is violated, the current candidate is rejected and the             ence in (43), with Rt fixed.
+trial step size is reduced to generate a new candidate.                4:    Project the Euclidean gradient onto Tcm Sm to obtain
+    3) FP-Aware Candidate Evaluation and Armijo Backtrack-                   the Riemannian gradient gm .
+ing: Conventional fixed-resource Armijo backtracking directly          5:    If no previous RCG state is available for endpoint m,
+evaluates whether a candidate geometry improves the objec-                   set ψ m = gm ; otherwise, construct the PR+ RCG
+tive using F (Ccand , Rt ). In the considered system, however,               direction according to (44). Restart with ψ m = gm
+changing the ToMA position simultaneously alters the DL,                     if ⟨gm , ψ m ⟩ ≤ 0.
+UL, sensing, and RSI channels. Consequently, the resources             6:    Set τm ← τ0 and accepted ← false.
+obtained from the previous geometry may be poorly matched              7:    for r = 1, . . . , IA do
+to the new position, causing a potentially useful candidate            8:       Generate ccand
+                                                                                             m (τm ) by the spherical retraction in (45)
+to be rejected or leading to an excessively small step size.                    and form the complete candidate geometry Ccand .
+To mitigate this geometry–resource mismatch, we adopt an               9:       if Ccand violates the collision-avoidance constraint
+FP-aware candidate-evaluation strategy. For a geometrically                     C6 then
+feasible candidate Ccand , the corresponding ToMA geometry            10:          τm ← ζout τm .
+and all associated channels are reconstructed. Using the current      11:       else
+resource state Rt as a warm start, at most two inner FP               12:          Reconstruct all candidate channels and, using Rt
+iterations are then performed under the candidate channels.                        as a warm start, perform at most two FP update
+Denote the resulting candidate resource state by R     ecand =                     iterations to obtain R   ecand = T (2) (Ccand ; Rt ).
+                                                                                                                        FP
+   (2)
+TFP (Ccand ; Rt ), where the superscript (2) indicates that the       13:          Evaluate Φ  b 2 (Ccand ; Rt ) according to (46).
+maximum number of FP iterations is two; the update can                14:          if the FP-aware Armijo condition (47) is satisfied
+terminate earlier if the inner stopping criterion is already                       then
+satisfied.                                                            15:             (Ct , Rt ) ← (Ccand , R  ecand ).
+    The FP-aware candidate objective is then defined as               16:             accepted ← true;
+                                                                      17:             break.
+              b 2 (Ccand ; Rt ) = F (Ccand , R
+              Φ                              ecand ).        (46)
+                                                                      18:          else
+  It should be emphasized that Φ   b 2 is only a candidate-           19:             τm ← ζout τm .
+geometry performance measure obtained from a finite number            20:          end if
+of warm-start FP updates and is not identical to the exact            21:       end if
+reduced objective obtained by fully optimizing the resource           22:    end for
+variables.                                                            23:    if accepted = false then
+  The candidate position is accepted according to the follow-         24:       Keep (Ct , Rt ) unchanged.
+ing FP-aware Armijo ascent condition:                                 25:    end if
+    b 2 (Ccand ; Rt ) ≥ F (Ct , Rt ) + µA τm ⟨gm , ψ m ⟩ ,            26: end for
+    Φ
+                                                             (47)     27: Set (C + , R+ ) ← (Ct , Rt ).
+                                            0 < µA < 1.               28: return (C + , R+ ).
+   If the above condition is satisfied, the candidate position and
+its FP-readapted resource state are accepted simultaneously,
+i.e., Ct+1 = Ccand and Rt+1 = R          ecand . Thus, subsequent
+endpoint updates do not combine the newly accepted posi-
+tion with the old resource state Rt ; instead, the new pair          state Rt are retained. During candidate-position evaluation, the
+(Ct+1 , Rt+1 ) is directly used as the current state. If either      communication, sensing, and RSI channels are all recomputed
+the collision-avoidance condition or the FP-aware Armijo             according to the new geometry. In particular, HRSI varies with
+condition is violated, the step size is reduced according to         the distances between the transmit and receive ToMA elements
+τm ← ζout τm , where 0 < ζout < 1, and the spherical                 and must therefore be updated for each candidate position;
+retraction and candidate evaluation are repeated. If no accept-      however, it affects candidate performance only through the
+able candidate is found after the prescribed maximum number          UL and sensing WSR terms and is not used as an additional
+of backtracking steps, the current geometry Ct and resource          feasibility test.
+                                                                                                                                         8
+
+
+
+C. Overall Joint Optimization Procedure                             Algorithm 3 Overall Joint Alternating Optimization
+   Combining the above inner resource optimization and outer        Require: System parameters, number of initializations Nstart ,
+                                                                                                                                     max
+ToMA geometry optimization, we construct a joint iterative              outer tolerance εout , and maximum outer iterations Iout         .
+                                                                                                                   ⋆
+algorithm to solve problem (P1). First, multiple feasible initial   Ensure: Optimized ToMA geometry C and resource state
+ToMA endpoint configurations satisfying the fixed cable-                R⋆ .
+                                                                                                                              (0) Nstart
+                                                                     1: Generate Nstart feasible initial geometries {Cs }s=1
+length and minimum inter-UAV safety-distance constraints are
+generated, and the subsequent joint optimization is performed           satisfying C5 and C6.
+                                                                     2: for s = 1, . . . , Nstart do
+independently for each initialization. Based on each initial                                                          (0)       (0)
+ToMA endpoint configuration, the joint transmit beamforming          3:    Initialize a feasible resource state Rs for Cs , and
+                                                                                                                (0)
+matrix Q and the UL transmit amplitudes {qj } are initialized              compute the initial true WSR Fs .
+while satisfying the total DL transmit-power constraint and the      4:    Set t = 0 and cs = 0.
+corresponding UL power constraints.                                  5:    repeat
+                                                                                                                 (t)                  (t)
+   In each joint iteration, the current ToMA geometry is             6:       Run Algorithm 1 with fixed Cs , initialized by Qs
+                                                                                       (t)                (t)
+first fixed and the inner FP-based resource optimization is                   and {qj,s }, to obtain R  bs .
+                                                                                                                 (t) b (t)
+performed. After the inner resource update is completed,             7:       Apply Algorithm 2 to (Cs , R             s ) and obtain
+                                                                                 (t+1)      (t+1)
+the current resource state together with the current ToMA                     (Cs        , Rs     ).
+geometry serves as the starting point for the outer position         8:       Reconstruct all channels and compute the true WSR
+                                                                                (t+1)
+optimization.                                                                 Fs       .
+                                                                                              (t)     (t+1)     (t)              (t)
+   The FP-aware RCG method is then used to sequentially              9:       Compute ∆s = |Fs               − Fs |/ max{1, |Fs |}.
+update the ToMA endpoints. Riemannian optimization, the                            (t)
+                                                                    10:       if ∆s ≤ εout then
+RCG search direction, and spherical retraction are first used to    11:          cs ← cs + 1.
+generate candidate positions. For each geometrically feasible       12:       else
+candidate, the corresponding communication, sensing, and RSI        13:          cs ← 0.
+channels are reconstructed, and at most two inner FP iterations     14:       end if
+are performed using the current resource state as a warm            15:       t ← t + 1.
+start. The readapted true joint WSR is then used for FP-aware       16:    until cs = 2 or t ≥ Iout  max
+Armijo acceptance. If the acceptance condition is satisfied, the    17:    Store the final solution (Cs⋆ , Rs⋆ ) and its true WSR Fs⋆ .
+candidate position and the corresponding candidate resource         18: end for
+state are accepted simultaneously and are used as the current       19: Select s⋆ = arg maxs Fs⋆ .
+state for updating the next endpoint.                               20: Set (C ⋆ , R⋆ ) ← (Cs⋆⋆ , Rs⋆⋆ ).
+   After all transmit and receive ToMA endpoints have been          21: return (C ⋆ , R⋆ ).
+updated, all channels, communication and sensing SINRs,
+and the true WSR corresponding to the current geometry
+are recomputed before proceeding to the next joint iteration.
+To avoid premature termination caused by occasional small
+fluctuations of the objective value near convergence, the joint     during the bracketing and bisection procedures, and
+optimization for the current initialization is terminated when      define D = K + RS . Let CFP denote the dominant
+the relative WSR change satisfies                                                                                          =
+                                                                    computational cost of one FP update. It is given by CFP
+                                                                    O (L + J)NR3 + NT3 + Iλ (NT3 + NT2 D) + J(J + L)NR .
+                    |F (t+1) − F (t) |                              Accordingly, the computational complexity of Algorithm 1 is
+                                       ≤ εout               (48)
+                    max{1, |F (t) |}                                O1 = O(Iin CFP ).
+for two consecutive outer iterations.                                  Algorithm 2 performs the FP-aware RCG-based optimiza-
+                                                                    tion of the ToMA positions. Since the gradient of each three-
+D. Computational Complexity Analysis                                dimensional ToMA endpoint is evaluated using the central
+                                                                    finite difference, approximately six fixed-resource objective-
+   The main computational cost of the overall algorithm arises
+                                                                    function evaluations are required for each endpoint. In addi-
+from the matrix decompositions involved in the receive-
+                                                                    tion, at most two warm-start FP updates are performed for each
+beamformer updates and the joint transmit-beamforming ma-
+                                                                    Armijo candidate. Let CF denote the computational cost of
+trix update in Algorithm 1, as well as the repeated objective-
+                                                                    one fixed-resource objective-function evaluation and IA denote
+function evaluations based on the central finite difference and
+                                                                    the maximum number of Armijo backtracking steps for each
+the warm-start FP updates for candidate positions during the
+                                                                    endpoint. The computational complexity of Algorithm 2 is
+FP-aware Armijo backtracking procedure in Algorithm 2.
+                                                                    therefore O2 = O(6M CF + M IA (CF + 2CFP )).
+   Algorithm 1 performs the inner resource optimization
+for a fixed ToMA geometry. Its main computational                      Algorithm 3 alternately executes Algorithms 1 and 2 for
+cost arises from the sensing and UL receive-beamformer              multiple feasible initial ToMA geometries and selects the
+updates and the joint transmit-beamforming matrix update.           feasible solution with the largest final WSR. Let Nstart denote
+Let Iin denote the number of inner FP iterations, Iλ                the number of initializations and Iout denote the number of
+denote the total number of trial values of λP evaluated             joint alternating-optimization iterations for each initialization.
+                                                                                                                                           9
+
+
+
+Its overall computational complexity is                                                           TABLE I
+                                                                                         S IMULATION PARAMETERS
+                          
+      O3 = O Nstart Iout Iin CFP + 6M CF
+                                                                      Parameter        Description                                Value
+                                                         (49)
+                                                                            fc         Carrier frequency                         30 GHz
+                            + M IA (CF + 2CFP ) .                            λ         Carrier wavelength                        0.01 m
+                                                                            M          Number of towed sub-UAVs                     4
+        IV. S IMULATION R ESULTS AND A NALYSIS                             Nc          Antenna elements per cable                   2
+                                                                       NT , NR         Number of Tx/Rx antenna elements             4
+   In this section, numerical simulations are conducted to eval-        K, J, L        Numbers of DL/UL users and targets           5
+uate the performance of the proposed ToMA-assisted near-field              RS          Number of sensing waveforms                  4
+                                                                           Lc          Cable length                                1m
+full-duplex ISAC system. We first present the simulation setup
+                                                                         DUAV          Minimum inter-UAV distance                 0.5 m
+and benchmark schemes. Then, the convergence behavior of                 PD max        Maximum DL transmit power                 30 dBm
+the proposed algorithm is examined. Finally, the impacts of the             max
+                                                                         PU,j          Maximum UL transmit power                 20 dBm
+maximum DL transmit power, residual self-interference (SI),                     2
+                                                                        σk2 , σBS      Noise power                              −114 dBm
+and system load on the achievable weighted sum rate (WSR)            10 log10 (ρSI )   Nominal residual-SI level                −100 dB
+                                                                            Al         Effective vehicle RCS                      10 m2
+are investigated.
+                                                                            ξlS        Equivalent scattering amplitude factor   ≈ 1121.0
+                                                                           max
+                                                                         Iin           Maximum inner FP iterations                1200
+                                                                           max
+                                                                         Iout          Maximum joint AO iterations                1500
+A. Simulation Setup and Benchmark Schemes
+                                                                       εin , εout      Convergence tolerance                      10−4
+   Unless otherwise specified, the simulation parameters are                 δ         Central finite-difference step             10−6
+summarized in Table I. The carrier frequency is set to 30                   τ0         Initial RCG step size                       0.1
+GHz, corresponding to a wavelength of λ = 0.01 m. The main                 µA          Armijo parameter                           10−4
+                                                                          ζout         Backtracking factor                         0.5
+UAV is located approximately 20 m above the ground, while                  IA          Maximum Armijo backtracking steps            30
+the communication users and sensing targets are randomly                 Nstart        Number of ToMA initializations               5
+distributed within a region approximately 40 m away from
+the main UAV, with horizontal distances ranging from 30 m
+to 35 m.
+                                                                   is τ0 = 0.1, the Armijo parameter is µA = 10−4 , and the
+   The system consists of M = 4 towed sub-UAVs, and                backtracking factor is ζout = 0.5. The maximum number
+each cable is equipped with Nc = 2 uniformly distributed           of Armijo backtracking steps for each ToMA endpoint is
+antenna elements. Therefore, the transmit and receive ToMA         IA = 30. Unless otherwise specified, Nstart = 5 feasible
+arrays both contain NT = NR = 4 antenna elements. Unless           initial ToMA geometries are adopted, and the solution with
+otherwise stated, the numbers of DL users, UL users, and           the largest final WSR is retained.
+sensing targets are set to K = J = L = 5, respectively,
+while the number of independent sensing waveforms is set              To comprehensively evaluate the proposed method, the fol-
+to RS = 4. The cable length is Lc = 1 m, and the                   lowing benchmark schemes are considered. The RCG-ToMA
+minimum safety distance between any two towed sub-UAVs             + Traditional scheme optimizes the ToMA geometry using
+is DUAV = 0.5 m.                                                   RCG while adopting conventional beamforming and resource
+                                                                   allocation as defined below. The Fixed-ToMA + FP scheme
+   The maximum DL transmit power of the main UAV is set to
+                                                                   fixes the ToMA geometry and employs the same FP-based
+PDmax = 30 dBm, while the maximum transmit power of each
+             max                                                   resource optimization as the proposed method. The FPA-UPA
+UL user is PU,j   = 20 dBm. The noise powers at the DL users
+                                                                   + FP scheme employs a fixed uniform planar array (UPA)
+and the main UAV receiver are both set to −114 dBm. Unless
+                                                                   together with FP-based resource optimization. The Fixed-
+otherwise specified in the residual-SI sensitivity experiment,
+                                                                   ToMA + Traditional and FPA-UPA + Traditional schemes
+the nominal residual-SI level is set to 10 log10 (ρSI ) = −100
+                                                                   employ conventional resource allocation with fixed ToMA
+dB. All sensing targets are modeled as vehicles with the
+                                                                   and fixed UPA geometries, respectively. In addition, the MA
+same fixed effective RCS, Al = 10 m2 . This is a simplified
+                                                                   + FP scheme adopts conventional independently movable
+equivalent point-target assumption that does not model aspect-
+                                                                   antennas and applies the same FP-based resource optimization
+dependent RCS variations. With λ = 0.01 m, the RCS-based
+                                                                   framework.
+amplitude factor is ξlS ≈ 1121.0. No additional random target
+scattering phase is introduced.                                       Here, Traditional denotes conventional beamforming and re-
+   The communication and sensing path gains are determined         source allocation: DL beams use maximum-ratio transmission
+according to the actual propagation distances between the          (MRT), and sensing beams use normalized near-field transmit
+common anchor point of the main UAV and the corresponding          array responses at the target locations. The transmit beams
+users or sensing targets, rather than using fixed large-scale                                                          q while
+                                                                   are jointly scaled to satisfy the DL power constraint,
+                                                                   each UL transmit amplitude is fixed at qj = κU PU,j      max .
+channel gains.
+   For the proposed algorithm, the maximum numbers of inner        The sensing and UL receive combiners are updated using
+                                                   max
+FP iterations and joint AO iterations are set to Iin    = 1200     the same maximum-SINR (MMSE-equivalent for UL) rules
+       max
+and Iout = 1500, respectively. The inner and outer con-            as in the FP-based schemes. No FP updates of the transmit
+vergence tolerances are both set to 10−4 . The central finite-     beamforming matrix or UL transmit amplitudes are performed.
+difference step size is δ = 10−6 , the initial RCG step size       For RCG-ToMA + Traditional, these conventional resources
+                                                                                                                                        10
+
+
+
+
+                                                                                                                                max .
+                                                                      Fig. 2. Average WSR versus the maximum DL transmit power PD
+Fig. 1. Convergence behavior of the proposed FP-aware RCG-ToMA + FP
+algorithm in a representative random realization.
+                                                                      proposed joint optimization method. Nevertheless, since the
+                                                                      original problem is nonconvex, the observed convergence does
+are reconstructed using the updated channels when evaluating
+                                                                      not imply global optimality.
+candidate geometries and after each geometry update.
+   For the MA + FP benchmark, each antenna element
+can independently move within a two-dimensional region of             C. Impact of the Maximum DL Transmit Power
+0.30 m × 0.30 m, while the minimum antenna spacing is set to             Fig. 2 shows the average WSR versus the maximum DL
+λ/2 = 0.005 m. Three different initial antenna positions are          transmit power PDmax .
+used for multi-start optimization. Except for these scheme-
+                                                                         As PDmax increases from 20 dBm to 40 dBm, the aver-
+specific settings, all other simulation parameters are identical
+                                                                      age WSR of all schemes generally increases. This is be-
+to those listed in Table I to ensure a fair comparison.
+                                                                      cause a larger transmit-power budget increases the effective
+   The proposed FP-aware RCG-ToMA + FP method jointly
+                                                                      power available for both DL communication and target il-
+optimizes the communication–sensing resources and the
+                                                                      lumination, while providing greater flexibility for the joint
+ToMA geometry. Different from a conventional fixed-resource
+                                                                      communication–sensing transmit-beamforming design.
+geometry search, each candidate ToMA geometry is partially
+                                                                         The proposed FP-aware RCG-ToMA + FP scheme achieves
+re-adapted through a limited number of warm-start FP updates
+                                                                      the highest average WSR over the entire transmit-power range.
+before the FP-aware Armijo acceptance test is performed.
+                                                                      The performance of MA + FP is close to that of the proposed
+                                                                      method but remains slightly lower at all investigated transmit-
+B. Convergence Behavior of the Proposed Algorithm                     power values. This result shows that although the antenna
+   Fig. 1 shows the joint AO convergence behavior of the pro-         elements located on the same ToMA cable cannot move inde-
+posed FP-aware RCG-ToMA + FP method for a representative              pendently, the geometric reconfiguration enabled by adjusting
+random realization.                                                   the towed sub-UAV endpoints can still provide substantial
+   It can be observed that the WSR exhibits an overall nonde-         spatial degrees of freedom when jointly optimized with the
+creasing trend throughout the joint AO iterations. A significant      communication–sensing resources.
+performance gain is achieved during the first few iterations,            Furthermore, the proposed method consistently outperforms
+indicating that the joint adjustment of the communication–            Fixed-ToMA + FP, although both schemes use the same
+sensing resources and the ToMA geometry can rapidly allevi-           FP-based resource optimization. Since the main difference
+ate the mismatch between the initial resource allocation and          between them is whether the ToMA geometry is optimized,
+antenna geometry.                                                     this comparison directly demonstrates the benefit of ToMA
+   As the resource variables and the ToMA geometry become             geometry reconfiguration.
+progressively better matched, the WSR improvement per iter-              Meanwhile, Fixed-ToMA + FP clearly outperforms Fixed-
+ation gradually decreases. Around the 13th joint AO iteration,        ToMA + Traditional, while FPA-UPA + FP also outperforms
+another noticeable WSR increase is observed. This indicates           FPA-UPA + Traditional. Since the antenna geometries are
+that the RCG-based position update identifies a more favorable        identical within each of these two comparison pairs, the
+ToMA geometry, which is subsequently accepted by the FP-              corresponding performance gains can be mainly attributed to
+aware Armijo procedure after the warm-start FP adaptation of          the FP-based resource optimization. Hence, the results verify
+the candidate resource variables.                                     the effectiveness of both ToMA geometry optimization and
+   Afterwards, the WSR gradually approaches a stable value            FP-based communication–sensing resource allocation.
+and the algorithm terminates at the 24th joint AO iteration with
+a WSR of approximately 0.987 bit/s/Hz. The enlarged late-
+stage region further shows that the WSR variation between             D. Impact of Residual Self-Interference
+successive iterations becomes very small before termination.            Fig. 3 shows the average WSR of different schemes versus
+These results demonstrate the numerical convergence of the            the residual-SI level.
+                                                                                                                                         11
+
+
+
+
+Fig. 3. Average WSR versus the residual-SI level 10 log10 (ρSI ).   Fig. 4. Average WSR versus the system load, where K = J = L.
+
+
+   To clearly illustrate the sensitivity of the system perfor-      over the entire considered range. MA + FP achieves the
+mance to residual SI, 10 log10 (ρSI ) is varied from −40 dB         second-best performance, while Fixed-ToMA + FP and FPA-
+to 0 dB in this experiment. This range is used only for the         UPA + FP exhibit further performance degradation. These
+residual-SI sensitivity study, whereas the nominal residual-SI      results demonstrate that the joint optimization of ToMA ge-
+level remains −100 dB as specified in Table I.                      ometry and communication–sensing resources can more effec-
+   As the residual-SI level increases, the average WSR of all       tively exploit the available spatial and power-domain degrees
+schemes generally decreases. This is because a larger ρSI           of freedom when the system needs to simultaneously serve
+increases the power of the residual self-interference channel       multiple communication users and sensing targets.
+HRSI at the main UAV receiver. Since the residual SI con-              The schemes employing traditional resource allocation ex-
+tributes to the interference covariance matrices of both the UL     perience more pronounced performance degradation as the
+communication and sensing links, stronger residual SI reduces       system load increases, with FPA-UPA + Traditional exhibiting
+their effective SINRs and consequently degrades the overall         the lowest overall performance. This further confirms that
+WSR.                                                                joint resource optimization becomes increasingly important in
+   When the residual SI is relatively weak, the proposed            heavily loaded multiuser and multitarget ISAC systems.
+method achieves the best or nearly the best average WSR. As            It should be emphasized that the horizontal axis in Fig. 4
+the residual SI becomes stronger, the performance gap between       represents K = J = L, rather than K = J = L = RS .
+the proposed method and MA + FP gradually decreases, and
+MA + FP may slightly outperform the proposed method at                                         R EFERENCES
+some strong-residual-SI operating points.
+                                                                    [1] MathWorks, Radar Equation, Radar Toolbox Documentation. Accessed:
+   This behavior indicates that when residual SI is sufficiently        Oct. 10, 2026. [Online]. Available: https://www.mathworks.com/help/
+weak or moderate, the spatial degrees of freedom provided by            radar/ug/radar-equation.html
+ToMA geometry optimization can be effectively converted into
+communication and sensing performance gains. In contrast,
+when the receiver is dominated by strong residual SI, the
+marginal benefit of further geometry optimization becomes
+smaller. Nevertheless, the FP-based schemes generally retain
+a clear advantage over their traditional-resource counterparts.
+
+E. Impact of System Load
+   Fig. 4 investigates the average WSR under different system
+loads by simultaneously varying the numbers of DL users, UL
+users, and sensing targets, where K = J = L.
+   It can be observed that the average WSR of all schemes de-
+creases as K = J = L increases from 3 to 7. This degradation
+is mainly caused by two factors. First, the available transmit
+power, antenna elements, and spatial degrees of freedom
+remain limited, while an increasing number of communication
+users and sensing targets must share these resources. Second,
+increasing the system load intensifies multiuser interference,
+inter-target echo interference, and competition between com-
+munication and sensing tasks.
+   Despite the increasing system load, the proposed FP-aware
+RCG-ToMA + FP method maintains the highest average WSR
+

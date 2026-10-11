@@ -201,7 +201,7 @@ def validate_configs() -> None:
     print("  MA region = 30 lambda x 30 lambda")
     print("  MA starts = 3")
     print("  P_DL,max sweep = 20, 25, 30, 35, 40 dBm")
-    print("  rho_si sweep = -40, -30, -20, -10, 0 dB")
+    print("  rho_si sweep = -50,-40, -30, -20, -10dB")
     print("  load sweep = 3, 4, 5, 6, 7")
     print("  window plateau stop = OFF")
 

@@ -1,0 +1,16 @@
+{
+  "converged": true,
+  "stop_reason": "outer_tolerance",
+  "iterations": 483,
+  "sum_rate_dl": 32.867071457041064,
+  "sum_rate_ul": 29.28196226713339,
+  "sum_rate_comm": 62.14903372417446,
+  "sum_rate_sensing": 13.30324993514272,
+  "weighted_sum_rate": 3.016075325567434,
+  "status": "ok",
+  "tol": 1e-05,
+  "omega_comm": 0.1,
+  "scheme": "b6",
+  "seed": 1562647582,
+  "runtime_s": 87.695
+}

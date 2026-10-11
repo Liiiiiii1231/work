@@ -1,0 +1,18 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.05,
+  "seed": 2029,
+  "origin_omega": 0.05,
+  "method": "cold",
+  "converged": true,
+  "iterations": 30,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 1.1928797409534242,
+  "sum_rate_ul": 25.638082204505363,
+  "sum_rate_comm": 26.830961945458785,
+  "sum_rate_sensing": 18.84934300474873,
+  "weighted_sum_rate": 3.7155299806295523,
+  "state_file": "cold_states\\cold_proposed_w04_seed2029.npz",
+  "runtime_s": 8.6196,
+  "status": "ok"
+}

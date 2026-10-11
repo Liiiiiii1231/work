@@ -1,0 +1,18 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.6,
+  "seed": 2030,
+  "origin_omega": 0.6,
+  "method": "cold",
+  "converged": true,
+  "iterations": 22,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 48.596339125131756,
+  "sum_rate_ul": 37.04664535677013,
+  "sum_rate_comm": 85.64298448190189,
+  "sum_rate_sensing": 0.014927873246725537,
+  "weighted_sum_rate": 5.139773298773851,
+  "state_file": "cold_states\\cold_proposed_w16_seed2030.npz",
+  "runtime_s": 8.468,
+  "status": "ok"
+}

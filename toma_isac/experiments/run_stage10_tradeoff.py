@@ -29,9 +29,10 @@ from stage8 import (
 )
 
 CONFIG_PATH = ROOT / "configs" / "stage10_tradeoff.yaml"
-RESULT_DIR = ROOT / "results" / "stage10"
+RESULT_DIR = ROOT / "results" / "stage10" / "cold_wide14_tol1e4"
 CSV_PATH = RESULT_DIR / "stage10_tradeoff.csv"
 NPZ_PATH = RESULT_DIR / "stage10_tradeoff.npz"
+FAILURES_CSV_PATH = RESULT_DIR / "stage10_failures.csv"
 
 SCHEME_ORDER = ("b2", "b3", "b6", "proposed")
 SCHEME_LABELS = {
@@ -54,6 +55,7 @@ class TradeoffConfig:
             raise ValueError("omega_comm values must be unique.")
         if any(not (0.0 <= value <= 1.0) for value in self.omega_comm):
             raise ValueError("Each omega_comm must lie in [0, 1].")
+
 
 @dataclass(frozen=True)
 class TradeoffRecord:
@@ -130,14 +132,73 @@ def _run_multistart(
     cfg: SystemConfig,
     require_convergence: bool,
 ) -> MultiStartResult:
-    return run_multi_start(
+    """运行 multi-start；正式模式下仅在已收敛起点中选择最佳解。
+
+    某一个随机起点未收敛时不立即终止整个 Stage 10。
+    若 require_convergence=True，则：
+    1. 所有起点都实际运行；
+    2. 未收敛起点不参与最佳解选择；
+    3. 只有当所有起点均未收敛时才报错。
+    """
+
+    # 先允许所有起点完整执行，避免单个起点未收敛就中断整个权重扫描。
+    result = run_multi_start(
         name=name,
         seeds=seeds,
         run_single=runner,
         iteration_getter=iteration_getter,
         cfg=cfg,
-        require_convergence=require_convergence,
+        require_convergence=False,
         verbose=False,
+    )
+
+    if not require_convergence:
+        return result
+
+    converged_indices = [
+        index
+        for index, start in enumerate(result.starts)
+        if start.converged
+    ]
+
+    if len(converged_indices) == 0:
+        details = ", ".join(
+            f"seed={start.seed}, iterations={start.iterations}, "
+            f"stop_reason={getattr(start.result, 'stop_reason', 'unknown')}"
+            for start in result.starts
+        )
+        raise RuntimeError(
+            f"{name}: none of the {len(result.starts)} multi-start runs "
+            f"converged. {details}"
+        )
+
+    # 只在已收敛的起点中按最终真实 WSR 选择最好的一组。
+    best_index = max(
+        converged_indices,
+        key=lambda index: result.starts[index].final_wsr,
+    )
+
+    nonconverged = [
+        start
+        for start in result.starts
+        if not start.converged
+    ]
+
+    if nonconverged:
+        skipped = ", ".join(
+            f"seed={start.seed}"
+            f"(iter={start.iterations}, "
+            f"reason={getattr(start.result, 'stop_reason', 'unknown')})"
+            for start in nonconverged
+        )
+        print(
+            f"  [WARN] {name}: ignoring non-converged start(s): {skipped}"
+        )
+
+    return MultiStartResult(
+        name=result.name,
+        starts=result.starts,
+        best_index=best_index,
     )
 
 
@@ -300,6 +361,9 @@ def print_monotonicity(records: list[TradeoffRecord]) -> None:
         comm = np.asarray([r.sum_rate_comm for r in rows])
         sensing = np.asarray([r.sum_rate_sensing for r in rows])
 
+        if len(rows) < 2:
+            print(f"  {SCHEME_LABELS[scheme]}: too few converged points to assess trend")
+            continue
         comm_nondec = bool(np.all(np.diff(comm) >= -1.0e-8))
         sensing_noninc = bool(np.all(np.diff(sensing) <= 1.0e-8))
 
@@ -323,6 +387,14 @@ def main() -> None:
         help="Check configuration and print planned settings only.",
     )
     args = parser.parse_args()
+
+    # The smoke test must not overwrite formal results.
+    if args.smoke:
+        global RESULT_DIR, CSV_PATH, NPZ_PATH, FAILURES_CSV_PATH
+        RESULT_DIR = ROOT / "results" / "stage10" / "cold_wide14_tol1e4_smoke"
+        CSV_PATH = RESULT_DIR / "stage10_tradeoff.csv"
+        NPZ_PATH = RESULT_DIR / "stage10_tradeoff.npz"
+        FAILURES_CSV_PATH = RESULT_DIR / "stage10_failures.csv"
 
     base_cfg = load_config(CONFIG_PATH)
     experiment_cfg = load_stage8_experiment_config(CONFIG_PATH)
@@ -374,12 +446,13 @@ def main() -> None:
     print("  UL group weight = omega_C / 2")
     print("  fading = OFF")
     print("  schemes = B2, B3, B6, Proposed")
+    print("  initialization = cold multi-start only (no warm start)")
 
     if args.dry_run:
         for omega_comm in omega_values:
             wd, wu, ws = make_group_weights(working_scene_cfg, omega_comm)
             print(
-                f"  omega_C={omega_comm:.2f}: "
+                f"  omega_C={omega_comm:.10g}: "
                 f"sum(DL)={wd.sum():.3f}, "
                 f"sum(UL)={wu.sum():.3f}, "
                 f"sum(S)={ws.sum():.3f}"
@@ -388,7 +461,20 @@ def main() -> None:
         return
 
     records: list[TradeoffRecord] = []
+    failures: list[dict[str, object]] = []
     total_start = perf_counter()
+
+    def checkpoint() -> None:
+        # Only converged (or explicitly smoke-test) results enter the plot data.
+        save_results(records)
+        RESULT_DIR.mkdir(parents=True, exist_ok=True)
+        with FAILURES_CSV_PATH.open("w", newline="", encoding="utf-8") as file:
+            writer = csv.DictWriter(
+                file,
+                fieldnames=("omega_comm", "scheme", "scheme_label", "runtime_s", "reason"),
+            )
+            writer.writeheader()
+            writer.writerows(failures)
 
     for omega_comm in omega_values:
         weight_dl, weight_ul, weight_s = make_group_weights(
@@ -406,26 +492,59 @@ def main() -> None:
 
         print("\n" + "=" * 78)
         print(
-            f"omega_C={omega_comm:.2f}, "
-            f"omega_S={1.0 - omega_comm:.2f}"
+            f"omega_C={omega_comm:.10g}, "
+            f"omega_S={1.0 - omega_comm:.10g}"
         )
         print("=" * 78)
 
         for scheme in SCHEME_ORDER:
-            result = run_one_scheme(
-                scheme=scheme,
-                cfg=cfg,
-                experiment_cfg=experiment_cfg,
-                scene_seed=tradeoff_cfg.scene_seed,
-                require_convergence=require_convergence,
-                formal_multistart=formal_multistart,
-            )
+            scheme_start = perf_counter()
+            try:
+                result = run_one_scheme(
+                    scheme=scheme,
+                    cfg=cfg,
+                    experiment_cfg=experiment_cfg,
+                    scene_seed=tradeoff_cfg.scene_seed,
+                    require_convergence=require_convergence,
+                    formal_multistart=formal_multistart,
+                )
+            except RuntimeError as exc:
+                # Expected non-convergence is a failed measurement, not a valid WSR point.
+                # A different RuntimeError is a real code error and must not be hidden.
+                if "multi-start runs converged" not in str(exc):
+                    checkpoint()
+                    raise
+                failures.append({
+                    "omega_comm": float(omega_comm),
+                    "scheme": scheme,
+                    "scheme_label": SCHEME_LABELS[scheme],
+                    "runtime_s": round(perf_counter() - scheme_start, 3),
+                    "reason": str(exc),
+                })
+                print(f"[NOT CONVERGED, SKIPPED] {SCHEME_LABELS[scheme]}: {exc}")
+                checkpoint()
+                continue
+
             record = summarize_result(
                 omega_comm=omega_comm,
                 scheme=scheme,
                 result=result,
             )
+            # During formal runs, this should always be converged due to the
+            # multi-start filter. Keep the condition as a second safety guard.
+            if require_convergence and not record.converged:
+                failures.append({
+                    "omega_comm": float(omega_comm),
+                    "scheme": scheme,
+                    "scheme_label": SCHEME_LABELS[scheme],
+                    "runtime_s": round(perf_counter() - scheme_start, 3),
+                    "reason": "selected record was not converged",
+                })
+                print(f"[NOT CONVERGED, SKIPPED] {SCHEME_LABELS[scheme]}")
+                checkpoint()
+                continue
             records.append(record)
+            checkpoint()
 
             print(
                 f"{SCHEME_LABELS[scheme]}: "
@@ -435,8 +554,13 @@ def main() -> None:
                 f"best_seed={record.best_seed}"
             )
 
-    save_results(records)
-    print_monotonicity(records)
+    checkpoint()
+    print(f"\nCompleted: {len(records)} converged points, {len(failures)} non-converged cases.")
+    print(f"Non-convergence details: {FAILURES_CSV_PATH}")
+    if records:
+        print_monotonicity(records)
+    else:
+        print("WARNING: No valid points. Do not use a prior Stage 10 figure as a new result.")
 
     elapsed = perf_counter() - total_start
     print(f"\nStage 10 completed in {elapsed:.2f} s.")

@@ -1,0 +1,565 @@
+{
+  "round": 1,
+  "jobs": [
+    {
+      "omega_comm": 0.001,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w02_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w04_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w01_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.001,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w07_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.005,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w07_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.01,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w02_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w07_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w01_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.03,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w07_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.05,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w07_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.1,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w07_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w05_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.2,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w08_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.3,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w03_seed2027.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w07_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.4,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w00_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w05_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w08_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w10_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w03_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w00_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w01_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.5,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w02_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w13_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w12_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w09_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w08_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w06_seed1562647582.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w11_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w07_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.6,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w06_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w13_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w12_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w09_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w10_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w06_seed1562647582.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w13_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w07_seed2028.npz"
+    },
+    {
+      "omega_comm": 0.7,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w13_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w13_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w09_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w10_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w13_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w11_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w11_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.8,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w13_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w12_seed2029.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b2",
+      "source_state_file": "cold_states\\cold_b2_w06_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w09_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b3",
+      "source_state_file": "cold_states\\cold_b3_w10_seed2026.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w12_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "b6",
+      "source_state_file": "cold_states\\cold_b6_w11_seed663838402.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w11_seed2030.npz"
+    },
+    {
+      "omega_comm": 0.9,
+      "scheme": "proposed",
+      "source_state_file": "cold_states\\cold_proposed_w07_seed2026.npz"
+    }
+  ]
+}

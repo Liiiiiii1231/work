@@ -1,0 +1,19 @@
+{
+  "scheme": "proposed",
+  "omega_comm": 0.5,
+  "seed": 2028,
+  "origin_omega": 0.005,
+  "method": "anchor_refined",
+  "converged": true,
+  "iterations": 5,
+  "stop_reason": "outer_tolerance",
+  "sum_rate_dl": 0.9333395286765362,
+  "sum_rate_ul": 0.0,
+  "sum_rate_comm": 0.9333395286765362,
+  "sum_rate_sensing": 37.79158334762184,
+  "weighted_sum_rate": 3.8258253111960108,
+  "state_file": "refined_states\\proposed_target_0.500.npz",
+  "initial_feasible_wsr": 3.815489622765477,
+  "runtime_s": 1.4884,
+  "status": "ok"
+}

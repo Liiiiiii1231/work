@@ -1,0 +1,21 @@
+{
+  "scheme": "b2",
+  "omega_comm": 0.9,
+  "seed": 2029,
+  "origin_omega": 0.7,
+  "method": "cross_weight_refined",
+  "converged": true,
+  "iterations": 1,
+  "stop_reason": "not_recorded",
+  "sum_rate_dl": 9.509000338444125e-08,
+  "sum_rate_ul": 51.49274491225076,
+  "sum_rate_comm": 51.49274500734076,
+  "sum_rate_sensing": 5.426796703007058e-11,
+  "weighted_sum_rate": 4.634347050661753,
+  "state_file": "warm_states\\warm_b2_w13_r02_src024d387185b989.npz",
+  "round": 2,
+  "source_state_file": "warm_states\\warm_b2_w11_r01_src5b76cdcf837ad5.npz",
+  "initial_feasible_wsr": 4.634206931627107,
+  "runtime_s": 0.0038,
+  "status": "ok"
+}

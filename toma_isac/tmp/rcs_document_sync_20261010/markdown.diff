@@ -1,0 +1,51 @@
+--- model_before.md
++++ tmp\rcs_document_sync_20261010\model_updated.md
+@@ -393,7 +393,13 @@
+ }.
+ $$
+ 
+-令 $\xi_l^{\rm S}$ 表示第 $l$ 个目标的复反射系数，则公共双程复幅度系数为
++令 $A_l\ge0$ 表示第 $l$ 个感知目标的有效雷达散射截面（radar cross section, RCS），单位为 $\mathrm{m}^2$。由 RCS 换算得到的无量纲等效散射幅度因子定义为
++
++$$
++\boxed{\xi_l^{\rm S}=\frac{\sqrt{4\pi A_l}}{\lambda}}.
++$$
++
++这里 $\xi_l^{\rm S}$ 为非负实数，不额外引入目标散射随机相位；传播相位仍由逐阵元距离决定。发射与接收单程传播损耗仍分别由 $\beta_{{\rm T},l}^{\rm S}$ 和 $\beta_{{\rm R},l}^{\rm S}$ 表示。因此，公共双程幅度系数为
+ 
+ $$
+ \boxed{
+@@ -407,7 +413,23 @@
+ }.
+ $$
+ 
+-第 $l$ 个目标的双程回波矩阵写为
++代入上述定义可得
++
++$$
++\alpha_l^{\rm S}
++=\frac{\lambda\sqrt{A_l}}
++{(4\pi)^{3/2}r_{{\rm T},l}^{\rm S}r_{{\rm R},l}^{\rm S}},
++\qquad
++|\alpha_l^{\rm S}|^2
++=\frac{\lambda^2 A_l}
++{(4\pi)^3(r_{{\rm T},l}^{\rm S})^2(r_{{\rm R},l}^{\rm S})^2}.
++$$
++
++该无量纲功率增益与单位阵元增益、无额外系统损耗时的点目标双基地雷达方程一致，参见 [MathWorks, Radar Equation](https://www.mathworks.com/help/radar/ug/radar-equation.html)。这是公共路径幅度的归一化，阵列与波束赋形增益仍由阵列响应和收发波束形成；不应在现有双程路径损耗之外再次乘入 RCS 或传播损耗。由于共锚点参考距离相等，代码中的分母对应 $\|\mathbf q_l^{\rm S}\|_2^4$。
++
++本文采用简化的等效散射点目标假设：所有感知目标均为车辆，每辆车的有效 RCS 固定为 $A_l=10\,\mathrm{m}^2$，不建模其随姿态或观测方向的变化。在 $\lambda=0.01\,\mathrm m$ 时，$\xi_l^{\rm S}=1120.998243\ldots\approx1121.0$，且不额外引入随机散射相位。
++
++第 $l$ 个目标的双程回波矩阵 $\mathbf G_l\in\mathbb C^{N_{\rm R}\times N_{\rm T}}$ 写为
+ 
+ $$
+ \boxed{
+@@ -2093,6 +2115,8 @@
+ 
+ ## 26. 数值仿真与基线设置
+ 
++正式仿真采用第 4.3 节的车辆等效散射点目标模型：所有车辆的有效 RCS 均为 $A_l=10\,\mathrm{m}^2$，波长为 $\lambda=0.01\,\mathrm m$，故 $\xi_l^{\rm S}\approx1121.0$，不额外引入目标散射随机相位。下行用户与基站的接收噪声功率均为 $-114\,\mathrm{dBm}$（$3.981071705534969\times10^{-15}\,\mathrm W$）。
++
+ 建议至少设置以下基线：
+ 
+ 1. 原 SCA-SDR/SDP 内层算法；

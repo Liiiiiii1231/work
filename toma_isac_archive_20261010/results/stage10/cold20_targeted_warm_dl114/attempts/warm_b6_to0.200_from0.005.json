@@ -1,0 +1,19 @@
+{
+  "role": "warm",
+  "scheme": "b6",
+  "omega_comm": 0.2,
+  "source_weight": 0.005,
+  "seed": 1562647582,
+  "converged": true,
+  "status": "ok",
+  "iterations": 35,
+  "stop_reason": "outer_tolerance",
+  "runtime_s": 3.52,
+  "direct_reweight_wsr": 5.541156193206081,
+  "sum_rate_dl": 12.626732737194208,
+  "sum_rate_ul": 0.0,
+  "sum_rate_comm": 12.626732737194208,
+  "sum_rate_sensing": 34.5283964965396,
+  "weighted_sum_rate": 5.777078094190219,
+  "state_file": "states\\warm_b6_to0.200_from0.005.npz"
+}

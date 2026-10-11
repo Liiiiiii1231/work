@@ -1,0 +1,21 @@
+{
+  "experiments.plot_convergence_early_main": {
+    "OUTPUT_DIR": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage8\\figures"
+  },
+  "experiments.plot_proposed_convergence": {
+    "RESULT_DIR": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage8",
+    "FIGURE_DIR": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage8\\figures"
+  },
+  "experiments.plot_stage8_results": {
+    "RESULT_DIR": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage8",
+    "FIGURE_DIR": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage8\\figures"
+  },
+  "experiments.plot_stage10_tradeoff": {
+    "FIGURE_DIR": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage10\\cold_wide14_tol1e4\\figures"
+  },
+  "experiments.plot_stage10_cold20": {
+    "RUN_DIR": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage10\\cold_wide20_dl114_tol1e4",
+    "DEFAULT_OUTPUT": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\stage10\\cold_wide20_dl114_tol1e4\\figures"
+  }
+}
+NO_FORMAL_DEPENDENCY_ON_LEGACY_STAGE10_FIGURES

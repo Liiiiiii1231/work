@@ -1,0 +1,3 @@
+﻿scheme,omega_comm,historical_wsr,replayed_cold_wsr,best_warm_wsr,best_warm_origin,selected_wsr,selected_kind,improvement_vs_historical,improvement_vs_current_cold,current_cold_converged,warm_converged_count,reference_is_historical
+b6,0.3,1.6562351723767832,1.6563711936828462,4.855685853580214,0.005,4.855685853580214,warm,3.1994506812034307,3.1993146598973676,True,2,True
+proposed,0.5,3.1598956691835696,3.1598956691835696,3.8258253111960108,0.005,3.8258253111960108,warm,0.6659296420124412,0.6659296420124412,True,2,True

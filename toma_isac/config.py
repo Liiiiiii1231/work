@@ -274,6 +274,46 @@ def _require_shape(
         )
 
 
+def _load_sensing_scattering(raw: dict) -> np.ndarray:
+    """读取目标幅度散射系数。
+
+    推荐配置 channel.rcs_m2: [A_1, ..., A_L]，其中 A_l 是目标 RCS (m^2)。
+    按标准点目标双基地雷达方程，xi_l = sqrt(4*pi*A_l) / wavelength。
+    不单独引入目标散射相位；旧配置 channel.xi_s 保持兼容。
+    """
+    channel = raw["channel"]
+    has_rcs = "rcs_m2" in channel
+    has_xi = "xi_s" in channel
+
+    if has_rcs and has_xi:
+        raise ValueError(
+            "channel.rcs_m2 and channel.xi_s are mutually exclusive."
+        )
+    if not has_rcs:
+        if not has_xi:
+            raise ValueError("channel must contain rcs_m2 or xi_s.")
+        return np.asarray(channel["xi_s"], dtype=np.complex128)
+
+    rcs = np.asarray(channel["rcs_m2"], dtype=float)
+    expected_shape = (int(raw["system"]["L"]),)
+    if rcs.shape != expected_shape:
+        raise ValueError(
+            f"channel.rcs_m2.shape={rcs.shape}, "
+            f"expected {expected_shape}."
+        )
+    if not np.all(np.isfinite(rcs)) or np.any(rcs < 0.0):
+        raise ValueError("channel.rcs_m2 must be finite and nonnegative.")
+
+    wavelength = float(raw["geometry"]["wavelength"])
+    if not np.isfinite(wavelength) or wavelength <= 0.0:
+        raise ValueError("geometry.wavelength must be finite and positive.")
+
+    return np.asarray(
+        np.sqrt(4.0 * np.pi * rcs) / wavelength,
+        dtype=np.complex128,
+    )
+
+
 def load_config(
     path: str | Path | None = None,
 ) -> SystemConfig:
@@ -359,10 +399,7 @@ def load_config(
             dtype=float,
         ),
 
-        xi_s=np.asarray(
-            raw["channel"]["xi_s"],
-            dtype=np.complex128,
-        ),
+        xi_s=_load_sensing_scattering(raw),
 
         # 正式模型中的路径损耗由 channels.py 根据 q 与 lambda 实时计算。
         # 这里仅初始化可选 scene-level 小尺度衰落乘子。

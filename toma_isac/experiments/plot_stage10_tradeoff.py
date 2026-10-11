@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-CSV_PATH = ROOT / "results" / "stage10" / "stage10_tradeoff.csv"
-FIGURE_DIR = ROOT / "results" / "stage10" / "figures"
+CSV_PATH = ROOT / "results" / "stage10" / "cold_wide14_tol1e4" / "stage10_tradeoff.csv"
+FIGURE_DIR = ROOT / "results" / "stage10" / "cold_wide14_tol1e4" / "figures"
 
 SCHEME_ORDER = ("b2", "b3", "b6", "proposed")
 SCHEME_LABELS = {
@@ -35,11 +35,21 @@ def plot_tradeoff() -> None:
     rows = load_rows()
     FIGURE_DIR.mkdir(parents=True, exist_ok=True)
 
-    fig, ax = plt.subplots(figsize=(9.2, 6.2))
+    if not rows:
+        raise RuntimeError("No converged Stage 10 points. Figure was NOT generated.")
 
+    fig, ax = plt.subplots(figsize=(9.2, 6.2))
+    plotted = 0
     for scheme in SCHEME_ORDER:
-        scheme_rows = [row for row in rows if row["scheme"] == scheme]
+        scheme_rows = [
+            row for row in rows
+            if row["scheme"] == scheme
+            and row.get("converged", "True").lower() == "true"
+        ]
         scheme_rows.sort(key=lambda row: float(row["omega_comm"]))
+        if not scheme_rows:
+            print(f"[SKIP] {SCHEME_LABELS[scheme]}: no converged data points")
+            continue
 
         x = np.asarray(
             [float(row["sum_rate_comm"]) for row in scheme_rows],
@@ -57,6 +67,7 @@ def plot_tradeoff() -> None:
         linewidth = 2.8 if scheme == "proposed" else 1.9
         markersize = 7.0 if scheme == "proposed" else 6.0
 
+        plotted += len(x)
         ax.plot(
             x,
             y,
@@ -77,6 +88,19 @@ def plot_tradeoff() -> None:
                         textcoords="offset points",
                         fontsize=9,
                     )
+
+    if plotted == 0:
+        plt.close(fig)
+        raise RuntimeError("No converged Stage 10 points. Figure was NOT generated.")
+
+    # Flag partial plots and keep invalid solutions OUT of the graph.
+    failures_path = ROOT / "results" / "stage10" / "cold_wide14_tol1e4" / "stage10_failures.csv"
+    if failures_path.exists():
+        with failures_path.open("r", encoding="utf-8") as file:
+            failures = list(csv.DictReader(file))
+        if failures:
+            ax.set_title("Partial result: converged points only", fontsize=11)
+            print(f"[WARN] {len(failures)} failed scheme/weight cases omitted")
 
     ax.set_xlabel("Sum Communication Rate (bit/s/Hz)", fontsize=12)
     ax.set_ylabel("Sum Sensing Rate (bit/s/Hz)", fontsize=12)
