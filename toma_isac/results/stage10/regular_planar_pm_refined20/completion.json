@@ -1,0 +1,52 @@
+{
+  "complete": true,
+  "expected_new_points": 18,
+  "converged_new_points": 18,
+  "source_points_preserved": 54,
+  "plot_source_points": 22,
+  "plot_expected_points": 40,
+  "plot_available_points": 40,
+  "all_expected_points": 72,
+  "all_available_points": 72,
+  "new_weights": [
+    0.015,
+    0.11,
+    0.12,
+    0.13,
+    0.14,
+    0.145,
+    0.16,
+    0.18,
+    0.225
+  ],
+  "plot_weights": [
+    0.001,
+    0.005,
+    0.015,
+    0.03,
+    0.1,
+    0.11,
+    0.12,
+    0.125,
+    0.13,
+    0.14,
+    0.145,
+    0.15,
+    0.16,
+    0.175,
+    0.18,
+    0.2,
+    0.225,
+    0.25,
+    0.42,
+    0.46
+  ],
+  "schemes": [
+    "proposed",
+    "b6"
+  ],
+  "scene_seed": 8001,
+  "resource_seed": 2042,
+  "initialization_unchanged": true,
+  "cross_weight_warm_start": false
+}

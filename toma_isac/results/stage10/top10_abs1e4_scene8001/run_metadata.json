@@ -1,0 +1,340 @@
+{
+  "fingerprint": {
+    "config_sha256": "4119ff2f206a185d9c03e59374a1bcd44686420ef7ba5e888f1062213dc4d296",
+    "code_sha256": {
+      "algorithm.py": "8a12fd0a34229ec966cfecbeee3cce85004b600e42acb275f3f67413b76ae297",
+      "inner_solver.py": "b80956336d572763b36e20e38faa49ad6da4cf6e038366e822e8aeb9e60dd353",
+      "outer_solver.py": "d33ff8cdc7770079fdd859e8623e9a01a4270459970ae1899a630aa47cebdd5b",
+      "initialization.py": "edff53bbb55df986e3b9a583eea41074acf3a7ed796c29137ea2f30c8f6c7cf7",
+      "geometry.py": "2aebbb4d334267730298df52f70f984578977cc1abfcf9e42b48935e0493a2ed",
+      "channels.py": "a72f233e337f24eb84ab1ccafc13437a2da1a4a502816aec2df671448e4eb2d0",
+      "config.py": "87c3c383cb2ef2f5fb3b3e0c28e8301caa350eb7daae7110b29b88990e45840b",
+      "metrics.py": "57be413ec915cedcda7fe7bc20f93a3e561a35b488dbb128e6847984ca4805a7",
+      "utils.py": "09dc29b4bbd674b9c82bc40b262b2365233c3dc7c7bf2d3d42f0b623e56ef954",
+      "baselines.py": "996a81c10c94a78a40c0c4cd775cd3ef790f9d4128dff04756a90e52d8d4c3db",
+      "ma_baseline.py": "c0b777177778801973001d10f275d17b98d1dbe655e86b5febd35828f579444a",
+      "stage8.py": "9e1b0346c9df46a2df4319b9634da40180fccf5837c163c2743dd0764a9a04fd",
+      "state.py": "667f96a8e7e15616e1cf0ca56e7a5ba94d44547508c7ef608cfec15be5309fb3",
+      "experiments/run_stage10_cold20.py": "2055777854be9ee1e87a247459a70b8f4496f1ca6918d4db3a44659f8c0955a2"
+    },
+    "runner_sha256": "f3507c4cad895a543c6e2aa7c8b75490d9af96173d49e3a62c55736265a986e0",
+    "smoke": false,
+    "weights": [
+      0.001,
+      0.005,
+      0.01,
+      0.03,
+      0.05,
+      0.1,
+      0.2,
+      0.3,
+      0.35,
+      0.4,
+      0.42,
+      0.44,
+      0.46,
+      0.48,
+      0.5,
+      0.55,
+      0.6,
+      0.7,
+      0.8,
+      0.9
+    ],
+    "seeds": {
+      "b6": [
+        2026,
+        3786619507,
+        1562647582
+      ],
+      "proposed": [
+        2042,
+        2028,
+        2038,
+        2044,
+        2041,
+        2043,
+        2045,
+        2034,
+        2027,
+        2039
+      ]
+    },
+    "scene_seed": 8001,
+    "position_update_mode": "fp_aware",
+    "candidate_fp_iters": 2,
+    "selection_sha256": "85c09db3415edf295a1c2b7ad65e7e4099ed50efcf69c9f260660f7618c91c3f",
+    "stopping": "absolute_wsr_change",
+    "inner_consecutive": 1,
+    "outer_consecutive": 2,
+    "initial_geometry_sha256": {
+      "b6_2026": "324f7594fbc5ec3208f6008fa7ec9aea8865d2cd887835e9fade005386c0b60c",
+      "b6_3786619507": "694b95875471c69d310b7dbcbf3d43ddd4a65489856fe340088688d94a9e8453",
+      "b6_1562647582": "df5db5a0203c3eda3cac1128746b8035ce246d8509d1d1c5a7968bcf4c9b022c",
+      "proposed_2042": "30e076e94824125b71541614b14294c40ff93a08f2b5235aef268e64708f0f20",
+      "proposed_2028": "2f9fd558b5c1f17019654e7d09229ce4a141b52ada2c7bbefaa9e557f2b24866",
+      "proposed_2038": "1e1c783c88b47ec312da90c9131977028a41446c7555f8e6db964e5d3637d928",
+      "proposed_2044": "dedc6a71b827cb2625721b97bfb870f8bc5304fa1a9805714ffe619df7d7bed4",
+      "proposed_2041": "d58f7dba77ac9c5db30bed2719811ad83879ec93f236faf53a549f038f241bc1",
+      "proposed_2043": "d865d91d60e94f27b94c1c4d35219f196298184b8c10a5d093041a53858749e1",
+      "proposed_2045": "623c87e5bb1d5d12f2405639949d8164957af32792265f4d44b50049085815ed",
+      "proposed_2034": "c2f250d44e086c12eacbfddcb08babb42e5f3e97812acba329274d5e3342a65d",
+      "proposed_2027": "ea150390a8ad0eb1b13049da09613a98425751ad8fb1b93f7d2b8f4c2ac6c588",
+      "proposed_2039": "63aacd5a9853ccd71876a994f22f307d1c3a7873429c60c180e24b9b4766b2df"
+    }
+  },
+  "config": {
+    "system": {
+      "M": 4,
+      "N_c": 2,
+      "K": 5,
+      "J": 5,
+      "L": 5,
+      "R_s": 4
+    },
+    "geometry": {
+      "wavelength": 0.01,
+      "cable_length": 1.0,
+      "min_uav_distance": 0.5,
+      "min_si_distance": 0.001
+    },
+    "power": {
+      "p_dl_max": 1.0,
+      "p_ul_max": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ]
+    },
+    "noise": {
+      "sigma_dl2": [
+        3.981071705534969e-15,
+        3.981071705534969e-15,
+        3.981071705534969e-15,
+        3.981071705534969e-15,
+        3.981071705534969e-15
+      ],
+      "sigma_bs2": 3.981071705534969e-15
+    },
+    "si": {
+      "rho_si": 1e-10
+    },
+    "weights": {
+      "dl": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ],
+      "ul": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ],
+      "sensing": [
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667,
+        0.06666666666666667
+      ]
+    },
+    "scene": {
+      "q_dl": [
+        [
+          8.6187,
+          -32.1653,
+          20.0
+        ],
+        [
+          23.7588,
+          -23.7588,
+          20.0
+        ],
+        [
+          32.7449,
+          -8.774,
+          20.0
+        ],
+        [
+          33.0347,
+          8.8516,
+          20.0
+        ],
+        [
+          23.9002,
+          23.9002,
+          20.0
+        ]
+      ],
+      "q_ul": [
+        [
+          14.4113,
+          -30.9051,
+          20.0
+        ],
+        [
+          27.6054,
+          -19.3295,
+          20.0
+        ],
+        [
+          33.2729,
+          -2.911,
+          20.0
+        ],
+        [
+          30.8145,
+          14.369,
+          20.0
+        ],
+        [
+          19.3869,
+          27.6873,
+          20.0
+        ]
+      ],
+      "q_s": [
+        [
+          2.9197,
+          -33.3725,
+          20.0
+        ],
+        [
+          19.5016,
+          -27.8512,
+          20.0
+        ],
+        [
+          30.4519,
+          -14.2,
+          20.0
+        ],
+        [
+          33.9702,
+          2.972,
+          20.0
+        ],
+        [
+          27.6054,
+          19.3295,
+          20.0
+        ]
+      ]
+    },
+    "channel": {
+      "rcs_m2": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ]
+    },
+    "initialization": {
+      "kappa_ul": 0.5,
+      "random_seed": 2026,
+      "max_geometry_trials": 10000
+    },
+    "algorithm": {
+      "max_inner_iter": 1200,
+      "max_outer_iter": 1500,
+      "tol_inner": 0.0001,
+      "tol_outer": 0.0001,
+      "max_bisection_iter": 100,
+      "tol_bisection": 1e-10,
+      "max_backtracking_iter": 30,
+      "armijo_mu": 0.0001,
+      "backtracking_factor": 0.5,
+      "finite_diff_delta": 1e-06,
+      "initial_outer_step": 0.1,
+      "plateau_window": 0,
+      "tol_window": 0.0
+    },
+    "experiment": {
+      "n_mc": 1,
+      "scene_seed_start": 8001,
+      "multi_start_seeds": [
+        2042,
+        2028,
+        2038,
+        2044,
+        2041,
+        2043,
+        2045,
+        2034,
+        2027,
+        2039
+      ],
+      "fixed_upa_seed": 2026,
+      "position_jitter": [
+        0.5,
+        0.5,
+        0.0
+      ],
+      "fading": {
+        "enabled": false
+      },
+      "ma": {
+        "region_size": 0.3,
+        "min_spacing": 0.005,
+        "initial_step": 0.03,
+        "n_starts": 3,
+        "initial_jitter_fraction": 0.5
+      },
+      "sweep": {
+        "rho_si": [
+          1e-05,
+          0.0001,
+          0.001,
+          0.01,
+          0.1
+        ],
+        "p_dl_max": [
+          0.2,
+          0.5,
+          1.0,
+          1.5,
+          2.0
+        ],
+        "cable_length": [
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5
+        ]
+      }
+    },
+    "tradeoff": {
+      "scene_seed": 8001,
+      "omega_comm": [
+        0.001,
+        0.005,
+        0.01,
+        0.03,
+        0.05,
+        0.1,
+        0.2,
+        0.3,
+        0.35,
+        0.4,
+        0.42,
+        0.44,
+        0.46,
+        0.48,
+        0.5,
+        0.55,
+        0.6,
+        0.7,
+        0.8,
+        0.9
+      ]
+    }
+  }
+}

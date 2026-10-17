@@ -1,0 +1,38 @@
+n_mc: 100
+scene_seed_start: 8001
+# Frozen HPC protocol; Stage8/load configs supply original objective and scene layout.
+base_config: configs/stage8_monte_carlo.yaml
+load_configs:
+  3: configs/stage8_load3.yaml
+  4: configs/stage8_load4.yaml
+  5: configs/stage8_load5.yaml
+  6: configs/stage8_load6.yaml
+  7: configs/stage8_load7.yaml
+schemes: [proposed, b6, b2, b3]
+protocol:
+  base_p_dl_W: 1.0
+  base_rho_si: 1.0e-10
+  resource_seed: 2042
+  initial_ul_power_W: 0.025
+  max_inner_iter: 1200
+  max_outer_iter: 1500
+  tol_inner: 0.0001
+  tol_outer: 0.0001
+  plateau_window: 0
+  ma_region_size_m: 0.3
+  ma_min_spacing_m: 0.005
+  ma_initial_step_m: 0.03
+  # Init endpoints on x=0 circle: 45,135,225,315 degrees; no random jitter.
+  # Other resources initialized from each current geometry and channel.
+convergence:
+  # All three powers use Proposed, 100 scenes, and five starts per scene.
+  p_dl_W: [0.1, 1.0, 10.0]
+sweeps:
+  p_dl_dbm: [20, 25, 30, 35, 40]
+  rho_si_db: [-50, -40, -30, -20, -10]
+  loads: [3, 4, 5, 6, 7]
+tradeoff:
+  # Recompute all weights for 100 independent user scenes.
+  # Common planar geometry across weights; objective w*(R_DL+R_UL)/10+(1-w)*R_S/5.
+  reuse_verified_results: false
+  weights: [0.001, 0.015, 0.16, 0.18, 0.20, 0.42, 0.46, 0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90]

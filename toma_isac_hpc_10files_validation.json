@@ -1,0 +1,38 @@
+{
+  "upload_zip": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_mc100.zip",
+  "source_folder": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_10files",
+  "file_count": 9,
+  "files": {
+    "algorithms.py": "e92c7dc67f32eb5c4709aae274d94c91d63d6ba5ead5dbbc42d340b68c9ff078",
+    "channel_model.py": "97699f4781d5386086178310efd3948b746fb80b9871f1fb637beb7f76f3c43c",
+    "figure_engine.py": "433dd26654ca3a62e037bf7682675e36bb1504e66a20f4894e9bf7414e7f8780",
+    "inner_solver.py": "a2bcdc91bccdfb9ab2e1bb7bb0ec03fc7a0c2a5c104569519cd5ee21d3c96992",
+    "outer_solver.py": "a56fc83ad388c0fc42513ed390576d1842917edd8b05213f05e028ccaeaca470",
+    "README.md": "03b3b1a4d51c26c7a3afc1aafa7825c14b31500f9d41d89cf111438dc6a6358e",
+    "run_figures.py": "89a1eb09281e43ff57ced0db2ce980a07934b4fecc76d035ec745f86480b51b8",
+    "simulation_config.json": "cedabee98bf008a14b92ea63e83df0de3593172d923b0c12039c3279f01063a0",
+    "system_model.py": "5fb83bc8bca1b938a4b18ff67e5db5164979b5b876d58802ef51e3925cb8afc8"
+  },
+  "checks": [
+    "Original/refactored four schemes plus two perturbed starts: numerical equivalence",
+    "CLI multiprocessing, resume, incomplete-results guard",
+    "Five plot paths",
+    "10 batches cover all 100 scenes for all/single figure",
+    "Shell submission dependency and same-figure collection",
+    "Extracted ten-file ZIP standalone preflight",
+    "Repacked nine-file upload ZIP, excluding shell; separate shell syntax unchanged and valid",
+    "Single-job shell: 100 scenes exactly once, ten batch logs, success collection",
+    "Failed-scene handling prevents incomplete aggregation",
+    "Login-node execution guard",
+    "Automatic code directory detection tested for submit/current/script directory; no guessed Linux path",
+    "Simplified template-style script revalidated: 100-scene grouping, single figure and failure handling",
+    "Fixed user-confirmed absolute code path; shell syntax checked",
+    "Logs-only bootstrap regression: 10 simultaneous Python scene processes initialize one output directory",
+    "Logs + empty metadata directories accepted; orphaned results and incompatible identities rejected",
+    "Real solver: 15 start checkpoints created and continued under preexisting logs directory"
+  ],
+  "cluster_run": false,
+  "separate_submission_script": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_submission\\cluster.sh",
+  "submission_mode": "One Slurm job, 10 CPUs on one node; 10 concurrent batches of 10 scenes; Conda JM_CVX",
+  "code_directory": "/home/lyq00008339/Lihuang_Li/toma"
+}

@@ -1,0 +1,20 @@
+{
+  "omega_comm": 0.9,
+  "scheme": "b6",
+  "seed": 1562647582,
+  "source_wsr": 7.665350578523814,
+  "final_wsr": 7.706003807438692,
+  "original_selected_wsr": 7.427626077374261,
+  "converged": true,
+  "replaced_selected_point": true,
+  "extra_outer_iterations": 269,
+  "extra_runtime_s": 37.711812100111274,
+  "total_outer_iterations": 1769,
+  "sum_rate_comm": 85.61783648350017,
+  "sum_rate_sensing": 0.019926196183840568,
+  "stop_reason": "outer_tolerance",
+  "tol_inner": 0.0001,
+  "tol_outer": 0.0001,
+  "stopping": "absolute",
+  "outer_consecutive": 2
+}

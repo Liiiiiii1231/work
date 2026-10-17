@@ -1,0 +1,26 @@
+{
+  "row": {
+    "omega_comm": 0.6,
+    "omega_sensing": 0.4,
+    "scheme": "b2",
+    "scheme_label": "Fixed-ToMA + FP",
+    "sum_rate_dl": 48.811875484630086,
+    "sum_rate_ul": 0.0,
+    "sum_rate_comm": 48.811875484630086,
+    "sum_rate_sensing": 15.00054871214679,
+    "weighted_sum_rate": 4.128756426049549,
+    "best_seed": 2042,
+    "iterations": 104,
+    "runtime_s": 0.37794277100056206,
+    "n_starts": 1,
+    "converged": true,
+    "source_seed": 2042,
+    "provenance": "regular_planar_toma_or_regular_upa_cold_start"
+  },
+  "state_file": "states/b2_omega_0.6_call_001.npz",
+  "state_sha256": "8ad7ca24231c2572a3678e919dfe4adbf2ecc2ea32dd7d876e989e964cdc0878",
+  "attempt": 1,
+  "initialization_file_sha256": "04eb811c6f9cddf5fd783d68fb1d91c1e73e731bebd3e04898a5be6156044e4b",
+  "continuation_same_weight_only": true,
+  "initialization_protocol": "regular_planar_v1"
+}

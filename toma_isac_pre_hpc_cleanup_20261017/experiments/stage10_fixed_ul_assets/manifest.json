@@ -1,0 +1,24 @@
+{
+  "initial_power_W": 0.00025,
+  "reused_weights": [
+    0.1,
+    0.18,
+    0.46
+  ],
+  "sha256": {
+    "states/b6_omega_0.46_call_001.npz": "58868150ff76e515584e3207313313e3ac2ec5e7128b0a68ff14b69130b121c6",
+    "states/proposed_omega_0.46_call_001.npz": "96b004314162c3caeb50923a44c9fa9e3fd8a9b7b1eba377f3a8f1483813f301",
+    "states/b6_omega_0.1_call_001.npz": "6ff5c511572945177b7b3dbb8422b4135d2a824f9d6e98588f743b7a16b9b771",
+    "states/proposed_omega_0.1_call_001.npz": "3ae98dbe9f2ddc15b4aafe89ea6d04bcd5ff42bba966ffebfdd8d348fec64252",
+    "states/proposed_omega_0.18_call_001.npz": "823a885106660465b8e8a342ea729867eeeccddb6fd9d42f2b2dd8c40d04e87a",
+    "states/b6_omega_0.18_call_001.npz": "745b4c131bff6ad74a84b7b3862f765e5c2d81fb48754fcc37d78ef9ecf5b043",
+    "initial_states/proposed.npz": "04eb811c6f9cddf5fd783d68fb1d91c1e73e731bebd3e04898a5be6156044e4b",
+    "initial_states/b6.npz": "f0754d264e73c1cf4ce63a19f4c3bfacc8e1e18da1c751dd72a0b3b314024eb0",
+    "records/b6_omega_0.46.json": "55f0164d09320b4d5957cedeacae5419234df6c8911b45d9cbe10b94d8e294de",
+    "records/b6_omega_0.18.json": "a6f4be9c3434f97dbd9eb7c53dd9b2458fe3c082e2b9b85b820df72606a98741",
+    "records/proposed_omega_0.18.json": "c5820d560118f8c28544f8620a105a69014dbbfd89cfcd5e6d9f44677507269d",
+    "records/proposed_omega_0.46.json": "4055d8a5eeb4816606d17a9e1bb38afcb0605e5d8f7709fcded6bfd074c10b33",
+    "records/b6_omega_0.1.json": "a18d73ad1e5f01fef7028ae2083a75f5b2fe8324ff13a7cadcfce678ab8f1dda",
+    "records/proposed_omega_0.1.json": "6f39e06c922d0429b9c6bad4eca18ed1914aa6db3456be348d76d35d9fc4b06d"
+  }
+}

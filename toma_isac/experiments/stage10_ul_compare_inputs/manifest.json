@@ -1,0 +1,11 @@
+{
+  "sha256": {
+    "baseline_018.csv": "262f86d07dcd50c43daa7c11bb2c9e0d7e182a16a537bb8bf4e9cc2621e3c77e",
+    "proposed_original_initial.npz": "fffef8d02b257cf24649c1adff4a78a58da94dceaead116bb9cb77bf681ee5a6",
+    "b6_original_initial.npz": "300cb5d9d93ad6c5bc6148f3398f270b20ef2edd1c2c35ef08a2aa2ad64b2078"
+  },
+  "weight": 0.18,
+  "baseline_source": "User uploaded new_points.csv; original 25mW starts; full inner/outer results",
+  "initials_source": "User uploaded regular_planar_pm_full27.zip; exact original initial-state bytes",
+  "baseline_final_states_available": false
+}

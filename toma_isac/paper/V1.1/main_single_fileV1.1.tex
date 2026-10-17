@@ -1319,42 +1319,98 @@ $N_{\rm start}=5$ feasible initial ToMA geometries are adopted, and the
 solution with the largest final WSR is retained.
 
 \begin{table}[!t]
+\centering
 \caption{Simulation Parameters}
 \label{tab:simulation_parameters}
-\centering
-\renewcommand{\arraystretch}{1.08}
-\resizebox{\columnwidth}{!}{
-\begin{tabular}{c|l|c}
+\footnotesize
+\renewcommand{\arraystretch}{1.12}
+\setlength{\tabcolsep}{2pt}
+
+\begin{tabular}{
+|>{\centering\arraybackslash}p{0.23\columnwidth}
+|p{0.48\columnwidth}
+|>{\centering\arraybackslash}p{0.20\columnwidth}|
+}
 \hline
-\textbf{Parameter} & \textbf{Description} & \textbf{Value} \\
+\textbf{Parameter} &
+\textbf{Description} &
+\textbf{Value} \\
 \hline
-$f_c$ & Carrier frequency & $30$ GHz \\
-$\lambda$ & Carrier wavelength & $0.01$ m \\
-$M$ & Number of towed sub-UAVs & $4$ \\
-$N_{\rm c}$ & Antenna elements per cable & $2$ \\
-$N_{\rm T},N_{\rm R}$ & Number of Tx/Rx antenna elements & $4$ \\
-$K,J,L$ & Numbers of DL/UL users and targets & $5$ \\
-$R_{\rm S}$ & Number of sensing waveforms & $4$ \\
-$L_{\rm c}$ & Cable length & $1$ m \\
-$D_{\rm UAV}$ & Minimum inter-UAV distance & $0.5$ m \\
-$P_{\rm D}^{\max}$ & Maximum DL transmit power & $30$ dBm \\
-$P_{{\rm U},j}^{\max}$ & Maximum UL transmit power & $20$ dBm \\
-$\sigma_k^2,\sigma_{\rm BS}^2$ & Noise power & $-114$ dBm \\
-$10\log_{10}(\rho_{\rm SI})$ & Nominal residual-SI level & $-100$ dB \\
-$A_l$ & Effective vehicle RCS & $10\,\mathrm{m}^2$ \\
-$\xi_l^{\rm S}$ & Equivalent scattering amplitude factor & $\approx1121.0$ \\
-$I_{\rm in}^{\max}$ & Maximum inner FP iterations & $1200$ \\
-$I_{\rm out}^{\max}$ & Maximum joint AO iterations & $1500$ \\
-$\varepsilon_{\rm in},\varepsilon_{\rm out}$ & Convergence tolerance & $10^{-4}$ \\
-$\delta$ & Central finite-difference step & $10^{-6}$ \\
-$\tau_0$ & Initial RCG step size & $0.1$ \\
-$\mu_{\rm A}$ & Armijo parameter & $10^{-4}$ \\
-$\zeta_{\rm out}$ & Backtracking factor & $0.5$ \\
-$I_{\rm A}$ & Maximum Armijo backtracking steps & $30$ \\
-$N_{\rm start}$ & Number of ToMA initializations & $5$ \\
+
+$f_c$ &
+Carrier frequency &
+$30$ GHz \\
 \hline
-\end{tabular}}
+
+$M$ &
+Number of towed sub-UAVs &
+$4$ \\
+\hline
+
+$N_{\rm c}$ &
+Antenna elements per cable &
+$2$ \\
+\hline
+
+$K,J,L$ &
+Numbers of DL/UL users and targets &
+$5$ \\
+\hline
+
+$R_{\rm S}$ &
+Number of sensing waveforms &
+$4$ \\
+\hline
+
+$L_{\rm c}$ &
+Cable length &
+$1$ m \\
+\hline
+
+$D_{\rm UAV}$ &
+Minimum inter-UAV distance &
+$0.5$ m \\
+\hline
+
+$P_{\rm D}^{\max}$ &
+Maximum DL transmit power &
+$30$ dBm \\
+\hline
+
+$P_{{\rm U},j}^{\max}$ &
+Maximum UL transmit power &
+$20$ dBm \\
+\hline
+
+$\sigma_k^2,\sigma_{\rm BS}^2$ &
+Receiver noise power &
+$-114$ dBm \\
+\hline
+
+$\rho_{\rm SI}$ &
+Nominal residual-SI level (dB) &
+$-100$ dB \\
+\hline
+
+$A_l$ &
+Effective vehicle RCS &
+$10\,\mathrm{m}^2$ \\
+\hline
+
+$\varepsilon_{\rm in/out}$ &
+Convergence tolerances &
+$10^{-4}$ \\
+\hline
+
+$N_{\rm start}$ &
+Proposed multi-start initializations &
+$5$ \\
+\hline
+
+\end{tabular}
 \end{table}
+
+
 
 To comprehensively evaluate the proposed method, the following benchmark
 schemes are considered. The RCG-ToMA + Traditional scheme optimizes the

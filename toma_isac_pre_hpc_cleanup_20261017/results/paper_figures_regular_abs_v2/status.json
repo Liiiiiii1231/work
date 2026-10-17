@@ -1,0 +1,38 @@
+{
+  "convergence": {
+    "complete": true,
+    "converged": 3,
+    "expected": 3,
+    "errors": [],
+    "seconds_this_invocation": 1.8169308999786153
+  },
+  "p_dl_max": {
+    "complete": true,
+    "converged": 200,
+    "expected": 200,
+    "errors": [],
+    "seconds_this_invocation": 2.4589196000015363
+  },
+  "rho_si": {
+    "complete": true,
+    "converged": 200,
+    "expected": 200,
+    "errors": [],
+    "seconds_this_invocation": 2.543339500000002
+  },
+  "system_load": {
+    "complete": true,
+    "converged": 200,
+    "expected": 200,
+    "errors": [],
+    "seconds_this_invocation": 2.4589908000198193
+  },
+  "tradeoff": {
+    "complete": true,
+    "converged": 64,
+    "expected": 64,
+    "reused": 64,
+    "errors": [],
+    "seconds_this_invocation": 0.31572939999750815
+  }
+}

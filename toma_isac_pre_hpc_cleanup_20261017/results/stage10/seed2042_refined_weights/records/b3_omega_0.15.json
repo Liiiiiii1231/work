@@ -1,0 +1,25 @@
+{
+  "row": {
+    "omega_comm": 0.15,
+    "omega_sensing": 0.85,
+    "scheme": "b3",
+    "scheme_label": "FPA-UPA + FP",
+    "sum_rate_dl": 29.527004729751653,
+    "sum_rate_ul": 29.323165338442756,
+    "sum_rate_comm": 58.85017006819441,
+    "sum_rate_sensing": 4.54377145771085,
+    "weighted_sum_rate": 1.6551936988337608,
+    "best_seed": 2042,
+    "iterations": 57,
+    "runtime_s": 0.1361654000065755,
+    "n_starts": 1,
+    "converged": true,
+    "source_seed": 2042,
+    "provenance": "new_weight_same_seed_cold_start"
+  },
+  "state_file": "states/b3_omega_0.15_call_001.npz",
+  "state_sha256": "03e1ec87fd693d7f0b4ed5775338cdee43500a1655d4a544bf2245c856e71189",
+  "attempt": 1,
+  "initialization_file_sha256": "0418810b5ed73feb6ec88056ab7128e60f589f83d85af80c2e685d9c24d226cb",
+  "continuation_same_weight_only": true
+}

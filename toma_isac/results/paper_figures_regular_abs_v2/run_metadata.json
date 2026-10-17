@@ -1,0 +1,108 @@
+{
+  "identity": {
+    "protocol_sha256": "f697fdb4787141a729bd691043f55fad7539b4dbe8183f11fbd5d38f36878478",
+    "n_mc_override": null,
+    "script_sha256": "2f8212f0c5ce4f6dcdcaf7baf3218032143bc23977e5ec57d1b6a621c19e5c3e",
+    "engine_sha256": "46fc4afbb02cfd567779c2a21adff168e8982ccd291bc58700f588942a633233",
+    "assets_sha256": "aed28905d0570a1d3ace745c311d2fe1710497043f62342437c2d651573854a8",
+    "original_configs": {
+      "configs\\stage8_monte_carlo.yaml": "95f5dd5e4e718e485242ebf687560f5a99e448b108e5fa11badad2bdd8529814",
+      "configs\\stage8_load3.yaml": "fc6599b815bb34409c08e340ef7e3c6fc04223193008bb40f978d3134e239054",
+      "configs\\stage8_load4.yaml": "ef764da7794ee96a4528978220bff74f5f06d341dbac84623b8e25694b1f6665",
+      "configs\\stage8_load5.yaml": "a63ce8c68549d4a6cce265f727413d0fbe8634bd83bc47ffd22e6b83749f5da5",
+      "configs\\stage8_load6.yaml": "4f41ab67c5ead4255c14ece4bf3e4f265a38dccb9e0fa0aeca02bd73b82b09f4",
+      "configs\\stage8_load7.yaml": "02f49352106e96ed642823912c7ab5bb9b0d051d1347bac15d1a41af2790674d"
+    }
+  },
+  "protocol": {
+    "base_config": "configs/stage8_monte_carlo.yaml",
+    "load_configs": {
+      "3": "configs/stage8_load3.yaml",
+      "4": "configs/stage8_load4.yaml",
+      "5": "configs/stage8_load5.yaml",
+      "6": "configs/stage8_load6.yaml",
+      "7": "configs/stage8_load7.yaml"
+    },
+    "schemes": [
+      "proposed",
+      "b6",
+      "b2",
+      "b3"
+    ],
+    "protocol": {
+      "base_p_dl_W": 1.0,
+      "base_rho_si": 1e-10,
+      "resource_seed": 2042,
+      "initial_ul_power_W": 0.00025,
+      "max_inner_iter": 1200,
+      "max_outer_iter": 1500,
+      "tol_inner": 0.0001,
+      "tol_outer": 0.0001,
+      "plateau_window": 0,
+      "ma_region_size_m": 0.3,
+      "ma_min_spacing_m": 0.005,
+      "ma_initial_step_m": 0.03
+    },
+    "convergence": {
+      "scene_seed": 8001,
+      "p_dl_W": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "inset": true
+    },
+    "sweeps": {
+      "p_dl_dbm": [
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "rho_si_db": [
+        -50,
+        -40,
+        -30,
+        -20,
+        -10
+      ],
+      "loads": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "tradeoff": {
+      "reuse_verified_results": true,
+      "weights": [
+        0.001,
+        0.015,
+        0.16,
+        0.18,
+        0.2,
+        0.42,
+        0.46,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8,
+        0.85,
+        0.9
+      ]
+    }
+  },
+  "notes": [
+    "Four agreed schemes only; old Stage8 seven-scheme/multistart driver is not used.",
+    "Stage8/load objective weights are preserved from ORIGINAL source configs.",
+    "Tradeoff alone uses its frozen original w*(R_DL+R_UL)/10+(1-w)*R_S/5 objective.",
+    "Power/SI/load curves are raw mean WSR; no nondominance filtering or smoothing.",
+    "Fixed geometry schemes have inner stopping only; joint schemes have two-step outer stopping."
+  ],
+  "current_styles_sha256": "c09692ad051ec9522e32cc1c2dd67dfd117fb51d5daa0f901182358b4c95d60a"
+}

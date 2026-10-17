@@ -1,0 +1,28 @@
+Working directory: D:\Vs codeProjects\research work1\toma_isac
+Command: D:\miniconda\envs\toma_isac\python.exe -u experiments/plot_proposed_convergence.py
+
+[plot version] proposed-only-v1
+  seed=2026 ... WSR=6.4603696760, iterations=26, time=7.199s
+  seed=2027 ... WSR=6.3302896779, iterations=32, time=10.789s
+  seed=2028 ... WSR=6.4327115248, iterations=31, time=10.628s
+  seed=2029 ... WSR=5.7215336118, iterations=37, time=13.382s
+  seed=2030 ... WSR=5.5175435707, iterations=19, time=7.206s
+
+Final Riemannian gradient norms
+  Tx endpoint 0: ||grad|| = 3.552546e+00
+  Tx endpoint 1: ||grad|| = 2.113641e+00
+  Rx endpoint 2: ||grad|| = 9.072946e+00
+  Rx endpoint 3: ||grad|| = 5.454288e+00
+  mean ||grad|| = 5.048355e+00
+  max  ||grad|| = 9.072946e+00
+
+Best Proposed start
+  scene seed = 8001
+  best multi-start seed = 2026
+  outer iterations = 26
+  converged = True
+  initial WSR = 0.5527514157
+  final WSR = 6.4603696760
+
+Proposed CSV saved to: D:\Vs codeProjects\research work1\toma_isac\results\stage8\proposed_convergence_scene_8001_with_inset.csv
+Proposed figures saved to: D:\Vs codeProjects\research work1\toma_isac\results\stage8\figures\proposed_convergence_scene_8001_with_inset.png and D:\Vs codeProjects\research work1\toma_isac\results\stage8\figures\proposed_convergence_scene_8001_with_inset.pdf

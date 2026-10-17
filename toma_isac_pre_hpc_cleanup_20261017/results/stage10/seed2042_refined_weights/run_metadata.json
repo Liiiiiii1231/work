@@ -1,0 +1,61 @@
+{
+  "identity": {
+    "script_sha256": "f4edb707f0515bef727f860576e397b45a015c644b4c16724e0bc12d8ffff466",
+    "support_sha256": "7da9cee9f0eb9821615b38b27681ecfd2eed3e85beee2f9bd4230fd4d04587db",
+    "manifest_sha256": "15cd0c2697d3d940146b9ca0b47688eec50de6e5c577e2e33454baa1977a9faa",
+    "project_root": "D:\\Vs codeProjects\\research work1\\toma_isac"
+  },
+  "protocol": {
+    "scene_seed": 8001,
+    "init_seed": 2042,
+    "n_starts_per_scheme": 1,
+    "single_scene_preview": true,
+    "stopping": "absolute true WSR difference",
+    "tol_inner": 0.0001,
+    "tol_outer": 0.0001,
+    "inner_consecutive": 1,
+    "outer_consecutive": 2,
+    "max_inner_iter_per_call": 1200,
+    "max_outer_iter_per_call": 1500,
+    "cross_weight_warm_start": false,
+    "new_weights": [
+      0.02,
+      0.04,
+      0.075,
+      0.125,
+      0.15,
+      0.175,
+      0.25
+    ],
+    "plot_weights": [
+      0.001,
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.25,
+      0.3,
+      0.9
+    ],
+    "continuation": "Saved-state continuation at the SAME weight; method internal directions reset at each capped call, as in the previous pilot.",
+    "original_objective_unchanged": true,
+    "physical_constraints_unchanged": true,
+    "original_source_identity": {
+      "archive_sha256": "3043b1e990a984d738c431a45caf667499490eca5084da25db98c2ef8a599289",
+      "script_sha256": "a991ee59ab8402c8bd81c8858125f4dc3f5b1ce080dbb7c218a3e2a42b07e327",
+      "seed": 2042,
+      "scene_seed": 8001
+    },
+    "initial_arrays_exactly_match_previous_preview": true,
+    "upa_existing_source_seed": 2026,
+    "upa_effective_seed": 2042,
+    "upa_source_initialization_equivalence_verified": true
+  }
+}

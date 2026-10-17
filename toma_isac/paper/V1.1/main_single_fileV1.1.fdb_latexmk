@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1791703657.82611 "d:/Vs codeProjects/research work1/toma_isac/paper/V1.1/main_single_fileV1.1.tex" "main_single_fileV1.1.pdf" "main_single_fileV1.1" 1791703659.97826 0
-  "d:/Vs codeProjects/research work1/toma_isac/paper/V1.1/main_single_fileV1.1.tex" 1791703655 81910 c651df7b85b1cba2936691f028d80f0c ""
+["pdflatex"] 1791705887.18951 "d:/Vs codeProjects/research work1/toma_isac/paper/V1.1/main_single_fileV1.1.tex" "main_single_fileV1.1.pdf" "main_single_fileV1.1" 1791705889.3309 0
+  "d:/Vs codeProjects/research work1/toma_isac/paper/V1.1/main_single_fileV1.1.tex" 1791705886 81565 d45fa4fe712aea343f2d7119c09fa02b ""
   "d:/texlive/2026/texmf-dist/fonts/enc/dvips/base/8r.enc" 1784249652 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "d:/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1784249814 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/texlive/2026/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1784251618 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -107,8 +107,8 @@
   "figures/fig_pdl.png" 1791570911 155295 519d6c5be09ae796a0bb08a5970a873b ""
   "figures/fig_rsi.png" 1791690085 184873 9a3bc4c940b96b5b3addc820e0efd30c ""
   "figures/fig_tradeoff.png" 1791629139 281016 a79456b3252d2f7f6904aa02eb8369cb ""
-  "main_single_fileV1.1.aux" 1791703659 9936 9a2ed4f66d3d184c60c9207a4521d444 "pdflatex"
-  "main_single_fileV1.1.tex" 1791703655 81910 c651df7b85b1cba2936691f028d80f0c ""
+  "main_single_fileV1.1.aux" 1791705889 9936 71d0a1f3774b38723735844a4539d038 "pdflatex"
+  "main_single_fileV1.1.tex" 1791705886 81565 d45fa4fe712aea343f2d7119c09fa02b ""
   (generated)
   "main_single_fileV1.1.aux"
   "main_single_fileV1.1.log"

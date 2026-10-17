@@ -1,0 +1,6 @@
+﻿figure,status,seconds,reason,log
+01_proposed_convergence,SUCCESS,50.58,exit code 0,results\auto_figure_runs\20261010_010122\01_proposed_convergence_simulation.log
+02_downlink_power,SUCCESS,5579.51,exit code 0,results\auto_figure_runs\20261010_010122\02_downlink_power_simulation.log
+03_residual_SI,SUCCESS,5584.0,exit code 0,results\auto_figure_runs\20261010_010122\03_residual_SI_simulation.log
+04_system_load,SUCCESS,5356.3,exit code 0,results\auto_figure_runs\20261010_010122\04_system_load_simulation.log
+05_communication_sensing_tradeoff,SUCCESS,1665.09,exit code 0,results\auto_figure_runs\20261010_010122\05_communication_sensing_tradeoff_simulation.log

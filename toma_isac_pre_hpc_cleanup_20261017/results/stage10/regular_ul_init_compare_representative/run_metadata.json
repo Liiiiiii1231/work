@@ -1,0 +1,39 @@
+{
+  "identity": {
+    "entry_sha256": "6ca3a3edc77118c18dab8fe23b9f7c41dad7a707b55f0090884fb210e6121a6c",
+    "inputs_manifest_sha256": "0d1f706bc06cbcde8f82843be78aee7ee0083c742c62808cc75c539a4e31913d",
+    "dependencies": {
+      "run_stage10_regular_planar_pm.py": "d0f7e5cdb26fa207c61e75fa55993755908ed6dc9660524e263bda9228be8458",
+      "stage10_planar_pm_common.py": "4446584d0b682e4ad502f43640ec99332c1cca56ece4842366e3387ec8ee1d51",
+      "stage10_planar_pm_support.py": "bed4d4d8410f7828bdf80b8bf161ed3a3cdf740b92c08bfd730efbadb3fbf877",
+      "planar_pm_initialization.py": "bdc81bd259fbc80451c0a3228c44aab2bd5248ee6702bde9787cb5642782a19f"
+    },
+    "assets_manifest_sha256": "15cd0c2697d3d940146b9ca0b47688eec50de6e5c577e2e33454baa1977a9faa",
+    "project_root": "D:\\Vs codeProjects\\research work1\\toma_isac"
+  },
+  "protocol": {
+    "weights": [
+      0.1,
+      0.46,
+      0.9
+    ],
+    "scene_seed": 8001,
+    "resource_seed": 2042,
+    "levels_mW": [
+      25.0,
+      2.5,
+      0.25
+    ],
+    "changed_variable": "Only initial UL amplitudes; Q and initial receiver arrays copied unchanged",
+    "max_allowed_UL_power_W": 0.1,
+    "not_a_power_constraint_change": true,
+    "max_inner_iter_per_call": 1200,
+    "max_outer_iter_per_call": 1500,
+    "tol_inner": 0.0001,
+    "tol_outer": 0.0001,
+    "stopping": "absolute WSR change; inner once, outer twice",
+    "no_cross_weight_warm_start": true,
+    "full_inner_outer_optimization": true,
+    "baseline_note": "Existing full-run CSV references from completed regular-planar 27-weight experiment"
+  }
+}

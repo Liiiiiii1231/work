@@ -1,0 +1,11 @@
+{
+  "smoke": false,
+  "expected_jobs": 220,
+  "completed_jobs": 220,
+  "converged_jobs": 220,
+  "all_points_present": true,
+  "plot_points": 80,
+  "diagnostic": false,
+  "higher_unconverged_candidates": 0,
+  "missing_points": 0
+}

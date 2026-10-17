@@ -1,0 +1,18 @@
+{
+  "proposed": {
+    "geometry_sha256": "30e076e94824125b71541614b14294c40ff93a08f2b5235aef268e64708f0f20",
+    "resource_sha256": "b873265b77ba547133c793902a9b78f2b3caaf65ce64da33d6c8c041c21870d8"
+  },
+  "b2": {
+    "geometry_sha256": "30e076e94824125b71541614b14294c40ff93a08f2b5235aef268e64708f0f20",
+    "resource_sha256": "b873265b77ba547133c793902a9b78f2b3caaf65ce64da33d6c8c041c21870d8"
+  },
+  "b3": {
+    "geometry_sha256": "324f7594fbc5ec3208f6008fa7ec9aea8865d2cd887835e9fade005386c0b60c",
+    "resource_sha256": "2cd2b16a8f25cc6e9e2d36a559efaefc201ba9875790a60ae10699e50217be3e"
+  },
+  "b6": {
+    "geometry_sha256": "073b0d507269597c24bb6520285c2a387e40c5e7241574fd45b2bc3bbfd97574",
+    "resource_sha256": "dc6a14c326bdabde1caf2a5c696ea0376e818745eebccc25e05d9465552cae95"
+  }
+}

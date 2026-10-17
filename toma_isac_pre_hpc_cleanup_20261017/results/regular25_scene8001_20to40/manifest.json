@@ -1,0 +1,38 @@
+{
+  "scene_seed": 8001,
+  "base_powers_dbm": [
+    20,
+    25,
+    30
+  ],
+  "new_powers_dbm": [
+    35,
+    40
+  ],
+  "initial_ul_power_W_per_user": 0.025,
+  "tol_inner": 0.0001,
+  "tol_outer": 0.0001,
+  "starts": {
+    "proposed": 5,
+    "b6": 3,
+    "b2": 1,
+    "b3": 1
+  },
+  "base_results": "results\\regular25_multistart_pilot",
+  "base_manifest_sha256": "4001e56ca17596936197b05e532f73d57287dbd85f8d0a4d2807cb00743b10a6",
+  "source_sha256": {
+    "algorithm.py": "8a12fd0a34229ec966cfecbeee3cce85004b600e42acb275f3f67413b76ae297",
+    "baselines.py": "996a81c10c94a78a40c0c4cd775cd3ef790f9d4128dff04756a90e52d8d4c3db",
+    "ma_baseline.py": "c0b777177778801973001d10f275d17b98d1dbe655e86b5febd35828f579444a",
+    "initialization.py": "edff53bbb55df986e3b9a583eea41074acf3a7ed796c29137ea2f30c8f6c7cf7",
+    "inner_solver.py": "b80956336d572763b36e20e38faa49ad6da4cf6e038366e822e8aeb9e60dd353",
+    "outer_solver.py": "d33ff8cdc7770079fdd859e8623e9a01a4270459970ae1899a630aa47cebdd5b",
+    "channels.py": "a72f233e337f24eb84ab1ccafc13437a2da1a4a502816aec2df671448e4eb2d0",
+    "metrics.py": "57be413ec915cedcda7fe7bc20f93a3e561a35b488dbb128e6847984ca4805a7",
+    "geometry.py": "2aebbb4d334267730298df52f70f984578977cc1abfcf9e42b48935e0493a2ed",
+    "config.py": "87c3c383cb2ef2f5fb3b3e0c28e8301caa350eb7daae7110b29b88990e45840b",
+    "utils.py": "09dc29b4bbd674b9c82bc40b262b2365233c3dc7c7bf2d3d42f0b623e56ef954",
+    "state.py": "667f96a8e7e15616e1cf0ca56e7a5ba94d44547508c7ef608cfec15be5309fb3"
+  },
+  "script_sha256": "9548042de3934f557b0fcfc542db471d14c2682dd61ad651c4b512966d2795be"
+}

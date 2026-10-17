@@ -1,0 +1,29 @@
+{
+  "snapshot": "D:\\Vs codeProjects\\research work1\\toma_isac_local_state_before_restore_20261017_162612.zip",
+  "outputs": [
+    {
+      "folder": "paper_regular25_rho_si",
+      "records": 607,
+      "converged": 607,
+      "broken_record_links": []
+    },
+    {
+      "folder": "paper_regular25_system_load",
+      "records": 165,
+      "converged": 158,
+      "broken_record_links": []
+    },
+    {
+      "folder": "paper_figures_regular25_multistart",
+      "records": 572,
+      "converged": 572,
+      "broken_record_links": []
+    }
+  ],
+  "newer_files_preserved_sha256": 1455,
+  "rho_si_active_records": 485,
+  "rho_si_converged": 485,
+  "rho_si_expected": 500,
+  "rho_si_check_only_remaining": 15,
+  "rho_si_check_only_passed": true
+}

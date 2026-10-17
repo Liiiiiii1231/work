@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.17)  11 OCT 2026 15:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.7.17)  11 OCT 2026 16:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -357,58 +357,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 1203--1219
  []
 
 [9]
-Underfull \hbox (badness 2435) in paragraph at lines 1394--1399
+Underfull \hbox (badness 2435) in paragraph at lines 1450--1455
 \OT1/ptm/m/n/10 op-ti-mizes the communication--sensing re-sources and the
  []
 
 <figures/fig_convergence.png, id=49, 631.158pt x 371.7087pt>
 File: figures/fig_convergence.png Graphic file (type png)
 <use figures/fig_convergence.png>
-Package pdftex.def Info: figures/fig_convergence.png  used on input line 1408.
+Package pdftex.def Info: figures/fig_convergence.png  used on input line 1464.
 (pdftex.def)             Requested size: 252.0pt x 148.40858pt.
-[10 <./figures/fig_convergence.png>]
-<figures/fig_pdl.png, id=61, 715.2321pt x 387.6081pt>
+<figures/fig_pdl.png, id=51, 715.2321pt x 387.6081pt>
 File: figures/fig_pdl.png Graphic file (type png)
 <use figures/fig_pdl.png>
-Package pdftex.def Info: figures/fig_pdl.png  used on input line 1443.
+Package pdftex.def Info: figures/fig_pdl.png  used on input line 1499.
 (pdftex.def)             Requested size: 252.0pt x 136.56386pt.
-
-Underfull \hbox (badness 1448) in paragraph at lines 1475--1482
+[10 <./figures/fig_convergence.png>]
+Underfull \hbox (badness 1448) in paragraph at lines 1531--1538
 []\OT1/ptm/m/n/10 Furthermore, the pro-posed method out-per-forms Fixed-
  []
 
 <figures/fig_rsi.png, id=62, 715.2321pt x 387.6081pt>
 File: figures/fig_rsi.png Graphic file (type png)
 <use figures/fig_rsi.png>
-Package pdftex.def Info: figures/fig_rsi.png  used on input line 1494.
+Package pdftex.def Info: figures/fig_rsi.png  used on input line 1550.
 (pdftex.def)             Requested size: 252.0pt x 136.56386pt.
 
-Underfull \hbox (badness 3849) in paragraph at lines 1500--1507
+Underfull \hbox (badness 3849) in paragraph at lines 1556--1563
 []\OT1/ptm/m/n/10 To in-ves-ti-gate the sen-si-tiv-ity of the sys-tem per-for-
  []
 
 <figures/fig_load.png, id=63, 715.2321pt x 387.6081pt>
 File: figures/fig_load.png Graphic file (type png)
 <use figures/fig_load.png>
-Package pdftex.def Info: figures/fig_load.png  used on input line 1552.
+Package pdftex.def Info: figures/fig_load.png  used on input line 1608.
 (pdftex.def)             Requested size: 252.0pt x 136.56386pt.
 [11 <./figures/fig_pdl.png> <./figures/fig_rsi.png>]
 <figures/fig_tradeoff.png, id=69, 604.35788pt x 360.44662pt>
 File: figures/fig_tradeoff.png Graphic file (type png)
 <use figures/fig_tradeoff.png>
-Package pdftex.def Info: figures/fig_tradeoff.png  used on input line 1630.
+Package pdftex.def Info: figures/fig_tradeoff.png  used on input line 1686.
 (pdftex.def)             Requested size: 474.71906pt x 283.13272pt.
 
-Underfull \hbox (badness 4441) in paragraph at lines 1660--1672
+Underfull \hbox (badness 4441) in paragraph at lines 1716--1728
 []\OT1/ptm/m/n/10 The bench-mark schemes ex-hibit dif-fer-ent achiev-able
  []
 
-[12 <./figures/fig_load.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1685--1689
+
+Underfull \hbox (badness 10000) in paragraph at lines 1741--1745
 []\OT1/ptm/m/n/10 Overall, the pro-posed scheme achieves fa-vor-able
  []
 
-[13
+[12 <./figures/fig_load.png>] [13
 
  <./figures/fig_tradeoff.png>] (./main_single_fileV1.1.aux)
  ***********
@@ -423,9 +422,9 @@ Here is how much of TeX's memory you used:
  33666 multiletter control sequences out of 15000+600000
  671417 words of font info for 125 fonts, out of 8000000 for 9000
  1145 hyphenation exceptions out of 8191
- 57i,12n,65p,1352b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,13n,65p,1352b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><d:/texlive/2026/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main_single_fileV1.1.pdf (13 pages, 1339038 bytes).
+Output written on main_single_fileV1.1.pdf (13 pages, 1336008 bytes).
 PDF statistics:
  180 PDF objects out of 1000 (max. 8388607)
  105 compressed objects within 2 object streams

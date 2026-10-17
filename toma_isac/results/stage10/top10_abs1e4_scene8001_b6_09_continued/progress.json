@@ -1,0 +1,27 @@
+{
+  "identity": {
+    "metadata": "77c7625ea864f68caafe636d4ec2bf5bccfbd632f4decb8ef06dc1d5aeb505b8",
+    "state": "22d584012aced0b1dca815e60132b56af698f9c9742d10b104e815fb08d7329f",
+    "all_starts": "9b791d41463f5b8966b231daaefef4d9ab6d60eb796215da559a49a8f4f4000c",
+    "selected": "a3f52152cd2222b8cd0fe0cb2c5e72d17caf5e3f079f4ee5bbcb054511561b56",
+    "code": {
+      "ma_baseline.py": "c0b777177778801973001d10f275d17b98d1dbe655e86b5febd35828f579444a",
+      "baselines.py": "996a81c10c94a78a40c0c4cd775cd3ef790f9d4128dff04756a90e52d8d4c3db",
+      "inner_solver.py": "b80956336d572763b36e20e38faa49ad6da4cf6e038366e822e8aeb9e60dd353",
+      "channels.py": "a72f233e337f24eb84ab1ccafc13437a2da1a4a502816aec2df671448e4eb2d0",
+      "config.py": "87c3c383cb2ef2f5fb3b3e0c28e8301caa350eb7daae7110b29b88990e45840b",
+      "geometry.py": "2aebbb4d334267730298df52f70f984578977cc1abfcf9e42b48935e0493a2ed",
+      "metrics.py": "57be413ec915cedcda7fe7bc20f93a3e561a35b488dbb128e6847984ca4805a7",
+      "utils.py": "09dc29b4bbd674b9c82bc40b262b2365233c3dc7c7bf2d3d42f0b623e56ef954",
+      "state.py": "667f96a8e7e15616e1cf0ca56e7a5ba94d44547508c7ef608cfec15be5309fb3",
+      "stage8.py": "9e1b0346c9df46a2df4319b9634da40180fccf5837c163c2743dd0764a9a04fd",
+      "initialization.py": "edff53bbb55df986e3b9a583eea41074acf3a7ed796c29137ea2f30c8f6c7cf7"
+    },
+    "runner": "d0f72e3d4c4ba0e5087b55f211da785c46baf23413f6c9c74acb8195167da2dd"
+  },
+  "extra_iterations": 269,
+  "extra_runtime_s": 37.711812100111274,
+  "converged": true,
+  "consecutive_small_changes": 2,
+  "checkpoint_sha256": "6924d32d1843ce07c0e535b1206edf0e614a916f2d9472bf546a544604ab6208"
+}

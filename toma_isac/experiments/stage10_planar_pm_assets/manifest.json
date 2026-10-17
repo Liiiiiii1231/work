@@ -1,0 +1,78 @@
+{
+  "assets_sha256": {
+    "config.json": "9fea79b768dac6de2028f5f364f0e7052a2d47ac7150a076b30798fa670f6bdd",
+    "existing_80_points.csv": "f47dad2c13e85d4e76dc27d9a68e128c72e5d9e6e15a8bf7abe506bedcdf1438",
+    "initial_ma.npz": "7142893912f0da667fb1fd8e8003585f9e2dfeb34a3439616c26d0b17d8aea51",
+    "initial_toma.npz": "792d3d5699191588de5eebe0ff3cc793958ff708a7eb19e5e907316a6563e448",
+    "initial_upa.npz": "0418810b5ed73feb6ec88056ab7128e60f589f83d85af80c2e685d9c24d226cb",
+    "initialization_checks.json": "caeea29ecafc4fef6380ab47ae5282792c209b5437ac8b17abcc4003879fb152"
+  },
+  "solver_lf_sha256": {
+    "algorithm.py": "8a12fd0a34229ec966cfecbeee3cce85004b600e42acb275f3f67413b76ae297",
+    "inner_solver.py": "432abb34bba51cf3dac184714c050cb31943e132e58628bc202d44eb32224e55",
+    "outer_solver.py": "d33ff8cdc7770079fdd859e8623e9a01a4270459970ae1899a630aa47cebdd5b",
+    "initialization.py": "57dd94338a88d520050c1bcde9edffd9a50672cdad334e2185e9c06efd6e6d89",
+    "geometry.py": "19791c3fa040ebb36e00d9d344cab181f306913b2cc7ecbe83b31dcd83e44f84",
+    "channels.py": "a72f233e337f24eb84ab1ccafc13437a2da1a4a502816aec2df671448e4eb2d0",
+    "config.py": "87c3c383cb2ef2f5fb3b3e0c28e8301caa350eb7daae7110b29b88990e45840b",
+    "metrics.py": "1399b1ff430f98ce16fedd607e0ed3154eb4c4321a5ef72f4de7fbe67d959e7a",
+    "utils.py": "206bf8f16102a84496d32c93654ca7173a10d6990e1e48e8b8f7331ea1164e22",
+    "baselines.py": "996a81c10c94a78a40c0c4cd775cd3ef790f9d4128dff04756a90e52d8d4c3db",
+    "ma_baseline.py": "c0b777177778801973001d10f275d17b98d1dbe655e86b5febd35828f579444a",
+    "stage8.py": "9e1b0346c9df46a2df4319b9634da40180fccf5837c163c2743dd0764a9a04fd",
+    "state.py": "708bbb050558d5ae1bdf8d1fe12463c9f0c69b76e11ce61c6974630062d7d7d0"
+  },
+  "protocol": {
+    "scene_seed": 8001,
+    "init_seed": 2042,
+    "n_starts_per_scheme": 1,
+    "single_scene_preview": true,
+    "stopping": "absolute true WSR difference",
+    "tol_inner": 0.0001,
+    "tol_outer": 0.0001,
+    "inner_consecutive": 1,
+    "outer_consecutive": 2,
+    "max_inner_iter_per_call": 1200,
+    "max_outer_iter_per_call": 1500,
+    "cross_weight_warm_start": false,
+    "new_weights": [
+      0.02,
+      0.04,
+      0.075,
+      0.125,
+      0.15,
+      0.175,
+      0.25
+    ],
+    "plot_weights": [
+      0.001,
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.25,
+      0.3,
+      0.9
+    ],
+    "continuation": "Saved-state continuation at the SAME weight; method internal directions reset at each capped call, as in the previous pilot.",
+    "original_objective_unchanged": true,
+    "physical_constraints_unchanged": true,
+    "original_source_identity": {
+      "archive_sha256": "3043b1e990a984d738c431a45caf667499490eca5084da25db98c2ef8a599289",
+      "script_sha256": "a991ee59ab8402c8bd81c8858125f4dc3f5b1ce080dbb7c218a3e2a42b07e327",
+      "seed": 2042,
+      "scene_seed": 8001
+    },
+    "initial_arrays_exactly_match_previous_preview": true,
+    "upa_existing_source_seed": 2026,
+    "upa_effective_seed": 2042,
+    "upa_source_initialization_equivalence_verified": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "attempt": 1,
+  "row": {
+    "omega_comm": 0.55,
+    "scheme": "b2",
+    "seed": 2034,
+    "sum_rate_dl": 63.82720882312478,
+    "sum_rate_ul": 28.587153546344467,
+    "sum_rate_comm": 92.41436236946925,
+    "sum_rate_sensing": 0.04290992727496013,
+    "weighted_sum_rate": 5.086651823775556,
+    "iterations": 76,
+    "converged": true,
+    "stop_reason": "inner_tolerance",
+    "runtime_s": 0.22800629999255762,
+    "state_file": "states/omega_0.55_b2_seed_2034_attempt_001.npz",
+    "state_sha256": "eb125f2fb4623fbc1f80e5f74f3784da70d23746cb7f476f18f0f0355701de8f",
+    "last_abs_change": 4.64691625623459e-07,
+    "initial_wsr": 0.5044922884181026,
+    "initial_geometry_sha256": "c2f250d44e086c12eacbfddcb08babb42e5f3e97812acba329274d5e3342a65d"
+  }
+}

@@ -1,0 +1,3 @@
+﻿omega_comm,omega_sensing,scheme,scheme_label,sum_rate_dl,sum_rate_ul,sum_rate_comm,sum_rate_sensing,weighted_sum_rate,best_seed,iterations,runtime_s,n_starts,converged,source_seed,provenance
+0.18,0.8200000000000001,b6,MA + FP,24.060872210294757,28.215187647163177,52.27605985745794,13.707720932267787,3.18903531032616,2042,1883,314.9977663999889,1,True,2042,regular_planar_toma_or_regular_upa_cold_start
+0.18,0.8200000000000001,proposed,FP-aware RCG-ToMA + FP (Proposed),28.77813243680998,29.612663566916,58.39079600372598,8.755144408443579,2.4868780110518145,2042,187,108.56289489998017,1,True,2042,regular_planar_toma_or_regular_upa_cold_start

@@ -1,0 +1,30 @@
+{
+  "rho_si": {
+    "complete": false,
+    "expected_starts": 500,
+    "converged_starts": 246,
+    "selected_scene_cells": 99,
+    "errors": [
+      {
+        "task": {
+          "figure": "rho_si",
+          "parameter_value": 0.001,
+          "scene_seed": 8006,
+          "scheme": "proposed"
+        },
+        "start_id": 3,
+        "error": "FileNotFoundError(2, 'No such file or directory')"
+      },
+      {
+        "task": {
+          "figure": "rho_si",
+          "parameter_value": 0.001,
+          "scene_seed": 8006,
+          "scheme": "proposed"
+        },
+        "start_id": 1,
+        "error": "FileNotFoundError(2, 'No such file or directory')"
+      }
+    ]
+  }
+}

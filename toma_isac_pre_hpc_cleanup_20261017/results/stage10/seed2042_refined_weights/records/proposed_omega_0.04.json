@@ -1,0 +1,25 @@
+{
+  "row": {
+    "omega_comm": 0.04,
+    "omega_sensing": 0.96,
+    "scheme": "proposed",
+    "scheme_label": "FP-aware RCG-ToMA + FP (Proposed)",
+    "sum_rate_dl": 10.362569790307415,
+    "sum_rate_ul": 11.987022002062561,
+    "sum_rate_comm": 22.349591792369978,
+    "sum_rate_sensing": 26.161403658349705,
+    "weighted_sum_rate": 5.112387869572624,
+    "best_seed": 2042,
+    "iterations": 88,
+    "runtime_s": 27.655941700009862,
+    "n_starts": 1,
+    "converged": true,
+    "source_seed": 2042,
+    "provenance": "new_weight_same_seed_cold_start"
+  },
+  "state_file": "states/proposed_omega_0.04_call_001.npz",
+  "state_sha256": "981378a7b448ea1d89d4da8c032de808dd5b6506afbca258ef0e1162681ad166",
+  "attempt": 1,
+  "initialization_file_sha256": "792d3d5699191588de5eebe0ff3cc793958ff708a7eb19e5e907316a6563e448",
+  "continuation_same_weight_only": true
+}

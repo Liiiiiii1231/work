@@ -1,0 +1,5 @@
+Working directory: D:\Vs codeProjects\research work1\toma_isac
+Command: D:\miniconda\envs\toma_isac\python.exe -u experiments/plot_stage10_tradeoff.py
+
+Figure saved to: D:\Vs codeProjects\research work1\toma_isac\results\stage10\cold_wide14_tol1e4\figures\communication_sensing_tradeoff.png
+Figure saved to: D:\Vs codeProjects\research work1\toma_isac\results\stage10\cold_wide14_tol1e4\figures\communication_sensing_tradeoff.pdf
