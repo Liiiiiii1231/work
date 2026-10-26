@@ -1,0 +1,34 @@
+MULTINODE PLAN system_load tasks 16 nodes 3 workers/node 2 total slots 6
+NODE START rank 0 host Liiiiiii workers 2 affinity CPUs None
+START system_load/3/scene_8002/proposed call 1 previous_steps 0
+DONE system_load/3/scene_8002/proposed WSR 14.307990943050381 converged False steps 1
+TASK FINISHED rank 0 index 0 system_load/3/scene_8002/proposed converged False
+START system_load/3/scene_8002/b3 call 1 previous_steps 0
+DONE system_load/3/scene_8002/b3 WSR 11.234862715807964 converged False steps 3
+TASK FINISHED rank 0 index 6 system_load/3/scene_8002/b3 converged False
+START system_load/7/scene_8003/proposed call 1 previous_steps 0
+START system_load/3/scene_8003/b6 call 1 previous_steps 0
+DONE system_load/3/scene_8003/b6 WSR 13.731888741432792 converged False steps 1
+TASK FINISHED rank 0 index 3 system_load/3/scene_8003/b6 converged False
+DONE system_load/7/scene_8003/proposed WSR 11.417771898239142 converged False steps 1
+TASK FINISHED rank 0 index 9 system_load/7/scene_8003/proposed converged False
+NODE DONE {'rank': 0, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 4, 'finished_tasks': 4, 'failed_tasks': 0, 'seconds': 2.561999999999898, 'errors': []}
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "system_load",
+  "expected_tasks": 16,
+  "finished_tasks": 16,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": false,
+  "scene_seeds": [
+    8002,
+    8003
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}
+ALL NODES COLLECTED system_load finished tasks 16

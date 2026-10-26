@@ -1,0 +1,39 @@
+[
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 0.5494742523794682,
+    "final_wsr": 4.815010014735149,
+    "seconds": 0.038960599999882106,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 4.797454157712163,
+        "increment": 4.247979905332695,
+        "alpha": 1.5565680934102863,
+        "attempted_alpha": 1.5565680934102863,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 4.815010014735149,
+        "increment": 0.017555857022985677,
+        "alpha": 3.7220225587062954,
+        "attempted_alpha": 3.7220225587062954,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 1,
+    "after_position_iteration": null
+  }
+]

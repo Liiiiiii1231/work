@@ -1,0 +1,8 @@
+NODE START rank 4 host Liiiiiii workers 2 affinity CPUs None
+TASK FINISHED rank 4 index 4 tradeoff/0.1/scene_8006/b2 converged False
+TASK FINISHED rank 4 index 14 tradeoff/1/scene_8099/b3 converged False
+TASK FINISHED rank 4 index 10 tradeoff/1/scene_8006/b2 converged False
+TASK FINISHED rank 4 index 11 tradeoff/1/scene_8006/b3 converged False
+TASK FINISHED rank 4 index 9 tradeoff/1/scene_8006/b6 converged False
+TASK FINISHED rank 4 index 12 tradeoff/1/scene_8099/b6 converged False
+NODE DONE {'rank': 4, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 6, 'finished_tasks': 6, 'failed_tasks': 0, 'seconds': 2.5469999999913853, 'errors': []}

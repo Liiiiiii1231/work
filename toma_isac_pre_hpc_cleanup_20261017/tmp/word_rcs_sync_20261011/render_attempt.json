@@ -1,5 +1,0 @@
-{
-  "ok": false,
-  "stdout": "",
-  "stderr": "Traceback (most recent call last):\r\n  File \"C:\\Users\\27809\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.826.12353\\skills\\documents\\render_docx.py\", line 16, in <module>\r\n    from pdf2image import convert_from_path, pdfinfo_from_path\r\nModuleNotFoundError: No module named 'pdf2image'\r\n"
-}

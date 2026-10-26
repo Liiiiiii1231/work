@@ -1,3 +1,0 @@
-Working directory: D:\Vs codeProjects\research work1\toma_isac
-Command: D:\miniconda\envs\toma_isac\python.exe -u -c from experiments.plot_stage8_results import plot_system_load; plot_system_load()
-

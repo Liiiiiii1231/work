@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "main_policy": {
+    "method": "projected_squared_extrapolation",
+    "max_extrapolation": 64.0,
+    "consecutive_small_blocks": 2,
+    "scope": "main_resource_solves_all_schemes",
+    "candidate_solver": "plain_fp_max_2"
+  },
+  "tol_inner": 1e-05,
+  "tol_outer": 0.0001,
+  "smoke_only": true,
+  "smoke_screening_calls": 4,
+  "smoke_final_calls": 31,
+  "all_five_plots_exported": true,
+  "tradeoff_bundle_verified": true,
+  "regression_scene": 8003,
+  "regression_outer_iterations": 81,
+  "regression_history_bitwise_equal": true,
+  "actual_fp_budget_verified": true,
+  "fixed_baseline_iteration_units_verified": true,
+  "old_frozen_identity_rejected": true,
+  "shared_modules_unchanged": true,
+  "fixture_output": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\fpaccel_release_p18xyezn",
+  "note": "Local integration checks and one known-state regression; not final MC results.",
+  "bash_syntax_scripts": 6,
+  "entry_plan_checks": 5,
+  "python_syntax_files": 18,
+  "old_support_files_unchanged": 22
+}

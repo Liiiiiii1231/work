@@ -1,0 +1,17 @@
+{
+  "index": 11,
+  "rank": 4,
+  "task": {
+    "figure": "tradeoff",
+    "parameter_value": 1.0,
+    "scene_seed": 8006,
+    "scheme": "b3",
+    "_pilot_id": 122,
+    "input_state": "inputs/122_initial.npz",
+    "input_record": "inputs/122_original.json",
+    "state_sha256": "2ff499493cef44048eab4698facacf5b118f439e6271334a603b0651afe1e07d",
+    "record_sha256": "6d5b945a32950a08b2afdbd2415a8eed4c5a3f9f3ca1de2919524421138c25e9"
+  },
+  "ok": false,
+  "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+}

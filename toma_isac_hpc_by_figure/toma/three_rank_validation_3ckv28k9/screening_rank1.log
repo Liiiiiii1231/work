@@ -1,0 +1,5 @@
+NODE START rank 1 host Liiiiiii workers 2 affinity CPUs None
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.20376549599677 converged False steps 1
+TASK FINISHED rank 1 index 1 p_dl_max/1/scene_8005/proposed converged False
+NODE DONE {'rank': 1, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 1, 'finished_tasks': 1, 'failed_tasks': 0, 'seconds': 1.5469999999986612, 'errors': []}

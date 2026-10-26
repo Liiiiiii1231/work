@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "ma_solver": "algorithms.run_ma_fp",
+  "ma_position_solver": "original",
+  "candidate_fp_optimization": false,
+  "extrapolation": false,
+  "paired_cases": [
+    {
+      "scene": 8003,
+      "exact_history_geometry_resources_equal": true
+    },
+    {
+      "scene": 8006,
+      "exact_history_geometry_resources_equal": true
+    }
+  ]
+}

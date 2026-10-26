@@ -1,0 +1,56 @@
+CHECK PASSED: 8000 tasks; 1200/1500; frozen initial geometry SHA256 f1da89a6959556d65bc2c88adb89d06edf36778c4b82f75edb84add745c53dbe
+PLAN 12 independent tasks, workers 3 smoke_only True
+START tradeoff/0/scene_8001/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8001/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8001/b2 call 1 previous_steps 0
+DONE tradeoff/0/scene_8001/b2 WSR 10.143739695076226 converged False steps 2
+TASK FINISHED tradeoff/0/scene_8001/b2 converged False
+START tradeoff/0/scene_8001/b3 call 1 previous_steps 0
+DONE tradeoff/0/scene_8001/b3 WSR 7.804197509717918 converged False steps 2
+TASK FINISHED tradeoff/0/scene_8001/b3 converged False
+START tradeoff/0.2/scene_8001/proposed call 1 previous_steps 0
+DONE tradeoff/0/scene_8001/proposed WSR 10.678470960818096 converged False steps 2
+TASK FINISHED tradeoff/0/scene_8001/proposed converged False
+START tradeoff/0.2/scene_8001/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8001/proposed WSR 10.710843750285512 converged False steps 2
+TASK FINISHED tradeoff/0.2/scene_8001/proposed converged False
+START tradeoff/0.2/scene_8001/b2 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8001/b2 WSR 9.39124620156689 converged False steps 2
+TASK FINISHED tradeoff/0.2/scene_8001/b2 converged False
+START tradeoff/0.2/scene_8001/b3 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8001/b3 WSR 7.414578045199642 converged False steps 2
+TASK FINISHED tradeoff/0.2/scene_8001/b3 converged False
+START tradeoff/1/scene_8001/proposed call 1 previous_steps 0
+DONE tradeoff/1/scene_8001/proposed WSR 16.31712630059833 converged False steps 2
+TASK FINISHED tradeoff/1/scene_8001/proposed converged False
+START tradeoff/1/scene_8001/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8001/b6 WSR 11.535687111030924 converged False steps 2
+TASK FINISHED tradeoff/0/scene_8001/b6 converged False
+START tradeoff/1/scene_8001/b2 call 1 previous_steps 0
+DONE tradeoff/1/scene_8001/b2 WSR 12.96453428845257 converged False steps 2
+TASK FINISHED tradeoff/1/scene_8001/b2 converged False
+START tradeoff/1/scene_8001/b3 call 1 previous_steps 0
+DONE tradeoff/1/scene_8001/b3 WSR 10.48909950890894 converged False steps 2
+TASK FINISHED tradeoff/1/scene_8001/b3 converged False
+DONE tradeoff/0.2/scene_8001/b6 WSR 10.526621466772658 converged False steps 2
+TASK FINISHED tradeoff/0.2/scene_8001/b6 converged False
+DONE tradeoff/1/scene_8001/b6 WSR 14.724658037051707 converged False steps 2
+TASK FINISHED tradeoff/1/scene_8001/b6 converged False
+{
+  "complete": true,
+  "figure": "tradeoff",
+  "smoke_only": true,
+  "expected_tasks": 12,
+  "finished_tasks": 12,
+  "converged_tasks": 0,
+  "all_converged": false,
+  "scene_seeds": [
+    8001
+  ],
+  "weights": [
+    0.0,
+    0.2,
+    1.0
+  ],
+  "completion_definition": "All independent single-pass tasks finished; capped results included and labelled. No warm starts or continuation."
+}

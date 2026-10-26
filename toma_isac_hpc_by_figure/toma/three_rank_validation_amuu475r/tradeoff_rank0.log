@@ -1,0 +1,51 @@
+MULTINODE PLAN tradeoff tasks 24 nodes 3 workers/node 2 total slots 6
+NODE START rank 0 host Liiiiiii workers 2 affinity CPUs None
+START tradeoff/0/scene_8002/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8002/b3 call 1 previous_steps 0
+DONE tradeoff/0/scene_8002/b3 WSR 8.490947739748666 converged False steps 3
+TASK FINISHED rank 0 index 3 tradeoff/0/scene_8002/b3 converged False
+START tradeoff/0/scene_8003/b2 call 1 previous_steps 0
+DONE tradeoff/0/scene_8003/b2 WSR 10.109107526263347 converged False steps 3
+TASK FINISHED rank 0 index 6 tradeoff/0/scene_8003/b2 converged False
+START tradeoff/0.2/scene_8002/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8002/proposed WSR 10.351819318793474 converged False steps 1
+TASK FINISHED rank 0 index 0 tradeoff/0/scene_8002/proposed converged False
+START tradeoff/0.2/scene_8003/proposed call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8003/proposed WSR 10.190912486822167 converged False steps 1
+TASK FINISHED rank 0 index 12 tradeoff/0.2/scene_8003/proposed converged False
+START tradeoff/0.2/scene_8003/b3 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8003/b3 WSR 8.069198595263142 converged False steps 3
+TASK FINISHED rank 0 index 15 tradeoff/0.2/scene_8003/b3 converged False
+START tradeoff/1/scene_8002/b2 call 1 previous_steps 0
+DONE tradeoff/1/scene_8002/b2 WSR 15.66692540866105 converged False steps 3
+TASK FINISHED rank 0 index 18 tradeoff/1/scene_8002/b2 converged False
+START tradeoff/1/scene_8003/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8002/b6 WSR 10.759155337928622 converged False steps 1
+TASK FINISHED rank 0 index 9 tradeoff/0.2/scene_8002/b6 converged False
+DONE tradeoff/1/scene_8003/b6 WSR 16.161634026423705 converged False steps 1
+TASK FINISHED rank 0 index 21 tradeoff/1/scene_8003/b6 converged False
+NODE DONE {'rank': 0, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 8, 'finished_tasks': 8, 'failed_tasks': 0, 'seconds': 3.7180000000007567, 'errors': []}
+{
+  "complete": true,
+  "figure": "tradeoff",
+  "smoke_only": true,
+  "expected_tasks": 24,
+  "finished_tasks": 24,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "converged_tasks": 0,
+  "all_converged": false,
+  "scene_seeds": [
+    8002,
+    8003
+  ],
+  "weights": [
+    0.0,
+    0.2,
+    1.0
+  ],
+  "completion_definition": "All independent single-pass tasks finished; capped results included and labelled. No warm starts or continuation."
+}
+ALL NODES COLLECTED tradeoff finished tasks 24

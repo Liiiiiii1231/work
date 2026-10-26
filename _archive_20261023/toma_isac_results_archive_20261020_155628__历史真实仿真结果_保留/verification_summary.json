@@ -1,0 +1,13 @@
+{
+  "completed_at": "2026-10-20T15:57:08.5147167+08:00",
+  "archive_directory": "D:\\Vs codeProjects\\research work1\\toma_isac_results_archive_20261020_155628",
+  "moved_groups": 23,
+  "moved_files": 2378,
+  "moved_bytes": 33261888.0,
+  "archived_sha256_verified": true,
+  "preserved_files": 7584,
+  "preserved_sha256_unchanged": true,
+  "process_check": "No Python processes found before operation",
+  "simulations_run": false,
+  "permanently_deleted_files": 0
+}

@@ -1,9 +1,0 @@
-{
-  "convergence": {
-    "complete": true,
-    "expected_starts": 15,
-    "converged_starts": 15,
-    "selected_scene_cells": 3,
-    "errors": []
-  }
-}

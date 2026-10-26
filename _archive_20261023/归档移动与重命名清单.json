@@ -1,0 +1,218 @@
+{
+  "timestamp": "2026-10-23T17:18:20.4931233+08:00",
+  "root": "D:\\Vs codeProjects\\research work1",
+  "type": "reversible_move_and_rename",
+  "moves": [
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\final_protocol_preparation_20261023",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\final_protocol_preparation_20261023__最终四图协议准备记录",
+      "note": "最终四图协议准备记录"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\finished_run_33738_audit_20261023",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\finished_run_33738_audit_20261023__已完成权重图33738核验及诊断",
+      "note": "已完成权重图33738核验及诊断"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\hpc_figure_diagnosis_20261021",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\hpc_figure_diagnosis_20261021__历史平台运行诊断",
+      "note": "历史平台运行诊断"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\IEEE_Transactions_latex",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\IEEE_Transactions_latex__论文LaTeX资料_保留",
+      "note": "论文LaTeX资料_保留"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\ma_fpaware_3scene",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\ma_fpaware_3scene__MA_FPaware三场景旧测试副本",
+      "note": "MA_FPaware三场景旧测试副本"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\neighbor_weight_filter_20points_scene8001_20261022_094725",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\neighbor_weight_filter_20points_scene8001_20261022_094725__历史20权重点筛选及原始数据",
+      "note": "历史20权重点筛选及原始数据"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\neighbor_weight_filter_scene8001_20261022_093559",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\neighbor_weight_filter_scene8001_20261022_093559__历史邻近权重点筛选",
+      "note": "历史邻近权重点筛选"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\neighbor_weight_WSR_only_scene8001_20261022_095036",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\neighbor_weight_WSR_only_scene8001_20261022_095036__历史权重WSR分析",
+      "note": "历史权重WSR分析"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\other_figures_entry_backup_20261023",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\other_figures_entry_backup_20261023__最终四图修改前入口备份",
+      "note": "最终四图修改前入口备份"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\plot_update_validation_20261021",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\plot_update_validation_20261021__历史画图样式验证",
+      "note": "历史画图样式验证"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\runtime_audit_20261023",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\runtime_audit_20261023__历史耗时分析",
+      "note": "历史耗时分析"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\single_scene_neighbor_refine_20261022",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\single_scene_neighbor_refine_20261022__历史单场景优化试验",
+      "note": "历史单场景优化试验"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\test",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\test__旧权重图测试副本",
+      "note": "旧权重图测试副本"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\test_pilot7_56core",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\test_pilot7_56core__七权重点56核旧试跑副本",
+      "note": "七权重点56核旧试跑副本"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_final_four_figures_1200_1500_replace",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\toma_final_four_figures_1200_1500_replace__最新最终四图替换包解压副本_保留",
+      "note": "最新最终四图替换包解压副本_保留"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261010",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\toma_isac_archive_20261010__旧工程备份_1010",
+      "note": "旧工程备份_1010"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\toma_isac_archive_20261020_153403__旧工程备份_1020",
+      "note": "旧工程备份_1020"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_submission",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\toma_isac_hpc_submission__早期平台提交工程",
+      "note": "早期平台提交工程"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_results_archive_20261020_155628",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\toma_isac_results_archive_20261020_155628__历史真实仿真结果_保留",
+      "note": "历史真实仿真结果_保留"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\tradeoff_diagnostic_scene8001_w02_20261022_091803",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\tradeoff_diagnostic_scene8001_w02_20261022_091803__历史8001场景权重诊断",
+      "note": "历史8001场景权重诊断"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\tradeoff_quality_audit_20261022",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\tradeoff_quality_audit_20261022__历史权重图解质量核验",
+      "note": "历史权重图解质量核验"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\check.py",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\check.py",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\cleanup_plan_20261023.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\cleanup_plan_20261023.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\cleanup_report_20261022.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\cleanup_report_20261022.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\cleanup_report_20261023.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\cleanup_report_20261023.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\final_support_i1200_o1500_only.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\final_support_i1200_o1500_only.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\IEEE_Transactions_latex.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\IEEE_Transactions_latex.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\ma_fpaware_3scene_required_data.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\ma_fpaware_3scene_required_data.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\ma_fpaware_3scene_upload.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\ma_fpaware_3scene_upload.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_final_four_figures_1200_1500_replace.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\toma_final_four_figures_1200_1500_replace.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_cleanup_targets.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\toma_isac_cleanup_targets.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_10files_validation.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\toma_isac_hpc_10files_validation.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure_v2.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\toma_isac_hpc_by_figure_v2.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure_validation.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\toma_isac_hpc_by_figure_validation.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_cleanup_report.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\toma_isac_hpc_cleanup_report.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_local_restore_report.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\toma_isac_local_restore_report.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_local_state_before_restore_20261017_162612.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\toma_isac_local_state_before_restore_20261017_162612.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_pre_hpc_cleanup_20261017.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\toma_isac_pre_hpc_cleanup_20261017.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_results_cleanup_assessment_20261020.json",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\toma_isac_results_cleanup_assessment_20261020.json",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_results_cleanup_assessment_20261020.md",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\toma_isac_results_cleanup_assessment_20261020.md",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac.zip",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\上传包与压缩备份_含最新版本\\toma_isac.zip",
+      "note": "根目录归拢"
+    },
+    {
+      "from": "D:\\Vs codeProjects\\research work1\\tradeoff_diagnostic_latest_path.txt",
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\旧报告与辅助文件\\tradeoff_diagnostic_latest_path.txt",
+      "note": "根目录归拢"
+    }
+  ],
+  "restore": "按moves中的to移回from即可恢复原位置；归档内旧程序如有路径依赖，恢复原位置后运行。"
+}

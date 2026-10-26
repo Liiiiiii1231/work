@@ -1,0 +1,38 @@
+{
+  "project": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma",
+  "backup": "D:\\Vs codeProjects\\research work1\\toma_hpc_before_plot_update_20261021_222912",
+  "changed_files": [
+    "figure_engine.py",
+    "README.md",
+    "run_figures.py",
+    "simulation_config.json",
+    "tradeoff_config.json",
+    "01_proposed_convergence\\submit_convergence.sh"
+  ],
+  "solver_model_files_byte_identical": true,
+  "linux_shell_syntax_passed": true,
+  "CLI_plot_only_passed": true,
+  "simulations_run": false,
+  "weights": [
+    0,
+    0.001,
+    0.005,
+    0.015,
+    0.03,
+    0.05,
+    0.075,
+    0.1,
+    0.125,
+    0.16,
+    0.18,
+    0.2,
+    0.24,
+    0.28,
+    0.32,
+    0.36,
+    0.42,
+    0.6,
+    0.8,
+    1
+  ]
+}

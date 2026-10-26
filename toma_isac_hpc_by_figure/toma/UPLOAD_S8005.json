@@ -1,0 +1,62 @@
+{
+  "upload_root": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma",
+  "platform_root": "/home/lyq00008339/Lihuang_Li/toma",
+  "folders": [
+    "01_proposed_convergence",
+    "02_wsr_vs_p_dl_max",
+    "03_wsr_vs_rho_si",
+    "04_wsr_vs_system_load",
+    "05_communication_sensing_tradeoff",
+    "final_support_i1200_o1500_s8005",
+    "tradeoff_support_i1200_o1500_s8005"
+  ],
+  "files": {
+    "01_proposed_convergence/run_convergence.py": "30c2cb98bcffe5fb99456f51b6ea32c889737f6e8cc271f23b1d149a0e266147",
+    "01_proposed_convergence/submit_convergence.sh": "465b17e93a270246bd7a02fd40d9dadefad1ecd1127c282ea1dbbc501d3bc12c",
+    "02_wsr_vs_p_dl_max/run_p_dl_max.py": "f035f7b3c29759fcd4a5a8477b56dd742a947eb4babc130058e69659948fcdb9",
+    "02_wsr_vs_p_dl_max/submit_p_dl_max.sh": "fa6dfff642d407910cd4fa9057baf1c96fbf58ecaf0e695e7cd8dede92d46356",
+    "03_wsr_vs_rho_si/run_rho_si.py": "33e25bed08503a8f35e1ac91493b2a1f3f64ca2800036304a2b2b03bde184e5e",
+    "03_wsr_vs_rho_si/submit_rho_si.sh": "283a3d86c997cfdf18c939939d08520cf51fa1b90b22a9640ddbfa3d243b8393",
+    "04_wsr_vs_system_load/run_system_load.py": "b404e181975e0bb8752826d9a88677d75b2253d6a677fa24740c836c7a5d93b6",
+    "04_wsr_vs_system_load/submit_system_load.sh": "509bd276a7f5c9496b1f6bbc4be0dc688a755dc2dfd5e27ab76e16dff0d24e65",
+    "05_communication_sensing_tradeoff/README_FINAL_TRADEOFF.md": "391840ac2945fba621629feaed7388cf6db6e749bbac639218f804fe42fd5e64",
+    "05_communication_sensing_tradeoff/run_tradeoff.py": "d77bf0a07bbeb75175271d18e73ae7e3ee0818e6f246bfdd7e4f3a2af7c78aed",
+    "05_communication_sensing_tradeoff/submit_tradeoff.sh": "400935fa50dffcf07e1fc08a88e0146d5f2cab0df7c8c130bd78e24b1035cece",
+    "05_communication_sensing_tradeoff/tradeoff_config.json": "029f69ac2e480876d19d04ef18672d062a879b1f2eea956fc47d548f79ef5bed",
+    "final_support_i1200_o1500_s8005/collect_four.py": "ade973f5e034dc70c68d2556715533e0b4f031440408f2c926c03687cf333440",
+    "final_support_i1200_o1500_s8005/figure_engine.py": "cc3b266ecc4a4f5e775d24f02bc1ff9318036dcfcf48055b2fee26d20b8d99f0",
+    "final_support_i1200_o1500_s8005/finalize_run.py": "3753746fcf63725eacfa5ec5f594030e9dbeb65d713c59da18b22852e685d577",
+    "final_support_i1200_o1500_s8005/final_config.json": "bc2b518fa96506fdd9852eb3fa4f646db174fe43bf441255ca0b5d0ff2bd1760",
+    "final_support_i1200_o1500_s8005/historical_convergence_log_records.csv": "6b404c86885f82891199029067b232990e0f9b326a6c637f3180b28f0a790840",
+    "final_support_i1200_o1500_s8005/historical_convergence_scene_ranking.csv": "7d3aca6d5a44b351565b582b1ff0c3c6a9258c8067c08aa560a2d8b383862d21",
+    "final_support_i1200_o1500_s8005/historical_scene_selection.json": "9422a1940c35d6ffa152d166bdb3d424a4a792bb24188618ee77e5c9fe24a5de",
+    "final_support_i1200_o1500_s8005/ma_fp_aware.py": "4d3020285732d3da8b313418205d5b4e77fbb5bc617d39b89e3f34dd133a7f78",
+    "final_support_i1200_o1500_s8005/README.md": "391840ac2945fba621629feaed7388cf6db6e749bbac639218f804fe42fd5e64",
+    "final_support_i1200_o1500_s8005/run_final.py": "d36d928f7f5cebe4d91cd6a5d1fbfb0c392bcfe9837b3906e258be93aee51b4b",
+    "final_support_i1200_o1500_s8005/shared_module_hashes.json": "317683114c7c8582aef19bb21bfb17fbfd40abfa7adfafbcbc5c72ae66e5e9ea",
+    "final_support_i1200_o1500_s8005/validation_report.json": "8603c049f403d12558214d84689a94a67f991669f09257b0723d01b497930d85",
+    "final_support_i1200_o1500_s8005/verify_final.py": "5c16a7378db53cfc27faa74c61b02e3e4818910ebc538ae6cccbe70aea5a3461",
+    "tradeoff_support_i1200_o1500_s8005/figure_engine.py": "cc3b266ecc4a4f5e775d24f02bc1ff9318036dcfcf48055b2fee26d20b8d99f0",
+    "tradeoff_support_i1200_o1500_s8005/finalize_run.py": "3753746fcf63725eacfa5ec5f594030e9dbeb65d713c59da18b22852e685d577",
+    "tradeoff_support_i1200_o1500_s8005/ma_fp_aware.py": "4d3020285732d3da8b313418205d5b4e77fbb5bc617d39b89e3f34dd133a7f78",
+    "tradeoff_support_i1200_o1500_s8005/README.md": "391840ac2945fba621629feaed7388cf6db6e749bbac639218f804fe42fd5e64",
+    "tradeoff_support_i1200_o1500_s8005/reference_screening_identity.json": "94fc89aea6cf1d0b3c68fc087dacb7d8be425404dd410027cc7b98b7fdf26289",
+    "tradeoff_support_i1200_o1500_s8005/run_tradeoff_final.py": "50df9426979e3f3142a2dfeb6e2a17a79b64f91d8d0f0f5e039ebb350b4546b8",
+    "tradeoff_support_i1200_o1500_s8005/shared_module_hashes.json": "317683114c7c8582aef19bb21bfb17fbfd40abfa7adfafbcbc5c72ae66e5e9ea",
+    "tradeoff_support_i1200_o1500_s8005/tradeoff_final_config.json": "029f69ac2e480876d19d04ef18672d062a879b1f2eea956fc47d548f79ef5bed",
+    "tradeoff_support_i1200_o1500_s8005/validation_report.json": "8603c049f403d12558214d84689a94a67f991669f09257b0723d01b497930d85"
+  },
+  "skip": "Do not upload local results or __pycache__. Keep platform results. Shared modules unchanged.",
+  "screening_scene": 8005,
+  "screening_starts": {
+    "proposed": 20,
+    "b6": 20
+  },
+  "excluded_scenes": [
+    8001
+  ],
+  "mc_range": [
+    8002,
+    8101
+  ]
+}

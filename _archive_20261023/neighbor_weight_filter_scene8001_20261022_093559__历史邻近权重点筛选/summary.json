@@ -1,0 +1,54 @@
+{
+  "scene": 8001,
+  "source": "D:\\Vs codeProjects\\research work1\\plot_update_validation_20261021\\inputs\\weight_run\\tables\\tradeoff_per_scene.csv",
+  "source_sha256": "6adbf1ba0cedafdbbf240b9b67ee0d0c86e12bbb8086a1a107095b801a466936",
+  "source_run": "run_33360",
+  "weight_count": 18,
+  "weights": [
+    0.0,
+    0.001,
+    0.015,
+    0.16,
+    0.18,
+    0.2,
+    0.42,
+    0.46,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    1.0
+  ],
+  "method": "one-pass immediate-neighbors, same scene and scheme, strict nondecreasing C and S, maximum target-weight WSR, ties prefer original",
+  "cascade": false,
+  "optimization_run": false,
+  "formal_project_modified": false,
+  "all_selected_rates_non_decreasing": true,
+  "counts": {
+    "proposed": {
+      "total": 18,
+      "replaced": 6,
+      "higher_wsr_neighbor_rejected_by_rate_constraint": 8
+    },
+    "b6": {
+      "total": 18,
+      "replaced": 11,
+      "higher_wsr_neighbor_rejected_by_rate_constraint": 4
+    },
+    "b2": {
+      "total": 18,
+      "replaced": 0,
+      "higher_wsr_neighbor_rejected_by_rate_constraint": 12
+    },
+    "b3": {
+      "total": 18,
+      "replaced": 11,
+      "higher_wsr_neighbor_rejected_by_rate_constraint": 4
+    }
+  }
+}

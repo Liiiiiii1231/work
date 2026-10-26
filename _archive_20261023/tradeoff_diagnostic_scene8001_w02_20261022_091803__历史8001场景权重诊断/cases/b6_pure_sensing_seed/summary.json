@@ -1,0 +1,37 @@
+{
+  "scheme": "b6",
+  "case": "pure_sensing_seed",
+  "source": "pure",
+  "tolerance": 0.0001,
+  "status": "converged",
+  "stop_reason": "outer_tolerance",
+  "additional_outer_iterations": 3,
+  "elapsed_s": 0.2947414999944158,
+  "initial_wsr": 2.452165393740214,
+  "final_wsr": 2.4524191282760426,
+  "improvement_from_start": 0.00025373453582844263,
+  "improvement_from_original_terminal": 0.566130248324022,
+  "final_metrics": {
+    "sum_rate_dl": 0.9658592460771501,
+    "sum_rate_ul": 0.0,
+    "sum_rate_comm": 0.9658592460771501,
+    "sum_rate_sensing": 15.20688714596562,
+    "weighted_sum_rate": 2.4524191282760426
+  },
+  "final_UL_power_W": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_initial_UL_power_W": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "final_state_sha256": "f204759f9732f8db9e4c0973af4f78f2ab586129a40e025b5bc0b2e58b776232",
+  "constraint_checks_passed": true
+}

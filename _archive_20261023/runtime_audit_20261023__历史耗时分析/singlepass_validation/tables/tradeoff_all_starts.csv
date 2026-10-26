@@ -1,0 +1,2 @@
+﻿figure,parameter_value,scene_seed,scheme,sum_rate_dl,sum_rate_ul,sum_rate_comm,sum_rate_sensing,weighted_sum_rate,iterations,runtime_s,converged,calls,stop_reason,start_id
+tradeoff,0.2,8001,b2,17.311131850508595,68.96323331809806,86.27436516860666,46.247431257633444,9.125076304593485,1,0.005513399955816567,False,1,iteration_limit,0

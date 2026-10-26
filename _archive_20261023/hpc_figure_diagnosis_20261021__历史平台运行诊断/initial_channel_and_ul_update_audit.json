@@ -1,0 +1,174 @@
+{
+  "initial_channel_combinations_verified": 400,
+  "weights": [
+    0,
+    0.001,
+    0.015,
+    0.2
+  ],
+  "amplitude_derivative_checks": [
+    {
+      "scheme": "b2",
+      "amplitude_derivatives": [
+        {
+          "user": 0,
+          "amplitude": 0.31622776601683794,
+          "analytic": 0.17791398246475865,
+          "finite_difference": 0.1779139824353848
+        },
+        {
+          "user": 1,
+          "amplitude": 0.31622776601683794,
+          "analytic": 0.17829498372036312,
+          "finite_difference": 0.17829498322186055
+        },
+        {
+          "user": 2,
+          "amplitude": 0.0,
+          "analytic": 0.0,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 3,
+          "amplitude": 0.0,
+          "analytic": 0.0,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 4,
+          "amplitude": 0.31622776601683794,
+          "analytic": 0.1652965026601052,
+          "finite_difference": 0.16529650204155644
+        }
+      ],
+      "zero_amplitude_update_stays_zero": true
+    },
+    {
+      "scheme": "b3",
+      "amplitude_derivatives": [
+        {
+          "user": 0,
+          "amplitude": 6.67871442470127e-106,
+          "analytic": -1.12261977673945e-101,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 1,
+          "amplitude": 0.248684167113777,
+          "analytic": 0.23204154279028444,
+          "finite_difference": 0.23204154264711008
+        },
+        {
+          "user": 2,
+          "amplitude": 2.1792967475637446e-105,
+          "analytic": -6.659586510788459e-101,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 3,
+          "amplitude": 1.9214242557058227e-107,
+          "analytic": -5.475150025424076e-103,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 4,
+          "amplitude": 0.2855701436853375,
+          "analytic": 0.20207123078216682,
+          "finite_difference": 0.20207123196946952
+        }
+      ],
+      "zero_amplitude_update_stays_zero": true
+    },
+    {
+      "scheme": "b6",
+      "amplitude_derivatives": [
+        {
+          "user": 0,
+          "amplitude": 1.095252006839529e-114,
+          "analytic": -1.8411099039297667e-110,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 1,
+          "amplitude": 0.24870541720249287,
+          "analytic": 0.232021615863232,
+          "finite_difference": 0.23202161525404108
+        },
+        {
+          "user": 2,
+          "amplitude": 3.448518132185145e-114,
+          "analytic": -1.0538829155049582e-109,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 3,
+          "amplitude": 2.3535376822124734e-116,
+          "analytic": -6.707015352963467e-112,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 4,
+          "amplitude": 0.2855889527200791,
+          "analytic": 0.2020578837946232,
+          "finite_difference": 0.20205788375804445
+        }
+      ],
+      "zero_amplitude_update_stays_zero": true
+    },
+    {
+      "scheme": "proposed",
+      "amplitude_derivatives": [
+        {
+          "user": 0,
+          "amplitude": 0.31622776601683794,
+          "analytic": 0.1824831765406998,
+          "finite_difference": 0.18248317745772624
+        },
+        {
+          "user": 1,
+          "amplitude": 0.0,
+          "analytic": 0.0,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 2,
+          "amplitude": 0.0,
+          "analytic": 0.0,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 3,
+          "amplitude": 0.0,
+          "analytic": 0.0,
+          "finite_difference": 0.0
+        },
+        {
+          "user": 4,
+          "amplitude": 0.31622776601683794,
+          "analytic": 0.182483456911541,
+          "finite_difference": 0.18248345723392845
+        }
+      ],
+      "zero_amplitude_update_stays_zero": true
+    }
+  ],
+  "interpolation_resource_constraints_pass": true,
+  "exact_zeros_by_weight_all_schemes": {
+    "0.0": {
+      "exact_zero_amplitudes": 2000,
+      "total_amplitudes": 2000
+    },
+    "0.001": {
+      "exact_zero_amplitudes": 1109,
+      "total_amplitudes": 2000
+    },
+    "0.015": {
+      "exact_zero_amplitudes": 927,
+      "total_amplitudes": 2000
+    },
+    "0.2": {
+      "exact_zero_amplitudes": 270,
+      "total_amplitudes": 2000
+    }
+  }
+}

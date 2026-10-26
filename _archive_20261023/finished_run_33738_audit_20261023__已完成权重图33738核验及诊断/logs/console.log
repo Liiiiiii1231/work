@@ -1,0 +1,324 @@
+PLAN: {"tradeoff": {"scene_cells": 140, "starts": 140}}
+START tradeoff/0/scene_8001/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8002/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8004/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8001/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8005/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8003/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8004/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8002/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8003/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8006/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8005/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8007/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8007/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8006/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8008/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8009/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8008/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8010/proposed call 1 previous_steps 0
+START tradeoff/0/scene_8009/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8010/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8002/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8001/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8001/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8004/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8004/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8002/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8005/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8003/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8005/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8008/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8006/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8007/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8006/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8008/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8009/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8007/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8001/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8010/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8009/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8001/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8002/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8003/proposed call 1 previous_steps 0
+START tradeoff/0.001/scene_8010/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8003/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8002/b6 call 1 previous_steps 0
+START tradeoff/0.001/scene_8003/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8004/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8005/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8007/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8006/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8004/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8005/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8006/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8008/proposed call 1 previous_steps 0
+START tradeoff/0.015/scene_8008/b6 call 1 previous_steps 0
+START tradeoff/0.015/scene_8007/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8006/b6 WSR 9.679521917212652 converged True steps 20
+START tradeoff/0.015/scene_8009/proposed call 1 previous_steps 0
+DONE tradeoff/0/scene_8001/b6 WSR 9.494579543119578 converged True steps 26
+START tradeoff/0.015/scene_8009/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8001/b6 WSR 9.168762090447503 converged True steps 25
+START tradeoff/0.015/scene_8010/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8006/b6 WSR 9.609123530950956 converged True steps 31
+START tradeoff/0.015/scene_8010/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8006/b6 WSR 9.48573218239687 converged True steps 34
+START tradeoff/0.05/scene_8001/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8001/b6 WSR 9.246961439650098 converged True steps 39
+START tradeoff/0.05/scene_8001/b6 call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8009/b6 WSR 10.148902354484202 converged True steps 46
+START tradeoff/0.05/scene_8002/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8002/b6 WSR 8.639009490115315 converged True steps 53
+START tradeoff/0.05/scene_8002/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8009/b6 WSR 10.336216587800063 converged True steps 62
+START tradeoff/0.05/scene_8003/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8009/b6 WSR 10.100698482790731 converged True steps 44
+START tradeoff/0.05/scene_8003/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8004/b6 WSR 10.845289502871783 converged True steps 133
+START tradeoff/0.05/scene_8004/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8003/b6 WSR 9.09607227189347 converged True steps 181
+START tradeoff/0.05/scene_8004/b6 call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8003/b6 WSR 9.138780858949696 converged True steps 207
+START tradeoff/0.05/scene_8005/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8003/b6 WSR 8.997365058520955 converged True steps 133
+START tradeoff/0.05/scene_8005/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8005/proposed WSR 12.351633075584395 converged True steps 219
+START tradeoff/0.05/scene_8006/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8007/proposed WSR 12.237007785025666 converged True steps 222
+START tradeoff/0.05/scene_8006/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8009/proposed WSR 11.53977937723108 converged True steps 200
+START tradeoff/0.05/scene_8007/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8001/proposed WSR 11.886466731277695 converged True steps 267
+START tradeoff/0.05/scene_8007/b6 call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8006/b6 WSR 9.295865387037713 converged True steps 10
+START tradeoff/0.05/scene_8008/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8007/b6 WSR 8.18672209450296 converged True steps 260
+START tradeoff/0.05/scene_8008/b6 call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8008/proposed WSR 11.692758578251677 converged True steps 262
+START tradeoff/0.05/scene_8009/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8007/proposed WSR 12.177958407343544 converged True steps 257
+START tradeoff/0.05/scene_8009/b6 call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8001/proposed WSR 12.028137695240348 converged True steps 271
+START tradeoff/0.05/scene_8010/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8005/proposed WSR 12.254077253414348 converged True steps 291
+START tradeoff/0.05/scene_8010/b6 call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8010/proposed WSR 12.62534484879289 converged True steps 276
+START tradeoff/0.2/scene_8001/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8004/proposed WSR 12.679450440996115 converged True steps 265
+START tradeoff/0.2/scene_8001/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8007/b6 WSR 8.144148050852753 converged True steps 322
+START tradeoff/0.2/scene_8002/proposed call 1 previous_steps 0
+DONE tradeoff/0/scene_8005/proposed WSR 12.608734607755716 converged True steps 362
+START tradeoff/0.2/scene_8002/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8010/proposed WSR 12.84103955954656 converged True steps 356
+START tradeoff/0.2/scene_8003/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8004/proposed WSR 12.70830868086733 converged True steps 346
+START tradeoff/0.2/scene_8003/b6 call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8001/proposed WSR 11.705079068800368 converged True steps 302
+START tradeoff/0.2/scene_8004/proposed call 1 previous_steps 0
+DONE tradeoff/0/scene_8001/proposed WSR 12.405471035359673 converged True steps 383
+START tradeoff/0.2/scene_8004/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8003/proposed WSR 11.33906319698481 converged True steps 354
+START tradeoff/0.2/scene_8005/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8008/proposed WSR 11.464897376364547 converged True steps 374
+START tradeoff/0.2/scene_8005/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8003/b6 WSR 8.82463158750312 converged True steps 44
+START tradeoff/0.2/scene_8006/proposed call 1 previous_steps 0
+DONE tradeoff/0/scene_8002/proposed WSR 12.169727871537143 converged True steps 416
+START tradeoff/0.2/scene_8006/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8010/proposed WSR 12.381413798164179 converged True steps 348
+START tradeoff/0.2/scene_8007/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8002/proposed WSR 12.04926929997632 converged True steps 408
+START tradeoff/0.2/scene_8007/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8006/b6 WSR 8.73450331068022 converged True steps 13
+START tradeoff/0.2/scene_8008/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8002/b6 WSR 9.68642063101656 converged True steps 429
+START tradeoff/0.2/scene_8008/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8007/proposed WSR 12.499662240127975 converged True steps 480
+START tradeoff/0.2/scene_8009/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8001/b6 WSR 9.105165540412443 converged True steps 373
+START tradeoff/0.2/scene_8009/b6 call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8003/proposed WSR 11.397960906455106 converged True steps 364
+START tradeoff/0.2/scene_8010/proposed call 1 previous_steps 0
+DONE tradeoff/0/scene_8003/proposed WSR 12.234287012706867 converged True steps 504
+START tradeoff/0.2/scene_8010/b6 call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8005/proposed WSR 12.216353885124079 converged True steps 247
+START tradeoff/0.6/scene_8001/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8004/b6 WSR 10.802085802772528 converged True steps 342
+START tradeoff/0.6/scene_8001/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8009/proposed WSR 11.887352748698383 converged True steps 568
+START tradeoff/0.6/scene_8002/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8004/proposed WSR 12.703383655633242 converged True steps 344
+START tradeoff/0.6/scene_8002/b6 call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8009/b6 WSR 10.021726328705757 converged True steps 306
+START tradeoff/0.6/scene_8003/proposed call 1 previous_steps 0
+DONE tradeoff/0.6/scene_8002/b6 WSR 8.894414277121113 converged True steps 10
+START tradeoff/0.6/scene_8003/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8002/b6 WSR 8.34282535451777 converged True steps 182
+START tradeoff/0.6/scene_8004/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8002/b6 WSR 8.80186467741764 converged True steps 490
+START tradeoff/0.6/scene_8004/b6 call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8007/proposed WSR 12.084239481080582 converged True steps 289
+START tradeoff/0.6/scene_8005/proposed call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8008/b6 WSR 8.09160915788583 converged True steps 152
+START tradeoff/0.6/scene_8005/b6 call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8009/proposed WSR 11.607762960908975 converged True steps 302
+START tradeoff/0.6/scene_8006/proposed call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8002/proposed WSR 11.739778721089284 converged True steps 583
+START tradeoff/0.6/scene_8006/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8004/proposed WSR 13.085203162563804 converged True steps 709
+START tradeoff/0.6/scene_8007/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8010/proposed WSR 12.377292538281461 converged True steps 343
+START tradeoff/0.6/scene_8007/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8008/proposed WSR 11.958990950634512 converged True steps 735
+START tradeoff/0.6/scene_8008/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8007/b6 WSR 8.146136130272405 converged True steps 381
+START tradeoff/0.6/scene_8008/b6 call 1 previous_steps 0
+DONE tradeoff/0.6/scene_8004/b6 WSR 12.431911665724446 converged True steps 86
+START tradeoff/0.6/scene_8009/proposed call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8004/b6 WSR 10.257803522723734 converged True steps 241
+DONE tradeoff/0.015/scene_8008/b6 WSR 8.17388518294298 converged True steps 740
+START tradeoff/0.6/scene_8009/b6 call 1 previous_steps 0
+START tradeoff/0.6/scene_8010/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8008/b6 WSR 8.09383051769538 converged True steps 443
+START tradeoff/0.6/scene_8010/b6 call 1 previous_steps 0
+DONE tradeoff/0.6/scene_8009/b6 WSR 11.174125122978413 converged True steps 9
+START tradeoff/1/scene_8001/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8006/proposed WSR 12.485112608850432 converged True steps 723
+START tradeoff/1/scene_8001/b6 call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8004/b6 WSR 11.553301849520084 converged True steps 681
+START tradeoff/1/scene_8002/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8003/proposed WSR 11.735388825073661 converged True steps 707
+START tradeoff/1/scene_8002/b6 call 1 previous_steps 0
+DONE tradeoff/1/scene_8002/b6 WSR 12.562753318212938 converged True steps 3
+START tradeoff/1/scene_8003/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8002/proposed WSR 11.792549435773056 converged True steps 649
+START tradeoff/1/scene_8003/b6 call 1 previous_steps 0
+DONE tradeoff/0.015/scene_8006/proposed WSR 12.386365637909192 converged True steps 849
+START tradeoff/1/scene_8004/proposed call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8009/proposed WSR 11.542685318829207 converged True steps 757
+START tradeoff/1/scene_8004/b6 call 1 previous_steps 0
+DONE tradeoff/0.001/scene_8008/b6 WSR 8.1931190733151 converged True steps 830
+START tradeoff/1/scene_8005/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8008/proposed WSR 11.542290061540415 converged True steps 536
+START tradeoff/1/scene_8005/b6 call 1 previous_steps 0
+DONE tradeoff/0.6/scene_8003/b6 WSR 10.5691511054666 converged True steps 305
+START tradeoff/1/scene_8006/proposed call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8001/proposed WSR 12.13495986401026 converged True steps 572
+START tradeoff/1/scene_8006/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8003/proposed WSR 11.545773681628043 converged True steps 544
+START tradeoff/1/scene_8007/proposed call 1 previous_steps 0
+DONE tradeoff/0.6/scene_8008/b6 WSR 9.308365204014114 converged True steps 290
+START tradeoff/1/scene_8007/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8005/proposed WSR 12.52633048912644 converged True steps 534
+START tradeoff/1/scene_8008/proposed call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8007/proposed WSR 12.446621414324127 converged True steps 513
+START tradeoff/1/scene_8008/b6 call 1 previous_steps 0
+DONE tradeoff/1/scene_8008/b6 WSR 12.033122563946113 converged True steps 3
+START tradeoff/1/scene_8009/proposed call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8010/proposed WSR 12.405092788538223 converged True steps 507
+START tradeoff/1/scene_8009/b6 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8009/b6 WSR 9.72606812006296 converged True steps 576
+START tradeoff/1/scene_8010/proposed call 1 previous_steps 0
+DONE tradeoff/0.05/scene_8006/proposed WSR 12.361628162197258 converged True steps 766
+START tradeoff/1/scene_8010/b6 call 1 previous_steps 0
+DONE tradeoff/1/scene_8010/b6 WSR 8.499170546192714 converged True steps 3
+DONE tradeoff/0.6/scene_8006/b6 WSR 9.840790549873036 converged True steps 383
+DONE tradeoff/0/scene_8006/proposed WSR 12.760580695534875 converged True steps 1183
+DONE tradeoff/0.2/scene_8008/proposed WSR 12.0287561867625 converged True steps 615
+DONE tradeoff/0.2/scene_8006/proposed WSR 12.58919186716199 converged True steps 716
+DONE tradeoff/0.2/scene_8004/proposed WSR 13.007199924479508 converged True steps 840
+DONE tradeoff/0.6/scene_8001/b6 WSR 10.541129260745782 converged True steps 603
+DONE tradeoff/1/scene_8005/b6 WSR 13.88853784586335 converged True steps 421
+DONE tradeoff/0.2/scene_8009/proposed WSR 12.265821708842317 converged True steps 887
+DONE tradeoff/1/scene_8004/b6 WSR 14.108373096646549 converged True steps 792
+DONE tradeoff/0.2/scene_8002/proposed WSR 12.220406751361226 converged True steps 1219
+DONE tradeoff/1/scene_8006/b6 WSR 10.90163351422382 converged True steps 740
+DONE tradeoff/0/scene_8003/b6 WSR 10.721729224236277 converged False steps 2000
+BUDGET FINISHED: tradeoff/0/scene_8003/b6
+DONE tradeoff/0/scene_8008/b6 WSR 9.75443567689773 converged False steps 2000
+BUDGET FINISHED: tradeoff/0/scene_8008/b6
+DONE tradeoff/0.6/scene_8005/b6 WSR 11.550468325175345 converged True steps 1083
+DONE tradeoff/0/scene_8007/b6 WSR 8.834450131378283 converged False steps 2000
+BUDGET FINISHED: tradeoff/0/scene_8007/b6
+DONE tradeoff/0/scene_8010/b6 WSR 11.896556457268677 converged False steps 2000
+BUDGET FINISHED: tradeoff/0/scene_8010/b6
+DONE tradeoff/0/scene_8002/b6 WSR 10.598681732907377 converged False steps 2000
+BUDGET FINISHED: tradeoff/0/scene_8002/b6
+DONE tradeoff/0.001/scene_8010/b6 WSR 8.822066266290348 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.001/scene_8010/b6
+DONE tradeoff/0/scene_8005/b6 WSR 10.223806900791192 converged False steps 2000
+BUDGET FINISHED: tradeoff/0/scene_8005/b6
+DONE tradeoff/0/scene_8004/b6 WSR 12.671826377799315 converged False steps 2000
+BUDGET FINISHED: tradeoff/0/scene_8004/b6
+DONE tradeoff/0.015/scene_8010/b6 WSR 8.469256811331926 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.015/scene_8010/b6
+DONE tradeoff/0.6/scene_8003/proposed WSR 14.402589386212071 converged True steps 1537
+DONE tradeoff/0.6/scene_8001/proposed WSR 14.587957260844941 converged True steps 1739
+DONE tradeoff/0.015/scene_8005/b6 WSR 9.572276330956578 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.015/scene_8005/b6
+DONE tradeoff/0.6/scene_8002/proposed WSR 14.605721765822251 converged True steps 1727
+DONE tradeoff/0.001/scene_8005/b6 WSR 9.560670474248907 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.001/scene_8005/b6
+DONE tradeoff/0.6/scene_8005/proposed WSR 14.565823702870011 converged True steps 1761
+DONE tradeoff/0.05/scene_8005/b6 WSR 9.504907356221295 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.05/scene_8005/b6
+DONE tradeoff/0.6/scene_8006/proposed WSR 14.825199621491066 converged True steps 1695
+DONE tradeoff/0.2/scene_8005/b6 WSR 9.552474014655811 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.2/scene_8005/b6
+DONE tradeoff/0.05/scene_8010/b6 WSR 8.250030186524304 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.05/scene_8010/b6
+DONE tradeoff/0.2/scene_8007/b6 WSR 8.157014606194078 converged True steps 1878
+DONE tradeoff/0.6/scene_8008/proposed WSR 14.570498124353632 converged True steps 1699
+DONE tradeoff/1/scene_8001/proposed WSR 17.379648258376132 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8001/proposed
+DONE tradeoff/0.2/scene_8001/b6 WSR 9.562729521912207 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.2/scene_8001/b6
+DONE tradeoff/0.6/scene_8009/proposed WSR 14.576369770132768 converged True steps 1805
+DONE tradeoff/0.2/scene_8010/b6 WSR 8.00876745138167 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.2/scene_8010/b6
+DONE tradeoff/1/scene_8002/proposed WSR 17.456811547416848 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8002/proposed
+DONE tradeoff/0.6/scene_8004/proposed WSR 14.802614675120932 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.6/scene_8004/proposed
+DONE tradeoff/1/scene_8003/proposed WSR 17.207519675738794 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8003/proposed
+DONE tradeoff/1/scene_8004/proposed WSR 17.22142502924521 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8004/proposed
+DONE tradeoff/0.6/scene_8007/proposed WSR 14.706621331487295 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.6/scene_8007/proposed
+DONE tradeoff/1/scene_8005/proposed WSR 17.087616199415216 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8005/proposed
+DONE tradeoff/1/scene_8006/proposed WSR 17.31275549302187 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8006/proposed
+DONE tradeoff/1/scene_8008/proposed WSR 17.453891911613052 converged True steps 1867
+DONE tradeoff/1/scene_8001/b6 WSR 13.952309339622108 converged True steps 1785
+DONE tradeoff/0.6/scene_8010/proposed WSR 14.648447147197668 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.6/scene_8010/proposed
+DONE tradeoff/1/scene_8010/proposed WSR 17.077270897260192 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8010/proposed
+DONE tradeoff/1/scene_8009/proposed WSR 17.327093423370098 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8009/proposed
+DONE tradeoff/1/scene_8007/proposed WSR 17.372459425566873 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8007/proposed
+DONE tradeoff/0.6/scene_8010/b6 WSR 8.206059702748325 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.6/scene_8010/b6
+DONE tradeoff/0.6/scene_8007/b6 WSR 10.271390884907028 converged False steps 2000
+BUDGET FINISHED: tradeoff/0.6/scene_8007/b6
+DONE tradeoff/1/scene_8003/b6 WSR 12.043001582754346 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8003/b6
+DONE tradeoff/1/scene_8007/b6 WSR 13.662760100893712 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8007/b6
+DONE tradeoff/1/scene_8009/b6 WSR 13.936453533410223 converged False steps 2000
+BUDGET FINISHED: tradeoff/1/scene_8009/b6
+{
+  "tradeoff": {
+    "complete": true,
+    "expected_scene_cells": 140,
+    "completed_scene_cells": 140,
+    "all_converged": false,
+    "expected_starts": 140,
+    "converged_starts": 107
+  }
+}

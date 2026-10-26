@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "local_five_rank_simulation": true,
+  "workers_per_rank": 2,
+  "test_tasks": 15,
+  "production_task_count": 150,
+  "all_five_ranks_used": true,
+  "assigned_by_rank": [
+    3,
+    2,
+    2,
+    2,
+    6
+  ],
+  "serial_parallel_metrics_exactly_equal": true,
+  "all_three_baselines_checked": true,
+  "unique_claims_verified": true,
+  "fresh_output_guard": true,
+  "actual_hpc_test_performed": false,
+  "production_budgets_executed": false,
+  "output": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\pilot5_validation_bjjvgaze"
+}

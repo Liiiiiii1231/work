@@ -1,0 +1,27 @@
+{
+  "root": "D:\\Vs codeProjects\\research work1",
+  "verified_new_archive": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_validation_and_versions.zip",
+  "new_archive_sha256": "b482ca81959fbfdd8dc48a4007e861fb1ed3bb1be4c34596b890c4d4efdbd51b",
+  "new_archive_file_count": 784,
+  "fully_backed_directories": [
+    "annulus_export_validation_20261022",
+    "test_layout_export_validation_20261022",
+    "ma_aware_three_smoke_20261023",
+    "ma_aware_three_smoke_final_20261023",
+    "other_figures_sync_validation_20261023",
+    "final_protocol_validation_20261023",
+    "final_packaging_validation_20261023",
+    "toma_ground_disk_mc10_20261022",
+    "toma_ground_annulus_mc10_20261022",
+    "figure_style_preview_20261021",
+    "toma_hpc_before_plot_update_20261021_222912",
+    "toma_isac_pre_hpc_cleanup_20261017"
+  ],
+  "existing_backup": {
+    "path": "D:\\Vs codeProjects\\research work1\\toma_isac_pre_hpc_cleanup_20261017.zip",
+    "sha256": "9d2c9e36477938518ec4336939ce7c40718ffd00e69c2d4bb4115d13f6c176a1",
+    "matched_files": 7540
+  },
+  "original_bytes": 105817662,
+  "new_archive_bytes": 9922958
+}

@@ -1,0 +1,92 @@
+{
+  "identity": {
+    "scene": 8001,
+    "source": "D:\\Vs codeProjects\\research work1\\single_scene_neighbor_refine_20261022\\validation_inputs",
+    "weights": [
+      0,
+      0.001,
+      0.015,
+      0.2
+    ],
+    "schemes": [
+      "proposed",
+      "b6"
+    ],
+    "rule": "one-pass WSR-only immediate-neighbor selection then target-weight optimization",
+    "solver_source_sha256": {
+      "algorithms.py": "e92c7dc67f32eb5c4709aae274d94c91d63d6ba5ead5dbbc42d340b68c9ff078",
+      "channel_model.py": "97699f4781d5386086178310efd3948b746fb80b9871f1fb637beb7f76f3c43c",
+      "figure_engine.py": "00131496a3af54796aeea9bbf034efe1bbeb7984147d808eaf0465e02dece2b3",
+      "inner_solver.py": "a2bcdc91bccdfb9ab2e1bb7bb0ec03fc7a0c2a5c104569519cd5ee21d3c96992",
+      "outer_solver.py": "a56fc83ad388c0fc42513ed390576d1842917edd8b05213f05e028ccaeaca470",
+      "run_figures.py": "d969c4e5b7e8a5578d324f1fa1f30366f8b04f85fe1dc65c2ba06b2fd92d3e41",
+      "system_model.py": "5fb83bc8bca1b938a4b18ff67e5db5164979b5b876d58802ef51e3925cb8afc8"
+    },
+    "config_sha256": "1f1642625787ae01f19da55f0255e51a234b097242a33cd6707bd35b5f0694b0",
+    "helper_sha256": "403bc9c7de12190d5896d0e05afef55225fa9f23eb31b88e4f0764fbf7f3aa2a",
+    "original_input_sha256": {
+      "tradeoff/0/scene_8001/proposed": {
+        "record_sha256": "19f0ac356276594b88c7d216841ea7226ebe6770d07e0d7b10d32a7844ba3104",
+        "initial_sha256": "56d52b16a61ac9bc1c6c015690416a382d02905d6633057cd937c7e3d0baca75",
+        "state_sha256": "1acf7f066f2a9e9528a0aa2da3364ae2584058bcda11fec1dac5de61015fee9a"
+      },
+      "tradeoff/0/scene_8001/b6": {
+        "record_sha256": "44906e613dda03a9b5a38bca5aaa403875fcfd147667a528fea923cd143a15f7",
+        "initial_sha256": "e1dc8682c7ce6256f9eec27f0b9701556028f35673b94e036ce27f5c8d62369f",
+        "state_sha256": "ced9184082690e870b7e87e1b53cfe369a6605bb93a39fdfab36f78492ae5ba2"
+      },
+      "tradeoff/0.001/scene_8001/proposed": {
+        "record_sha256": "6c92ad36a58a767af40af18399790c2918b6a51b5de4abce691595d8ad068435",
+        "initial_sha256": "56d52b16a61ac9bc1c6c015690416a382d02905d6633057cd937c7e3d0baca75",
+        "state_sha256": "41785baf11bdfad88568e2b5c8dc2d377d7239dd530732497f23cd2aebd15be2"
+      },
+      "tradeoff/0.001/scene_8001/b6": {
+        "record_sha256": "d42b9a90b73415ffb75fd7eb5de6c8933e8e9460af248d3362b5f6260e416aa9",
+        "initial_sha256": "e1dc8682c7ce6256f9eec27f0b9701556028f35673b94e036ce27f5c8d62369f",
+        "state_sha256": "fa65c057aaa0146d8fc23956e171b5328b3a41eb2df1582d349e0c6a5f082828"
+      },
+      "tradeoff/0.015/scene_8001/proposed": {
+        "record_sha256": "450666cf7bef7a38bb55e39480d09d6201a55bbc94ef2024bc0a0c77ba08b8e3",
+        "initial_sha256": "56d52b16a61ac9bc1c6c015690416a382d02905d6633057cd937c7e3d0baca75",
+        "state_sha256": "80f0867bd1e82bf0194e00dfef178fe1e6885417a5d7965b555b65ffeacbedd1"
+      },
+      "tradeoff/0.015/scene_8001/b6": {
+        "record_sha256": "61fb4db3b62390a5fda8cf6ac8d1270de1bcad4266c1c3d83930cd267fd0e62b",
+        "initial_sha256": "e1dc8682c7ce6256f9eec27f0b9701556028f35673b94e036ce27f5c8d62369f",
+        "state_sha256": "16d5930aa09a1f2e4683268d9365c46e53e230a181202ada01ea1f2238a4f4fa"
+      },
+      "tradeoff/0.2/scene_8001/proposed": {
+        "record_sha256": "8110f4af50b907ce38a692c2f2e836aa562e9476c2a133d17c231b533da4a4bc",
+        "initial_sha256": "56d52b16a61ac9bc1c6c015690416a382d02905d6633057cd937c7e3d0baca75",
+        "state_sha256": "4b2ed6fef125b094f871a473d963b89e527efedfb699b98609dbbe5de37e535c"
+      },
+      "tradeoff/0.2/scene_8001/b6": {
+        "record_sha256": "407b3da5557164d31ef104891bc46d6cd50fdd6ea0eb11b160b472df3ad61af1",
+        "initial_sha256": "e1dc8682c7ce6256f9eec27f0b9701556028f35673b94e036ce27f5c8d62369f",
+        "state_sha256": "b6399e98cc47d99463f6035c5b280b702e6126a2f6f3893461b7fa3e4a014754"
+      }
+    }
+  },
+  "cfg_sha256": "15fac0a47ae873342c5a50007693ee4a24849c546fb5c7f490e6efa11ab66dea",
+  "seed_sha256": "23bfa12566d5e41839b7cbceace0079801c06e3e64f527e6e841e40e38b1d07c",
+  "state_file": "refine_call_001.npz",
+  "state_sha256": "ca512b10916b45c259c6f4f5c7b78fd1b98c209c95e27d7549fea2939fc82127",
+  "row": {
+    "figure": "tradeoff",
+    "parameter_value": 0.2,
+    "scene_seed": 8001,
+    "scheme": "b6",
+    "sum_rate_dl": 32.72120623486076,
+    "sum_rate_ul": 29.405839068584957,
+    "sum_rate_comm": 62.12704530344571,
+    "sum_rate_sensing": 4.023514308663373,
+    "weighted_sum_rate": 1.886303195455054,
+    "iterations": 2,
+    "runtime_s": 0.4079842000210192,
+    "calls": 1,
+    "converged": true,
+    "selected_source_weight": 0.2,
+    "baseline_wsr": 1.8862888799520205,
+    "selected_seed_wsr": 1.88628887995202
+  }
+}

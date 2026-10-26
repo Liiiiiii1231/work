@@ -1,0 +1,28 @@
+[
+  {
+    "actual_fp_iterations": 3,
+    "accepted_blocks": 1,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 1.5926931848118608,
+    "final_wsr": 11.32188734962553,
+    "seconds": 0.020003100000394625,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 11.32188734962553,
+        "increment": 9.72919416481367,
+        "alpha": 1.3077206881318997,
+        "attempted_alpha": 1.3077206881318997,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 1,
+    "after_position_iteration": null
+  }
+]

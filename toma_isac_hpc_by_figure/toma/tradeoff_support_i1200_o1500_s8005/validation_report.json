@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "final_plan": {
+    "convergence": 90,
+    "p_dl_max": 2000,
+    "rho_si": 2000,
+    "system_load": 2000
+  },
+  "screening_starts": 40,
+  "distinct_screening_geometries_per_scheme": 20,
+  "smoke_screening_calls": 40,
+  "smoke_final_calls": 38,
+  "frozen_initial_geometry_verified": true,
+  "all_four_plots_exported": true,
+  "smoke_only": true,
+  "note": "Tiny iteration budgets; not final performance results",
+  "screening_scene": 8005,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "final_100_scene_range": [
+    8002,
+    8101
+  ],
+  "tradeoff_smoke_tasks": 12,
+  "tradeoff_formal_tasks": 8000,
+  "tradeoff_export_verified": true,
+  "formal_run_performed": false
+}

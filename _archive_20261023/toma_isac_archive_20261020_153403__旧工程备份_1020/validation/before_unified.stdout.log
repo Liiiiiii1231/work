@@ -1,0 +1,3 @@
+INPUT CHECK PASSED. Original objective arrays are preserved for each Stage8/load config.
+PLAN: {"convergence": 15, "p_dl_max": 450, "rho_si": 500, "system_load": 500, "tradeoff": 0} new/unfinished starts; reused: 50
+CHECK ONLY PASSED. No optimizer invoked.

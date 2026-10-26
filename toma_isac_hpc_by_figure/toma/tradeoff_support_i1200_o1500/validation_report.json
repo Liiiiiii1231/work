@@ -1,0 +1,17 @@
+{
+  "protocol_checks_passed": true,
+  "planned_tasks": 8000,
+  "weights": 20,
+  "monte_carlo": 100,
+  "schemes": 4,
+  "smoke_tasks": 12,
+  "smoke_inner_outer": [
+    2,
+    2
+  ],
+  "smoke_fixture": "Synthetic feasible geometry; not a real screening winner",
+  "shared_modules_and_four_figure_support_unchanged": true,
+  "export_json_and_zip_verified": true,
+  "formal_monte_carlo_run": false,
+  "server_frozen_file_not_available_locally": true
+}

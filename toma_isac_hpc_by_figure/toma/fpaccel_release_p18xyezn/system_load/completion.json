@@ -1,0 +1,17 @@
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "system_load",
+  "expected_tasks": 8,
+  "finished_tasks": 8,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": false,
+  "scene_seeds": [
+    8002
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}

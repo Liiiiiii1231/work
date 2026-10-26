@@ -1,0 +1,62 @@
+{
+  "scene_seed": 8001,
+  "source": "C:\\Users\\27809\\Downloads\\tradeoff_per_scene.csv",
+  "input_sha256": "1892297189b24963fcb6286d9a22424f76345915f91aaf7b414129c35e1775c8",
+  "source_rows": 8000,
+  "selected_scene_original_points": 80,
+  "weights": [
+    0.0,
+    0.001,
+    0.005,
+    0.015,
+    0.03,
+    0.05,
+    0.075,
+    0.1,
+    0.125,
+    0.16,
+    0.18,
+    0.2,
+    0.24,
+    0.28,
+    0.32,
+    0.36,
+    0.42,
+    0.6,
+    0.8,
+    1.0
+  ],
+  "counts": {
+    "proposed": {
+      "total": 20,
+      "changed": 7,
+      "higher_wsr_neighbor_blocked": 6
+    },
+    "b6": {
+      "total": 20,
+      "changed": 5,
+      "higher_wsr_neighbor_blocked": 10
+    },
+    "b2": {
+      "total": 20,
+      "changed": 3,
+      "higher_wsr_neighbor_blocked": 11
+    },
+    "b3": {
+      "total": 20,
+      "changed": 7,
+      "higher_wsr_neighbor_blocked": 9
+    }
+  },
+  "rule": "one-pass frozen immediate neighbors; require C>=original C and S>=original S, maximize WSR under target weight, ties prefer original",
+  "normalization": {
+    "comm_divisor": 10,
+    "sensing_divisor": 5
+  },
+  "all_comm_non_decreasing": true,
+  "all_sensing_non_decreasing": true,
+  "all_wsr_non_decreasing": true,
+  "optimizer_invoked": false,
+  "formal_project_modified": false,
+  "scope": "Offline CSV candidate selection, shared feasible-domain protocol assumed; no checkpoint feasibility revalidation or reoptimization"
+}

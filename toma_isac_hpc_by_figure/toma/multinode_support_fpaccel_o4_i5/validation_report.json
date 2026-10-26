@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "local_multirank_simulation": true,
+  "actual_slurm_test_performed": false,
+  "simulated_ranks": 3,
+  "workers_per_rank": 2,
+  "cases": [
+    {
+      "figure": "p_dl_max",
+      "tasks": 8,
+      "assigned_by_rank": [
+        2,
+        4,
+        2
+      ],
+      "completed_by_rank": [
+        2,
+        4,
+        2
+      ],
+      "unique_claims": true,
+      "full_export": true
+    },
+    {
+      "figure": "rho_si",
+      "tasks": 8,
+      "assigned_by_rank": [
+        2,
+        2,
+        4
+      ],
+      "completed_by_rank": [
+        2,
+        2,
+        4
+      ],
+      "unique_claims": true,
+      "full_export": true
+    },
+    {
+      "figure": "system_load",
+      "tasks": 16,
+      "assigned_by_rank": [
+        4,
+        6,
+        6
+      ],
+      "completed_by_rank": [
+        4,
+        6,
+        6
+      ],
+      "unique_claims": true,
+      "full_export": true
+    },
+    {
+      "figure": "tradeoff",
+      "tasks": 24,
+      "assigned_by_rank": [
+        9,
+        7,
+        8
+      ],
+      "completed_by_rank": [
+        9,
+        7,
+        8
+      ],
+      "unique_claims": true,
+      "full_export": true
+    }
+  ],
+  "serial_metric_equality": true,
+  "original_screening_source_identity_unchanged": true,
+  "output": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\three_rank_validation_bvbegodl",
+  "note": "Local processes simulate three leaders on a shared filesystem. Real three-host Slurm launch remains a platform check.",
+  "mismatched_receipt_rejected": true,
+  "used_output_rejected": true,
+  "missing_or_duplicate_receipts_rejected": true,
+  "bash_syntax_scripts": 4,
+  "python_syntax_verified": true,
+  "cluster_template_aligned": true,
+  "slurm_partition": "cpu",
+  "planned_nodes": 3,
+  "planned_cpus_per_node": 56,
+  "shared_absolute_slurm_logs": true,
+  "template_bash_syntax_scripts": 4
+}

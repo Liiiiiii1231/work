@@ -1,0 +1,157 @@
+{
+  "controlled": [
+    {
+      "power_dBm": 20.0,
+      "baseline_gain": 0.0058572492910862195,
+      "fixed_geometry_gain": 0.005821212298986467,
+      "retained_gain_percent": 99.38474546141317,
+      "baseline_seconds": 30.355307899999843,
+      "fixed_geometry_seconds": 2.557170099999894
+    },
+    {
+      "power_dBm": 30.0,
+      "baseline_gain": 0.006633767937321622,
+      "fixed_geometry_gain": 0.006475080488609564,
+      "retained_gain_percent": 97.60788363097114,
+      "baseline_seconds": 26.818249299999934,
+      "fixed_geometry_seconds": 1.9051911999999902
+    },
+    {
+      "power_dBm": 40.0,
+      "baseline_gain": 0.006649191042985336,
+      "fixed_geometry_gain": 0.006421037644056327,
+      "retained_gain_percent": 96.56870441149825,
+      "baseline_seconds": 34.37124360000007,
+      "fixed_geometry_seconds": 2.840420600000016
+    }
+  ],
+  "resource_acceleration": [
+    {
+      "scene": 8003,
+      "power_dBm": 20.0,
+      "plain_gain": 0.01687453944597017,
+      "accelerated_gain": 0.12126482570560349,
+      "gain_ratio": 7.186259873573194,
+      "plain_seconds": 5.886509399999795,
+      "accelerated_seconds": 7.698914099999911,
+      "fp_steps_to_plain_final": 90,
+      "seconds_to_plain_final": 0.473729800000001
+    },
+    {
+      "scene": 8003,
+      "power_dBm": 40.0,
+      "plain_gain": 0.018338352722892637,
+      "accelerated_gain": 0.12209953352648029,
+      "gain_ratio": 6.658151654704386,
+      "plain_seconds": 7.244643600000018,
+      "accelerated_seconds": 8.145497200000136,
+      "fp_steps_to_plain_final": 90,
+      "seconds_to_plain_final": 0.4078214000001026
+    },
+    {
+      "scene": 8003,
+      "power_dBm": 30.0,
+      "plain_gain": 0.01847210495379592,
+      "accelerated_gain": 0.10051600467012811,
+      "gain_ratio": 5.441502466640793,
+      "plain_seconds": 6.8118570999999974,
+      "accelerated_seconds": 7.4200036000002,
+      "fp_steps_to_plain_final": 81,
+      "seconds_to_plain_final": 0.4254071999998814
+    },
+    {
+      "scene": 8006,
+      "power_dBm": 30.0,
+      "plain_gain": 0.020522541637767233,
+      "accelerated_gain": 0.14839766217932215,
+      "gain_ratio": 7.230959244649738,
+      "plain_seconds": 5.654143900000236,
+      "accelerated_seconds": 8.446667799999886,
+      "fp_steps_to_plain_final": 123,
+      "seconds_to_plain_final": 0.7172332999998616
+    },
+    {
+      "scene": 8016,
+      "power_dBm": 30.0,
+      "plain_gain": 0.015408006719917822,
+      "accelerated_gain": 0.16436660890868815,
+      "gain_ratio": 10.667610152078439,
+      "plain_seconds": 5.4532969000001685,
+      "accelerated_seconds": 6.746458100000382,
+      "fp_steps_to_plain_final": 72,
+      "seconds_to_plain_final": 0.27972480000062205
+    }
+  ],
+  "initial_runs": [
+    {
+      "scene": 8003,
+      "iterations": 81,
+      "converged": true,
+      "inner_tolerance": 1e-05,
+      "outer_tolerance": 0.0001,
+      "final_score": 14.8730951914463,
+      "seconds": 94.2949295999997,
+      "main_fp_steps": 9417,
+      "candidate_fp_steps": 15632,
+      "last_increments": [
+        3.9352349705978895e-05,
+        9.876596615221445e-05
+      ]
+    },
+    {
+      "scene": 8006,
+      "iterations": 35,
+      "converged": true,
+      "inner_tolerance": 1e-05,
+      "outer_tolerance": 0.0001,
+      "final_score": 15.29221439934922,
+      "seconds": 65.60914469999989,
+      "main_fp_steps": 11226,
+      "candidate_fp_steps": 6548,
+      "last_increments": [
+        9.257582963861921e-05,
+        9.048652161247617e-05
+      ]
+    }
+  ],
+  "local_main_fp_reduction_percent": 72.2914577663181,
+  "local_tight_plain_gain": 0.11749185903947712,
+  "local_accelerated_gain": 0.12298984462018936,
+  "local_initial_30_gain": 12.546579252976072,
+  "initial_baseline_replay_max_difference_from_server": 0.1148153914708665,
+  "source_unchanged": true,
+  "initial_acceleration_same_inner_prefix_exact_repeat": true,
+  "replaced_reference": {
+    "inner_tolerance": 1e-06,
+    "outer_tolerance": 0.0001,
+    "initial_runs": [
+      {
+        "scene": 8003,
+        "iterations": 73,
+        "converged": true,
+        "final_score": 14.874501912287926,
+        "seconds": 159.81993039999998,
+        "main_fp_steps": 15723,
+        "candidate_fp_steps": 14092,
+        "last_increments": [
+          6.101758398457946e-05,
+          9.117140276160285e-05
+        ]
+      },
+      {
+        "scene": 8006,
+        "iterations": 25,
+        "converged": true,
+        "final_score": 15.295300022283945,
+        "seconds": 130.03535550000015,
+        "main_fp_steps": 19338,
+        "candidate_fp_steps": 4608,
+        "last_increments": [
+          7.658708564406425e-05,
+          6.425646003727081e-05
+        ]
+      }
+    ],
+    "note": "Historical scalar reference only. Full test result files are replaced by the requested inner 1e-5 rerun."
+  }
+}

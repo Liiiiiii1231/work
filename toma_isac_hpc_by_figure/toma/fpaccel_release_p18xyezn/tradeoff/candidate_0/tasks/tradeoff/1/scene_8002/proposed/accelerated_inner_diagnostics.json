@@ -1,0 +1,76 @@
+[
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 2.301997571979872,
+    "final_wsr": 15.742958462545507,
+    "seconds": 0.02441629999975703,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 15.66692540866104,
+        "increment": 13.364927836681169,
+        "alpha": 1.0,
+        "attempted_alpha": 1.0,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 15.742958462545507,
+        "increment": 0.07603305388446735,
+        "alpha": 1.0,
+        "attempted_alpha": 1.0,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 1,
+    "after_position_iteration": null
+  },
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 16.318826509961404,
+    "final_wsr": 16.32678471288863,
+    "seconds": 0.041212000000086846,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 16.319071775816028,
+        "increment": 0.00024526585462325556,
+        "alpha": 1.5416223023844482,
+        "attempted_alpha": 1.5416223023844482,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 16.32678471288863,
+        "increment": 0.00771293707260412,
+        "alpha": 64.0,
+        "attempted_alpha": 64.0,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 2,
+    "after_position_iteration": 1
+  }
+]

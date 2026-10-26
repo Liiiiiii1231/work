@@ -1,0 +1,155 @@
+{
+  "timestamp": "2026-10-23T16:59:05.0642728+08:00",
+  "root": "D:\\Vs codeProjects\\research work1",
+  "archive_plan": "cleanup_plan_20261023.json",
+  "removed_backed_directories": [
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\annulus_export_validation_20261022",
+      "Files": 9,
+      "Bytes": 3819.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\test_layout_export_validation_20261022",
+      "Files": 16,
+      "Bytes": 548052.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\ma_aware_three_smoke_20261023",
+      "Files": 15,
+      "Bytes": 47035.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\ma_aware_three_smoke_final_20261023",
+      "Files": 27,
+      "Bytes": 503289.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\other_figures_sync_validation_20261023",
+      "Files": 148,
+      "Bytes": 1398953.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\final_protocol_validation_20261023",
+      "Files": 298,
+      "Bytes": 2442462.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\final_packaging_validation_20261023",
+      "Files": 229,
+      "Bytes": 9667310.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\toma_ground_disk_mc10_20261022",
+      "Files": 15,
+      "Bytes": 282072.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\toma_ground_annulus_mc10_20261022",
+      "Files": 16,
+      "Bytes": 289327.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\figure_style_preview_20261021",
+      "Files": 4,
+      "Bytes": 578868.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\toma_hpc_before_plot_update_20261021_222912",
+      "Files": 7,
+      "Bytes": 100486.0
+    },
+    {
+      "Path": "D:\\Vs codeProjects\\research work1\\toma_isac_pre_hpc_cleanup_20261017",
+      "Files": 7540,
+      "Bytes": 89955989.0
+    }
+  ],
+  "moved_packages": [
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\test_layout_export_validation_20261022_bundle.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\test_layout_export_validation_20261022_bundle.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\ma_aware_three_smoke_20261023_bundle.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\ma_aware_three_smoke_20261023_bundle.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\ma_aware_three_smoke_final_20261023_bundle.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\ma_aware_three_smoke_final_20261023_bundle.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\toma_ground_disk_mc10_20261022_upload.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\toma_ground_disk_mc10_20261022_upload.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\toma_ground_annulus_mc10_20261022_upload.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\toma_ground_annulus_mc10_20261022_upload.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\toma_singlepass_and_preview_20261023.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\toma_singlepass_and_preview_20261023.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\toma_test_annulus_mc10_upload.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\toma_test_annulus_mc10_upload.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\toma_pilot7_56core_upload.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\toma_pilot7_56core_upload.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\toma_final_four_figures_replace_20261023.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\toma_final_four_figures_replace_20261023.zip"
+    },
+    {
+      "to": "D:\\Vs codeProjects\\research work1\\_archive_20261023\\old_upload_packages\\toma_isac_hpc_mc100.zip",
+      "from": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_mc100.zip"
+    }
+  ],
+  "removed_caches": [
+    {
+      "bytes": 149776.0,
+      "files": 5,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\__pycache__"
+    },
+    {
+      "bytes": 102351.0,
+      "files": 3,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\figure_support_20261023\\__pycache__"
+    },
+    {
+      "bytes": 119131.0,
+      "files": 5,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\final_support_20261023\\__pycache__"
+    },
+    {
+      "bytes": 93764.0,
+      "files": 2,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\final_support_i1200_o1500\\__pycache__"
+    },
+    {
+      "bytes": 96222.0,
+      "files": 3,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\ma_fpaware_3scene\\__pycache__"
+    },
+    {
+      "bytes": 91775.0,
+      "files": 2,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\test\\__pycache__"
+    },
+    {
+      "bytes": 92958.0,
+      "files": 2,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\test_pilot7_56core\\__pycache__"
+    },
+    {
+      "bytes": 92972.0,
+      "files": 2,
+      "path": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\test_singlepass_1500_2000\\__pycache__"
+    }
+  ],
+  "removed_original_bytes": 105817662.0,
+  "new_archive_bytes": 9922958,
+  "cache_bytes_removed": 838949.0,
+  "net_bytes_freed": 96733653.0
+}

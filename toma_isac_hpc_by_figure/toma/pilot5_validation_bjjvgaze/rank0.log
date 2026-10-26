@@ -1,0 +1,8 @@
+MULTINODE PLAN tradeoff tasks 15 nodes 5 workers/node 2 total slots 10
+NODE START rank 0 host Liiiiiii workers 2 affinity CPUs None
+TASK FINISHED rank 0 index 5 tradeoff/0.1/scene_8006/b3 converged False
+TASK FINISHED rank 0 index 13 tradeoff/1/scene_8099/b2 converged False
+TASK FINISHED rank 0 index 0 tradeoff/0/scene_8006/b6 converged False
+NODE DONE {'rank': 0, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 3, 'finished_tasks': 3, 'failed_tasks': 0, 'seconds': 2.2189999999827705, 'errors': []}
+PILOT RESULT BUNDLE: D:\Vs codeProjects\research work1\toma_isac_hpc_by_figure\toma\pilot5_validation_bjjvgaze\distributed_bundle.zip
+ALL NODES COLLECTED tradeoff finished tasks 15

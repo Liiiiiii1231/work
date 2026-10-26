@@ -1,0 +1,106 @@
+{
+  "tag": "s8003_p1_n30",
+  "method": "joint",
+  "iterations": 3,
+  "converged": true,
+  "initial_score": 14.704765731160656,
+  "final_score": 14.705161965183162,
+  "gain": 0.0003962340225065475,
+  "seconds": 5.004255499999999,
+  "history": [
+    14.704765731160656,
+    14.70508227618232,
+    14.705122963512174,
+    14.705161965183162
+  ],
+  "rows": [
+    {
+      "iteration": 1,
+      "wsr": 14.70508227618232,
+      "seconds": 4.319986599999993,
+      "resource_gain": 1.363109593555123e-05,
+      "inner_iterations": 1,
+      "calls": {
+        "main": 1,
+        "candidate": 1,
+        "probe": 513
+      },
+      "fp_iterations": {
+        "main": 1,
+        "candidate": 2,
+        "probe": 1026
+      },
+      "position_gain": 0.0003029139257293423,
+      "alpha": 1.0,
+      "backtracks": 0,
+      "accepted": true,
+      "gradient_norm": 6.015860940376979,
+      "mean_displacement_mm": 0.05668315620249592,
+      "max_displacement_mm": 0.11762206492720369,
+      "curvature_refreshed": true
+    },
+    {
+      "iteration": 2,
+      "wsr": 14.705122963512174,
+      "seconds": 4.677527999999711,
+      "resource_gain": 1.3831517190254772e-05,
+      "inner_iterations": 1,
+      "calls": {
+        "main": 2,
+        "candidate": 2,
+        "probe": 545
+      },
+      "fp_iterations": {
+        "main": 2,
+        "candidate": 4,
+        "probe": 1090
+      },
+      "position_gain": 2.6855812663484357e-05,
+      "alpha": 1.0,
+      "backtracks": 0,
+      "accepted": true,
+      "gradient_norm": 0.15048491790342947,
+      "mean_displacement_mm": 0.0038967229819885127,
+      "max_displacement_mm": 0.006714557502184965,
+      "curvature_refreshed": false
+    },
+    {
+      "iteration": 3,
+      "wsr": 14.705161965183162,
+      "seconds": 5.004208299999846,
+      "resource_gain": 1.3054244341503818e-05,
+      "inner_iterations": 1,
+      "calls": {
+        "main": 3,
+        "candidate": 3,
+        "probe": 577
+      },
+      "fp_iterations": {
+        "main": 3,
+        "candidate": 6,
+        "probe": 1154
+      },
+      "position_gain": 2.594742664641103e-05,
+      "alpha": 1.0,
+      "backtracks": 0,
+      "accepted": true,
+      "gradient_norm": 0.0748356966105191,
+      "mean_displacement_mm": 0.0007611772057606729,
+      "max_displacement_mm": 0.0022030906107025788,
+      "curvature_refreshed": false
+    }
+  ],
+  "calls": {
+    "main": 3,
+    "candidate": 3,
+    "probe": 577
+  },
+  "fp_iterations": {
+    "main": 3,
+    "candidate": 6,
+    "probe": 1154
+  },
+  "refresh_period": 10,
+  "tolerance": 0.0001,
+  "minimum_increment": 3.900167098791485e-05
+}

@@ -1,0 +1,8 @@
+NODE START rank 1 host Liiiiiii workers 2 affinity CPUs None
+START rho_si/1e-05/scene_8003/proposed call 1 previous_steps 0
+START rho_si/1e-05/scene_8002/b2 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8002/b2 WSR 8.965551293416858 converged False steps 3
+TASK FINISHED rank 1 index 4 rho_si/1e-05/scene_8002/b2 converged False
+DONE rho_si/1e-05/scene_8003/proposed WSR 10.14318276605523 converged False steps 1
+TASK FINISHED rank 1 index 1 rho_si/1e-05/scene_8003/proposed converged False
+NODE DONE {'rank': 1, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 2, 'finished_tasks': 2, 'failed_tasks': 0, 'seconds': 1.875, 'errors': []}

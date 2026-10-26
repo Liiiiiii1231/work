@@ -1,8 +1,0 @@
-{
-  "complete": true,
-  "reused_verified_records": 30,
-  "expected_new_optimizations": 20,
-  "returned_new_records": 20,
-  "converged_total_records": 50,
-  "errors": []
-}

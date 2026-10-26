@@ -1,0 +1,169 @@
+{
+  "passed": true,
+  "planned_tasks": 800,
+  "scene_count": 10,
+  "source_geometry": {
+    "ground_z_m": -20.0,
+    "horizontal_radii_m": [
+      24.64101615137755,
+      44.64101615137755
+    ]
+  },
+  "sampled_quadrant_counts": [
+    30,
+    49,
+    35,
+    36
+  ],
+  "sampled_object_distance_range_m": [
+    31.830141097122322,
+    48.87657456289389
+  ],
+  "cross_weight_and_scheme_positions_identical": true,
+  "short_solver_checks": [
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.0,
+        "scene_seed": 8001,
+        "scheme": "proposed"
+      },
+      "initial_wsr": 0.38534161175125775,
+      "final_wsr": 10.426016452359585,
+      "iterations": 1,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.0,
+        "scene_seed": 8001,
+        "scheme": "b6"
+      },
+      "initial_wsr": 1.5442832650639664,
+      "final_wsr": 7.921084796647297,
+      "iterations": 1,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.0,
+        "scene_seed": 8001,
+        "scheme": "b2"
+      },
+      "initial_wsr": 0.38534161175125775,
+      "final_wsr": 10.143739695076226,
+      "iterations": 2,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.0,
+        "scene_seed": 8001,
+        "scheme": "b3"
+      },
+      "initial_wsr": 1.5442832650639664,
+      "final_wsr": 7.804197509717918,
+      "iterations": 2,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.2,
+        "scene_seed": 8001,
+        "scheme": "proposed"
+      },
+      "initial_wsr": 0.7187481830186183,
+      "final_wsr": 10.235964226304247,
+      "iterations": 1,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.2,
+        "scene_seed": 8001,
+        "scheme": "b6"
+      },
+      "initial_wsr": 1.4896476961623715,
+      "final_wsr": 7.501473108794177,
+      "iterations": 1,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.2,
+        "scene_seed": 8001,
+        "scheme": "b2"
+      },
+      "initial_wsr": 0.7187481830186183,
+      "final_wsr": 9.39124620156689,
+      "iterations": 2,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 0.2,
+        "scene_seed": 8001,
+        "scheme": "b3"
+      },
+      "initial_wsr": 1.4896476961623715,
+      "final_wsr": 7.414578045199642,
+      "iterations": 2,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 1.0,
+        "scene_seed": 8001,
+        "scheme": "proposed"
+      },
+      "initial_wsr": 2.0523744680880607,
+      "final_wsr": 16.26033787325453,
+      "iterations": 1,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 1.0,
+        "scene_seed": 8001,
+        "scheme": "b6"
+      },
+      "initial_wsr": 1.2711054205559909,
+      "final_wsr": 10.489682373601957,
+      "iterations": 1,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 1.0,
+        "scene_seed": 8001,
+        "scheme": "b2"
+      },
+      "initial_wsr": 2.0523744680880607,
+      "final_wsr": 12.96453428845257,
+      "iterations": 2,
+      "note": "Truncated smoke check; not a converged performance result"
+    },
+    {
+      "task": {
+        "figure": "tradeoff",
+        "parameter_value": 1.0,
+        "scene_seed": 8001,
+        "scheme": "b3"
+      },
+      "initial_wsr": 1.2711054205559909,
+      "final_wsr": 10.48909950890894,
+      "iterations": 2,
+      "note": "Truncated smoke check; not a converged performance result"
+    }
+  ]
+}

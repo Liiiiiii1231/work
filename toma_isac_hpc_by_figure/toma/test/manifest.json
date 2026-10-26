@@ -1,0 +1,21 @@
+{
+  "test_files": {
+    "configure_trial.py": "4d38fb9a00bb7c2f6b547be32ddf16a2625425367c9b9d5255e6f942f9fa1073",
+    "figure_engine.py": "f637df39eaa9394f460c87c81e6f9b1c43be1d759039d9ab2d47e82ee11ac7fb",
+    "finalize_run.py": "a5bf304de3a157bb5c929db37c9a139ae0f80912ef1a615934d8bc7c4e22270d",
+    "README.md": "0a855e6dfcc52c4cfeb7fce30c2417c97775805885c3af1407dacc4fcc18223d",
+    "run_figures.py": "02b7f3dccd8e39d5c0ca1a36cc690292ceafbcee88aaf7cf17e7332322dc79b8",
+    "simulation_config.json": "f532f874a3bcb3d2f677dbb7dfe4ca4cd04a542e25a9e9056bb326f17fa725f9",
+    "submit_tradeoff_mc10.sh": "e80ffb242332f3d23bc643e80053e05d400f328d2e64feaa9195fe4f646f14b5",
+    "tradeoff_config.json": "f532f874a3bcb3d2f677dbb7dfe4ca4cd04a542e25a9e9056bb326f17fa725f9",
+    "validate_trial.py": "6acbb46605f8224da5e4e06caba42e6a9d134549f50e4d45652519cd829b1f3b",
+    "validation_report.json": "371579823b1b48412fe4f57dcd2ae3a8ca989e8ebf92d490bfd78e817d4e02c1"
+  },
+  "shared_parent_files": {
+    "algorithms.py": "e92c7dc67f32eb5c4709aae274d94c91d63d6ba5ead5dbbc42d340b68c9ff078",
+    "channel_model.py": "97699f4781d5386086178310efd3948b746fb80b9871f1fb637beb7f76f3c43c",
+    "inner_solver.py": "a2bcdc91bccdfb9ab2e1bb7bb0ec03fc7a0c2a5c104569519cd5ee21d3c96992",
+    "outer_solver.py": "a56fc83ad388c0fc42513ed390576d1842917edd8b05213f05e028ccaeaca470",
+    "system_model.py": "5fb83bc8bca1b938a4b18ff67e5db5164979b5b876d58802ef51e3925cb8afc8"
+  }
+}

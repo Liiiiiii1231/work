@@ -1,0 +1,30 @@
+{
+  "task": {
+    "figure": "tradeoff",
+    "parameter_value": 0.2,
+    "scene_seed": 8001,
+    "scheme": "b6"
+  },
+  "kind": "continue_tighter_tolerance",
+  "source": "current",
+  "source_record_sha256": "407b3da5557164d31ef104891bc46d6cd50fdd6ea0eb11b160b472df3ad61af1",
+  "tol_inner": 1e-06,
+  "tol_outer": 1e-06,
+  "max_outer_iter": 100,
+  "max_inner_iter": 1200,
+  "max_wall_seconds": 300,
+  "zero_UL_amplitudes": 0,
+  "intentional_diagnostic_changes": [
+    "saved-state starting point",
+    "100 additional outer-iteration budget",
+    "inner and outer absolute tolerance 1e-6"
+  ],
+  "paper_protocol_changed": false,
+  "initial_metrics": {
+    "sum_rate_dl": 32.72116232043595,
+    "sum_rate_ul": 29.40526776411422,
+    "sum_rate_comm": 62.12643008455017,
+    "sum_rate_sensing": 4.023501739131355,
+    "weighted_sum_rate": 1.88628887995202
+  }
+}

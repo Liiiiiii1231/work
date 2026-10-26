@@ -1,0 +1,20 @@
+{
+  "gradient_samples": 40,
+  "sample_states": 5,
+  "delta_1e6_relative_error_median": 0.0063608140317652,
+  "delta_1e7_relative_error_median": 7.012620703052564e-05,
+  "gradient_reference": "finite difference at1e-8, not analytic ground truth",
+  "cosine_fixed_vs_2fp_min": 0.9959434091043465,
+  "baseline_30_gain": 0.006633767937321622,
+  "restart_30_gain": 0.006783755493149357,
+  "restart_gain_change_percent": 2.2609707973639592,
+  "delta_1e7_30_gain": 0.0066518361722245345,
+  "delta_1e7_gain_change_percent": 0.2723676057653446,
+  "beta_max": 553.5419073596591,
+  "minimum_gradient_direction_cosine": 0.017049147633807084,
+  "joint_hessian_local_curvature_ratio": 70.79611938709157,
+  "off_endpoint_coupling_norm_ratio": 0.4704756070396634,
+  "joint_hessian_difference_between_scales": 0.0011994864044183409,
+  "production_code_modified": false,
+  "limitations": "Local saved-state diagnostics with reset RCG memory; not full convergence counts. Exact two FP iterations forced only for smooth derivative probes."
+}

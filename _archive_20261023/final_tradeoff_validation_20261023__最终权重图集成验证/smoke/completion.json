@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "figure": "tradeoff",
+  "smoke_only": true,
+  "expected_tasks": 12,
+  "finished_tasks": 12,
+  "converged_tasks": 0,
+  "all_converged": false,
+  "scene_seeds": [
+    8001
+  ],
+  "weights": [
+    0.0,
+    0.2,
+    1.0
+  ],
+  "completion_definition": "All independent single-pass tasks finished; capped results included and labelled. No warm starts or continuation."
+}

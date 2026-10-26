@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "figures": {
+    "tradeoff": {
+      "complete": true,
+      "expected_scene_cells": 1,
+      "completed_scene_cells": 1,
+      "all_converged": false,
+      "expected_starts": 1,
+      "converged_starts": 0
+    }
+  },
+  "initial_UL_power_per_user_mW": 25,
+  "completion_definition": "All tasks finished once, including iteration-limit results",
+  "all_converged": false,
+  "absolute_tolerance": 0.0001,
+  "full_five_figures": false
+}

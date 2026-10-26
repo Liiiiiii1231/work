@@ -1,0 +1,132 @@
+{
+  "cases": [
+    {
+      "scheme": "b6",
+      "weight": 0.2,
+      "scene": 8001,
+      "hashes_config_initial_state_pass": true,
+      "constraints_pass": true,
+      "initialization_matches_within_1e12": true,
+      "converged": true,
+      "calls": 1,
+      "iterations": 3,
+      "history_first": [
+        0.6303364730917412,
+        1.8862744473812372,
+        1.8862817114321124,
+        1.8862888799520205
+      ],
+      "history_last": [
+        0.6303364730917412,
+        1.8862744473812372,
+        1.8862817114321124,
+        1.8862888799520205
+      ],
+      "last_two_deltas": [
+        7.264050875255279e-06,
+        7.168519908118398e-06
+      ],
+      "max_element_displacement_m": 3.433227538462459e-07,
+      "ul_power_W": [
+        1.1995769584860156e-228,
+        0.06185438454586604,
+        1.1892277308009722e-227,
+        5.539139621594062e-232,
+        0.08156104991575158
+      ],
+      "current": {
+        "sum_rate_dl": 32.72116232043595,
+        "sum_rate_ul": 29.40526776411422,
+        "sum_rate_comm": 62.12643008455017,
+        "sum_rate_sensing": 4.023501739131355,
+        "weighted_sum_rate": 1.88628887995202
+      },
+      "pure_sensing_state_evaluated_at_current_weight": {
+        "sum_rate_dl": 0.9625154999706358,
+        "sum_rate_ul": 0.0,
+        "sum_rate_comm": 0.9625154999706358,
+        "sum_rate_sensing": 15.205719273380009,
+        "weighted_sum_rate": 2.452165393740214
+      },
+      "pure_candidate_constraints_pass": true,
+      "final_npz_byte_identical_to_previous_upload": true
+    },
+    {
+      "scheme": "proposed",
+      "weight": 0.2,
+      "scene": 8001,
+      "hashes_config_initial_state_pass": true,
+      "constraints_pass": true,
+      "initialization_matches_within_1e12": true,
+      "converged": true,
+      "calls": 1,
+      "iterations": 228,
+      "history_first": [
+        0.19847346151688403,
+        1.9958055957702356,
+        2.071109648152479,
+        2.238657414983674
+      ],
+      "history_last": [
+        3.939452221790627,
+        3.9395588971727804,
+        3.9396612234236335,
+        3.9397575419510567,
+        3.9398146547681137
+      ],
+      "last_two_deltas": [
+        9.631852742320035e-05,
+        5.711281705700344e-05
+      ],
+      "max_element_displacement_m": 0.18805632881452325,
+      "ul_power_W": [
+        0.1,
+        0.0,
+        0.0,
+        0.0,
+        0.1
+      ],
+      "current": {
+        "sum_rate_dl": 16.42787437087174,
+        "sum_rate_ul": 30.611001391952858,
+        "sum_rate_comm": 47.0388757628246,
+        "sum_rate_sensing": 18.743982121947607,
+        "weighted_sum_rate": 3.9398146547681088
+      },
+      "pure_sensing_state_evaluated_at_current_weight": {
+        "sum_rate_dl": 0.6881264746336521,
+        "sum_rate_ul": 0.0,
+        "sum_rate_comm": 0.6881264746336521,
+        "sum_rate_sensing": 36.57162586773345,
+        "weighted_sum_rate": 5.865222668330026
+      },
+      "pure_candidate_constraints_pass": true,
+      "final_npz_byte_identical_to_previous_upload": true
+    }
+  ],
+  "log": {
+    "nonempty_stderr": false,
+    "start_calls": 81,
+    "fresh_calls": 80,
+    "continuation_calls": [
+      {
+        "task": "tradeoff/0.18/scene_8001/b6",
+        "call": 2,
+        "previous_steps": 1500
+      }
+    ],
+    "plan": "PLAN: {\"tradeoff\": {\"scene_cells\": 8000, \"starts\": 8000}}",
+    "target_lines": [
+      "START tradeoff/0.2/scene_8001/proposed call 1 previous_steps 0",
+      "DONE tradeoff/0.2/scene_8001/proposed WSR 3.9398146547681137 converged True steps 228",
+      "START tradeoff/0.2/scene_8001/b6 call 1 previous_steps 0",
+      "DONE tradeoff/0.2/scene_8001/b6 WSR 1.8862888799520205 converged True steps 3",
+      "START tradeoff/0.2/scene_8001/b2 call 1 previous_steps 0",
+      "DONE tradeoff/0.2/scene_8001/b2 WSR 1.780414811215944 converged True steps 240",
+      "START tradeoff/0.2/scene_8001/b3 call 1 previous_steps 0",
+      "DONE tradeoff/0.2/scene_8001/b3 WSR 1.8862727734725568 converged True steps 31"
+    ]
+  },
+  "metadata_missing": true,
+  "first_package_duplicate": true
+}

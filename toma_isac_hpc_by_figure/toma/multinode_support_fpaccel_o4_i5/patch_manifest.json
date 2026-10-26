@@ -1,0 +1,28 @@
+{
+  "files": {
+    "02_wsr_vs_p_dl_max/submit_p_dl_max.sh": "6fba32d81ae09d9373f7b7eb9d207cec73760aa28080e99795e59695a757be56",
+    "03_wsr_vs_rho_si/submit_rho_si.sh": "17cd7978cd3b9ce83eef0aaae2f997dbae2f7cffe989150050297e245412fd4e",
+    "04_wsr_vs_system_load/submit_system_load.sh": "cc90d6c04407ef7ba9effc8f1e8a550774258661b7e43058e00aa8903271741a",
+    "05_communication_sensing_tradeoff/submit_tradeoff.sh": "848daa7560692b292c2ae05e56759c1cc20c931e68a0dc4efa58481eb53b9707",
+    "README_CURRENT_FPACCEL.md": "0dba5cdb21be9edff569ddb1392956ba355d6c8e09dde23edfdad254ecfbca63",
+    "multinode_support_fpaccel_o4_i5/README.md": "1800ba862b68a21a6be7badf75ceb7e1a38cd7b46280a8dac5e368ee40b54146",
+    "multinode_support_fpaccel_o4_i5/build_patch.py": "60da028b4a88a96ee666eee5352e7f34cff58ed8472ccca4a6d68591f394fd3d",
+    "multinode_support_fpaccel_o4_i5/run_multinode.py": "262340a18c8bc8aa43fb31e61ccf6fb137f929e78e2a62362df50c9025fa6395",
+    "multinode_support_fpaccel_o4_i5/validate_multinode.py": "6e0584751a0ebcf94ec6867542aed448cce864d73b95133998e5c1adfdbec144",
+    "multinode_support_fpaccel_o4_i5/validation_report.json": "19b8866df3e4c34aba10d515a278ab69536775010e0e422cad11e579696ade43"
+  },
+  "replace_figures": [
+    "02",
+    "03",
+    "04",
+    "05"
+  ],
+  "nodes_per_figure": 3,
+  "cpus_per_node": 56,
+  "total_workers_per_figure": 168,
+  "original_solver_and_screening_sources_unchanged": true,
+  "required_existing_supports": [
+    "final_support_fpaccel_o4_i5_s8005",
+    "tradeoff_support_fpaccel_o4_i5_s8005"
+  ]
+}

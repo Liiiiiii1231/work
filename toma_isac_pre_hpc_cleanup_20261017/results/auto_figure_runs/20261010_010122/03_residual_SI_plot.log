@@ -1,3 +1,0 @@
-Working directory: D:\Vs codeProjects\research work1\toma_isac
-Command: D:\miniconda\envs\toma_isac\python.exe -u -c import numpy as np; from experiments.plot_stage8_results import plot_sweep,_rho_to_db; plot_sweep("rho_si", "Residual SI level (dB)", _rho_to_db, np.array([-40.,-30.,-20.,-10.,0.]))
-

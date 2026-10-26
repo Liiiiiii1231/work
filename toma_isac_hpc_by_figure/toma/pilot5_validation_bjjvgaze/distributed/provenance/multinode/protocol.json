@@ -1,0 +1,21 @@
+{
+  "protocol": {
+    "base_p_dl_W": 1.0,
+    "base_rho_si": 1e-10,
+    "resource_seed": 2042,
+    "initial_ul_power_W": 0.025,
+    "max_inner_iter": 1200,
+    "max_outer_iter": 1500,
+    "tol_inner": 1e-05,
+    "tol_outer": 0.0001,
+    "plateau_window": 0,
+    "ma_region_size_m": 0.3,
+    "ma_min_spacing_m": 0.005,
+    "ma_initial_step_m": 0.03
+  },
+  "schemes": [
+    "b6",
+    "b2",
+    "b3"
+  ]
+}

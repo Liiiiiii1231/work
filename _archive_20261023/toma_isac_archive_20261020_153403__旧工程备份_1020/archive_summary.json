@@ -1,0 +1,131 @@
+{
+  "project_root": "D:\\Vs codeProjects\\research work1\\toma_isac",
+  "archive_root": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403",
+  "archived_experiment_scripts": [
+    "check_proposed_near_field.py",
+    "extend_stage8_rho_si_minus50.py",
+    "planar_pm_initialization.py",
+    "plot_convergence_early_main.py",
+    "plot_proposed_convergence.py",
+    "plot_stage10_cold20.py",
+    "plot_stage10_ms20.py",
+    "plot_stage10_tradeoff.py",
+    "plot_stage8_results.py",
+    "rerun_stage8_k5.py",
+    "run_old_init_power_pilot.py",
+    "run_stage10_cold20.py",
+    "run_stage10_complete_fixed_abs.py",
+    "run_stage10_continue_and_plot.py",
+    "run_stage10_continue_b6_09.py",
+    "run_stage10_fixed_ul_025mW.py",
+    "run_stage10_fixed_ul_025mW_refined16.py",
+    "run_stage10_ms20.py",
+    "run_stage10_multistart20_probe.py",
+    "run_stage10_refine_regular20.py",
+    "run_stage10_refine_seed2042.py",
+    "run_stage10_regular_planar_pm.py",
+    "run_stage10_top10_abs.py",
+    "run_stage10_tradeoff.py",
+    "run_stage10_ul_init_compare.py",
+    "run_stage10_ul_init_compare_representative.py",
+    "run_stage10_warmstart_probe.py",
+    "run_stage5_stress.py",
+    "run_stage6_baselines.py",
+    "run_stage7_multistart.py",
+    "run_stage8_full_smoke.py",
+    "run_stage8_load_sweep.py",
+    "run_stage8_monte_carlo.py",
+    "run_stage8_sweeps.py",
+    "stage10_planar_pm_common.py",
+    "stage10_seed2042_support.py",
+    "trace_stage10_proposed_0125.py"
+  ],
+  "archived_root_scripts": [
+    "run_all_figures_continue.py",
+    "diagnose_stage10_local_convergence.py",
+    "test_stage10_cross_weight_warmstart.py"
+  ],
+  "archived_resource_directories": [
+    "stage10_ul_compare_inputs",
+    "stage10_fixed_ul16_assets",
+    "stage10_fixed_ul_assets",
+    "stage10_regular20_source",
+    "old_init_pilot_assets",
+    "stage10_seed2042_assets",
+    "stage10_planar_pm_assets",
+    "stage10_ul_compare3_inputs",
+    "stage10_seed2042_diagnostic_refs"
+  ],
+  "moved_file_count": 118,
+  "retained_experiment_scripts": [
+    "extend_regular25_scene8001_to_40dbm.py",
+    "final_protocol.py",
+    "ma_add4_common.py",
+    "ma_add4_styles.py",
+    "ma_add4_support.py",
+    "paper_figure_styles.py",
+    "paper_figures_unified.py",
+    "run_regular025_multistart_pilot.py",
+    "run_regular25_multistart_pilot.py",
+    "run_stage10_ma_add4.py",
+    "run_stage10_ma_transition4.py",
+    "stage10_planar_pm_support.py"
+  ],
+  "retained_experiment_directories": [
+    "ma_add4_inputs",
+    "ma_add4_solver_assets",
+    "ma_transition_inputs",
+    "paper_figures_assets",
+    "regular025_multistart_assets"
+  ],
+  "extra_retained_dependencies": [
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "required_by": "experiments/ma_add4_common.py:297",
+      "reason": "Runtime SHA256 input via Path(__file__).with_name('stage10_planar_pm_support.py') in the retained main function"
+    }
+  ],
+  "preserved_file_count": 9962,
+  "protected_file_counts": {
+    "configs": 20,
+    "results": 9730,
+    "paper": 26,
+    "hpc": 3
+  },
+  "all_preserved_hashes_unchanged": true,
+  "new_unexpected_project_files": [],
+  "checks": [
+    {
+      "name": "unified",
+      "before_exit": 0,
+      "after_exit": 0,
+      "stdout_identical": true,
+      "stderr_identical": true
+    },
+    {
+      "name": "ma_add4",
+      "before_exit": 0,
+      "after_exit": 0,
+      "stdout_identical": true,
+      "stderr_identical": true
+    },
+    {
+      "name": "ma_transition4",
+      "before_exit": 0,
+      "after_exit": 0,
+      "stdout_identical": true,
+      "stderr_identical": true
+    }
+  ],
+  "cache_files_removed": [
+    "experiments/__pycache__/paper_figure_styles.cpython-311.pyc",
+    "experiments/__pycache__/paper_figures_unified.cpython-311.pyc",
+    "experiments/__pycache__/run_regular025_multistart_pilot.cpython-311.pyc",
+    "experiments/__pycache__/run_regular25_multistart_pilot.cpython-311.pyc"
+  ],
+  "unused_check_output_created": false,
+  "dependency_restore_required": false,
+  "formal_simulation_run": false,
+  "dependency_installation": false,
+  "hpc_submission": false
+}

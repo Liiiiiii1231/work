@@ -1,0 +1,1540 @@
+{
+  "protocol": {
+    "n_mc": 100,
+    "scene_seed_start": 8002,
+    "base_config": "stage8_monte_carlo",
+    "load_configs": {
+      "3": "stage8_load3",
+      "4": "stage8_load4",
+      "5": "stage8_load5",
+      "6": "stage8_load6",
+      "7": "stage8_load7"
+    },
+    "schemes": [
+      "proposed",
+      "b6",
+      "b2",
+      "b3"
+    ],
+    "protocol": {
+      "base_p_dl_W": 1.0,
+      "base_rho_si": 1e-10,
+      "resource_seed": 2042,
+      "initial_ul_power_W": 0.025,
+      "max_inner_iter": 1200,
+      "max_outer_iter": 1500,
+      "tol_inner": 0.0001,
+      "tol_outer": 0.0001,
+      "plateau_window": 0,
+      "ma_region_size_m": 0.3,
+      "ma_min_spacing_m": 0.005,
+      "ma_initial_step_m": 0.03
+    },
+    "convergence": {
+      "p_dl_W": [
+        0.1,
+        1.0,
+        10.0
+      ],
+      "n_mc": 30,
+      "scene_seeds": [
+        8003,
+        8027,
+        8060,
+        8072,
+        8016,
+        8080,
+        8032,
+        8042,
+        8088,
+        8052,
+        8091,
+        8097,
+        8065,
+        8043,
+        8026,
+        8029,
+        8095,
+        8075,
+        8024,
+        8006,
+        8041,
+        8057,
+        8045,
+        8059,
+        8038,
+        8055,
+        8030,
+        8094,
+        8085,
+        8082
+      ],
+      "selection_rule": "For each historical scene and power take highest-WSR start, rank scenes by maximum steps over 20/30/40 dBm then mean steps",
+      "historically_selected": true
+    },
+    "sweeps": {
+      "p_dl_dbm": [
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "rho_si_db": [
+        -50,
+        -40,
+        -30,
+        -20,
+        -10
+      ],
+      "loads": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "tradeoff": {
+      "reuse_verified_results": false,
+      "weights": [
+        0,
+        0.001,
+        0.015,
+        0.05,
+        0.2,
+        0.6,
+        1
+      ]
+    },
+    "starts": {
+      "proposed": 1,
+      "b6": 1,
+      "b2": 1,
+      "b3": 1
+    },
+    "screening": {
+      "scene_seed": 8005,
+      "p_dl_W": 1.0,
+      "candidates_per_scheme": 20,
+      "schemes": [
+        "proposed",
+        "b6"
+      ],
+      "freeze": "winning_initial_geometry_only",
+      "tie_break": "lowest_start_id"
+    },
+    "excluded_scene_seeds": [
+      8001
+    ],
+    "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+    "_models": {
+      "stage8_load3": {
+        "system": {
+          "M": 8,
+          "N_c": 4,
+          "K": 3,
+          "J": 3,
+          "L": 3,
+          "R_s": 3
+        },
+        "geometry": {
+          "wavelength": 0.01,
+          "cable_length": 1.0,
+          "min_uav_distance": 0.5,
+          "min_si_distance": 0.001
+        },
+        "power": {
+          "p_dl_max": 1.0,
+          "p_ul_max": [
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        "noise": {
+          "sigma_dl2": [
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15
+          ],
+          "sigma_bs2": 3.981071705534969e-15
+        },
+        "si": {
+          "rho_si": 1e-10
+        },
+        "weights": {
+          "dl": [
+            0.1111111111111111,
+            0.1111111111111111,
+            0.1111111111111111
+          ],
+          "ul": [
+            0.1111111111111111,
+            0.1111111111111111,
+            0.1111111111111111
+          ],
+          "sensing": [
+            0.1111111111111111,
+            0.1111111111111111,
+            0.1111111111111111
+          ]
+        },
+        "scene": {
+          "q_dl": [
+            [
+              8.6187,
+              -32.1653,
+              20.0
+            ],
+            [
+              23.7588,
+              -23.7588,
+              20.0
+            ],
+            [
+              32.7449,
+              -8.774,
+              20.0
+            ]
+          ],
+          "q_ul": [
+            [
+              14.4113,
+              -30.9051,
+              20.0
+            ],
+            [
+              27.6054,
+              -19.3295,
+              20.0
+            ],
+            [
+              33.2729,
+              -2.911,
+              20.0
+            ]
+          ],
+          "q_s": [
+            [
+              2.9197,
+              -33.3725,
+              20.0
+            ],
+            [
+              19.5016,
+              -27.8512,
+              20.0
+            ],
+            [
+              30.4519,
+              -14.2,
+              20.0
+            ]
+          ]
+        },
+        "channel": {
+          "rcs_m2": [
+            10.0,
+            10.0,
+            10.0
+          ]
+        },
+        "initialization": {
+          "kappa_ul": 0.5,
+          "random_seed": 2026,
+          "max_geometry_trials": 10000
+        },
+        "algorithm": {
+          "max_inner_iter": 1200,
+          "max_outer_iter": 1500,
+          "tol_inner": 0.0001,
+          "tol_outer": 0.0001,
+          "max_bisection_iter": 100,
+          "tol_bisection": 1e-10,
+          "max_backtracking_iter": 30,
+          "armijo_mu": 0.0001,
+          "backtracking_factor": 0.5,
+          "finite_diff_delta": 1e-06,
+          "initial_outer_step": 0.1,
+          "plateau_window": 0,
+          "tol_window": 0.0
+        },
+        "experiment": {
+          "n_mc": 100,
+          "scene_seed_start": 8001,
+          "multi_start_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ],
+          "fixed_upa_seed": 2026,
+          "position_jitter": [
+            0.5,
+            0.5,
+            0.0
+          ],
+          "fading": {
+            "enabled": false
+          },
+          "ma": {
+            "region_size": 0.3,
+            "min_spacing": 0.005,
+            "initial_step": 0.03,
+            "n_starts": 3,
+            "initial_jitter_fraction": 0.5
+          },
+          "sweep": {
+            "rho_si": [
+              0.001,
+              0.01,
+              0.1,
+              1.0
+            ],
+            "p_dl_max": [
+              0.2,
+              0.5,
+              1.0,
+              1.5,
+              2.0
+            ],
+            "cable_length": [
+              0.5,
+              0.75,
+              1.0,
+              1.25,
+              1.5
+            ]
+          },
+          "ground_annulus": {
+            "horizontal_radius_min_m": 24.64101615137755,
+            "horizontal_radius_max_m": 44.64101615137755,
+            "baseline_horizontal_radius_m": 34.64101615137755,
+            "uav_altitude_m": 20.0,
+            "center_distance_m": 40.0,
+            "center_distance_kind": "slant",
+            "distribution": "independent_uniform_area"
+          }
+        }
+      },
+      "stage8_load4": {
+        "system": {
+          "M": 8,
+          "N_c": 4,
+          "K": 4,
+          "J": 4,
+          "L": 4,
+          "R_s": 4
+        },
+        "geometry": {
+          "wavelength": 0.01,
+          "cable_length": 1.0,
+          "min_uav_distance": 0.5,
+          "min_si_distance": 0.001
+        },
+        "power": {
+          "p_dl_max": 1.0,
+          "p_ul_max": [
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        "noise": {
+          "sigma_dl2": [
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15
+          ],
+          "sigma_bs2": 3.981071705534969e-15
+        },
+        "si": {
+          "rho_si": 1e-10
+        },
+        "weights": {
+          "dl": [
+            0.08333333333333333,
+            0.08333333333333333,
+            0.08333333333333333,
+            0.08333333333333333
+          ],
+          "ul": [
+            0.08333333333333333,
+            0.08333333333333333,
+            0.08333333333333333,
+            0.08333333333333333
+          ],
+          "sensing": [
+            0.08333333333333333,
+            0.08333333333333333,
+            0.08333333333333333,
+            0.08333333333333333
+          ]
+        },
+        "scene": {
+          "q_dl": [
+            [
+              8.6187,
+              -32.1653,
+              20.0
+            ],
+            [
+              23.7588,
+              -23.7588,
+              20.0
+            ],
+            [
+              32.7449,
+              -8.774,
+              20.0
+            ],
+            [
+              33.0347,
+              8.8516,
+              20.0
+            ]
+          ],
+          "q_ul": [
+            [
+              14.4113,
+              -30.9051,
+              20.0
+            ],
+            [
+              27.6054,
+              -19.3295,
+              20.0
+            ],
+            [
+              33.2729,
+              -2.911,
+              20.0
+            ],
+            [
+              30.8145,
+              14.369,
+              20.0
+            ]
+          ],
+          "q_s": [
+            [
+              2.9197,
+              -33.3725,
+              20.0
+            ],
+            [
+              19.5016,
+              -27.8512,
+              20.0
+            ],
+            [
+              30.4519,
+              -14.2,
+              20.0
+            ],
+            [
+              33.9702,
+              2.972,
+              20.0
+            ]
+          ]
+        },
+        "channel": {
+          "rcs_m2": [
+            10.0,
+            10.0,
+            10.0,
+            10.0
+          ]
+        },
+        "initialization": {
+          "kappa_ul": 0.5,
+          "random_seed": 2026,
+          "max_geometry_trials": 10000
+        },
+        "algorithm": {
+          "max_inner_iter": 1200,
+          "max_outer_iter": 1500,
+          "tol_inner": 0.0001,
+          "tol_outer": 0.0001,
+          "max_bisection_iter": 100,
+          "tol_bisection": 1e-10,
+          "max_backtracking_iter": 30,
+          "armijo_mu": 0.0001,
+          "backtracking_factor": 0.5,
+          "finite_diff_delta": 1e-06,
+          "initial_outer_step": 0.1,
+          "plateau_window": 0,
+          "tol_window": 0.0
+        },
+        "experiment": {
+          "n_mc": 100,
+          "scene_seed_start": 8001,
+          "multi_start_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ],
+          "fixed_upa_seed": 2026,
+          "position_jitter": [
+            0.5,
+            0.5,
+            0.0
+          ],
+          "fading": {
+            "enabled": false
+          },
+          "ma": {
+            "region_size": 0.3,
+            "min_spacing": 0.005,
+            "initial_step": 0.03,
+            "n_starts": 3,
+            "initial_jitter_fraction": 0.5
+          },
+          "sweep": {
+            "rho_si": [
+              0.001,
+              0.01,
+              0.1,
+              1.0
+            ],
+            "p_dl_max": [
+              0.2,
+              0.5,
+              1.0,
+              1.5,
+              2.0
+            ],
+            "cable_length": [
+              0.5,
+              0.75,
+              1.0,
+              1.25,
+              1.5
+            ]
+          },
+          "ground_annulus": {
+            "horizontal_radius_min_m": 24.64101615137755,
+            "horizontal_radius_max_m": 44.64101615137755,
+            "baseline_horizontal_radius_m": 34.64101615137755,
+            "uav_altitude_m": 20.0,
+            "center_distance_m": 40.0,
+            "center_distance_kind": "slant",
+            "distribution": "independent_uniform_area"
+          }
+        }
+      },
+      "stage8_load5": {
+        "system": {
+          "M": 8,
+          "N_c": 4,
+          "K": 5,
+          "J": 5,
+          "L": 5,
+          "R_s": 4
+        },
+        "geometry": {
+          "wavelength": 0.01,
+          "cable_length": 1.0,
+          "min_uav_distance": 0.5,
+          "min_si_distance": 0.001
+        },
+        "power": {
+          "p_dl_max": 1.0,
+          "p_ul_max": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        "noise": {
+          "sigma_dl2": [
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15
+          ],
+          "sigma_bs2": 3.981071705534969e-15
+        },
+        "si": {
+          "rho_si": 1e-10
+        },
+        "weights": {
+          "dl": [
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667
+          ],
+          "ul": [
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667
+          ],
+          "sensing": [
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667
+          ]
+        },
+        "scene": {
+          "q_dl": [
+            [
+              8.6187,
+              -32.1653,
+              20.0
+            ],
+            [
+              23.7588,
+              -23.7588,
+              20.0
+            ],
+            [
+              32.7449,
+              -8.774,
+              20.0
+            ],
+            [
+              33.0347,
+              8.8516,
+              20.0
+            ],
+            [
+              23.9002,
+              23.9002,
+              20.0
+            ]
+          ],
+          "q_ul": [
+            [
+              14.4113,
+              -30.9051,
+              20.0
+            ],
+            [
+              27.6054,
+              -19.3295,
+              20.0
+            ],
+            [
+              33.2729,
+              -2.911,
+              20.0
+            ],
+            [
+              30.8145,
+              14.369,
+              20.0
+            ],
+            [
+              19.3869,
+              27.6873,
+              20.0
+            ]
+          ],
+          "q_s": [
+            [
+              2.9197,
+              -33.3725,
+              20.0
+            ],
+            [
+              19.5016,
+              -27.8512,
+              20.0
+            ],
+            [
+              30.4519,
+              -14.2,
+              20.0
+            ],
+            [
+              33.9702,
+              2.972,
+              20.0
+            ],
+            [
+              27.6054,
+              19.3295,
+              20.0
+            ]
+          ]
+        },
+        "channel": {
+          "rcs_m2": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0
+          ]
+        },
+        "initialization": {
+          "kappa_ul": 0.5,
+          "random_seed": 2026,
+          "max_geometry_trials": 10000
+        },
+        "algorithm": {
+          "max_inner_iter": 1200,
+          "max_outer_iter": 1500,
+          "tol_inner": 0.0001,
+          "tol_outer": 0.0001,
+          "max_bisection_iter": 100,
+          "tol_bisection": 1e-10,
+          "max_backtracking_iter": 30,
+          "armijo_mu": 0.0001,
+          "backtracking_factor": 0.5,
+          "finite_diff_delta": 1e-06,
+          "initial_outer_step": 0.1,
+          "plateau_window": 0,
+          "tol_window": 0.0
+        },
+        "experiment": {
+          "n_mc": 100,
+          "scene_seed_start": 8001,
+          "multi_start_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ],
+          "fixed_upa_seed": 2026,
+          "position_jitter": [
+            0.5,
+            0.5,
+            0.0
+          ],
+          "fading": {
+            "enabled": false
+          },
+          "ma": {
+            "region_size": 0.3,
+            "min_spacing": 0.005,
+            "initial_step": 0.03,
+            "n_starts": 3,
+            "initial_jitter_fraction": 0.5
+          },
+          "sweep": {
+            "rho_si": [
+              0.001,
+              0.01,
+              0.1,
+              1.0
+            ],
+            "p_dl_max": [
+              0.2,
+              0.5,
+              1.0,
+              1.5,
+              2.0
+            ],
+            "cable_length": [
+              0.5,
+              0.75,
+              1.0,
+              1.25,
+              1.5
+            ]
+          },
+          "ground_annulus": {
+            "horizontal_radius_min_m": 24.64101615137755,
+            "horizontal_radius_max_m": 44.64101615137755,
+            "baseline_horizontal_radius_m": 34.64101615137755,
+            "uav_altitude_m": 20.0,
+            "center_distance_m": 40.0,
+            "center_distance_kind": "slant",
+            "distribution": "independent_uniform_area"
+          }
+        }
+      },
+      "stage8_load6": {
+        "system": {
+          "M": 8,
+          "N_c": 4,
+          "K": 6,
+          "J": 6,
+          "L": 6,
+          "R_s": 4
+        },
+        "geometry": {
+          "wavelength": 0.01,
+          "cable_length": 1.0,
+          "min_uav_distance": 0.5,
+          "min_si_distance": 0.001
+        },
+        "power": {
+          "p_dl_max": 1.0,
+          "p_ul_max": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        "noise": {
+          "sigma_dl2": [
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15
+          ],
+          "sigma_bs2": 3.981071705534969e-15
+        },
+        "si": {
+          "rho_si": 1e-10
+        },
+        "weights": {
+          "dl": [
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555
+          ],
+          "ul": [
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555
+          ],
+          "sensing": [
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555,
+            0.05555555555555555
+          ]
+        },
+        "scene": {
+          "q_dl": [
+            [
+              8.6187,
+              -32.1653,
+              20.0
+            ],
+            [
+              23.7588,
+              -23.7588,
+              20.0
+            ],
+            [
+              32.7449,
+              -8.774,
+              20.0
+            ],
+            [
+              33.0347,
+              8.8516,
+              20.0
+            ],
+            [
+              23.9002,
+              23.9002,
+              20.0
+            ],
+            [
+              8.7998,
+              32.8415,
+              20.0
+            ]
+          ],
+          "q_ul": [
+            [
+              14.4113,
+              -30.9051,
+              20.0
+            ],
+            [
+              27.6054,
+              -19.3295,
+              20.0
+            ],
+            [
+              33.2729,
+              -2.911,
+              20.0
+            ],
+            [
+              30.8145,
+              14.369,
+              20.0
+            ],
+            [
+              19.3869,
+              27.6873,
+              20.0
+            ],
+            [
+              2.9807,
+              34.0699,
+              20.0
+            ]
+          ],
+          "q_s": [
+            [
+              2.9197,
+              -33.3725,
+              20.0
+            ],
+            [
+              19.5016,
+              -27.8512,
+              20.0
+            ],
+            [
+              30.4519,
+              -14.2,
+              20.0
+            ],
+            [
+              33.9702,
+              2.972,
+              20.0
+            ],
+            [
+              27.6054,
+              19.3295,
+              20.0
+            ],
+            [
+              14.4535,
+              30.9957,
+              20.0
+            ]
+          ]
+        },
+        "channel": {
+          "rcs_m2": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0
+          ]
+        },
+        "initialization": {
+          "kappa_ul": 0.5,
+          "random_seed": 2026,
+          "max_geometry_trials": 10000
+        },
+        "algorithm": {
+          "max_inner_iter": 1200,
+          "max_outer_iter": 1500,
+          "tol_inner": 0.0001,
+          "tol_outer": 0.0001,
+          "max_bisection_iter": 100,
+          "tol_bisection": 1e-10,
+          "max_backtracking_iter": 30,
+          "armijo_mu": 0.0001,
+          "backtracking_factor": 0.5,
+          "finite_diff_delta": 1e-06,
+          "initial_outer_step": 0.1,
+          "plateau_window": 0,
+          "tol_window": 0.0
+        },
+        "experiment": {
+          "n_mc": 100,
+          "scene_seed_start": 8001,
+          "multi_start_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ],
+          "fixed_upa_seed": 2026,
+          "position_jitter": [
+            0.5,
+            0.5,
+            0.0
+          ],
+          "fading": {
+            "enabled": false
+          },
+          "ma": {
+            "region_size": 0.3,
+            "min_spacing": 0.005,
+            "initial_step": 0.03,
+            "n_starts": 3,
+            "initial_jitter_fraction": 0.5
+          },
+          "sweep": {
+            "rho_si": [
+              0.001,
+              0.01,
+              0.1,
+              1.0
+            ],
+            "p_dl_max": [
+              0.2,
+              0.5,
+              1.0,
+              1.5,
+              2.0
+            ],
+            "cable_length": [
+              0.5,
+              0.75,
+              1.0,
+              1.25,
+              1.5
+            ]
+          },
+          "ground_annulus": {
+            "horizontal_radius_min_m": 24.64101615137755,
+            "horizontal_radius_max_m": 44.64101615137755,
+            "baseline_horizontal_radius_m": 34.64101615137755,
+            "uav_altitude_m": 20.0,
+            "center_distance_m": 40.0,
+            "center_distance_kind": "slant",
+            "distribution": "independent_uniform_area"
+          }
+        }
+      },
+      "stage8_load7": {
+        "system": {
+          "M": 8,
+          "N_c": 4,
+          "K": 7,
+          "J": 7,
+          "L": 7,
+          "R_s": 4
+        },
+        "geometry": {
+          "wavelength": 0.01,
+          "cable_length": 1.0,
+          "min_uav_distance": 0.5,
+          "min_si_distance": 0.001
+        },
+        "power": {
+          "p_dl_max": 1.0,
+          "p_ul_max": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        "noise": {
+          "sigma_dl2": [
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15
+          ],
+          "sigma_bs2": 3.981071705534969e-15
+        },
+        "si": {
+          "rho_si": 1e-10
+        },
+        "weights": {
+          "dl": [
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616
+          ],
+          "ul": [
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616
+          ],
+          "sensing": [
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616,
+            0.047619047619047616
+          ]
+        },
+        "scene": {
+          "q_dl": [
+            [
+              8.6187,
+              -32.1653,
+              20.0
+            ],
+            [
+              23.7588,
+              -23.7588,
+              20.0
+            ],
+            [
+              32.7449,
+              -8.774,
+              20.0
+            ],
+            [
+              33.0347,
+              8.8516,
+              20.0
+            ],
+            [
+              23.9002,
+              23.9002,
+              20.0
+            ],
+            [
+              8.7998,
+              32.8415,
+              20.0
+            ],
+            [
+              33.5,
+              0.0,
+              20.0
+            ]
+          ],
+          "q_ul": [
+            [
+              14.4113,
+              -30.9051,
+              20.0
+            ],
+            [
+              27.6054,
+              -19.3295,
+              20.0
+            ],
+            [
+              33.2729,
+              -2.911,
+              20.0
+            ],
+            [
+              30.8145,
+              14.369,
+              20.0
+            ],
+            [
+              19.3869,
+              27.6873,
+              20.0
+            ],
+            [
+              2.9807,
+              34.0699,
+              20.0
+            ],
+            [
+              32.9911,
+              5.8172,
+              20.0
+            ]
+          ],
+          "q_s": [
+            [
+              2.9197,
+              -33.3725,
+              20.0
+            ],
+            [
+              19.5016,
+              -27.8512,
+              20.0
+            ],
+            [
+              30.4519,
+              -14.2,
+              20.0
+            ],
+            [
+              33.9702,
+              2.972,
+              20.0
+            ],
+            [
+              27.6054,
+              19.3295,
+              20.0
+            ],
+            [
+              14.4535,
+              30.9957,
+              20.0
+            ],
+            [
+              5.8867,
+              33.385,
+              20.0
+            ]
+          ]
+        },
+        "channel": {
+          "rcs_m2": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0
+          ]
+        },
+        "initialization": {
+          "kappa_ul": 0.5,
+          "random_seed": 2026,
+          "max_geometry_trials": 10000
+        },
+        "algorithm": {
+          "max_inner_iter": 1200,
+          "max_outer_iter": 1500,
+          "tol_inner": 0.0001,
+          "tol_outer": 0.0001,
+          "max_bisection_iter": 100,
+          "tol_bisection": 1e-10,
+          "max_backtracking_iter": 30,
+          "armijo_mu": 0.0001,
+          "backtracking_factor": 0.5,
+          "finite_diff_delta": 1e-06,
+          "initial_outer_step": 0.1,
+          "plateau_window": 0,
+          "tol_window": 0.0
+        },
+        "experiment": {
+          "n_mc": 100,
+          "scene_seed_start": 8001,
+          "multi_start_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ],
+          "fixed_upa_seed": 2026,
+          "position_jitter": [
+            0.5,
+            0.5,
+            0.0
+          ],
+          "fading": {
+            "enabled": false
+          },
+          "ma": {
+            "region_size": 0.3,
+            "min_spacing": 0.005,
+            "initial_step": 0.03,
+            "n_starts": 3,
+            "initial_jitter_fraction": 0.5
+          },
+          "sweep": {
+            "rho_si": [
+              0.001,
+              0.01,
+              0.1,
+              1.0
+            ],
+            "p_dl_max": [
+              0.2,
+              0.5,
+              1.0,
+              1.5,
+              2.0
+            ],
+            "cable_length": [
+              0.5,
+              0.75,
+              1.0,
+              1.25,
+              1.5
+            ]
+          },
+          "ground_annulus": {
+            "horizontal_radius_min_m": 24.64101615137755,
+            "horizontal_radius_max_m": 44.64101615137755,
+            "baseline_horizontal_radius_m": 34.64101615137755,
+            "uav_altitude_m": 20.0,
+            "center_distance_m": 40.0,
+            "center_distance_kind": "slant",
+            "distribution": "independent_uniform_area"
+          }
+        }
+      },
+      "stage8_monte_carlo": {
+        "system": {
+          "M": 8,
+          "N_c": 4,
+          "K": 5,
+          "J": 5,
+          "L": 5,
+          "R_s": 4
+        },
+        "geometry": {
+          "wavelength": 0.01,
+          "cable_length": 1.0,
+          "min_uav_distance": 0.5,
+          "min_si_distance": 0.001
+        },
+        "power": {
+          "p_dl_max": 1.0,
+          "p_ul_max": [
+            0.1,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        "noise": {
+          "sigma_dl2": [
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15,
+            3.981071705534969e-15
+          ],
+          "sigma_bs2": 3.981071705534969e-15
+        },
+        "si": {
+          "rho_si": 1e-10
+        },
+        "weights": {
+          "dl": [
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667
+          ],
+          "ul": [
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667
+          ],
+          "sensing": [
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667,
+            0.06666666666666667
+          ]
+        },
+        "scene": {
+          "q_dl": [
+            [
+              8.6187,
+              -32.1653,
+              20.0
+            ],
+            [
+              23.7588,
+              -23.7588,
+              20.0
+            ],
+            [
+              32.7449,
+              -8.774,
+              20.0
+            ],
+            [
+              33.0347,
+              8.8516,
+              20.0
+            ],
+            [
+              23.9002,
+              23.9002,
+              20.0
+            ]
+          ],
+          "q_ul": [
+            [
+              14.4113,
+              -30.9051,
+              20.0
+            ],
+            [
+              27.6054,
+              -19.3295,
+              20.0
+            ],
+            [
+              33.2729,
+              -2.911,
+              20.0
+            ],
+            [
+              30.8145,
+              14.369,
+              20.0
+            ],
+            [
+              19.3869,
+              27.6873,
+              20.0
+            ]
+          ],
+          "q_s": [
+            [
+              2.9197,
+              -33.3725,
+              20.0
+            ],
+            [
+              19.5016,
+              -27.8512,
+              20.0
+            ],
+            [
+              30.4519,
+              -14.2,
+              20.0
+            ],
+            [
+              33.9702,
+              2.972,
+              20.0
+            ],
+            [
+              27.6054,
+              19.3295,
+              20.0
+            ]
+          ]
+        },
+        "channel": {
+          "rcs_m2": [
+            10.0,
+            10.0,
+            10.0,
+            10.0,
+            10.0
+          ]
+        },
+        "initialization": {
+          "kappa_ul": 0.5,
+          "random_seed": 2026,
+          "max_geometry_trials": 10000
+        },
+        "algorithm": {
+          "max_inner_iter": 1200,
+          "max_outer_iter": 1500,
+          "tol_inner": 0.0001,
+          "tol_outer": 0.0001,
+          "max_bisection_iter": 100,
+          "tol_bisection": 1e-10,
+          "max_backtracking_iter": 30,
+          "armijo_mu": 0.0001,
+          "backtracking_factor": 0.5,
+          "finite_diff_delta": 1e-06,
+          "initial_outer_step": 0.1,
+          "plateau_window": 0,
+          "tol_window": 0.0
+        },
+        "experiment": {
+          "n_mc": 100,
+          "scene_seed_start": 8001,
+          "multi_start_seeds": [
+            2026,
+            2027,
+            2028,
+            2029,
+            2030
+          ],
+          "fixed_upa_seed": 2026,
+          "position_jitter": [
+            0.5,
+            0.5,
+            0.0
+          ],
+          "fading": {
+            "enabled": false
+          },
+          "ma": {
+            "region_size": 0.3,
+            "min_spacing": 0.005,
+            "initial_step": 0.03,
+            "n_starts": 3,
+            "initial_jitter_fraction": 0.5
+          },
+          "sweep": {
+            "rho_si": [
+              1e-05,
+              0.0001,
+              0.001,
+              0.01,
+              0.1
+            ],
+            "p_dl_max": [
+              0.1,
+              0.31622776601683794,
+              1.0,
+              3.1622776601683795,
+              10.0
+            ],
+            "cable_length": [
+              0.5,
+              0.75,
+              1.0,
+              1.25,
+              1.5
+            ]
+          },
+          "ground_annulus": {
+            "horizontal_radius_min_m": 24.64101615137755,
+            "horizontal_radius_max_m": 44.64101615137755,
+            "baseline_horizontal_radius_m": 34.64101615137755,
+            "uav_altitude_m": 20.0,
+            "center_distance_m": 40.0,
+            "center_distance_kind": "slant",
+            "distribution": "independent_uniform_area"
+          }
+        }
+      }
+    }
+  },
+  "sources": {
+    "../algorithms.py": "e92c7dc67f32eb5c4709aae274d94c91d63d6ba5ead5dbbc42d340b68c9ff078",
+    "../channel_model.py": "97699f4781d5386086178310efd3948b746fb80b9871f1fb637beb7f76f3c43c",
+    "collect_four.py": "ade973f5e034dc70c68d2556715533e0b4f031440408f2c926c03687cf333440",
+    "figure_engine.py": "b2f18789fc087e20947b6224fe8c5258438d9ded6bf3315b19b06a9eff40f6b1",
+    "finalize_run.py": "3753746fcf63725eacfa5ec5f594030e9dbeb65d713c59da18b22852e685d577",
+    "ma_fp_aware.py": "bda433cc600f0528007702b9b4271f692c85bf4079195071aaafface7b7455c1",
+    "run_final.py": "8e8fda95da8b1ca94f6625371dd14d6be085f22de43a105c133409fb6482a522",
+    "verify_final.py": "7dd7927077fd6811f54f73b651f62335f75ae362d794c74a961121801d7bb0fc",
+    "../inner_solver.py": "a2bcdc91bccdfb9ab2e1bb7bb0ec03fc7a0c2a5c104569519cd5ee21d3c96992",
+    "../outer_solver.py": "a56fc83ad388c0fc42513ed390576d1842917edd8b05213f05e028ccaeaca470",
+    "../system_model.py": "5fb83bc8bca1b938a4b18ff67e5db5164979b5b876d58802ef51e3925cb8afc8"
+  }
+}

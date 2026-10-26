@@ -1,0 +1,4 @@
+﻿figure,parameter_value,scene_seed,scheme,sum_rate_dl,sum_rate_ul,sum_rate_comm,sum_rate_sensing,weighted_sum_rate,iterations,runtime_s,converged,calls,stop_reason,position_method,start_id
+convergence,0.1,8003,proposed,67.186915885303,72.1423393128519,139.3292551981549,32.73460854374306,11.470924249459864,2,1.1974671999996644,False,1,iteration_limit,fp_aware_2,0
+convergence,1.0,8003,proposed,82.57843124529975,72.09678203631158,154.67521328161132,47.144637178322625,13.454656697328929,2,1.0359729000001607,False,1,iteration_limit,fp_aware_2,0
+convergence,10.0,8003,proposed,97.06703721847114,69.31485639368054,166.38189361215169,60.94794369856263,15.155322487380957,2,1.290997299999617,False,1,iteration_limit,fp_aware_2,0

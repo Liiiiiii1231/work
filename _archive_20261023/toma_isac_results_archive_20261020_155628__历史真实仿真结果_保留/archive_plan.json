@@ -1,0 +1,124 @@
+{
+  "archive": "D:\\Vs codeProjects\\research work1\\toma_isac_results_archive_20261020_155628",
+  "project": "D:\\Vs codeProjects\\research work1\\toma_isac",
+  "groups": [
+    {
+      "path": "auto_figure_runs",
+      "files": 54,
+      "bytes": 2319561
+    },
+    {
+      "path": "old_init_power_pilot",
+      "files": 133,
+      "bytes": 667990
+    },
+    {
+      "path": "regular025_multistart_pilot",
+      "files": 5,
+      "bytes": 10517
+    },
+    {
+      "path": "stage10/cold20_ms20_in1e6_out1e5_continued",
+      "files": 163,
+      "bytes": 8186904
+    },
+    {
+      "path": "stage10/multistart20_probe",
+      "files": 44,
+      "bytes": 181785
+    },
+    {
+      "path": "stage10/proposed_0125_trace",
+      "files": 244,
+      "bytes": 1997113
+    },
+    {
+      "path": "stage10/regular_ul_init_compare_representative",
+      "files": 31,
+      "bytes": 73110
+    },
+    {
+      "path": "stage10/four_schemes_top10_abs1e4_scene8001",
+      "files": 455,
+      "bytes": 1899507
+    },
+    {
+      "path": "stage10/top10_abs1e4_scene8001",
+      "files": 468,
+      "bytes": 2233170
+    },
+    {
+      "path": "stage10/top10_abs1e4_scene8001_b6_09_continued",
+      "files": 11,
+      "bytes": 376103
+    },
+    {
+      "path": "paper_figures_regular_abs_v2.zip",
+      "files": 1,
+      "bytes": 8943767
+    },
+    {
+      "path": "regular25_scene8001_20to40.zip",
+      "files": 1,
+      "bytes": 263175
+    },
+    {
+      "path": "paper_figures_regular_abs_v2/source_configs.zip",
+      "files": 1,
+      "bytes": 7099
+    },
+    {
+      "path": "paper_figures_regular_abs_v2/tables.zip",
+      "files": 1,
+      "bytes": 52111
+    },
+    {
+      "path": "stage10/fixed_ul025mW_MA_transition4.zip",
+      "files": 1,
+      "bytes": 252850
+    },
+    {
+      "path": "stage10/proposed_0125_trace.zip",
+      "files": 1,
+      "bytes": 1041760
+    },
+    {
+      "path": "stage10/regular_planar_pm_fixed_ul025mW_refined16.zip",
+      "files": 1,
+      "bytes": 373349
+    },
+    {
+      "path": "stage10/regular_planar_pm_full27.zip",
+      "files": 1,
+      "bytes": 527005
+    },
+    {
+      "path": "stage10/regular_ul_init_compare_representative.zip",
+      "files": 1,
+      "bytes": 50802
+    },
+    {
+      "path": "stage10/seed2042_refined_weights.zip",
+      "files": 1,
+      "bytes": 828101
+    },
+    {
+      "path": "paper_figures_regular25_multistart/repair_backup",
+      "files": 345,
+      "bytes": 1396808
+    },
+    {
+      "path": "paper_regular25_convergence/repair_backup",
+      "files": 38,
+      "bytes": 153431
+    },
+    {
+      "path": "paper_regular25_rho_si/repair_backup",
+      "files": 377,
+      "bytes": 1425870
+    }
+  ],
+  "planned_files": 2378,
+  "preserved_files": 7584,
+  "bytes": 33261888.0
+}

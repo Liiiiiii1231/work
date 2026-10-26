@@ -1,0 +1,111 @@
+{
+  "figures": {
+    "05_communication_sensing_tradeoff": {
+      "xlim": [
+        0.0,
+        95.62422400868613
+      ],
+      "ylim": [
+        0.0,
+        38.463203914506224
+      ],
+      "xticks": [
+        0.0,
+        20.0,
+        40.0,
+        60.0,
+        80.0,
+        100.0
+      ],
+      "legend_inside": true,
+      "legend_overlaps_curve": false,
+      "title": "100 Monte Carlo scenes | common initial geometry across weights"
+    },
+    "03_wsr_vs_rho_si": {
+      "xlim": [
+        -52.0,
+        -8.0
+      ],
+      "ylim": [
+        3.3950537943692862,
+        5.71879016483607
+      ],
+      "xticks": [
+        -50.0,
+        -40.0,
+        -30.0,
+        -20.0,
+        -10.0
+      ],
+      "legend_inside": true,
+      "legend_overlaps_curve": false,
+      "title": "100 shared Monte Carlo scenes | regular initialization"
+    },
+    "01_proposed_convergence": {
+      "xlim": [
+        0.0,
+        100.0
+      ],
+      "ylim": [
+        0.0,
+        6.437978243798784
+      ],
+      "xticks": [
+        0.0,
+        20.0,
+        40.0,
+        60.0,
+        80.0,
+        100.0
+      ],
+      "legend_inside": true,
+      "legend_overlaps_curve": false,
+      "title": "30 Monte Carlo scenes | best start per scene"
+    },
+    "02_wsr_vs_p_dl_max": {
+      "xlim": [
+        19.0,
+        41.0
+      ],
+      "ylim": [
+        3.9726820815672035,
+        6.740469441685695
+      ],
+      "xticks": [
+        20.0,
+        25.0,
+        30.0,
+        35.0,
+        40.0
+      ],
+      "legend_inside": true,
+      "legend_overlaps_curve": false,
+      "title": "10 shared Monte Carlo scenes | regular initialization"
+    },
+    "04_wsr_vs_system_load": {
+      "xlim": [
+        2.8,
+        7.2
+      ],
+      "ylim": [
+        2.8573427683261645,
+        10.74613390652682
+      ],
+      "xticks": [
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0
+      ],
+      "legend_inside": true,
+      "legend_overlaps_curve": false,
+      "title": "10 shared Monte Carlo scenes | regular initialization"
+    }
+  },
+  "convergence_30_scene_selection": true,
+  "old_18_weight_export_preserved": true,
+  "missing_scene_rejected": true,
+  "source_overwrite_rejected": true,
+  "optimizer_calls": 0
+}

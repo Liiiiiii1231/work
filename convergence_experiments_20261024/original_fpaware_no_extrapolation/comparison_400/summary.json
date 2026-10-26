@@ -1,0 +1,82 @@
+[
+  {
+    "scene": 8003,
+    "outer_tolerance": 0.0001,
+    "inner_tolerance": 1e-06,
+    "iterations": 59,
+    "converged": true,
+    "seconds": 333.412585099999,
+    "final_wsr": 14.764202994195461,
+    "initial_sha256": "62275239ede71f0bc6825d00a126d20469120afaf3566614253ef0fe33254ea3"
+  },
+  {
+    "scene": 8003,
+    "outer_tolerance": 0.0001,
+    "inner_tolerance": 1e-05,
+    "iterations": 73,
+    "converged": true,
+    "seconds": 166.25546799999938,
+    "final_wsr": 14.699647195114617,
+    "initial_sha256": "62275239ede71f0bc6825d00a126d20469120afaf3566614253ef0fe33254ea3"
+  },
+  {
+    "scene": 8003,
+    "outer_tolerance": 0.0001,
+    "inner_tolerance": 0.0001,
+    "iterations": 400,
+    "converged": false,
+    "seconds": 409.22352820000015,
+    "final_wsr": 14.375400919127355,
+    "initial_sha256": "62275239ede71f0bc6825d00a126d20469120afaf3566614253ef0fe33254ea3"
+  },
+  {
+    "scene": 8003,
+    "outer_tolerance": 0.001,
+    "inner_tolerance": 1e-05,
+    "iterations": 25,
+    "converged": true,
+    "seconds": 138.01649370000086,
+    "final_wsr": 14.632933489966213,
+    "initial_sha256": "62275239ede71f0bc6825d00a126d20469120afaf3566614253ef0fe33254ea3"
+  },
+  {
+    "scene": 8006,
+    "outer_tolerance": 0.0001,
+    "inner_tolerance": 1e-06,
+    "iterations": 43,
+    "converged": true,
+    "seconds": 247.9972553000007,
+    "final_wsr": 15.16496148341345,
+    "initial_sha256": "0d89d8d5cd85ef458b378a79b10721c8b9ecc93403e8caef2672b77c42c1b411"
+  },
+  {
+    "scene": 8006,
+    "outer_tolerance": 0.0001,
+    "inner_tolerance": 1e-05,
+    "iterations": 79,
+    "converged": true,
+    "seconds": 190.49662660000104,
+    "final_wsr": 15.180387532175697,
+    "initial_sha256": "0d89d8d5cd85ef458b378a79b10721c8b9ecc93403e8caef2672b77c42c1b411"
+  },
+  {
+    "scene": 8006,
+    "outer_tolerance": 0.0001,
+    "inner_tolerance": 0.0001,
+    "iterations": 400,
+    "converged": false,
+    "seconds": 403.77847680000195,
+    "final_wsr": 14.748507082935696,
+    "initial_sha256": "0d89d8d5cd85ef458b378a79b10721c8b9ecc93403e8caef2672b77c42c1b411"
+  },
+  {
+    "scene": 8006,
+    "outer_tolerance": 0.001,
+    "inner_tolerance": 1e-05,
+    "iterations": 31,
+    "converged": true,
+    "seconds": 165.08463240000128,
+    "final_wsr": 15.08590209856578,
+    "initial_sha256": "0d89d8d5cd85ef458b378a79b10721c8b9ecc93403e8caef2672b77c42c1b411"
+  }
+]

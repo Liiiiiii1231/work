@@ -1,0 +1,172 @@
+[
+  {
+    "index": 1,
+    "rank": 1,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 0.0,
+      "scene_seed": 8006,
+      "scheme": "b2",
+      "_pilot_id": 1,
+      "input_state": "inputs/001_initial.npz",
+      "input_record": "inputs/001_original.json",
+      "state_sha256": "e0a8b3eb7f9eb5ef1e50dcf277cf9feb53e73cb81e7d344f6603e2d51c286beb",
+      "record_sha256": "abc24b9f272938f279427572cabf11b508cf1a52934b213d821de68827da1b8d"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 2,
+    "rank": 2,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 0.0,
+      "scene_seed": 8006,
+      "scheme": "b3",
+      "_pilot_id": 2,
+      "input_state": "inputs/002_initial.npz",
+      "input_record": "inputs/002_original.json",
+      "state_sha256": "2ff499493cef44048eab4698facacf5b118f439e6271334a603b0651afe1e07d",
+      "record_sha256": "81daf22d2032332f93ec74ab9602ce85ef95752ffbbbcd5bcd1aeb8d6bf17d6e"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 4,
+    "rank": 4,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 0.1,
+      "scene_seed": 8006,
+      "scheme": "b2",
+      "_pilot_id": 31,
+      "input_state": "inputs/031_initial.npz",
+      "input_record": "inputs/031_original.json",
+      "state_sha256": "e0a8b3eb7f9eb5ef1e50dcf277cf9feb53e73cb81e7d344f6603e2d51c286beb",
+      "record_sha256": "8b77c37172dacc1a066cbb478235a80ad825306935d666e95f5994a80d24c05f"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 5,
+    "rank": 0,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 0.1,
+      "scene_seed": 8006,
+      "scheme": "b3",
+      "_pilot_id": 32,
+      "input_state": "inputs/032_initial.npz",
+      "input_record": "inputs/032_original.json",
+      "state_sha256": "2ff499493cef44048eab4698facacf5b118f439e6271334a603b0651afe1e07d",
+      "record_sha256": "07a2c3a919e26d5efdc4729b31fbcdab2179f12f238f48f0fa650749cde486b3"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 7,
+    "rank": 2,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 0.2,
+      "scene_seed": 8006,
+      "scheme": "b2",
+      "_pilot_id": 61,
+      "input_state": "inputs/061_initial.npz",
+      "input_record": "inputs/061_original.json",
+      "state_sha256": "e0a8b3eb7f9eb5ef1e50dcf277cf9feb53e73cb81e7d344f6603e2d51c286beb",
+      "record_sha256": "454edf435ace0dcaebfdb29f060300ca21fb56afea0e9686ab6905abcc9342be"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 8,
+    "rank": 3,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 0.2,
+      "scene_seed": 8006,
+      "scheme": "b3",
+      "_pilot_id": 62,
+      "input_state": "inputs/062_initial.npz",
+      "input_record": "inputs/062_original.json",
+      "state_sha256": "2ff499493cef44048eab4698facacf5b118f439e6271334a603b0651afe1e07d",
+      "record_sha256": "a7c0cc5650c505f16fe6b2d8cc4a0ff7ba211e66991855d0f6afd383cef6033a"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 10,
+    "rank": 4,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 1.0,
+      "scene_seed": 8006,
+      "scheme": "b2",
+      "_pilot_id": 121,
+      "input_state": "inputs/121_initial.npz",
+      "input_record": "inputs/121_original.json",
+      "state_sha256": "e0a8b3eb7f9eb5ef1e50dcf277cf9feb53e73cb81e7d344f6603e2d51c286beb",
+      "record_sha256": "36bac5aacc9d8c12c675fe20f19b3654558bf9d06e8b5032d20d9a3c6b0bd51e"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 11,
+    "rank": 4,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 1.0,
+      "scene_seed": 8006,
+      "scheme": "b3",
+      "_pilot_id": 122,
+      "input_state": "inputs/122_initial.npz",
+      "input_record": "inputs/122_original.json",
+      "state_sha256": "2ff499493cef44048eab4698facacf5b118f439e6271334a603b0651afe1e07d",
+      "record_sha256": "6d5b945a32950a08b2afdbd2415a8eed4c5a3f9f3ca1de2919524421138c25e9"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 13,
+    "rank": 0,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 1.0,
+      "scene_seed": 8099,
+      "scheme": "b2",
+      "_pilot_id": 148,
+      "input_state": "inputs/148_initial.npz",
+      "input_record": "inputs/148_original.json",
+      "state_sha256": "e8a3b259de6069df119d81a26d4cc08f4ce629a8358be9f8332df545340dc849",
+      "record_sha256": "ae80aaa847f5e1a9d879f2b4b629a060d6233547923d46743eb72428cbc75718"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  },
+  {
+    "index": 14,
+    "rank": 4,
+    "task": {
+      "figure": "tradeoff",
+      "parameter_value": 1.0,
+      "scene_seed": 8099,
+      "scheme": "b3",
+      "_pilot_id": 149,
+      "input_state": "inputs/149_initial.npz",
+      "input_record": "inputs/149_original.json",
+      "state_sha256": "06a86ea4306004f158dd73e3fed8b4f65fefeb560eb4e88b942a21930d840a08",
+      "record_sha256": "7a63859fc551c35ff72490f5217545908c6a927e766c6077e66acea2daa0f0b8"
+    },
+    "ok": false,
+    "error": "AttributeError(\"'BaselineResult' object has no attribute 'stop_reason'\")"
+  }
+]

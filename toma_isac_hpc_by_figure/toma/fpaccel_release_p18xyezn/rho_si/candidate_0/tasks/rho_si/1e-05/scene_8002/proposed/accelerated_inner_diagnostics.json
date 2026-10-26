@@ -1,0 +1,76 @@
+[
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 1.4535794045345107,
+    "final_wsr": 11.057923174285385,
+    "seconds": 0.023052999999890744,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 9.320964433605196,
+        "increment": 7.867385029070686,
+        "alpha": 1.1960779897856075,
+        "attempted_alpha": 1.1960779897856075,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 11.057923174285385,
+        "increment": 1.7369587406801887,
+        "alpha": 2.639959910850564,
+        "attempted_alpha": 2.639959910850564,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 1,
+    "after_position_iteration": null
+  },
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 11.913335419247874,
+    "final_wsr": 12.415102584004465,
+    "seconds": 0.021031899999798043,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 12.260704231938787,
+        "increment": 0.34736881269091313,
+        "alpha": 47.251934840467186,
+        "attempted_alpha": 47.251934840467186,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 12.415102584004465,
+        "increment": 0.15439835206567842,
+        "alpha": 3.5339326052377644,
+        "attempted_alpha": 3.5339326052377644,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 2,
+    "after_position_iteration": 1
+  }
+]

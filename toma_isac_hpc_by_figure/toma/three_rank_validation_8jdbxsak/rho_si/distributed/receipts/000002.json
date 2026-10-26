@@ -1,0 +1,17 @@
+{
+  "index": 2,
+  "rank": 2,
+  "task": {
+    "figure": "rho_si",
+    "parameter_value": 1e-05,
+    "scene_seed": 8002,
+    "scheme": "b6"
+  },
+  "ok": true,
+  "worker": {
+    "host": "Liiiiiii",
+    "pid": 33352
+  },
+  "wsr": 12.047005494350682,
+  "converged": false
+}

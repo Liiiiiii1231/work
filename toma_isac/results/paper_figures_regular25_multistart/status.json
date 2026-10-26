@@ -1,30 +1,9 @@
 {
   "p_dl_max": {
-    "complete": false,
+    "complete": true,
     "expected_starts": 500,
-    "converged_starts": 109,
-    "selected_scene_cells": 43,
-    "errors": [
-      {
-        "task": {
-          "figure": "p_dl_max",
-          "parameter_value": 3.1622776601683795,
-          "scene_seed": 8009,
-          "scheme": "proposed"
-        },
-        "start_id": 0,
-        "error": "FileNotFoundError(2, 'No such file or directory')"
-      },
-      {
-        "task": {
-          "figure": "p_dl_max",
-          "parameter_value": 3.1622776601683795,
-          "scene_seed": 8008,
-          "scheme": "b6"
-        },
-        "start_id": 2,
-        "error": "FileNotFoundError(2, 'No such file or directory')"
-      }
-    ]
+    "converged_starts": 500,
+    "selected_scene_cells": 200,
+    "errors": []
   }
 }

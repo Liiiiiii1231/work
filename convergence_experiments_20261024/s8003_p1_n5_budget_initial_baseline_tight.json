@@ -1,0 +1,161 @@
+{
+  "tag": "s8003_p1_n5_budget_initial",
+  "method": "baseline_tight",
+  "iterations": 5,
+  "converged": false,
+  "initial_score": 1.3897903236347897,
+  "final_score": 14.109549702264472,
+  "gain": 12.719759378629682,
+  "seconds": 31.268468199999916,
+  "history": [
+    1.3897903236347897,
+    13.581361091877787,
+    13.8297825998844,
+    13.967049733042602,
+    14.054569197409474,
+    14.109549702264472
+  ],
+  "rows": [
+    {
+      "iteration": 1,
+      "wsr": 13.581361091877787,
+      "seconds": 5.24397880000015,
+      "resource_gain": 11.850904074236988,
+      "inner_iterations": 1200,
+      "calls": {
+        "main": 1,
+        "candidate": 68,
+        "probe": 0
+      },
+      "fp_iterations": {
+        "main": 1200,
+        "candidate": 136,
+        "probe": 0
+      },
+      "position_gain": 0.3406666940060088,
+      "accepted": 8,
+      "fixed_resource_geometry_gain": -41.00043209782599,
+      "candidate_adaptation_gain": 41.341098791831996,
+      "accepted_candidate_fp_iterations": 16,
+      "backtracks": 70,
+      "mean_displacement_mm": 114.60122792926056,
+      "max_displacement_mm": 530.940725230908
+    },
+    {
+      "iteration": 2,
+      "wsr": 13.8297825998844,
+      "seconds": 11.788610200000221,
+      "resource_gain": 0.11095657331497755,
+      "inner_iterations": 1200,
+      "calls": {
+        "main": 2,
+        "candidate": 130,
+        "probe": 0
+      },
+      "fp_iterations": {
+        "main": 2400,
+        "candidate": 260,
+        "probe": 0
+      },
+      "position_gain": 0.13746493469163568,
+      "accepted": 8,
+      "fixed_resource_geometry_gain": -37.89717363838815,
+      "candidate_adaptation_gain": 38.03463857307979,
+      "accepted_candidate_fp_iterations": 16,
+      "backtracks": 66,
+      "mean_displacement_mm": 148.3883503765681,
+      "max_displacement_mm": 592.298711569423
+    },
+    {
+      "iteration": 3,
+      "wsr": 13.967049733042602,
+      "seconds": 17.765658999999687,
+      "resource_gain": 0.07084989548084053,
+      "inner_iterations": 1200,
+      "calls": {
+        "main": 3,
+        "candidate": 209,
+        "probe": 0
+      },
+      "fp_iterations": {
+        "main": 3600,
+        "candidate": 418,
+        "probe": 0
+      },
+      "position_gain": 0.06641723767736174,
+      "accepted": 8,
+      "fixed_resource_geometry_gain": -31.52162993846213,
+      "candidate_adaptation_gain": 31.588047176139497,
+      "accepted_candidate_fp_iterations": 16,
+      "backtracks": 82,
+      "mean_displacement_mm": 1.1738683666971017,
+      "max_displacement_mm": 3.069698526662248
+    },
+    {
+      "iteration": 4,
+      "wsr": 14.054569197409474,
+      "seconds": 24.94892609999988,
+      "resource_gain": 0.053512363693592135,
+      "inner_iterations": 1200,
+      "calls": {
+        "main": 4,
+        "candidate": 304,
+        "probe": 0
+      },
+      "fp_iterations": {
+        "main": 4800,
+        "candidate": 608,
+        "probe": 0
+      },
+      "position_gain": 0.03400710067328028,
+      "accepted": 8,
+      "fixed_resource_geometry_gain": -28.724462443882263,
+      "candidate_adaptation_gain": 28.758469544555545,
+      "accepted_candidate_fp_iterations": 16,
+      "backtracks": 91,
+      "mean_displacement_mm": 0.7620152736134099,
+      "max_displacement_mm": 2.076850506417324
+    },
+    {
+      "iteration": 5,
+      "wsr": 14.109549702264472,
+      "seconds": 31.268459699999767,
+      "resource_gain": 0.04640260710170452,
+      "inner_iterations": 1200,
+      "calls": {
+        "main": 5,
+        "candidate": 404,
+        "probe": 0
+      },
+      "fp_iterations": {
+        "main": 6000,
+        "candidate": 808,
+        "probe": 0
+      },
+      "position_gain": 0.008577897753292874,
+      "accepted": 8,
+      "fixed_resource_geometry_gain": -20.184169783925185,
+      "candidate_adaptation_gain": 20.192747681678476,
+      "accepted_candidate_fp_iterations": 16,
+      "backtracks": 93,
+      "mean_displacement_mm": 0.3431890072320582,
+      "max_displacement_mm": 0.460203025023866
+    }
+  ],
+  "first_tolerance_iteration": null,
+  "fixed_budget": true,
+  "inner_tolerance": 1e-06,
+  "calls": {
+    "main": 5,
+    "candidate": 404,
+    "probe": 0
+  },
+  "fp_iterations": {
+    "main": 6000,
+    "candidate": 808,
+    "probe": 0
+  },
+  "refresh_period": 10,
+  "tolerance": 0.0001,
+  "minimum_increment": 0.05498050485499739
+}

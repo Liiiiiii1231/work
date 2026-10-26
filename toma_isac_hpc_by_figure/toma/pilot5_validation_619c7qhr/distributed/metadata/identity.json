@@ -1,0 +1,54 @@
+{
+  "figure": "tradeoff",
+  "protocol": {
+    "protocol": {
+      "base_p_dl_W": 1.0,
+      "base_rho_si": 1e-10,
+      "resource_seed": 2042,
+      "initial_ul_power_W": 0.025,
+      "max_inner_iter": 1200,
+      "max_outer_iter": 1500,
+      "tol_inner": 1e-05,
+      "tol_outer": 0.0001,
+      "plateau_window": 0,
+      "ma_region_size_m": 0.3,
+      "ma_min_spacing_m": 0.005,
+      "ma_initial_step_m": 0.03
+    },
+    "schemes": [
+      "b6",
+      "b2",
+      "b3"
+    ],
+    "_pilot_test_budget": {
+      "max_inner_iter": 3,
+      "max_outer_iter": 2
+    }
+  },
+  "frozen_sha256": null,
+  "solver_sources": {
+    "algorithms.py": "e92c7dc67f32eb5c4709aae274d94c91d63d6ba5ead5dbbc42d340b68c9ff078",
+    "channel_model.py": "97699f4781d5386086178310efd3948b746fb80b9871f1fb637beb7f76f3c43c",
+    "figure_engine.py": "7359f695639dee6f7e6428b7cdffe2d18a548904c2354b788582b06ed658f305",
+    "inner_solver.py": "a2bcdc91bccdfb9ab2e1bb7bb0ec03fc7a0c2a5c104569519cd5ee21d3c96992",
+    "outer_solver.py": "a56fc83ad388c0fc42513ed390576d1842917edd8b05213f05e028ccaeaca470",
+    "system_model.py": "5fb83bc8bca1b938a4b18ff67e5db5164979b5b876d58802ef51e3925cb8afc8"
+  },
+  "shared_sources": {
+    "algorithms.py": "e92c7dc67f32eb5c4709aae274d94c91d63d6ba5ead5dbbc42d340b68c9ff078",
+    "channel_model.py": "97699f4781d5386086178310efd3948b746fb80b9871f1fb637beb7f76f3c43c",
+    "inner_solver.py": "a2bcdc91bccdfb9ab2e1bb7bb0ec03fc7a0c2a5c104569519cd5ee21d3c96992",
+    "outer_solver.py": "a56fc83ad388c0fc42513ed390576d1842917edd8b05213f05e028ccaeaca470",
+    "system_model.py": "5fb83bc8bca1b938a4b18ff67e5db5164979b5b876d58802ef51e3925cb8afc8"
+  },
+  "scheduler_sources": {
+    "queue_runtime.py": "bfc4c6ca0a1fd1fc50aa0a37f2bbc5d3f80fd4a5a7dd8f4009aa6e7d879d10af",
+    "run_pilot.py": "b318d35d66d3b05560c2a0152c9022fc4ef0968f3c91236360b9b73dfe58ef9e",
+    "validate_pilot.py": "26d6f8959c906b690d013cdaca7a74b05f40d8f5724242c77bca788da008618c"
+  },
+  "nodes": 5,
+  "workers_per_node": 2,
+  "total_worker_slots": 10,
+  "local_test": true,
+  "scheduling": "atomic shared-filesystem claims with work stealing; one call per task"
+}

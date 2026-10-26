@@ -1,0 +1,76 @@
+[
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 0.36204954062436073,
+    "final_wsr": 10.260816751538405,
+    "seconds": 0.02350879999994504,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 10.210258990555598,
+        "increment": 9.848209449931238,
+        "alpha": 1.0,
+        "attempted_alpha": 1.0,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 10.260816751538405,
+        "increment": 0.050557760982806954,
+        "alpha": 9.49315418934574,
+        "attempted_alpha": 9.49315418934574,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 1,
+    "after_position_iteration": null
+  },
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 11.038848713624322,
+    "final_wsr": 11.097024947052393,
+    "seconds": 0.019289999999273277,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 11.047810606699906,
+        "increment": 0.00896189307558437,
+        "alpha": 2.5343637952226823,
+        "attempted_alpha": 2.5343637952226823,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 11.097024947052393,
+        "increment": 0.04921434035248673,
+        "alpha": 22.04192887430535,
+        "attempted_alpha": 22.04192887430535,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 2,
+    "after_position_iteration": 1
+  }
+]

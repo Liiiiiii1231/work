@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "figure": "tradeoff",
+  "smoke_only": true,
+  "expected_tasks": 24,
+  "finished_tasks": 24,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "converged_tasks": 0,
+  "all_converged": false,
+  "scene_seeds": [
+    8002,
+    8003
+  ],
+  "weights": [
+    0.0,
+    0.2,
+    1.0
+  ],
+  "completion_definition": "All independent single-pass tasks finished; capped results included and labelled. No warm starts or continuation.",
+  "nodes": 3,
+  "workers_per_node": 2,
+  "total_worker_slots": 6,
+  "local_multirank_test": true
+}

@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verified_full_configuration_tasks": 630,
+  "full_plan": {
+    "convergence": {
+      "cells": 30,
+      "starts": 30
+    },
+    "p_dl_max": {
+      "cells": 200,
+      "starts": 200
+    },
+    "rho_si": {
+      "cells": 200,
+      "starts": 200
+    },
+    "system_load": {
+      "cells": 200,
+      "starts": 200
+    }
+  },
+  "smoke_tasks": 38,
+  "smoke_only": true,
+  "note": "Two scenes and tiny budgets exercise all four figure exports; not performance results"
+}

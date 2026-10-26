@@ -1,0 +1,61 @@
+{
+  "scene": 8001,
+  "weights": [
+    0.0,
+    0.001,
+    0.005,
+    0.015,
+    0.03,
+    0.05,
+    0.075,
+    0.1,
+    0.125,
+    0.16,
+    0.18,
+    0.2,
+    0.24,
+    0.28,
+    0.32,
+    0.36,
+    0.42,
+    0.6,
+    0.8,
+    1.0
+  ],
+  "input_sha256": "1892297189b24963fcb6286d9a22424f76345915f91aaf7b414129c35e1775c8",
+  "rule": "one-pass frozen immediate-neighbor WSR-only selection; ties prefer original",
+  "counts": {
+    "proposed": {
+      "strict_changed": 7,
+      "wsr_only_changed": 13,
+      "communication_decreases": 7,
+      "sensing_decreases": 1,
+      "max_wsr_gain": 2.265845085881951
+    },
+    "b6": {
+      "strict_changed": 5,
+      "wsr_only_changed": 15,
+      "communication_decreases": 3,
+      "sensing_decreases": 8,
+      "max_wsr_gain": 2.3391145093062433
+    },
+    "b2": {
+      "strict_changed": 3,
+      "wsr_only_changed": 14,
+      "communication_decreases": 8,
+      "sensing_decreases": 3,
+      "max_wsr_gain": 1.3426870238633382
+    },
+    "b3": {
+      "strict_changed": 7,
+      "wsr_only_changed": 16,
+      "communication_decreases": 0,
+      "sensing_decreases": 9,
+      "max_wsr_gain": 0.19128947604819047
+    }
+  },
+  "all_target_WSR_non_decreasing": true,
+  "all_target_WSR_at_least_strict_rule": true,
+  "optimization_run": false,
+  "formal_project_modified": false
+}

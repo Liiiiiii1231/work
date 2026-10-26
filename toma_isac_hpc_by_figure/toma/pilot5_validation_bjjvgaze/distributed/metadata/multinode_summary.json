@@ -1,0 +1,64 @@
+{
+  "nodes": [
+    {
+      "rank": 0,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 3,
+      "finished_tasks": 3,
+      "failed_tasks": 0,
+      "seconds": 2.2189999999827705,
+      "errors": []
+    },
+    {
+      "rank": 1,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 2,
+      "finished_tasks": 2,
+      "failed_tasks": 0,
+      "seconds": 2.6089999999967404,
+      "errors": []
+    },
+    {
+      "rank": 2,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 2,
+      "finished_tasks": 2,
+      "failed_tasks": 0,
+      "seconds": 1.3429999999934807,
+      "errors": []
+    },
+    {
+      "rank": 3,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 2,
+      "finished_tasks": 2,
+      "failed_tasks": 0,
+      "seconds": 2.5929999999934807,
+      "errors": []
+    },
+    {
+      "rank": 4,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 6,
+      "finished_tasks": 6,
+      "failed_tasks": 0,
+      "seconds": 2.5469999999913853,
+      "errors": []
+    }
+  ],
+  "world_size": 5,
+  "total_worker_slots": 10,
+  "finished_tasks": 15,
+  "unique_task_claims_verified": true,
+  "local_test": true
+}

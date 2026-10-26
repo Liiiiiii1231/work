@@ -1,0 +1,29 @@
+{
+  "task": {
+    "figure": "tradeoff",
+    "parameter_value": 0.2,
+    "scene_seed": 8001,
+    "scheme": "proposed"
+  },
+  "kind": "pure_sensing_seed",
+  "source": "pure",
+  "source_record_sha256": "19f0ac356276594b88c7d216841ea7226ebe6770d07e0d7b10d32a7844ba3104",
+  "tol_inner": 0.0001,
+  "tol_outer": 0.0001,
+  "max_outer_iter": 100,
+  "max_inner_iter": 1200,
+  "max_wall_seconds": 300,
+  "zero_UL_amplitudes": 5,
+  "intentional_diagnostic_changes": [
+    "saved-state starting point",
+    "100 additional outer-iteration budget"
+  ],
+  "paper_protocol_changed": false,
+  "initial_metrics": {
+    "sum_rate_dl": 0.6881264746336521,
+    "sum_rate_ul": 0.0,
+    "sum_rate_comm": 0.6881264746336521,
+    "sum_rate_sensing": 36.57162586773345,
+    "weighted_sum_rate": 5.865222668330026
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "executable": "D:\\miniconda\\envs\\toma_isac\\python.exe",
+  "unused_output": "results/cleanup_check_only_unused_20261020_153403",
+  "unused_output_created": false,
+  "checks": [
+    {
+      "name": "unified",
+      "command": [
+        "D:\\miniconda\\envs\\toma_isac\\python.exe",
+        "-B",
+        "run_all_figures_unified.py",
+        "--figures",
+        "convergence",
+        "p_dl_max",
+        "rho_si",
+        "system_load",
+        "tradeoff",
+        "--check-only",
+        "--output",
+        "results/cleanup_check_only_unused_20261020_153403"
+      ],
+      "returncode": 0,
+      "seconds": 11.469,
+      "stdout_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\validation\\after_unified.stdout.log",
+      "stderr_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\validation\\after_unified.stderr.log"
+    },
+    {
+      "name": "ma_add4",
+      "command": [
+        "D:\\miniconda\\envs\\toma_isac\\python.exe",
+        "-B",
+        "experiments/run_stage10_ma_add4.py",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "seconds": 0.844,
+      "stdout_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\validation\\after_ma_add4.stdout.log",
+      "stderr_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\validation\\after_ma_add4.stderr.log"
+    },
+    {
+      "name": "ma_transition4",
+      "command": [
+        "D:\\miniconda\\envs\\toma_isac\\python.exe",
+        "-B",
+        "experiments/run_stage10_ma_transition4.py",
+        "--check-only"
+      ],
+      "returncode": 0,
+      "seconds": 0.844,
+      "stdout_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\validation\\after_ma_transition4.stdout.log",
+      "stderr_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\validation\\after_ma_transition4.stderr.log"
+    }
+  ]
+}

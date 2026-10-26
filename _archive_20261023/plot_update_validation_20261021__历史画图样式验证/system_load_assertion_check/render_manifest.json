@@ -1,0 +1,32 @@
+{
+  "mode": "exported_csv_replot_no_optimization",
+  "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\paper_regular25_system_load",
+  "input_sha256": {
+    "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\paper_regular25_system_load\\tables\\system_load_per_scene.csv": "cd0ddbbfc1d20fb40c97b76d9ac856fe199bc8069950d9a6cf132586e7c0dbe8"
+  },
+  "figures": {
+    "system_load": {
+      "n_mc": 10,
+      "scene_seeds": [
+        8001,
+        8002,
+        8003,
+        8004,
+        8005,
+        8006,
+        8007,
+        8008,
+        8009,
+        8010
+      ],
+      "parameter_values": [
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0
+      ]
+    }
+  },
+  "solvers_invoked": false
+}

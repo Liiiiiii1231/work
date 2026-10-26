@@ -1,0 +1,17 @@
+{
+  "index": 6,
+  "rank": 0,
+  "task": {
+    "figure": "tradeoff",
+    "parameter_value": 0.0,
+    "scene_seed": 8003,
+    "scheme": "b2"
+  },
+  "ok": true,
+  "worker": {
+    "host": "Liiiiiii",
+    "pid": 6456
+  },
+  "wsr": 10.109107526263347,
+  "converged": false
+}

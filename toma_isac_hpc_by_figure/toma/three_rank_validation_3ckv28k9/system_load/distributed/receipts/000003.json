@@ -1,0 +1,17 @@
+{
+  "index": 3,
+  "rank": 0,
+  "task": {
+    "figure": "system_load",
+    "parameter_value": 3.0,
+    "scene_seed": 8003,
+    "scheme": "b6"
+  },
+  "ok": true,
+  "worker": {
+    "host": "Liiiiiii",
+    "pid": 47676
+  },
+  "wsr": 11.727342829822916,
+  "converged": false
+}

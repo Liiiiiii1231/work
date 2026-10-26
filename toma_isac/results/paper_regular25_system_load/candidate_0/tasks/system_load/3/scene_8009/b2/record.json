@@ -4,15 +4,15 @@
     "parameter_value": 3.0,
     "scene_seed": 8009,
     "scheme": "b2",
-    "sum_rate_dl": 44.609573028154294,
-    "sum_rate_ul": 36.44005883875358,
-    "sum_rate_comm": 81.04963186690787,
-    "sum_rate_sensing": 4.056799158404007,
-    "weighted_sum_rate": 9.456270113923543,
-    "iterations": 2400,
-    "runtime_s": 3.482665100018494,
-    "converged": false,
-    "calls": 2
+    "sum_rate_dl": 43.260965233701,
+    "sum_rate_ul": 38.93790762180377,
+    "sum_rate_comm": 82.19887285550476,
+    "sum_rate_sensing": 4.627696747709809,
+    "weighted_sum_rate": 9.647396622579397,
+    "iterations": 3764,
+    "runtime_s": 6.342229600035353,
+    "converged": true,
+    "calls": 4
   },
   "cfg_sha256": "8a68f8fc8a114660759ad3589eea04b7947ac1416ebc8caf3c95b69cc927af40",
   "effective_config": {
@@ -179,8 +179,8 @@
     "tol_window": 0.0
   },
   "initial_sha256": "8fc0c733ea8c60b6acdfe105c0a804abc27d242f0c36a2902926b78a2b3d80e1",
-  "state_file": "call_002.npz",
-  "state_sha256": "9a22a13ffc14f5e7bec2e29c8828ed7a8ba94ed272b3d2a62eb5061a99173523",
+  "state_file": "call_004.npz",
+  "state_sha256": "7c6214d3ded701fa965ab9da44637a0e42d8fc80cc43e4462217f19bbc1a3d2b",
   "absolute_stopping": true,
   "same_parameter_scene_weight_only": true
 }

@@ -1,0 +1,3 @@
+{"initial_alpha": 0.1, "iterations": 30, "converged": false, "initial_score": 14.704765731160656, "final_score": 14.711399499097977, "gain": 0.006633767937321622, "seconds": 20.81106970000019, "max_history_difference_from_alpha01": 0.0}
+{"initial_alpha": 0.8, "iterations": 30, "converged": false, "initial_score": 14.704765731160656, "final_score": 14.711399499097977, "gain": 0.006633767937321622, "seconds": 24.944885899999917, "max_history_difference_from_alpha01": 0.0}
+{"initial_alpha": 1.0, "iterations": 30, "converged": false, "initial_score": 14.704765731160656, "final_score": 14.71135904110947, "gain": 0.006593309948813797, "seconds": 25.895595500000127, "max_history_difference_from_alpha01": 0.000104144169062792}

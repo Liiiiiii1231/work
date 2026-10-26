@@ -1,0 +1,835 @@
+{
+  "project_root": "D:\\Vs codeProjects\\research work1\\toma_isac",
+  "archive_root": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403",
+  "status": "moved_and_sha256_verified",
+  "entries": [
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\check_proposed_near_field.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\check_proposed_near_field.py",
+      "relative_path": "experiments/check_proposed_near_field.py",
+      "size_bytes": 10076,
+      "sha256": "e8faced4af44389d961cb067bfd1a2348595a59b9c90a3eeb57b8754ff898cbc"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\extend_stage8_rho_si_minus50.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\extend_stage8_rho_si_minus50.py",
+      "relative_path": "experiments/extend_stage8_rho_si_minus50.py",
+      "size_bytes": 7875,
+      "sha256": "3f2a2d4ba27e13dae53932985c4ed14fb0f4986ea27288f602a8fd994adf97bd"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\planar_pm_initialization.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\planar_pm_initialization.py",
+      "relative_path": "experiments/planar_pm_initialization.py",
+      "size_bytes": 3288,
+      "sha256": "bdc81bd259fbc80451c0a3228c44aab2bd5248ee6702bde9787cb5642782a19f"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_convergence_early_main.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_convergence_early_main.py",
+      "relative_path": "experiments/plot_convergence_early_main.py",
+      "size_bytes": 6746,
+      "sha256": "f7258a6431266ea56715f77305c804d8d9c7bc3f172fc935592696d91491db2e"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_proposed_convergence.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_proposed_convergence.py",
+      "relative_path": "experiments/plot_proposed_convergence.py",
+      "size_bytes": 10587,
+      "sha256": "24903f7a9cf6c3ee1be534ba86ddb63658667b1e32385a3b4141c69b2a38e5be"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage10_cold20.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage10_cold20.py",
+      "relative_path": "experiments/plot_stage10_cold20.py",
+      "size_bytes": 7872,
+      "sha256": "f4e91f5db1890e6dd05eb9c6fd344febf513c0b46c3e5ee4aa3a251e07d6304d"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage10_ms20.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage10_ms20.py",
+      "relative_path": "experiments/plot_stage10_ms20.py",
+      "size_bytes": 523,
+      "sha256": "1ac5f5a235d3294285feda6040c1553f6b3fa839334b514cc8de9ee928e27bcf"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage10_tradeoff.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage10_tradeoff.py",
+      "relative_path": "experiments/plot_stage10_tradeoff.py",
+      "size_bytes": 4062,
+      "sha256": "e441cf22039fce48030a8f1e59a517a74931452abc542021e3679de70e578523"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage8_results.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage8_results.py",
+      "relative_path": "experiments/plot_stage8_results.py",
+      "size_bytes": 11227,
+      "sha256": "546dce0b26381c70bbe29401807bfb4a52c08813a2734a074470dff8ea3de8b6"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\rerun_stage8_k5.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\rerun_stage8_k5.py",
+      "relative_path": "experiments/rerun_stage8_k5.py",
+      "size_bytes": 6840,
+      "sha256": "c92e9ef3fc4e80a7d69f89bfd9f1f58efe0714803dbcb639dc2418656b3aa8e0"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_old_init_power_pilot.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_old_init_power_pilot.py",
+      "relative_path": "experiments/run_old_init_power_pilot.py",
+      "size_bytes": 13573,
+      "sha256": "4913ae8aae1b91ac2230b7b426507ba34ae07a73c3f73ec11d849d2f772a94fe"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_cold20.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_cold20.py",
+      "relative_path": "experiments/run_stage10_cold20.py",
+      "size_bytes": 26190,
+      "sha256": "2055777854be9ee1e87a247459a70b8f4496f1ca6918d4db3a44659f8c0955a2"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_complete_fixed_abs.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_complete_fixed_abs.py",
+      "relative_path": "experiments/run_stage10_complete_fixed_abs.py",
+      "size_bytes": 20506,
+      "sha256": "df341dc7bc37433e8806de735edf44cad1e3e4c5f617d238aebdb5618cb183d2"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_continue_and_plot.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_continue_and_plot.py",
+      "relative_path": "experiments/run_stage10_continue_and_plot.py",
+      "size_bytes": 24781,
+      "sha256": "cfb45e325e414d69baef16447913dea31e2429202af474be12d99948f1849e73"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_continue_b6_09.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_continue_b6_09.py",
+      "relative_path": "experiments/run_stage10_continue_b6_09.py",
+      "size_bytes": 18957,
+      "sha256": "d0f72e3d4c4ba0e5087b55f211da785c46baf23413f6c9c74acb8195167da2dd"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_fixed_ul_025mW.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_fixed_ul_025mW.py",
+      "relative_path": "experiments/run_stage10_fixed_ul_025mW.py",
+      "size_bytes": 7389,
+      "sha256": "64b1b0a6ef2ff1241ca7d5781fca34247389f22d2350c55f086f7440b2ee70cf"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_fixed_ul_025mW_refined16.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_fixed_ul_025mW_refined16.py",
+      "relative_path": "experiments/run_stage10_fixed_ul_025mW_refined16.py",
+      "size_bytes": 7699,
+      "sha256": "5df84b36194c7ce66b9619aa66c87646515899030e99ffc2b61f00f91596ff20"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_ms20.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_ms20.py",
+      "relative_path": "experiments/run_stage10_ms20.py",
+      "size_bytes": 16458,
+      "sha256": "8a9f36d742c8009db34b98b6f6fa403f094b68ab49cf42d84f4f83990db3629a"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_multistart20_probe.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_multistart20_probe.py",
+      "relative_path": "experiments/run_stage10_multistart20_probe.py",
+      "size_bytes": 12249,
+      "sha256": "cf783307867c2b8e0d901912591d2312a5b5a14d29f04657d41064f51cccfa9f"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_refine_regular20.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_refine_regular20.py",
+      "relative_path": "experiments/run_stage10_refine_regular20.py",
+      "size_bytes": 12549,
+      "sha256": "3ef551dcd7a4198c1c426e78c0e35e999b121bac7029dddee59b3fe2379287ad"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_refine_seed2042.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_refine_seed2042.py",
+      "relative_path": "experiments/run_stage10_refine_seed2042.py",
+      "size_bytes": 16790,
+      "sha256": "f4edb707f0515bef727f860576e397b45a015c644b4c16724e0bc12d8ffff466"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_regular_planar_pm.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_regular_planar_pm.py",
+      "relative_path": "experiments/run_stage10_regular_planar_pm.py",
+      "size_bytes": 8674,
+      "sha256": "d0f7e5cdb26fa207c61e75fa55993755908ed6dc9660524e263bda9228be8458"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_top10_abs.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_top10_abs.py",
+      "relative_path": "experiments/run_stage10_top10_abs.py",
+      "size_bytes": 23809,
+      "sha256": "f3507c4cad895a543c6e2aa7c8b75490d9af96173d49e3a62c55736265a986e0"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_tradeoff.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_tradeoff.py",
+      "relative_path": "experiments/run_stage10_tradeoff.py",
+      "size_bytes": 18625,
+      "sha256": "0560ae719f0304ae2c1715b8b896ffc80e94ce08c12dd129c8feb145fa53fd36"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_ul_init_compare.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_ul_init_compare.py",
+      "relative_path": "experiments/run_stage10_ul_init_compare.py",
+      "size_bytes": 7945,
+      "sha256": "669a25990c15fc42944c325ffbbb771cd2c86799b6731ac243b1e92e5fa0f473"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_ul_init_compare_representative.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_ul_init_compare_representative.py",
+      "relative_path": "experiments/run_stage10_ul_init_compare_representative.py",
+      "size_bytes": 8232,
+      "sha256": "6ca3a3edc77118c18dab8fe23b9f7c41dad7a707b55f0090884fb210e6121a6c"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_warmstart_probe.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_warmstart_probe.py",
+      "relative_path": "experiments/run_stage10_warmstart_probe.py",
+      "size_bytes": 12207,
+      "sha256": "2a7fae3e4cc65fef7fe367a442959f8fdc73545a90f5c6bc47e43bcc847d46b8"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage5_stress.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage5_stress.py",
+      "relative_path": "experiments/run_stage5_stress.py",
+      "size_bytes": 3550,
+      "sha256": "8abb1564ef895e92ec85770ce9fb9e67f2c7ce6c6bf91657c0fbb8504f287635"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage6_baselines.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage6_baselines.py",
+      "relative_path": "experiments/run_stage6_baselines.py",
+      "size_bytes": 6079,
+      "sha256": "38d88dfb49a2098aa22b026c3a154bdd5f9bfba541cbb559e70683f561b98fc1"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage7_multistart.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage7_multistart.py",
+      "relative_path": "experiments/run_stage7_multistart.py",
+      "size_bytes": 4180,
+      "sha256": "34ea46d0b12a7145b0726827dcb1837569f57e831eb0a2383b9bfea005518097"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_full_smoke.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_full_smoke.py",
+      "relative_path": "experiments/run_stage8_full_smoke.py",
+      "size_bytes": 9756,
+      "sha256": "3f32adc623b218088363cb1fc49e1106950c816030fd316e1b6c7442b0747cc2"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_load_sweep.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_load_sweep.py",
+      "relative_path": "experiments/run_stage8_load_sweep.py",
+      "size_bytes": 6406,
+      "sha256": "dbac0b6701dfdb32829907a6d3c06f228c228e376bfcff9c80b9a5eed1a912c7"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_monte_carlo.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_monte_carlo.py",
+      "relative_path": "experiments/run_stage8_monte_carlo.py",
+      "size_bytes": 1923,
+      "sha256": "9ab0623d413985c3e5c26da3756bd7d7010fea4073de37c5b7f0898e99c58f2e"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_sweeps.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_sweeps.py",
+      "relative_path": "experiments/run_stage8_sweeps.py",
+      "size_bytes": 2593,
+      "sha256": "6d8be9bfdb732a931884cfb10f282f9efcd233cea39fb9e277139ba7d6aa9b6d"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_common.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_common.py",
+      "relative_path": "experiments/stage10_planar_pm_common.py",
+      "size_bytes": 16793,
+      "sha256": "4446584d0b682e4ad502f43640ec99332c1cca56ece4842366e3387ec8ee1d51"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_support.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_support.py",
+      "relative_path": "experiments/stage10_seed2042_support.py",
+      "size_bytes": 4346,
+      "sha256": "7da9cee9f0eb9821615b38b27681ecfd2eed3e85beee2f9bd4230fd4d04587db"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\trace_stage10_proposed_0125.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\trace_stage10_proposed_0125.py",
+      "relative_path": "experiments/trace_stage10_proposed_0125.py",
+      "size_bytes": 15213,
+      "sha256": "33959a15b067d887954d885ee9f2e8ded27e042a4962a45d485dad39f677d5a9"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare_inputs\\b6_original_initial.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare_inputs\\b6_original_initial.npz",
+      "relative_path": "experiments/stage10_ul_compare_inputs/b6_original_initial.npz",
+      "size_bytes": 2617,
+      "sha256": "300cb5d9d93ad6c5bc6148f3398f270b20ef2edd1c2c35ef08a2aa2ad64b2078"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare_inputs\\baseline_018.csv",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare_inputs\\baseline_018.csv",
+      "relative_path": "experiments/stage10_ul_compare_inputs/baseline_018.csv",
+      "size_bytes": 652,
+      "sha256": "262f86d07dcd50c43daa7c11bb2c9e0d7e182a16a537bb8bf4e9cc2621e3c77e"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare_inputs\\manifest.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare_inputs\\manifest.json",
+      "relative_path": "experiments/stage10_ul_compare_inputs/manifest.json",
+      "size_bytes": 582,
+      "sha256": "08148c68a08008fc2bb43deb46a1484954eec0d9bbec69c9f74b70531f9689a4"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare_inputs\\proposed_original_initial.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare_inputs\\proposed_original_initial.npz",
+      "relative_path": "experiments/stage10_ul_compare_inputs/proposed_original_initial.npz",
+      "size_bytes": 2676,
+      "sha256": "fffef8d02b257cf24649c1adff4a78a58da94dceaead116bb9cb77bf681ee5a6"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\initial_states\\b6.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\initial_states\\b6.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/initial_states/b6.npz",
+      "size_bytes": 2617,
+      "sha256": "f0754d264e73c1cf4ce63a19f4c3bfacc8e1e18da1c751dd72a0b3b314024eb0"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\initial_states\\proposed.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\initial_states\\proposed.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/initial_states/proposed.npz",
+      "size_bytes": 2676,
+      "sha256": "04eb811c6f9cddf5fd783d68fb1d91c1e73e731bebd3e04898a5be6156044e4b"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\manifest.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\manifest.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/manifest.json",
+      "size_bytes": 3828,
+      "sha256": "34276c6e37900967392b7c210ba67aaeb0ffbf99018a2b5f484076c6ecca96d4"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.001.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.001.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.001.json",
+      "size_bytes": 900,
+      "sha256": "cc98c13691a4df31ed5e1cac874029855ed914c18847288a68fce0e3491060b1"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.015.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.015.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.015.json",
+      "size_bytes": 900,
+      "sha256": "932d1f54acaf72634bb7c25dc57ff7dc1de3efa63abcd6e49fa9accb389e8781"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.16.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.16.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.16.json",
+      "size_bytes": 912,
+      "sha256": "431fefbe7dcc0b8c245e50736b1c82d13ee0e244b505f4d2f9c3bb3f57ce8b04"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.18.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.18.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.18.json",
+      "size_bytes": 927,
+      "sha256": "a6f4be9c3434f97dbd9eb7c53dd9b2458fe3c082e2b9b85b820df72606a98741"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.2.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.2.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.2.json",
+      "size_bytes": 908,
+      "sha256": "a6ff0c628021ff61e0cfdb214bc74a0e922061da68117b617f4ad7636aabeb44"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.42.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.42.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.42.json",
+      "size_bytes": 924,
+      "sha256": "19e920448eb67cd8d6afa186e024755c8c78afecd1910f806d0285ad8d3b00f9"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.46.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.46.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.46.json",
+      "size_bytes": 908,
+      "sha256": "55f0164d09320b4d5957cedeacae5419234df6c8911b45d9cbe10b94d8e294de"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.9.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\b6_omega_0.9.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/b6_omega_0.9.json",
+      "size_bytes": 922,
+      "sha256": "48f336742d6d07a135fa3d723e6fa5119ac61d436c0559d4d0d2d53b0a9cea43"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.001.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.001.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.001.json",
+      "size_bytes": 938,
+      "sha256": "bd004643cad906e5267c14b1b6745cf0dd2eff16602352c367df251ec2c0f864"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.015.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.015.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.015.json",
+      "size_bytes": 938,
+      "sha256": "071c6b4c335736189f193641d921a45bd86c034ccf32704f64125df2716b8432"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.16.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.16.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.16.json",
+      "size_bytes": 935,
+      "sha256": "c8bb07726f6b5b4eb5c8aebd6525a10f2ed773b32fd164cd3d768a03895118ab"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.18.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.18.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.18.json",
+      "size_bytes": 949,
+      "sha256": "c5820d560118f8c28544f8620a105a69014dbbfd89cfcd5e6d9f44677507269d"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.2.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.2.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.2.json",
+      "size_bytes": 935,
+      "sha256": "78bd2031ea682900127ffa56f938982f38df01313fa3733e65bcb5db4cad15f6"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.42.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.42.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.42.json",
+      "size_bytes": 949,
+      "sha256": "adcef709cc7bf4af84aa7fc744f6c3bfa1b3d29672902bdff5383cb2f280d9f2"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.46.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.46.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.46.json",
+      "size_bytes": 934,
+      "sha256": "4055d8a5eeb4816606d17a9e1bb38afcb0605e5d8f7709fcded6bfd074c10b33"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.9.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\records\\proposed_omega_0.9.json",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/records/proposed_omega_0.9.json",
+      "size_bytes": 961,
+      "sha256": "70cbaf4072e867161b8437f9dc63a3c97e46bea387d2a4ce7069ffcde462d62c"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.001_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.001_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.001_call_001.npz",
+      "size_bytes": 7849,
+      "sha256": "f3e048fe180521e3cce268fb17b83f63eacee2467a1237e7d44c0c968d5eeb9e"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.015_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.015_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.015_call_001.npz",
+      "size_bytes": 6893,
+      "sha256": "9b70a7710c79c13f84071ad6e3b3433d74e03cfc8b99e524988c988516ede4fd"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.16_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.16_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.16_call_001.npz",
+      "size_bytes": 6458,
+      "sha256": "2e62c037c33aa2de9a0b99e225ddfc48f57da061ac547a64c1db0008dc7e381b"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.18_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.18_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.18_call_001.npz",
+      "size_bytes": 6954,
+      "sha256": "745b4c131bff6ad74a84b7b3862f765e5c2d81fb48754fcc37d78ef9ecf5b043"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.2_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.2_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.2_call_001.npz",
+      "size_bytes": 3253,
+      "sha256": "131ca13afdd98ce645cc2c2fecddca64da345dc9e38b2ee54461eb54db2b5515"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.42_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.42_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.42_call_001.npz",
+      "size_bytes": 3264,
+      "sha256": "ed522828c1791b6863a043673e7692a6a9f97baecca893cc605a504542876927"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.46_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.46_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.46_call_001.npz",
+      "size_bytes": 3261,
+      "sha256": "58868150ff76e515584e3207313313e3ac2ec5e7128b0a68ff14b69130b121c6"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.9_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\b6_omega_0.9_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/b6_omega_0.9_call_001.npz",
+      "size_bytes": 3426,
+      "sha256": "3a3f9f790c74ada7459aa214c474ffd117831741bd71b6b467d453bb4fc8442f"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.001_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.001_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.001_call_001.npz",
+      "size_bytes": 4553,
+      "sha256": "0e009c41b4977004dbe6aa0e9dc669ac7d649dce7fa56cdf83928def4a615cf5"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.015_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.015_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.015_call_001.npz",
+      "size_bytes": 4487,
+      "sha256": "7d2a02b0b07d68857375d806d4e1c6dce58078c8a4d665df70dbc2e3e57bdc4a"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.16_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.16_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.16_call_001.npz",
+      "size_bytes": 4373,
+      "sha256": "bcdbed9a46bc2b463fd6ee460ff937233f5a4198679d40f44003e2903380486f"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.18_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.18_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.18_call_001.npz",
+      "size_bytes": 4637,
+      "sha256": "823a885106660465b8e8a342ea729867eeeccddb6fd9d42f2b2dd8c40d04e87a"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.2_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.2_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.2_call_001.npz",
+      "size_bytes": 6023,
+      "sha256": "a4e9f4aa1e7b453c3bbbc5ef9ef016a427481a25a561f1721872d14c4dcdb410"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.42_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.42_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.42_call_001.npz",
+      "size_bytes": 4762,
+      "sha256": "a5d86ba99fca6912c3aae4509f30b5bc5790dc93e3fe815fce81626a77bcc49f"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.46_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.46_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.46_call_001.npz",
+      "size_bytes": 5043,
+      "sha256": "96b004314162c3caeb50923a44c9fa9e3fd8a9b7b1eba377f3a8f1483813f301"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.9_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets\\states\\proposed_omega_0.9_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul16_assets/states/proposed_omega_0.9_call_001.npz",
+      "size_bytes": 3630,
+      "sha256": "0aeb3b8b7025e0709a118b493749b1cf39dc31eb423c866557db25f083a24030"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\initial_states\\b6.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\initial_states\\b6.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/initial_states/b6.npz",
+      "size_bytes": 2617,
+      "sha256": "f0754d264e73c1cf4ce63a19f4c3bfacc8e1e18da1c751dd72a0b3b314024eb0"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\initial_states\\proposed.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\initial_states\\proposed.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/initial_states/proposed.npz",
+      "size_bytes": 2676,
+      "sha256": "04eb811c6f9cddf5fd783d68fb1d91c1e73e731bebd3e04898a5be6156044e4b"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\manifest.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\manifest.json",
+      "relative_path": "experiments/stage10_fixed_ul_assets/manifest.json",
+      "size_bytes": 1603,
+      "sha256": "3db756c8fcd46db26deedec6c035524f61f1b7e7f6d6a971dd88b04dc4ff37b2"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\records\\b6_omega_0.1.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\records\\b6_omega_0.1.json",
+      "relative_path": "experiments/stage10_fixed_ul_assets/records/b6_omega_0.1.json",
+      "size_bytes": 906,
+      "sha256": "a18d73ad1e5f01fef7028ae2083a75f5b2fe8324ff13a7cadcfce678ab8f1dda"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\records\\b6_omega_0.18.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\records\\b6_omega_0.18.json",
+      "relative_path": "experiments/stage10_fixed_ul_assets/records/b6_omega_0.18.json",
+      "size_bytes": 927,
+      "sha256": "a6f4be9c3434f97dbd9eb7c53dd9b2458fe3c082e2b9b85b820df72606a98741"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\records\\b6_omega_0.46.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\records\\b6_omega_0.46.json",
+      "relative_path": "experiments/stage10_fixed_ul_assets/records/b6_omega_0.46.json",
+      "size_bytes": 908,
+      "sha256": "55f0164d09320b4d5957cedeacae5419234df6c8911b45d9cbe10b94d8e294de"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\records\\proposed_omega_0.1.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\records\\proposed_omega_0.1.json",
+      "relative_path": "experiments/stage10_fixed_ul_assets/records/proposed_omega_0.1.json",
+      "size_bytes": 933,
+      "sha256": "6f39e06c922d0429b9c6bad4eca18ed1914aa6db3456be348d76d35d9fc4b06d"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\records\\proposed_omega_0.18.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\records\\proposed_omega_0.18.json",
+      "relative_path": "experiments/stage10_fixed_ul_assets/records/proposed_omega_0.18.json",
+      "size_bytes": 949,
+      "sha256": "c5820d560118f8c28544f8620a105a69014dbbfd89cfcd5e6d9f44677507269d"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\records\\proposed_omega_0.46.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\records\\proposed_omega_0.46.json",
+      "relative_path": "experiments/stage10_fixed_ul_assets/records/proposed_omega_0.46.json",
+      "size_bytes": 934,
+      "sha256": "4055d8a5eeb4816606d17a9e1bb38afcb0605e5d8f7709fcded6bfd074c10b33"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\states\\b6_omega_0.18_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\states\\b6_omega_0.18_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/states/b6_omega_0.18_call_001.npz",
+      "size_bytes": 6954,
+      "sha256": "745b4c131bff6ad74a84b7b3862f765e5c2d81fb48754fcc37d78ef9ecf5b043"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\states\\b6_omega_0.1_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\states\\b6_omega_0.1_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/states/b6_omega_0.1_call_001.npz",
+      "size_bytes": 3554,
+      "sha256": "6ff5c511572945177b7b3dbb8422b4135d2a824f9d6e98588f743b7a16b9b771"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\states\\b6_omega_0.46_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\states\\b6_omega_0.46_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/states/b6_omega_0.46_call_001.npz",
+      "size_bytes": 3261,
+      "sha256": "58868150ff76e515584e3207313313e3ac2ec5e7128b0a68ff14b69130b121c6"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\states\\proposed_omega_0.18_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\states\\proposed_omega_0.18_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/states/proposed_omega_0.18_call_001.npz",
+      "size_bytes": 4637,
+      "sha256": "823a885106660465b8e8a342ea729867eeeccddb6fd9d42f2b2dd8c40d04e87a"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\states\\proposed_omega_0.1_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\states\\proposed_omega_0.1_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/states/proposed_omega_0.1_call_001.npz",
+      "size_bytes": 3944,
+      "sha256": "3ae98dbe9f2ddc15b4aafe89ea6d04bcd5ff42bba966ffebfdd8d348fec64252"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets\\states\\proposed_omega_0.46_call_001.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets\\states\\proposed_omega_0.46_call_001.npz",
+      "relative_path": "experiments/stage10_fixed_ul_assets/states/proposed_omega_0.46_call_001.npz",
+      "size_bytes": 5043,
+      "sha256": "96b004314162c3caeb50923a44c9fa9e3fd8a9b7b1eba377f3a8f1483813f301"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_regular20_source\\regular_planar_pm_full27.zip",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_regular20_source\\regular_planar_pm_full27.zip",
+      "relative_path": "experiments/stage10_regular20_source/regular_planar_pm_full27.zip",
+      "size_bytes": 527005,
+      "sha256": "b7da7b26585ea93407da8b5a001999092e80f550805dee8ea5588f240228efe1"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\old_init_pilot_assets\\regular_single_start_scene8001.csv",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\old_init_pilot_assets\\regular_single_start_scene8001.csv",
+      "relative_path": "experiments/old_init_pilot_assets/regular_single_start_scene8001.csv",
+      "size_bytes": 1951,
+      "sha256": "d9f92dad24f1e4102911198dea76d60ef09c84b7959e60b92612b3365daf3926"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets\\config.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets\\config.json",
+      "relative_path": "experiments/stage10_seed2042_assets/config.json",
+      "size_bytes": 3683,
+      "sha256": "9fea79b768dac6de2028f5f364f0e7052a2d47ac7150a076b30798fa670f6bdd"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets\\existing_80_points.csv",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets\\existing_80_points.csv",
+      "relative_path": "experiments/stage10_seed2042_assets/existing_80_points.csv",
+      "size_bytes": 15409,
+      "sha256": "f47dad2c13e85d4e76dc27d9a68e128c72e5d9e6e15a8bf7abe506bedcdf1438"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets\\initial_ma.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets\\initial_ma.npz",
+      "relative_path": "experiments/stage10_seed2042_assets/initial_ma.npz",
+      "size_bytes": 2730,
+      "sha256": "7142893912f0da667fb1fd8e8003585f9e2dfeb34a3439616c26d0b17d8aea51"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets\\initial_toma.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets\\initial_toma.npz",
+      "relative_path": "experiments/stage10_seed2042_assets/initial_toma.npz",
+      "size_bytes": 2825,
+      "sha256": "792d3d5699191588de5eebe0ff3cc793958ff708a7eb19e5e907316a6563e448"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets\\initial_upa.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets\\initial_upa.npz",
+      "relative_path": "experiments/stage10_seed2042_assets/initial_upa.npz",
+      "size_bytes": 2617,
+      "sha256": "0418810b5ed73feb6ec88056ab7128e60f589f83d85af80c2e685d9c24d226cb"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets\\initialization_checks.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets\\initialization_checks.json",
+      "relative_path": "experiments/stage10_seed2042_assets/initialization_checks.json",
+      "size_bytes": 792,
+      "sha256": "caeea29ecafc4fef6380ab47ae5282792c209b5437ac8b17abcc4003879fb152"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets\\manifest.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets\\manifest.json",
+      "relative_path": "experiments/stage10_seed2042_assets/manifest.json",
+      "size_bytes": 3165,
+      "sha256": "15cd0c2697d3d940146b9ca0b47688eec50de6e5c577e2e33454baa1977a9faa"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets\\config.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets\\config.json",
+      "relative_path": "experiments/stage10_planar_pm_assets/config.json",
+      "size_bytes": 3683,
+      "sha256": "9fea79b768dac6de2028f5f364f0e7052a2d47ac7150a076b30798fa670f6bdd"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets\\existing_80_points.csv",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets\\existing_80_points.csv",
+      "relative_path": "experiments/stage10_planar_pm_assets/existing_80_points.csv",
+      "size_bytes": 15409,
+      "sha256": "f47dad2c13e85d4e76dc27d9a68e128c72e5d9e6e15a8bf7abe506bedcdf1438"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets\\initial_ma.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets\\initial_ma.npz",
+      "relative_path": "experiments/stage10_planar_pm_assets/initial_ma.npz",
+      "size_bytes": 2730,
+      "sha256": "7142893912f0da667fb1fd8e8003585f9e2dfeb34a3439616c26d0b17d8aea51"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets\\initial_toma.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets\\initial_toma.npz",
+      "relative_path": "experiments/stage10_planar_pm_assets/initial_toma.npz",
+      "size_bytes": 2825,
+      "sha256": "792d3d5699191588de5eebe0ff3cc793958ff708a7eb19e5e907316a6563e448"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets\\initial_upa.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets\\initial_upa.npz",
+      "relative_path": "experiments/stage10_planar_pm_assets/initial_upa.npz",
+      "size_bytes": 2617,
+      "sha256": "0418810b5ed73feb6ec88056ab7128e60f589f83d85af80c2e685d9c24d226cb"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets\\initialization_checks.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets\\initialization_checks.json",
+      "relative_path": "experiments/stage10_planar_pm_assets/initialization_checks.json",
+      "size_bytes": 792,
+      "sha256": "caeea29ecafc4fef6380ab47ae5282792c209b5437ac8b17abcc4003879fb152"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets\\manifest.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets\\manifest.json",
+      "relative_path": "experiments/stage10_planar_pm_assets/manifest.json",
+      "size_bytes": 3165,
+      "sha256": "15cd0c2697d3d940146b9ca0b47688eec50de6e5c577e2e33454baa1977a9faa"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare3_inputs\\b6_original_initial.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare3_inputs\\b6_original_initial.npz",
+      "relative_path": "experiments/stage10_ul_compare3_inputs/b6_original_initial.npz",
+      "size_bytes": 2617,
+      "sha256": "300cb5d9d93ad6c5bc6148f3398f270b20ef2edd1c2c35ef08a2aa2ad64b2078"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare3_inputs\\baseline_representative.csv",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare3_inputs\\baseline_representative.csv",
+      "relative_path": "experiments/stage10_ul_compare3_inputs/baseline_representative.csv",
+      "size_bytes": 1507,
+      "sha256": "a311a5a7820b47643ed12ec93be74f5ada015a5fa1cea5ebef0cc38f9678c135"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare3_inputs\\manifest.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare3_inputs\\manifest.json",
+      "relative_path": "experiments/stage10_ul_compare3_inputs/manifest.json",
+      "size_bytes": 458,
+      "sha256": "0d1f706bc06cbcde8f82843be78aee7ee0083c742c62808cc75c539a4e31913d"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare3_inputs\\proposed_original_initial.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare3_inputs\\proposed_original_initial.npz",
+      "relative_path": "experiments/stage10_ul_compare3_inputs/proposed_original_initial.npz",
+      "size_bytes": 2676,
+      "sha256": "fffef8d02b257cf24649c1adff4a78a58da94dceaead116bb9cb77bf681ee5a6"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_diagnostic_refs\\manifest.json",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_diagnostic_refs\\manifest.json",
+      "relative_path": "experiments/stage10_seed2042_diagnostic_refs/manifest.json",
+      "size_bytes": 562,
+      "sha256": "e775eb9778be0891324c2dd0d90b08e20c0fabebad27ab2015d77a137e59baff"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_diagnostic_refs\\proposed_omega_0.075.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_diagnostic_refs\\proposed_omega_0.075.npz",
+      "relative_path": "experiments/stage10_seed2042_diagnostic_refs/proposed_omega_0.075.npz",
+      "size_bytes": 5233,
+      "sha256": "cc02b991e0506b36e1b26514cee9dafeb0e25195bbc20143c59dc9d7e054309d"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_diagnostic_refs\\proposed_omega_0.125.npz",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_diagnostic_refs\\proposed_omega_0.125.npz",
+      "relative_path": "experiments/stage10_seed2042_diagnostic_refs/proposed_omega_0.125.npz",
+      "size_bytes": 4275,
+      "sha256": "162c3b47456fda75bb96ba4324e150515865e122840b8197ca6420592746e08a"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_diagnostic_refs\\uploaded_108_points.csv",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_diagnostic_refs\\uploaded_108_points.csv",
+      "relative_path": "experiments/stage10_seed2042_diagnostic_refs/uploaded_108_points.csv",
+      "size_bytes": 20932,
+      "sha256": "a63d13dc2d67469db40f2e63baf2e4e5f46ce5b5d19bf1a8ea0ff222f2e456b4"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\run_all_figures_continue.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\run_all_figures_continue.py",
+      "relative_path": "run_all_figures_continue.py",
+      "size_bytes": 11572,
+      "sha256": "85715ddc5cb0cdfa7cd5e0469656544cbfde2d6ed474c7d9a84ea936bfc91f25"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\diagnose_stage10_local_convergence.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\diagnose_stage10_local_convergence.py",
+      "relative_path": "diagnose_stage10_local_convergence.py",
+      "size_bytes": 13998,
+      "sha256": "0489ce27816cd92db3105fff68646bcf1527efa4a3ef6ea1d5c07f3c69ffa4aa"
+    },
+    {
+      "original_path": "D:\\Vs codeProjects\\research work1\\toma_isac\\test_stage10_cross_weight_warmstart.py",
+      "archive_path": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\test_stage10_cross_weight_warmstart.py",
+      "relative_path": "test_stage10_cross_weight_warmstart.py",
+      "size_bytes": 16349,
+      "sha256": "b5a35c12fe0c07a430e02e183d5cf6a0f261e70d1cf45cc77409012b8b67da6d"
+    }
+  ],
+  "verified_at_utc": "2026-10-20T07:36:30.592769+00:00",
+  "moved_file_count": 118
+}

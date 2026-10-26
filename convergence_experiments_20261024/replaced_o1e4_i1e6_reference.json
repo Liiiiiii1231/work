@@ -1,0 +1,33 @@
+{
+  "inner_tolerance": 1e-06,
+  "outer_tolerance": 0.0001,
+  "initial_runs": [
+    {
+      "scene": 8003,
+      "iterations": 73,
+      "converged": true,
+      "final_score": 14.874501912287926,
+      "seconds": 159.81993039999998,
+      "main_fp_steps": 15723,
+      "candidate_fp_steps": 14092,
+      "last_increments": [
+        6.101758398457946e-05,
+        9.117140276160285e-05
+      ]
+    },
+    {
+      "scene": 8006,
+      "iterations": 25,
+      "converged": true,
+      "final_score": 15.295300022283945,
+      "seconds": 130.03535550000015,
+      "main_fp_steps": 19338,
+      "candidate_fp_steps": 4608,
+      "last_increments": [
+        7.658708564406425e-05,
+        6.425646003727081e-05
+      ]
+    }
+  ],
+  "note": "Historical scalar reference only. Full test result files are replaced by the requested inner 1e-5 rerun."
+}

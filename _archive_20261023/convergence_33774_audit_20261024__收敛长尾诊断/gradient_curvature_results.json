@@ -1,0 +1,1445 @@
+{
+  "rows": [
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 0,
+      "grad_norm": 0.8902257111783808,
+      "delta_relative_errors": {
+        "0.0001": 8.941675515378156,
+        "1e-05": 0.3207687914502039,
+        "1e-06": 0.0032983325218468914,
+        "1e-07": 2.9920956335823546e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0006040603493868891,
+      "fixed_tangent_gradient": [
+        0.8907014548142911,
+        -0.00025130120206995343
+      ],
+      "aware_tangent_gradient": [
+        0.8003972311598773,
+        0.0031781937082087097
+      ],
+      "aware_gradient_relative_change_h": 0.0003453053213040737,
+      "cosine_fixed_vs_aware": 0.9999909564848227,
+      "fixed_hessian_eigenvalues": [
+        -233772722.5936331,
+        -43154688.568842255
+      ],
+      "aware_hessian_eigenvalues": [
+        -99830.71546818971,
+        -9084.62527811756
+      ],
+      "aware_hessian_relative_change_h": 0.014170791838197062,
+      "fixed_curvature_along_gradient": -213552402.81728527,
+      "aware_curvature_along_gradient": -76077.41636661558,
+      "quadratic_best_alpha_along_raw_gradient": 1.1818155201753883e-05
+    },
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 1,
+      "grad_norm": 0.29813534481898063,
+      "delta_relative_errors": {
+        "0.0001": 5.494100497127247,
+        "1e-05": 0.24091202168839584,
+        "1e-06": 0.002521864908193804,
+        "1e-07": 3.7320814858296475e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0005652421294314805,
+      "fixed_tangent_gradient": [
+        0.29800965428705695,
+        0.00011214495998501661
+      ],
+      "aware_tangent_gradient": [
+        0.26340110892419943,
+        0.013798299391964974
+      ],
+      "aware_gradient_relative_change_h": 0.0012657788802894893,
+      "cosine_fixed_vs_aware": 0.9986503325195542,
+      "fixed_hessian_eigenvalues": [
+        -132073902.189583,
+        -10962420.106258947
+      ],
+      "aware_hessian_eigenvalues": [
+        -49524.41708533524,
+        -10310.820124091608
+      ],
+      "aware_hessian_relative_change_h": 0.018733162764077597,
+      "fixed_curvature_along_gradient": -116187955.65482287,
+      "aware_curvature_along_gradient": -45795.552239269455,
+      "quadratic_best_alpha_along_raw_gradient": 1.9292159000432975e-05
+    },
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 2,
+      "grad_norm": 0.7033274407348106,
+      "delta_relative_errors": {
+        "0.0001": 9.020589095120792,
+        "1e-05": 0.15830215102015976,
+        "1e-06": 0.0015977922498586878,
+        "1e-07": 2.8481963338861255e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0010679854472468245,
+      "fixed_tangent_gradient": [
+        0.7034332920596853,
+        0.0007437623850137243
+      ],
+      "aware_tangent_gradient": [
+        0.6269587107254893,
+        0.011934899291077272
+      ],
+      "aware_gradient_relative_change_h": 0.00038097009565940597,
+      "cosine_fixed_vs_aware": 0.9998384261699328,
+      "fixed_hessian_eigenvalues": [
+        -122260508.92471626,
+        -13827817.269112106
+      ],
+      "aware_hessian_eigenvalues": [
+        -64925.857576832874,
+        -6859.145254060188
+      ],
+      "aware_hessian_relative_change_h": 0.014945770150649094,
+      "fixed_curvature_along_gradient": -73548341.052998,
+      "aware_curvature_along_gradient": -48857.30575665548,
+      "quadratic_best_alpha_along_raw_gradient": 1.8245335958838642e-05
+    },
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 3,
+      "grad_norm": 0.6844788349640968,
+      "delta_relative_errors": {
+        "0.0001": 2.3919463732914474,
+        "1e-05": 0.15090348148183624,
+        "1e-06": 0.0015791724527563177,
+        "1e-07": 2.784194569558148e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0003298836634513405,
+      "fixed_tangent_gradient": [
+        0.6843448474569414,
+        0.00018169288296121522
+      ],
+      "aware_tangent_gradient": [
+        0.5697449561026247,
+        -0.007629068932146765
+      ],
+      "aware_gradient_relative_change_h": 0.0001011962238347654,
+      "cosine_fixed_vs_aware": 0.9999067716398738,
+      "fixed_hessian_eigenvalues": [
+        -171551173.9191093,
+        -26652431.697844062
+      ],
+      "aware_hessian_eigenvalues": [
+        -76903.05211332855,
+        -7538.796955310842
+      ],
+      "aware_hessian_relative_change_h": 0.014465702799637775,
+      "fixed_curvature_along_gradient": -167165535.6432211,
+      "aware_curvature_along_gradient": -76810.49929431084,
+      "quadratic_best_alpha_along_raw_gradient": 1.0836770530179879e-05
+    },
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 4,
+      "grad_norm": 0.7374611067846523,
+      "delta_relative_errors": {
+        "0.0001": 5.545165221868877,
+        "1e-05": 0.6653919701439021,
+        "1e-06": 0.007450163039968614,
+        "1e-07": 0.0001021203357583641,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0031925915347401374,
+      "fixed_tangent_gradient": [
+        0.735114597638642,
+        -4.3947068206762196e-05
+      ],
+      "aware_tangent_gradient": [
+        0.7430600206248528,
+        -9.6449070952076e-05
+      ],
+      "aware_gradient_relative_change_h": 0.00017514312997480273,
+      "cosine_fixed_vs_aware": 0.9999999975487938,
+      "fixed_hessian_eigenvalues": [
+        -920594695.9226155,
+        -271890120.9125888
+      ],
+      "aware_hessian_eigenvalues": [
+        -30064.31702954104,
+        -10532.59191610379
+      ],
+      "aware_hessian_relative_change_h": 0.008076509205598336,
+      "fixed_curvature_along_gradient": -844801257.494865,
+      "aware_curvature_along_gradient": -28197.739254665066,
+      "quadratic_best_alpha_along_raw_gradient": 3.5733082672470864e-05
+    },
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 5,
+      "grad_norm": 1.9315902708260686,
+      "delta_relative_errors": {
+        "0.0001": 2.0019531997268367,
+        "1e-05": 0.25870548015848527,
+        "1e-06": 0.002853003558015139,
+        "1e-07": 2.512262062754896e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.002970210206824006,
+      "fixed_tangent_gradient": [
+        1.9349268942647768,
+        -0.00467939642589954
+      ],
+      "aware_tangent_gradient": [
+        1.9339646728511184,
+        -0.005463562047225423
+      ],
+      "aware_gradient_relative_change_h": 5.855042593745599e-05,
+      "cosine_fixed_vs_aware": 0.9999999173093757,
+      "fixed_hessian_eigenvalues": [
+        -1409228535.229689,
+        -428762063.51831836
+      ],
+      "aware_hessian_eigenvalues": [
+        -46548.93085760067,
+        -13539.566875489985
+      ],
+      "aware_hessian_relative_change_h": 0.028871521623538086,
+      "fixed_curvature_along_gradient": -1149077696.961598,
+      "aware_curvature_along_gradient": -43243.61491114814,
+      "quadratic_best_alpha_along_raw_gradient": 2.3153227344786056e-05
+    },
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 6,
+      "grad_norm": 0.35638843684981836,
+      "delta_relative_errors": {
+        "0.0001": 10.698822753994435,
+        "1e-05": 1.0766605325414609,
+        "1e-06": 0.011585302080606567,
+        "1e-07": 0.00012240885199627283,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0031496038913017364,
+      "fixed_tangent_gradient": [
+        0.35691000377369164,
+        0.000995808768777806
+      ],
+      "aware_tangent_gradient": [
+        0.3587231054424933,
+        -0.004098309247524412
+      ],
+      "aware_gradient_relative_change_h": 0.0003487948040810642,
+      "cosine_fixed_vs_aware": 0.9998989786182767,
+      "fixed_hessian_eigenvalues": [
+        -1296138130.1026545,
+        -590855714.4709268
+      ],
+      "aware_hessian_eigenvalues": [
+        -57348.74500392089,
+        -40146.04057415744
+      ],
+      "aware_hessian_relative_change_h": 0.008620189259045645,
+      "fixed_curvature_along_gradient": -1225207926.4278848,
+      "aware_curvature_along_gradient": -55220.50194883832,
+      "quadratic_best_alpha_along_raw_gradient": 1.8227847892121663e-05
+    },
+    {
+      "power_W": 0.1,
+      "seed": 8003,
+      "endpoint": 7,
+      "grad_norm": 1.0743879103316052,
+      "delta_relative_errors": {
+        "0.0001": 5.443395285482445,
+        "1e-05": 0.14653525573309792,
+        "1e-06": 0.0014437519592706036,
+        "1e-07": 1.239164165687318e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.001596690623289751,
+      "fixed_tangent_gradient": [
+        1.0726752099898818,
+        -1.0155432050851232e-05
+      ],
+      "aware_tangent_gradient": [
+        1.0760459296932368,
+        -3.891731381600039e-05
+      ],
+      "aware_gradient_relative_change_h": 0.0002072167488892913,
+      "cosine_fixed_vs_aware": 0.9999999996435662,
+      "fixed_hessian_eigenvalues": [
+        -624673268.4175383,
+        -496447964.266281
+      ],
+      "aware_hessian_eigenvalues": [
+        -26345.99627196357,
+        -16361.752176870057
+      ],
+      "aware_hessian_relative_change_h": 0.02684506642591664,
+      "fixed_curvature_along_gradient": -517270518.43108994,
+      "aware_curvature_along_gradient": -16362.076138420889,
+      "quadratic_best_alpha_along_raw_gradient": 6.12112554548736e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 0,
+      "grad_norm": 3.095256171728921,
+      "delta_relative_errors": {
+        "0.0001": 7.210830163985956,
+        "1e-05": 0.9945337493365151,
+        "1e-06": 0.012435754978445141,
+        "1e-07": 0.00012415873292711613,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0012238224418191048,
+      "fixed_tangent_gradient": [
+        3.094082100751905,
+        0.003599995856973237
+      ],
+      "aware_tangent_gradient": [
+        3.0863978057737995,
+        0.004618405213818733
+      ],
+      "aware_gradient_relative_change_h": 1.3661099247195675e-05,
+      "cosine_fixed_vs_aware": 0.9999999446010417,
+      "fixed_hessian_eigenvalues": [
+        -2217730087.2348433,
+        -389482795.3027809
+      ],
+      "aware_hessian_eigenvalues": [
+        -81938.97412941238,
+        -9641.024566166589
+      ],
+      "aware_hessian_relative_change_h": 0.0004761363037541555,
+      "fixed_curvature_along_gradient": -2149508744.194506,
+      "aware_curvature_along_gradient": -81791.86750112422,
+      "quadratic_best_alpha_along_raw_gradient": 1.2191164153134135e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 1,
+      "grad_norm": 1.2196911150649572,
+      "delta_relative_errors": {
+        "0.0001": 4.4683858017288465,
+        "1e-05": 1.1850119729910935,
+        "1e-06": 0.01586693254488396,
+        "1e-07": 0.00016268587093709111,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.011370550546058364,
+      "fixed_tangent_gradient": [
+        1.2072587827205439,
+        0.0058204321362609335
+      ],
+      "aware_tangent_gradient": [
+        1.2145355512416245,
+        0.006345224790038628
+      ],
+      "aware_gradient_relative_change_h": 2.033485125090655e-05,
+      "cosine_fixed_vs_aware": 0.9999999187159351,
+      "fixed_hessian_eigenvalues": [
+        -1590352048.5843732,
+        -131399168.27664958
+      ],
+      "aware_hessian_eigenvalues": [
+        -82330.88909939263,
+        -8535.888114312429
+      ],
+      "aware_hessian_relative_change_h": 0.0010994889179760817,
+      "fixed_curvature_along_gradient": -1570204430.8110175,
+      "aware_curvature_along_gradient": -81058.55897611036,
+      "quadratic_best_alpha_along_raw_gradient": 1.2284613375762462e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 2,
+      "grad_norm": 1.496813996177478,
+      "delta_relative_errors": {
+        "0.0001": 12.926013735456108,
+        "1e-05": 0.8508681778336651,
+        "1e-06": 0.008115875419827194,
+        "1e-07": 7.949044731675349e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.003370713193325135,
+      "fixed_tangent_gradient": [
+        1.4929312319722499,
+        -0.0032012072992415597
+      ],
+      "aware_tangent_gradient": [
+        1.5114973050955882,
+        -0.012375870106495768
+      ],
+      "aware_gradient_relative_change_h": 1.823890113978946e-05,
+      "cosine_fixed_vs_aware": 0.9999817387208404,
+      "fixed_hessian_eigenvalues": [
+        -1864057593.3829334,
+        -251381778.47316486
+      ],
+      "aware_hessian_eigenvalues": [
+        -92767.94635418695,
+        -7827.688578955775
+      ],
+      "aware_hessian_relative_change_h": 0.0008848819454772068,
+      "fixed_curvature_along_gradient": -1742124225.6450143,
+      "aware_curvature_along_gradient": -91575.89708763681,
+      "quadratic_best_alpha_along_raw_gradient": 1.1027025020475237e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 3,
+      "grad_norm": 0.4164998941703044,
+      "delta_relative_errors": {
+        "0.0001": 7.993379720534869,
+        "1e-05": 0.2829438302588503,
+        "1e-06": 0.004265205933703015,
+        "1e-07": 3.7751816558187425e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.008906347967009844,
+      "fixed_tangent_gradient": [
+        0.41348460388945796,
+        0.002114284747278816
+      ],
+      "aware_tangent_gradient": [
+        0.4081204751926748,
+        -0.02297583900912059
+      ],
+      "aware_gradient_relative_change_h": 3.128346844025925e-05,
+      "cosine_fixed_vs_aware": 0.9981186399865938,
+      "fixed_hessian_eigenvalues": [
+        -1511644216.0020018,
+        -254140944.6480668
+      ],
+      "aware_hessian_eigenvalues": [
+        -65689.84231087106,
+        -5326.8328962762125
+      ],
+      "aware_hessian_relative_change_h": 0.00020050187372470222,
+      "fixed_curvature_along_gradient": -264713089.88185173,
+      "aware_curvature_along_gradient": -9405.924927818887,
+      "quadratic_best_alpha_along_raw_gradient": 0.00010417703196656274
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 4,
+      "grad_norm": 0.5661017180005259,
+      "delta_relative_errors": {
+        "0.0001": 17.716626617580364,
+        "1e-05": 0.47158079224834637,
+        "1e-06": 0.005216231245546673,
+        "1e-07": 6.076196674429779e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.004154479911959677,
+      "fixed_tangent_gradient": [
+        0.564936990521403,
+        -0.0020376411669076333
+      ],
+      "aware_tangent_gradient": [
+        0.5685066097882441,
+        -0.0009702736392114275
+      ],
+      "aware_gradient_relative_change_h": 3.04987017224146e-05,
+      "cosine_fixed_vs_aware": 0.9999981947596072,
+      "fixed_hessian_eigenvalues": [
+        -1360742256.9441154,
+        -489539438.4083917
+      ],
+      "aware_hessian_eigenvalues": [
+        -56402.29440038915,
+        -25374.729862985034
+      ],
+      "aware_hessian_relative_change_h": 0.0006365116500308662,
+      "fixed_curvature_along_gradient": -577368057.9128637,
+      "aware_curvature_along_gradient": -25447.187468330412,
+      "quadratic_best_alpha_along_raw_gradient": 3.946401397861956e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 5,
+      "grad_norm": 3.912853553757659,
+      "delta_relative_errors": {
+        "0.0001": 1.1873174057751683,
+        "1e-05": 0.09769621152262543,
+        "1e-06": 0.0012127945298197522,
+        "1e-07": 1.0157926455838381e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0008620122876127863,
+      "fixed_tangent_gradient": [
+        3.9148609918271404,
+        -0.002712658542236568
+      ],
+      "aware_tangent_gradient": [
+        3.911424824920573,
+        -0.0040942591539305795
+      ],
+      "aware_gradient_relative_change_h": 2.510038185925601e-06,
+      "cosine_fixed_vs_aware": 0.9999999374020695,
+      "fixed_hessian_eigenvalues": [
+        -1652628702.7356262,
+        -686472553.9448385
+      ],
+      "aware_hessian_eigenvalues": [
+        -68604.764272556,
+        -38949.624233958435
+      ],
+      "aware_hessian_relative_change_h": 0.0010515660132191804,
+      "fixed_curvature_along_gradient": -1078511973.3007774,
+      "aware_curvature_along_gradient": -67444.32923255772,
+      "quadratic_best_alpha_along_raw_gradient": 1.4821629543367768e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 6,
+      "grad_norm": 1.2498347490937245,
+      "delta_relative_errors": {
+        "0.0001": 8.869323884078577,
+        "1e-05": 0.47749484712758705,
+        "1e-06": 0.005244963138253855,
+        "1e-07": 4.635863900918273e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.005209811656360243,
+      "fixed_tangent_gradient": [
+        1.2452996411838058,
+        0.0046394639241498226
+      ],
+      "aware_tangent_gradient": [
+        1.2516745782065186,
+        0.005960593796316971
+      ],
+      "aware_gradient_relative_change_h": 5.717920598782759e-06,
+      "cosine_fixed_vs_aware": 0.9999994628377739,
+      "fixed_hessian_eigenvalues": [
+        -766424747.3778601,
+        -419428195.131198
+      ],
+      "aware_hessian_eigenvalues": [
+        -43693.46642329954,
+        -9567.117075782262
+      ],
+      "aware_hessian_relative_change_h": 0.0020275897269562424,
+      "fixed_curvature_along_gradient": -751430039.9655838,
+      "aware_curvature_along_gradient": -29485.510921745117,
+      "quadratic_best_alpha_along_raw_gradient": 3.3964887383341425e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8003,
+      "endpoint": 7,
+      "grad_norm": 2.35498328287682,
+      "delta_relative_errors": {
+        "0.0001": 1.277560517078649,
+        "1e-05": 0.03942817197395144,
+        "1e-06": 0.00041279575070848125,
+        "1e-07": 1.2573677878678325e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0012679513297496974,
+      "fixed_tangent_gradient": [
+        2.35732427622537,
+        0.0018584165317747647
+      ],
+      "aware_tangent_gradient": [
+        2.355543268883764,
+        -0.0010324328059141408
+      ],
+      "aware_gradient_relative_change_h": 1.1147613173978496e-05,
+      "cosine_fixed_vs_aware": 0.9999992476557846,
+      "fixed_hessian_eigenvalues": [
+        -1228861168.1746457,
+        -410320761.7000212
+      ],
+      "aware_hessian_eigenvalues": [
+        -47927.943790245416,
+        -17700.513545019592
+      ],
+      "aware_hessian_relative_change_h": 0.0008375578726853574,
+      "fixed_curvature_along_gradient": -1220622548.4110434,
+      "aware_curvature_along_gradient": -47918.60597208597,
+      "quadratic_best_alpha_along_raw_gradient": 2.0873682933531705e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 0,
+      "grad_norm": 1.002288793230027,
+      "delta_relative_errors": {
+        "0.0001": 2.011530787259591,
+        "1e-05": 2.954143265482943,
+        "1e-06": 0.19211996279500995,
+        "1e-07": 0.0019689381609174616,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.06875381536224551,
+      "fixed_tangent_gradient": [
+        0.9438253005811248,
+        -0.02822595668305894
+      ],
+      "aware_tangent_gradient": [
+        1.234738462585483,
+        -0.01444304587039369
+      ],
+      "aware_gradient_relative_change_h": 0.00022025103186509203,
+      "cosine_fixed_vs_aware": 0.999834379405982,
+      "fixed_hessian_eigenvalues": [
+        -23688370225.370007,
+        -2718328495.428258
+      ],
+      "aware_hessian_eigenvalues": [
+        -78093.60267110053,
+        -9361.091482065689
+      ],
+      "aware_hessian_relative_change_h": 8.376222922260544e-05,
+      "fixed_curvature_along_gradient": -23662455376.300076,
+      "aware_curvature_along_gradient": -75994.97564569901,
+      "quadratic_best_alpha_along_raw_gradient": 1.6210530296022574e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 1,
+      "grad_norm": 0.6836068648115388,
+      "delta_relative_errors": {
+        "0.0001": 21.756931493017383,
+        "1e-05": 15.679919808239646,
+        "1e-06": 0.7234123270396141,
+        "1e-07": 0.00748299668490852,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.008545705666968674,
+      "fixed_tangent_gradient": [
+        0.6894658231004769,
+        0.0006228724203083402
+      ],
+      "aware_tangent_gradient": [
+        0.39359175652009526,
+        0.020998278671413573
+      ],
+      "aware_gradient_relative_change_h": 0.0001887730711802148,
+      "cosine_fixed_vs_aware": 0.9986276195304703,
+      "fixed_hessian_eigenvalues": [
+        -17638050741.894413,
+        -1309545750.9951627
+      ],
+      "aware_hessian_eigenvalues": [
+        -57950.072586831186,
+        -9101.489937680424
+      ],
+      "aware_hessian_relative_change_h": 0.00011441346034945616,
+      "fixed_curvature_along_gradient": -17143095537.495157,
+      "aware_curvature_along_gradient": -55647.429775262935,
+      "quadratic_best_alpha_along_raw_gradient": 1.0346523977086518e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 2,
+      "grad_norm": 0.8518745000706358,
+      "delta_relative_errors": {
+        "0.0001": 8.150923630223529,
+        "1e-05": 2.299254258194116,
+        "1e-06": 0.04528600349014076,
+        "1e-07": 0.0005300617926939798,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.004435148122487622,
+      "fixed_tangent_gradient": [
+        0.8535212412397186,
+        0.003408581861208404
+      ],
+      "aware_tangent_gradient": [
+        0.8892125258341821,
+        0.01508830926866267
+      ],
+      "aware_gradient_relative_change_h": 3.1176243718928604e-06,
+      "cosine_fixed_vs_aware": 0.9999158516792583,
+      "fixed_hessian_eigenvalues": [
+        -19976424983.96701,
+        -2055933400.9239206
+      ],
+      "aware_hessian_eigenvalues": [
+        -72817.44114803182,
+        -7614.593218108383
+      ],
+      "aware_hessian_relative_change_h": 6.970515724228055e-05,
+      "fixed_curvature_along_gradient": -19905979148.962418,
+      "aware_curvature_along_gradient": -69174.06381035107,
+      "quadratic_best_alpha_along_raw_gradient": 1.5089910475723456e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 3,
+      "grad_norm": 1.0733757738396101,
+      "delta_relative_errors": {
+        "0.0001": 10.359997194502421,
+        "1e-05": 7.759708750271115,
+        "1e-06": 0.32055925787497,
+        "1e-07": 0.003260994649588797,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.08794190907596232,
+      "fixed_tangent_gradient": [
+        1.1741772834028552,
+        -0.022482590011918546
+      ],
+      "aware_tangent_gradient": [
+        0.8209070720965883,
+        -0.09004167722537204
+      ],
+      "aware_gradient_relative_change_h": 4.173220132702526e-05,
+      "cosine_fixed_vs_aware": 0.9959434091043465,
+      "fixed_hessian_eigenvalues": [
+        -19281549455.18436,
+        -3481181097.4581923
+      ],
+      "aware_hessian_eigenvalues": [
+        -51986.0608265887,
+        -8733.844721423622
+      ],
+      "aware_hessian_relative_change_h": 0.0001369606515062255,
+      "fixed_curvature_along_gradient": -18601030852.703815,
+      "aware_curvature_along_gradient": -45131.94085120631,
+      "quadratic_best_alpha_along_raw_gradient": 1.6945648661214712e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 4,
+      "grad_norm": 0.3326551515852126,
+      "delta_relative_errors": {
+        "0.0001": 6.143380347417607,
+        "1e-05": 1.806807467856487,
+        "1e-06": 0.022558497423787786,
+        "1e-07": 0.00019214531711024427,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.028822933864820887,
+      "fixed_tangent_gradient": [
+        0.33880272631847674,
+        0.007590523765088619
+      ],
+      "aware_tangent_gradient": [
+        0.33480606731473017,
+        0.0067709073903188255
+      ],
+      "aware_gradient_relative_change_h": 8.704802680348424e-06,
+      "cosine_fixed_vs_aware": 0.9999976246710456,
+      "fixed_hessian_eigenvalues": [
+        -1248728459.428823,
+        -374763631.4213974
+      ],
+      "aware_hessian_eigenvalues": [
+        -69750.4713189778,
+        -15338.158156671418
+      ],
+      "aware_hessian_relative_change_h": 0.00018134792465335814,
+      "fixed_curvature_along_gradient": -509271133.0654254,
+      "aware_curvature_along_gradient": -19610.8729255684,
+      "quadratic_best_alpha_along_raw_gradient": 5.13218308118876e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 5,
+      "grad_norm": 2.6414575668811366,
+      "delta_relative_errors": {
+        "0.0001": 5.0806062499841715,
+        "1e-05": 0.4004752260378663,
+        "1e-06": 0.00433843205978767,
+        "1e-07": 4.532816607564181e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0011664172171952948,
+      "fixed_tangent_gradient": [
+        2.6389747951327536,
+        -0.001819568495875501
+      ],
+      "aware_tangent_gradient": [
+        2.651102535722316,
+        -0.0028873721191757795
+      ],
+      "aware_gradient_relative_change_h": 5.5395692532327405e-06,
+      "cosine_fixed_vs_aware": 0.9999999201508557,
+      "fixed_hessian_eigenvalues": [
+        -1593362318.4067051,
+        -357225334.5070771
+      ],
+      "aware_hessian_eigenvalues": [
+        -79342.76583379354,
+        -13205.350891972254
+      ],
+      "aware_hessian_relative_change_h": 4.450586398628421e-05,
+      "fixed_curvature_along_gradient": -1578197229.8469782,
+      "aware_curvature_along_gradient": -79028.60588160365,
+      "quadratic_best_alpha_along_raw_gradient": 1.269984925246768e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 6,
+      "grad_norm": 1.84713492697411,
+      "delta_relative_errors": {
+        "0.0001": 2.6956054145548634,
+        "1e-05": 0.1732363200646836,
+        "1e-06": 0.001886000349154343,
+        "1e-07": 2.9477499271426155e-06,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0014217703944645677,
+      "fixed_tangent_gradient": [
+        1.8497625298152798,
+        0.00011079315243023302
+      ],
+      "aware_tangent_gradient": [
+        1.844126158445647,
+        0.001022018025764737
+      ],
+      "aware_gradient_relative_change_h": 2.4971835769014486e-06,
+      "cosine_fixed_vs_aware": 0.9999998778308615,
+      "fixed_hessian_eigenvalues": [
+        -1276970371.3546677,
+        -384134429.41641724
+      ],
+      "aware_hessian_eigenvalues": [
+        -46935.46290733935,
+        -12364.593513512991
+      ],
+      "aware_hessian_relative_change_h": 0.00011480934109216904,
+      "fixed_curvature_along_gradient": -1256673752.7492933,
+      "aware_curvature_along_gradient": -46646.30282036342,
+      "quadratic_best_alpha_along_raw_gradient": 2.1403006361398524e-05
+    },
+    {
+      "power_W": 10.0,
+      "seed": 8003,
+      "endpoint": 7,
+      "grad_norm": 1.6320163672488304,
+      "delta_relative_errors": {
+        "0.0001": 14.120226159141081,
+        "1e-05": 0.9593243032312546,
+        "1e-06": 0.01025630871848597,
+        "1e-07": 8.629808350360843e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0056340504950952025,
+      "fixed_tangent_gradient": [
+        1.623848131515615,
+        0.004120895624737386
+      ],
+      "aware_tangent_gradient": [
+        1.646670625632396,
+        0.002620941685904654
+      ],
+      "aware_gradient_relative_change_h": 1.7159264761496428e-05,
+      "cosine_fixed_vs_aware": 0.9999995524764221,
+      "fixed_hessian_eigenvalues": [
+        -1862698331.1147122,
+        -308246097.71865374
+      ],
+      "aware_hessian_eigenvalues": [
+        -55412.05739042636,
+        -11585.752576125004
+      ],
+      "aware_hessian_relative_change_h": 4.15455433928123e-05,
+      "fixed_curvature_along_gradient": -1862077981.4071398,
+      "aware_curvature_along_gradient": -55246.637487016415,
+      "quadratic_best_alpha_along_raw_gradient": 1.8263179097094188e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 0,
+      "grad_norm": 0.8684553183889208,
+      "delta_relative_errors": {
+        "0.0001": 10.031811771117935,
+        "1e-05": 0.765579189985366,
+        "1e-06": 0.00855978224444923,
+        "1e-07": 9.081682176781801e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.00665249509061784,
+      "fixed_tangent_gradient": [
+        0.8627294452168144,
+        0.00039241143667823053
+      ],
+      "aware_tangent_gradient": [
+        0.8742243631232327,
+        0.0026795854424221943
+      ],
+      "aware_gradient_relative_change_h": 1.1385266891413609e-05,
+      "cosine_fixed_vs_aware": 0.9999965933201586,
+      "fixed_hessian_eigenvalues": [
+        -1248995412.7672427,
+        -125080290.07429466
+      ],
+      "aware_hessian_eigenvalues": [
+        -49053.128575212104,
+        -3565.4102841937133
+      ],
+      "aware_hessian_relative_change_h": 0.00030280315670314333,
+      "fixed_curvature_along_gradient": -1232783383.7062485,
+      "aware_curvature_along_gradient": -45432.68339318729,
+      "quadratic_best_alpha_along_raw_gradient": 2.2156800019885455e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 1,
+      "grad_norm": 0.5170129473584322,
+      "delta_relative_errors": {
+        "0.0001": 16.956161144750983,
+        "1e-05": 3.622112581426718,
+        "1e-06": 0.044267864753842666,
+        "1e-07": 0.00046822200105180254,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.036658588985142494,
+      "fixed_tangent_gradient": [
+        0.501295921218059,
+        0.009529109945560776
+      ],
+      "aware_tangent_gradient": [
+        0.4972059306496135,
+        0.012049552466919522
+      ],
+      "aware_gradient_relative_change_h": 2.0581913624175996e-05,
+      "cosine_fixed_vs_aware": 0.9999863595110305,
+      "fixed_hessian_eigenvalues": [
+        -1138727282.451795,
+        -322173240.5783668
+      ],
+      "aware_hessian_eigenvalues": [
+        -44906.43517055049,
+        -10407.236694514373
+      ],
+      "aware_hessian_relative_change_h": 0.0011059187523828437,
+      "fixed_curvature_along_gradient": -1135815472.872892,
+      "aware_curvature_along_gradient": -44646.2902203848,
+      "quadratic_best_alpha_along_raw_gradient": 2.154018867773167e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 2,
+      "grad_norm": 1.388116924653219,
+      "delta_relative_errors": {
+        "0.0001": 5.272178461078486,
+        "1e-05": 1.8136504421491555,
+        "1e-06": 0.03183399643375131,
+        "1e-07": 0.0003171157484279969,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.00705339739358246,
+      "fixed_tangent_gradient": [
+        1.3807752941019658,
+        -0.006399505814158601
+      ],
+      "aware_tangent_gradient": [
+        1.344046021145573,
+        -0.009845736670399674
+      ],
+      "aware_gradient_relative_change_h": 0.00015024374329528596,
+      "cosine_fixed_vs_aware": 0.9999963802599442,
+      "fixed_hessian_eigenvalues": [
+        -3295779057.0888166,
+        -1329366758.5452964
+      ],
+      "aware_hessian_eigenvalues": [
+        -73941.31194064513,
+        -19837.553621299132
+      ],
+      "aware_hessian_relative_change_h": 0.0005546810363644421,
+      "fixed_curvature_along_gradient": -2873514756.741358,
+      "aware_curvature_along_gradient": -73449.63748323607,
+      "quadratic_best_alpha_along_raw_gradient": 1.3182519836361857e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 3,
+      "grad_norm": 0.5494999167105681,
+      "delta_relative_errors": {
+        "0.0001": 16.517203267960365,
+        "1e-05": 1.280761823621433,
+        "1e-06": 0.013444078541321704,
+        "1e-07": 0.00011077578918525342,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.02352169052525317,
+      "fixed_tangent_gradient": [
+        0.5581918394170771,
+        -0.009843317272384411
+      ],
+      "aware_tangent_gradient": [
+        0.5505690499063576,
+        -0.00762695329115104
+      ],
+      "aware_gradient_relative_change_h": 4.9578823314216104e-05,
+      "cosine_fixed_vs_aware": 0.9999928539402156,
+      "fixed_hessian_eigenvalues": [
+        -1230509743.9425786,
+        -443562322.937394
+      ],
+      "aware_hessian_eigenvalues": [
+        -37024.70894260099,
+        -4839.822454494567
+      ],
+      "aware_hessian_relative_change_h": 0.00043846448382950235,
+      "fixed_curvature_along_gradient": -547895962.5939695,
+      "aware_curvature_along_gradient": -9921.233612431024,
+      "quadratic_best_alpha_along_raw_gradient": 0.00010099002671881221
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 4,
+      "grad_norm": 0.9372944522843498,
+      "delta_relative_errors": {
+        "0.0001": 0.22396563028408065,
+        "1e-05": 0.1285258223594071,
+        "1e-06": 0.0013772148717620457,
+        "1e-07": 1.6875349279192737e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0009972360621772903,
+      "fixed_tangent_gradient": [
+        0.9380574574890943,
+        -0.0005412186254716289
+      ],
+      "aware_tangent_gradient": [
+        0.9357937980070119,
+        -0.0008076668223111483
+      ],
+      "aware_gradient_relative_change_h": 1.798317760211535e-05,
+      "cosine_fixed_vs_aware": 0.999999959066215,
+      "fixed_hessian_eigenvalues": [
+        -1600821269.7810361,
+        -1016837975.9870309
+      ],
+      "aware_hessian_eigenvalues": [
+        -24863.54083821576,
+        -4656.436735284243
+      ],
+      "aware_hessian_relative_change_h": 0.0016508395047068244,
+      "fixed_curvature_along_gradient": -1017565521.4688107,
+      "aware_curvature_along_gradient": -23280.88655190186,
+      "quadratic_best_alpha_along_raw_gradient": 4.288491973219976e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 5,
+      "grad_norm": 1.5331948957594739,
+      "delta_relative_errors": {
+        "0.0001": 3.8507724207066483,
+        "1e-05": 0.25388556967996945,
+        "1e-06": 0.0027594208128220565,
+        "1e-07": 3.1998216848105296e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0045780861003703825,
+      "fixed_tangent_gradient": [
+        1.5394572665528017,
+        0.003233258993873278
+      ],
+      "aware_tangent_gradient": [
+        1.5361759597709579,
+        0.0028805597906966796
+      ],
+      "aware_gradient_relative_change_h": 2.039685012925864e-05,
+      "cosine_fixed_vs_aware": 0.9999999746630854,
+      "fixed_hessian_eigenvalues": [
+        -958547213.1100867,
+        -149558209.03237134
+      ],
+      "aware_hessian_eigenvalues": [
+        -24657.636322822364,
+        -8156.6092202001155
+      ],
+      "aware_hessian_relative_change_h": 0.0012684817190421636,
+      "fixed_curvature_along_gradient": -645251477.1400075,
+      "aware_curvature_along_gradient": -24641.49062575416,
+      "quadratic_best_alpha_along_raw_gradient": 4.066086597376453e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 6,
+      "grad_norm": 1.6385984456268259,
+      "delta_relative_errors": {
+        "0.0001": 4.225541897388209,
+        "1e-05": 0.21055761529493655,
+        "1e-06": 0.002087235219339396,
+        "1e-07": 2.0286804768869084e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0018289506781792374,
+      "fixed_tangent_gradient": [
+        1.6399852080795085,
+        0.002659628961509952
+      ],
+      "aware_tangent_gradient": [
+        1.6366170587645001,
+        0.0032239126923627737
+      ],
+      "aware_gradient_relative_change_h": 1.2594180862955799e-05,
+      "cosine_fixed_vs_aware": 0.999999939405166,
+      "fixed_hessian_eigenvalues": [
+        -1022881003.1096405,
+        -137343318.78169388
+      ],
+      "aware_hessian_eigenvalues": [
+        -34406.721420799586,
+        -14618.26353971108
+      ],
+      "aware_hessian_relative_change_h": 0.0017079631168667223,
+      "fixed_curvature_along_gradient": -972149069.633943,
+      "aware_curvature_along_gradient": -34198.86596134347,
+      "quadratic_best_alpha_along_raw_gradient": 2.92053778923958e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8027,
+      "endpoint": 7,
+      "grad_norm": 0.38544447022861505,
+      "delta_relative_errors": {
+        "0.0001": 65.99412478249396,
+        "1e-05": 1.873934300159529,
+        "1e-06": 0.019397790846187746,
+        "1e-07": 0.0002525449331861184,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.00905608848720932,
+      "fixed_tangent_gradient": [
+        0.38358069698318786,
+        -0.002931540343809047
+      ],
+      "aware_tangent_gradient": [
+        0.38480860720113697,
+        0.007540521096416342
+      ],
+      "aware_gradient_relative_change_h": 3.63399290213753e-05,
+      "cosine_fixed_vs_aware": 0.9996291389018537,
+      "fixed_hessian_eigenvalues": [
+        -1527155756.2824519,
+        -261264098.91294825
+      ],
+      "aware_hessian_eigenvalues": [
+        -14343.781732480542,
+        -5685.346845422524
+      ],
+      "aware_hessian_relative_change_h": 0.004104861048926587,
+      "fixed_curvature_along_gradient": -415895309.6595752,
+      "aware_curvature_along_gradient": -13982.491608999226,
+      "quadratic_best_alpha_along_raw_gradient": 7.14000294189511e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 0,
+      "grad_norm": 1.825497123248528,
+      "delta_relative_errors": {
+        "0.0001": 6.2776134297746555,
+        "1e-05": 1.046545784527884,
+        "1e-06": 0.01339605350908502,
+        "1e-07": 0.00012536248264755258,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.005559965486093043,
+      "fixed_tangent_gradient": [
+        1.8328725746030727,
+        -0.007032409321539035
+      ],
+      "aware_tangent_gradient": [
+        1.7865682373496838,
+        -0.00546061063033676
+      ],
+      "aware_gradient_relative_change_h": 0.00010453749103692394,
+      "cosine_fixed_vs_aware": 0.9999996955392074,
+      "fixed_hessian_eigenvalues": [
+        -1438740575.176929,
+        -92798325.45913596
+      ],
+      "aware_hessian_eigenvalues": [
+        -65029.70230518305,
+        -8814.458703013306
+      ],
+      "aware_hessian_relative_change_h": 0.0004512000667803961,
+      "fixed_curvature_along_gradient": -1437131615.5443738,
+      "aware_curvature_along_gradient": -64931.13602346057,
+      "quadratic_best_alpha_along_raw_gradient": 1.5072505617927408e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 1,
+      "grad_norm": 1.2200513572071106,
+      "delta_relative_errors": {
+        "0.0001": 11.058769554067581,
+        "1e-05": 3.3668551279865246,
+        "1e-06": 0.048755391205611856,
+        "1e-07": 0.00048651097397042374,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.008550483721553565,
+      "fixed_tangent_gradient": [
+        1.2253005685636253,
+        0.009067385953187568
+      ],
+      "aware_tangent_gradient": [
+        1.1762883636023957,
+        -0.05265099556339692
+      ],
+      "aware_gradient_relative_change_h": 0.0009108982104981403,
+      "cosine_fixed_vs_aware": 0.9986415173536302,
+      "fixed_hessian_eigenvalues": [
+        -2482371209.2779703,
+        -1514417431.805911
+      ],
+      "aware_hessian_eigenvalues": [
+        -87208.48136819508,
+        -40499.83011326082
+      ],
+      "aware_hessian_relative_change_h": 0.0003508285438326626,
+      "fixed_curvature_along_gradient": -2476522086.3187666,
+      "aware_curvature_along_gradient": -50465.78444023453,
+      "quadratic_best_alpha_along_raw_gradient": 1.9104631275194562e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 2,
+      "grad_norm": 1.315092902138556,
+      "delta_relative_errors": {
+        "0.0001": 3.609039991550309,
+        "1e-05": 0.35919119318593,
+        "1e-06": 0.003956076468634595,
+        "1e-07": 3.2215040826871264e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0012833114839014186,
+      "fixed_tangent_gradient": [
+        1.313492036913999,
+        0.0005277724923757887
+      ],
+      "aware_tangent_gradient": [
+        1.3220398855651183,
+        0.00719831660944692
+      ],
+      "aware_gradient_relative_change_h": 5.0417668155489536e-05,
+      "cosine_fixed_vs_aware": 0.999987284135752,
+      "fixed_hessian_eigenvalues": [
+        -3593403557.402807,
+        -803656961.7699616
+      ],
+      "aware_hessian_eigenvalues": [
+        -41437.14154171969,
+        -30071.882937890467
+      ],
+      "aware_hessian_relative_change_h": 0.0011585142069552629,
+      "fixed_curvature_along_gradient": -805857929.677245,
+      "aware_curvature_along_gradient": -38635.44861815171,
+      "quadratic_best_alpha_along_raw_gradient": 2.6019692792171988e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 3,
+      "grad_norm": 0.9376471037683688,
+      "delta_relative_errors": {
+        "0.0001": 1.4254317401877592,
+        "1e-05": 0.9120881058083644,
+        "1e-06": 0.013159250018086013,
+        "1e-07": 0.0001445667870731074,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.001750640209975701,
+      "fixed_tangent_gradient": [
+        0.9361000845586886,
+        0.0005406608494240572
+      ],
+      "aware_tangent_gradient": [
+        0.9362587354289076,
+        -0.001691051743080152
+      ],
+      "aware_gradient_relative_change_h": 6.665557336629936e-05,
+      "cosine_fixed_vs_aware": 0.9999971588806071,
+      "fixed_hessian_eigenvalues": [
+        -1426981341.2929857,
+        -204325624.25659806
+      ],
+      "aware_hessian_eigenvalues": [
+        -46842.27175610603,
+        -5509.259354055862
+      ],
+      "aware_hessian_relative_change_h": 0.0005009890890575681,
+      "fixed_curvature_along_gradient": -1289271602.949782,
+      "aware_curvature_along_gradient": -46840.37868685209,
+      "quadratic_best_alpha_along_raw_gradient": 2.1317490039597323e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 4,
+      "grad_norm": 0.8333596977969263,
+      "delta_relative_errors": {
+        "0.0001": 5.896324517298559,
+        "1e-05": 0.9147856307730221,
+        "1e-06": 0.01041287432064922,
+        "1e-07": 0.00010068423613281926,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0008303901409303987,
+      "fixed_tangent_gradient": [
+        0.8337347932041439,
+        0.0005819087434133507
+      ],
+      "aware_tangent_gradient": [
+        0.8249712415420163,
+        1.6262546864709293e-05
+      ],
+      "aware_gradient_relative_change_h": 2.1803201739207507e-05,
+      "cosine_fixed_vs_aware": 0.9999997699943965,
+      "fixed_hessian_eigenvalues": [
+        -2003218978.573592,
+        -245136682.43441367
+      ],
+      "aware_hessian_eigenvalues": [
+        -73917.43004766224,
+        -30292.337878360075
+      ],
+      "aware_hessian_relative_change_h": 0.00020918642984530652,
+      "fixed_curvature_along_gradient": -1655926559.266163,
+      "aware_curvature_along_gradient": -73810.89872637858,
+      "quadratic_best_alpha_along_raw_gradient": 1.341176151532951e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 5,
+      "grad_norm": 0.8255812556190556,
+      "delta_relative_errors": {
+        "0.0001": 2.4891206720003316,
+        "1e-05": 0.11436523077960992,
+        "1e-06": 0.0011524125730576985,
+        "1e-07": 1.9049923732495517e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0010356019828597434,
+      "fixed_tangent_gradient": [
+        0.826414603416481,
+        -0.00019490453695425458
+      ],
+      "aware_tangent_gradient": [
+        0.8267908651049538,
+        0.0002020996703322453
+      ],
+      "aware_gradient_relative_change_h": 2.2881568203349833e-05,
+      "cosine_fixed_vs_aware": 0.9999998846645046,
+      "fixed_hessian_eigenvalues": [
+        -1220675886.0978243,
+        -373511348.35843253
+      ],
+      "aware_hessian_eigenvalues": [
+        -16179.974125513054,
+        -14759.934287561537
+      ],
+      "aware_hessian_relative_change_h": 0.0025088458013957605,
+      "fixed_curvature_along_gradient": -1066279560.1188436,
+      "aware_curvature_along_gradient": -14891.959665419563,
+      "quadratic_best_alpha_along_raw_gradient": 6.724871565152063e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 6,
+      "grad_norm": 1.6553882683262193,
+      "delta_relative_errors": {
+        "0.0001": 13.27160357503195,
+        "1e-05": 0.4982589889882573,
+        "1e-06": 0.0052714650235617866,
+        "1e-07": 4.711926791239214e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.0007798219778394904,
+      "fixed_tangent_gradient": [
+        1.6551427224342774,
+        -0.001267145499639355
+      ],
+      "aware_tangent_gradient": [
+        1.6568631409086265,
+        -0.008636179771315255
+      ],
+      "aware_gradient_relative_change_h": 1.961450891885384e-05,
+      "cosine_fixed_vs_aware": 0.9999901132690866,
+      "fixed_hessian_eigenvalues": [
+        -1660028528.020001,
+        -537719850.973224
+      ],
+      "aware_hessian_eigenvalues": [
+        -72211.27520526898,
+        -34823.15233807094
+      ],
+      "aware_hessian_relative_change_h": 6.410923576851789e-05,
+      "fixed_curvature_along_gradient": -1609403922.282482,
+      "aware_curvature_along_gradient": -68679.73212365541,
+      "quadratic_best_alpha_along_raw_gradient": 1.457330891825237e-05
+    },
+    {
+      "power_W": 1.0,
+      "seed": 8060,
+      "endpoint": 7,
+      "grad_norm": 0.9461460994170117,
+      "delta_relative_errors": {
+        "0.0001": 6.1932550222844,
+        "1e-05": 0.25447103628772594,
+        "1e-06": 0.0027270655796951364,
+        "1e-07": 2.328243320178297e-05,
+        "1e-08": 0.0
+      },
+      "tangent_directional_derivative_error": 0.00205192330420964,
+      "fixed_tangent_gradient": [
+        0.9466555939141585,
+        -0.001874459698569808
+      ],
+      "aware_tangent_gradient": [
+        0.9455751257547718,
+        -0.0021863426624690874
+      ],
+      "aware_gradient_relative_change_h": 1.6806773502481113e-05,
+      "cosine_fixed_vs_aware": 0.9999999448563986,
+      "fixed_hessian_eigenvalues": [
+        -766555322.6392815,
+        -186243582.67579612
+      ],
+      "aware_hessian_eigenvalues": [
+        -38433.1372252955,
+        -13930.21198691892
+      ],
+      "aware_hessian_relative_change_h": 0.002281754816267592,
+      "fixed_curvature_along_gradient": -758015560.3168492,
+      "aware_curvature_along_gradient": -38279.70829206606,
+      "quadratic_best_alpha_along_raw_gradient": 2.6107736227651298e-05
+    }
+  ],
+  "note": "Final saved states after one inner solve. Aware derivative probe forces exactly 2 FP iterations at every point, including the center, to remove early-stop discontinuities. Not a global curvature or optimality certificate."
+}

@@ -1,0 +1,79 @@
+{
+  "root": "D:\\Vs codeProjects\\research work1",
+  "completed_deletions": [
+    {
+      "relative_path": "toma_ground_annulus_mc10_20261022\\__pycache__",
+      "files": 7,
+      "bytes": 229962
+    },
+    {
+      "relative_path": "toma_ground_disk_mc10_20261022\\__pycache__",
+      "files": 10,
+      "bytes": 351897
+    },
+    {
+      "relative_path": "toma_isac_hpc_by_figure\\toma\\test\\__pycache__",
+      "files": 3,
+      "bytes": 101507
+    },
+    {
+      "relative_path": "toma_isac_hpc_by_figure\\toma\\__pycache__",
+      "files": 5,
+      "bytes": 149776
+    },
+    {
+      "relative_path": "toma_isac_pre_hpc_cleanup_20261017\\experiments\\__pycache__",
+      "files": 13,
+      "bytes": 249110
+    },
+    {
+      "relative_path": "toma_isac_pre_hpc_cleanup_20261017\\__pycache__",
+      "files": 14,
+      "bytes": 206290
+    },
+    {
+      "relative_path": "IEEE_Transactions_latex\\bare_jrnl_new_sample4.aux",
+      "files": 1,
+      "bytes": 5343
+    },
+    {
+      "relative_path": "IEEE_Transactions_latex\\bare_jrnl_new_sample4.fdb_latexmk",
+      "files": 1,
+      "bytes": 13233
+    },
+    {
+      "relative_path": "IEEE_Transactions_latex\\bare_jrnl_new_sample4.fls",
+      "files": 1,
+      "bytes": 15792
+    },
+    {
+      "relative_path": "IEEE_Transactions_latex\\bare_jrnl_new_sample4.log",
+      "files": 1,
+      "bytes": 20361
+    },
+    {
+      "relative_path": "IEEE_Transactions_latex\\bare_jrnl_new_sample4.synctex.gz",
+      "files": 1,
+      "bytes": 74067
+    }
+  ],
+  "removed_files": 57.0,
+  "freed_MiB": 1.352,
+  "pending_approval": [
+    "toma_isac_pre_hpc_cleanup_20261017",
+    "annulus_export_validation_20261022",
+    "test_layout_export_validation_20261022",
+    "test_layout_export_validation_20261022_bundle.zip",
+    "toma_ground_disk_mc10_20261022",
+    "toma_ground_disk_mc10_20261022_upload.zip",
+    "toma_ground_annulus_mc10_20261022",
+    "toma_ground_annulus_mc10_20261022_upload.zip"
+  ],
+  "backup_verified": {
+    "folder": "toma_isac_pre_hpc_cleanup_20261017",
+    "different": 0,
+    "archive": "toma_isac_pre_hpc_cleanup_20261017.zip",
+    "matched_files": 7540,
+    "missing": 0
+  }
+}

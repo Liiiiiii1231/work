@@ -1,0 +1,76 @@
+[
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 1.7482971855313107,
+    "final_wsr": 15.891999538518078,
+    "seconds": 0.023502300000473042,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 14.4053364946986,
+        "increment": 12.65703930916729,
+        "alpha": 1.02595629812176,
+        "attempted_alpha": 1.02595629812176,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 15.891999538518078,
+        "increment": 1.486663043819478,
+        "alpha": 1.8285976675417672,
+        "attempted_alpha": 1.8285976675417672,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 1,
+    "after_position_iteration": null
+  },
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 16.2882559288885,
+    "final_wsr": 16.297660287421174,
+    "seconds": 0.039232300000549,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 16.28849370048737,
+        "increment": 0.0002377715988686191,
+        "alpha": 1.1651909920021852,
+        "attempted_alpha": 1.1651909920021852,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 16.297660287421174,
+        "increment": 0.009166586933805121,
+        "alpha": 64.0,
+        "attempted_alpha": 64.0,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      }
+    ],
+    "outer_iteration": 2,
+    "after_position_iteration": 1
+  }
+]

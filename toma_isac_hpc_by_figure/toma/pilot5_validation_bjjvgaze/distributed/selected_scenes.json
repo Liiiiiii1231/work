@@ -1,0 +1,83 @@
+{
+  "scene_seeds": [
+    8006,
+    8010,
+    8011,
+    8013,
+    8015,
+    8028,
+    8035,
+    8042,
+    8092,
+    8099
+  ],
+  "easy": [
+    8010,
+    8015
+  ],
+  "typical": [
+    8092,
+    8028
+  ],
+  "difficult": [
+    8099,
+    8011,
+    8035,
+    8042,
+    8006,
+    8013
+  ],
+  "rule": "Targeted diagnostics: 2 easy, 2 typical, 6 difficult across three baselines; not an unbiased Monte Carlo estimate",
+  "per_scene": [
+    {
+      "scene": 8006,
+      "capped_of_15": 12,
+      "maximum_last100_relative_gain": 0.10948004188933241
+    },
+    {
+      "scene": 8010,
+      "capped_of_15": 9,
+      "maximum_last100_relative_gain": 0.0013985236427301287
+    },
+    {
+      "scene": 8011,
+      "capped_of_15": 12,
+      "maximum_last100_relative_gain": 0.0031887903021060914
+    },
+    {
+      "scene": 8013,
+      "capped_of_15": 10,
+      "maximum_last100_relative_gain": 0.09096268075139727
+    },
+    {
+      "scene": 8015,
+      "capped_of_15": 9,
+      "maximum_last100_relative_gain": 0.0018692844175230627
+    },
+    {
+      "scene": 8028,
+      "capped_of_15": 12,
+      "maximum_last100_relative_gain": 0.0019834971343718967
+    },
+    {
+      "scene": 8035,
+      "capped_of_15": 12,
+      "maximum_last100_relative_gain": 0.06135001590498136
+    },
+    {
+      "scene": 8042,
+      "capped_of_15": 12,
+      "maximum_last100_relative_gain": 0.021825921442436405
+    },
+    {
+      "scene": 8092,
+      "capped_of_15": 12,
+      "maximum_last100_relative_gain": 0.0019833948595742185
+    },
+    {
+      "scene": 8099,
+      "capped_of_15": 12,
+      "maximum_last100_relative_gain": 0.0032835746998288876
+    }
+  ]
+}

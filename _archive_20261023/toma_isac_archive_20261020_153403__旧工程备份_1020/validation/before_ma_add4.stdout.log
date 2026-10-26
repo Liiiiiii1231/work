@@ -1,0 +1,2 @@
+CHECK PASSED: exact64 existing rows, original solver, regular MA start,0.25mW UL.
+CHECK ONLY: no optimizer invoked.

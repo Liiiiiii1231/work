@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {
+      "rank": 0,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 4,
+      "finished_tasks": 4,
+      "failed_tasks": 0,
+      "seconds": 2.2659999999996217,
+      "errors": []
+    },
+    {
+      "rank": 1,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 6,
+      "finished_tasks": 6,
+      "failed_tasks": 0,
+      "seconds": 3.5,
+      "errors": []
+    },
+    {
+      "rank": 2,
+      "host": "Liiiiiii",
+      "workers": 2,
+      "affinity_cpus": null,
+      "assigned_tasks": 6,
+      "finished_tasks": 6,
+      "failed_tasks": 0,
+      "seconds": 1.8280000000013388,
+      "errors": []
+    }
+  ],
+  "world_size": 3,
+  "total_worker_slots": 6,
+  "finished_tasks": 16,
+  "unique_task_claims_verified": true,
+  "local_test": true
+}

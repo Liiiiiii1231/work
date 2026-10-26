@@ -1,0 +1,37 @@
+{
+  "scheme": "b6",
+  "case": "continue_original_tolerance",
+  "source": "current",
+  "tolerance": 0.0001,
+  "status": "converged",
+  "stop_reason": "outer_tolerance",
+  "additional_outer_iterations": 2,
+  "elapsed_s": 0.24790720001328737,
+  "initial_wsr": 1.88628887995202,
+  "final_wsr": 1.886303195455054,
+  "improvement_from_start": 1.4315503033879295e-05,
+  "improvement_from_original_terminal": 1.4315503033435206e-05,
+  "final_metrics": {
+    "sum_rate_dl": 32.72120623486076,
+    "sum_rate_ul": 29.405839068584957,
+    "sum_rate_comm": 62.12704530344571,
+    "sum_rate_sensing": 4.023514308663373,
+    "weighted_sum_rate": 1.886303195455054
+  },
+  "final_UL_power_W": [
+    3.2224699295714264e-246,
+    0.06186495373511674,
+    2.975670626287947e-245,
+    8.304803486503263e-250,
+    0.08157179223374514
+  ],
+  "source_initial_UL_power_W": [
+    1.1995769584860156e-228,
+    0.06185438454586604,
+    1.1892277308009722e-227,
+    5.539139621594062e-232,
+    0.08156104991575158
+  ],
+  "final_state_sha256": "ca512b10916b45c259c6f4f5c7b78fd1b98c209c95e27d7549fea2939fc82127",
+  "constraint_checks_passed": true
+}

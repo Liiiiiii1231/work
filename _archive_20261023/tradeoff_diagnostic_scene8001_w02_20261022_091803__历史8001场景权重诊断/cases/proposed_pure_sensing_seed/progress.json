@@ -1,0 +1,17 @@
+{
+  "iteration": 39,
+  "elapsed_s": 12.100694199994905,
+  "accepted_positions": 4,
+  "delta_wsr": 5.085365808810138e-05,
+  "max_element_step_m": 2.743703051642167e-05,
+  "inner": {
+    "iterations": 1,
+    "last_delta": 6.577977389454759e-06,
+    "reached_iteration_limit": false
+  },
+  "sum_rate_dl": 25.44147491243127,
+  "sum_rate_ul": 0.0,
+  "sum_rate_comm": 25.44147491243127,
+  "sum_rate_sensing": 36.29278107766056,
+  "weighted_sum_rate": 6.315674470674315
+}

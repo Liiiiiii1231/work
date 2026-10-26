@@ -1,0 +1,104 @@
+{
+  "passed": true,
+  "local_multirank_simulation": true,
+  "actual_slurm_test_performed": false,
+  "simulated_ranks": 3,
+  "workers_per_rank": 2,
+  "cases": [
+    {
+      "figure": "screening",
+      "tasks": 4,
+      "assigned_by_rank": [
+        2,
+        1,
+        1
+      ],
+      "distributed_screening_equals_serial": true,
+      "unique_claims": true
+    },
+    {
+      "figure": "convergence",
+      "tasks": 6,
+      "assigned_by_rank": [
+        2,
+        2,
+        2
+      ],
+      "completed_by_rank": [
+        2,
+        2,
+        2
+      ],
+      "unique_claims": true,
+      "full_export": true
+    },
+    {
+      "figure": "p_dl_max",
+      "tasks": 8,
+      "assigned_by_rank": [
+        2,
+        2,
+        4
+      ],
+      "completed_by_rank": [
+        2,
+        2,
+        4
+      ],
+      "unique_claims": true,
+      "full_export": true
+    },
+    {
+      "figure": "rho_si",
+      "tasks": 8,
+      "assigned_by_rank": [
+        2,
+        2,
+        4
+      ],
+      "completed_by_rank": [
+        2,
+        2,
+        4
+      ],
+      "unique_claims": true,
+      "full_export": true
+    },
+    {
+      "figure": "system_load",
+      "tasks": 16,
+      "assigned_by_rank": [
+        4,
+        7,
+        5
+      ],
+      "completed_by_rank": [
+        4,
+        7,
+        5
+      ],
+      "unique_claims": true,
+      "full_export": true
+    },
+    {
+      "figure": "tradeoff",
+      "tasks": 24,
+      "assigned_by_rank": [
+        7,
+        6,
+        11
+      ],
+      "completed_by_rank": [
+        7,
+        6,
+        11
+      ],
+      "unique_claims": true,
+      "full_export": true
+    }
+  ],
+  "serial_metric_equality": true,
+  "original_screening_source_identity_unchanged": true,
+  "output": "D:\\Vs codeProjects\\research work1\\toma_isac_hpc_by_figure\\toma\\three_rank_validation_3ckv28k9",
+  "note": "Local processes simulate three leaders on a shared filesystem. Real three-host Slurm launch remains a platform check."
+}

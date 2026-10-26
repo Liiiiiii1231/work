@@ -1,0 +1,11 @@
+{
+  "rank": 4,
+  "host": "Liiiiiii",
+  "workers": 2,
+  "affinity_cpus": null,
+  "assigned_tasks": 6,
+  "finished_tasks": 6,
+  "failed_tasks": 0,
+  "seconds": 2.5469999999913853,
+  "errors": []
+}

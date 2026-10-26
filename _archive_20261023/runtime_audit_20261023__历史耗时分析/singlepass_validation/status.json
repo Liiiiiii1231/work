@@ -1,0 +1,10 @@
+{
+  "tradeoff": {
+    "complete": true,
+    "expected_scene_cells": 1,
+    "completed_scene_cells": 1,
+    "all_converged": false,
+    "expected_starts": 1,
+    "converged_starts": 0
+  }
+}

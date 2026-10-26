@@ -1,8 +1,0 @@
-{
-  "complete": true,
-  "smoke": false,
-  "expected_starts": 42,
-  "finished_starts": 42,
-  "converged_starts": 42,
-  "errors": []
-}

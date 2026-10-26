@@ -1,0 +1,690 @@
+{
+  "records": 140,
+  "converged": 107,
+  "recalculation_errors": [],
+  "source_checks": [
+    {
+      "file": "../algorithms.py",
+      "match": true
+    },
+    {
+      "file": "../channel_model.py",
+      "match": true
+    },
+    {
+      "file": "../inner_solver.py",
+      "match": true
+    },
+    {
+      "file": "../outer_solver.py",
+      "match": true
+    },
+    {
+      "file": "../system_model.py",
+      "match": true
+    },
+    {
+      "file": "figure_engine.py",
+      "match": true
+    },
+    {
+      "file": "finalize_run.py",
+      "match": true
+    },
+    {
+      "file": "run_figures.py",
+      "match": true
+    }
+  ],
+  "by_weight": [
+    {
+      "weight": 0,
+      "scheme": "proposed",
+      "converged": 10,
+      "median_steps": 492.0,
+      "median_seconds": 2265.1799430437386,
+      "mean_last_gain": 8.573199010530885e-05
+    },
+    {
+      "weight": 0,
+      "scheme": "b6",
+      "converged": 3,
+      "median_steps": 2000.0,
+      "median_seconds": 9221.191864077002,
+      "mean_last_gain": 0.00020789587386431662
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "converged": 10,
+      "median_steps": 318.5,
+      "median_seconds": 1638.711780782789,
+      "mean_last_gain": 9.337466431098562e-05
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "converged": 8,
+      "median_steps": 344.5,
+      "median_seconds": 1762.6808046773076,
+      "mean_last_gain": 0.00011602449337271281
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "converged": 10,
+      "median_steps": 307.5,
+      "median_seconds": 1693.8150594979525,
+      "mean_last_gain": 8.813642653286991e-05
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "converged": 8,
+      "median_steps": 157.0,
+      "median_seconds": 768.7254430577159,
+      "mean_last_gain": 0.00010830133762560479
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "converged": 10,
+      "median_steps": 343.5,
+      "median_seconds": 1910.045804142952,
+      "mean_last_gain": 7.946307155641819e-05
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "converged": 8,
+      "median_steps": 377.0,
+      "median_seconds": 2016.2357892505825,
+      "mean_last_gain": 0.00011128820234524994
+    },
+    {
+      "weight": 0.2,
+      "scheme": "proposed",
+      "converged": 10,
+      "median_steps": 593.5,
+      "median_seconds": 3081.942543014884,
+      "mean_last_gain": 8.280573470162978e-05
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "converged": 7,
+      "median_steps": 408.5,
+      "median_seconds": 2133.6466456092894,
+      "mean_last_gain": 0.00015482602783301047
+    },
+    {
+      "weight": 0.6,
+      "scheme": "proposed",
+      "converged": 7,
+      "median_steps": 1750.0,
+      "median_seconds": 8479.677377093583,
+      "mean_last_gain": 9.50568781911798e-05
+    },
+    {
+      "weight": 0.6,
+      "scheme": "b6",
+      "converged": 8,
+      "median_steps": 344.0,
+      "median_seconds": 1821.1667065024376,
+      "mean_last_gain": 0.00010005653799485258
+    },
+    {
+      "weight": 1,
+      "scheme": "proposed",
+      "converged": 1,
+      "median_steps": 2000.0,
+      "median_seconds": 8539.113916657865,
+      "mean_last_gain": 0.00022795033503122397
+    },
+    {
+      "weight": 1,
+      "scheme": "b6",
+      "converged": 7,
+      "median_steps": 766.0,
+      "median_seconds": 3961.652197945863,
+      "mean_last_gain": 0.00011230908476544954
+    }
+  ],
+  "scheme_runtime": {
+    "proposed": {
+      "total_task_hours": 82.53584227174106,
+      "max_task_seconds": 9770.86369869113
+    },
+    "b6": {
+      "total_task_hours": 82.23720641783956,
+      "max_task_seconds": 11108.119410477579
+    }
+  },
+  "crossweight_gaps": [
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8001,
+      "gap": 0.238191941357897,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8001,
+      "gap": 0.3649549792603004,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8002,
+      "gap": 0.9017629381760397,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8002,
+      "gap": 0.10832292060011639,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8003,
+      "gap": 1.5722754796453788,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8003,
+      "gap": 0.4866962919630282,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8004,
+      "gap": 1.1058898787061988,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8004,
+      "gap": 0.3638293271951287,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8005,
+      "gap": 0.6529464474436626,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8005,
+      "gap": 0.3420641785050975,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8006,
+      "gap": 0.06080271185236086,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8006,
+      "gap": 0.2627617027274649,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8007,
+      "gap": 0.6389861979398841,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8007,
+      "gap": 0.3092354388210179,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8008,
+      "gap": 1.5516411839909203,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8008,
+      "gap": 0.2543071657509035,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8009,
+      "gap": 0.17703445085520642,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8009,
+      "gap": 0.332808553881323,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "b6",
+      "scene": 8010,
+      "gap": 3.062653578362637,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.001,
+      "scheme": "proposed",
+      "scene": 8010,
+      "gap": 0.20290634066060242,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8001,
+      "gap": 0.18442502099834357,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8001,
+      "gap": 0.33332889119659725,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8002,
+      "gap": 1.8021997870704194,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8002,
+      "gap": 0.24791438603725524,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8003,
+      "gap": 1.465563667724762,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8003,
+      "gap": 0.712195380669403,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8004,
+      "gap": 1.6370171313320494,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8004,
+      "gap": 0.2097754040475177,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8005,
+      "gap": 0.49868088335526295,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8005,
+      "gap": 0.06820389462727405,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8006,
+      "gap": 0.06232705105767522,
+      "reference_weight": 0.001
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8006,
+      "gap": 0.18361929827102053,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8007,
+      "gap": 0.5591744964939753,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8007,
+      "gap": 0.07562854565110655,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8008,
+      "gap": 1.4354192000791084,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8008,
+      "gap": 0.31521547479103695,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8009,
+      "gap": 0.08132136809947887,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8009,
+      "gap": 0.2566001399265474,
+      "reference_weight": 0.2
+    },
+    {
+      "weight": 0.015,
+      "scheme": "b6",
+      "scene": 8010,
+      "gap": 3.2497504567013316,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.015,
+      "scheme": "proposed",
+      "scene": 8010,
+      "gap": 0.2678002099863921,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8001,
+      "gap": 0.24313572711581166,
+      "reference_weight": 0.2
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8001,
+      "gap": 0.12401656995600341,
+      "reference_weight": 0.015
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8002,
+      "gap": 1.2719088697509306,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8002,
+      "gap": 0.03864239689843707,
+      "reference_weight": 0.001
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8003,
+      "gap": 1.1907198836551718,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8003,
+      "gap": 0.22623132274291535,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8004,
+      "gap": 1.2380080963751734,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8005,
+      "gap": 0.20940058963872588,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8005,
+      "gap": 0.09022208607621351,
+      "reference_weight": 0.015
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8006,
+      "gap": 0.09953310267580484,
+      "reference_weight": 0.001
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8007,
+      "gap": 0.25122205433402733,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8007,
+      "gap": 0.1133486302379918,
+      "reference_weight": 0.015
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8008,
+      "gap": 1.1768341796168773,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8008,
+      "gap": 0.03340419241175674,
+      "reference_weight": 0.2
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8009,
+      "gap": 0.27742994386467323,
+      "reference_weight": 0.2
+    },
+    {
+      "weight": 0.05,
+      "scheme": "b6",
+      "scene": 8010,
+      "gap": 3.054695639959636,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.05,
+      "scheme": "proposed",
+      "scene": 8010,
+      "gap": 0.005405746382427523,
+      "reference_weight": 0.2
+    },
+    {
+      "weight": 0.2,
+      "scheme": "proposed",
+      "scene": 8001,
+      "gap": 0.19580092021573137,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8002,
+      "gap": 0.49080861110302365,
+      "reference_weight": 0.001
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8003,
+      "gap": 0.6681707066118623,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "proposed",
+      "scene": 8003,
+      "gap": 0.5581561943566076,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8004,
+      "gap": 0.6431843931374743,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8006,
+      "gap": 0.09684571004786413,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "proposed",
+      "scene": 8006,
+      "gap": 0.11891177672194253,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8007,
+      "gap": 0.37551086288432955,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "proposed",
+      "scene": 8007,
+      "gap": 0.08746878610458353,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8008,
+      "gap": 0.15863916961182767,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "proposed",
+      "scene": 8008,
+      "gap": 0.11399715786548548,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8009,
+      "gap": 0.36388606513030375,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.2,
+      "scheme": "b6",
+      "scene": 8010,
+      "gap": 1.520466482748061,
+      "reference_weight": 0.0
+    },
+    {
+      "weight": 0.2,
+      "scheme": "proposed",
+      "scene": 8010,
+      "gap": 0.15293837300674085,
+      "reference_weight": 0.6
+    },
+    {
+      "weight": 0.6,
+      "scheme": "b6",
+      "scene": 8001,
+      "gap": 0.6611607389119047,
+      "reference_weight": 1.0
+    },
+    {
+      "weight": 0.6,
+      "scheme": "b6",
+      "scene": 8002,
+      "gap": 1.506232302482033,
+      "reference_weight": 1.0
+    },
+    {
+      "weight": 0.6,
+      "scheme": "b6",
+      "scene": 8007,
+      "gap": 0.4766821738872231,
+      "reference_weight": 1.0
+    },
+    {
+      "weight": 0.6,
+      "scheme": "b6",
+      "scene": 8008,
+      "gap": 0.5537507047582277,
+      "reference_weight": 1.0
+    }
+  ]
+}

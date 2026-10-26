@@ -1,0 +1,70 @@
+[
+  {
+    "weight": 0.001,
+    "scene": 8003,
+    "grid": {
+      "current_geometry_current_resources": {
+        "sum_rate_dl": 0.3428543864872165,
+        "sum_rate_ul": 77.81993217780091,
+        "sum_rate_comm": 78.16278656428813,
+        "sum_rate_sensing": 58.696559291378236,
+        "weighted_sum_rate": 11.735388825073802
+      },
+      "current_geometry_pure_resources": {
+        "sum_rate_dl": 0.4542061037469073,
+        "sum_rate_ul": 0.0,
+        "sum_rate_comm": 0.4542061037469073,
+        "sum_rate_sensing": 0.7039299419534945,
+        "weighted_sum_rate": 0.14069062301268287
+      },
+      "pure_geometry_current_resources": {
+        "sum_rate_dl": 0.36231810021214195,
+        "sum_rate_ul": 1.0692855035092037,
+        "sum_rate_comm": 1.4316036037213458,
+        "sum_rate_sensing": 0.0068157602727993115,
+        "weighted_sum_rate": 0.0015049492628774373
+      },
+      "pure_geometry_pure_resources": {
+        "sum_rate_dl": 0.32391342529984124,
+        "sum_rate_ul": 0.0,
+        "sum_rate_comm": 0.32391342529984124,
+        "sum_rate_sensing": 61.17143506353326,
+        "weighted_sum_rate": 12.222085117036478
+      }
+    }
+  },
+  {
+    "weight": 0.015,
+    "scene": 8003,
+    "grid": {
+      "current_geometry_current_resources": {
+        "sum_rate_dl": 34.242976812592254,
+        "sum_rate_ul": 76.13453826175339,
+        "sum_rate_comm": 110.37751507434564,
+        "sum_rate_sensing": 56.71825849935683,
+        "weighted_sum_rate": 11.339063196984817
+      },
+      "current_geometry_pure_resources": {
+        "sum_rate_dl": 0.46720428980861545,
+        "sum_rate_ul": 0.0,
+        "sum_rate_comm": 0.46720428980861545,
+        "sum_rate_sensing": 2.4019899573153545,
+        "weighted_sum_rate": 0.4738928280258378
+      },
+      "pure_geometry_current_resources": {
+        "sum_rate_dl": 0.4615529486721531,
+        "sum_rate_ul": 4.600287857471344,
+        "sum_rate_comm": 5.061840806143498,
+        "sum_rate_sensing": 0.028604832524038906,
+        "weighted_sum_rate": 0.01322791321645091
+      },
+      "pure_geometry_pure_resources": {
+        "sum_rate_dl": 0.32391342529984124,
+        "sum_rate_ul": 0.0,
+        "sum_rate_comm": 0.32391342529984124,
+        "sum_rate_sensing": 61.17143506353326,
+        "weighted_sum_rate": 12.051258577654005
+      }
+    }
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "task": {
+    "figure": "tradeoff",
+    "parameter_value": 0.2,
+    "scene_seed": 8001,
+    "scheme": "proposed"
+  },
+  "kind": "continue_tighter_tolerance",
+  "source": "current",
+  "source_record_sha256": "8110f4af50b907ce38a692c2f2e836aa562e9476c2a133d17c231b533da4a4bc",
+  "tol_inner": 1e-06,
+  "tol_outer": 1e-06,
+  "max_outer_iter": 100,
+  "max_inner_iter": 1200,
+  "max_wall_seconds": 300,
+  "zero_UL_amplitudes": 3,
+  "intentional_diagnostic_changes": [
+    "saved-state starting point",
+    "100 additional outer-iteration budget",
+    "inner and outer absolute tolerance 1e-6"
+  ],
+  "paper_protocol_changed": false,
+  "initial_metrics": {
+    "sum_rate_dl": 16.42787437087174,
+    "sum_rate_ul": 30.611001391952858,
+    "sum_rate_comm": 47.0388757628246,
+    "sum_rate_sensing": 18.743982121947607,
+    "weighted_sum_rate": 3.9398146547681088
+  }
+}

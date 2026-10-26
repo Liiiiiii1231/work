@@ -1,0 +1,17 @@
+{
+  "index": 5,
+  "rank": 2,
+  "task": {
+    "figure": "convergence",
+    "parameter_value": 10.0,
+    "scene_seed": 8006,
+    "scheme": "proposed"
+  },
+  "ok": true,
+  "worker": {
+    "host": "Liiiiiii",
+    "pid": 56460
+  },
+  "wsr": 15.50725288163743,
+  "converged": false
+}

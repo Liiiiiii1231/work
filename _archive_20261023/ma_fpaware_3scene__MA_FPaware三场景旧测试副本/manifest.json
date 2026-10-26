@@ -1,0 +1,19 @@
+{
+  "baseline_shared_hashes.json": "56e88ad2ea7bf6e11ccfbc2444da7fce8598eb4489fd77713b554b65203ecf63",
+  "figure_engine.py": "67d91b36a9a0b8e1ef78ef36adb7473b9b0c627e565253bc45e340541f842add",
+  "ma_fp_aware.py": "4d3020285732d3da8b313418205d5b4e77fbb5bc617d39b89e3f34dd133a7f78",
+  "README.md": "a942623baa5f4f1292795f7c4321562449ea804439e586bef5aeac7e897bf52a",
+  "run_three.py": "7f19759feb1e0db49b0f0e8629cac38b3907c4289a65196508a5781637bbeba1",
+  "submit_three.sh": "c7a79df7d57afe398f2da74de122b3cd383894646a3030a7d97eafddc7d9b72c",
+  "tradeoff_config.json": "d7a5c592ef3eacbac32102a945bc19ca8ca4d7f100a111572e25d28cf3a670b2",
+  "validation_report.json": "5bf2facfd350ca6399d0a72bf0c8c2ad2a5a53107a6fa7c18157bccfaea3d01f",
+  "baseline/scene_8001/call_001.npz": "1d2f1c22ea62dc8b18c1f9ee3ab9d9e6974ea6d29e42f1719b54890d6a39b482",
+  "baseline/scene_8001/initial.npz": "ee331662b11198bc9d47f2f3b11f2457272b3e741381e420e66448f2a78454c2",
+  "baseline/scene_8001/record.json": "5f7aefdf5956835837f100b88d7e07e2c764f006fc419946fe47d0d088c173cc",
+  "baseline/scene_8005/call_001.npz": "9061fb851d695bc67b0624e95b92e3cb4afe118c52eec525b1386e4041b602d5",
+  "baseline/scene_8005/initial.npz": "820af764094ca70f2aa38ddae86016cf4c0171406afe78409cefd55c98ec8c2a",
+  "baseline/scene_8005/record.json": "174ea7cfcea0fb119f297e51db9623bb58c99742c4fb6f34bf1fc9bbc3e0efae",
+  "baseline/scene_8010/call_001.npz": "e0f5313640171ac48fab52b7c01805f1a8b144cb600f64acd91e60061ec4dbae",
+  "baseline/scene_8010/initial.npz": "9d09df9887eb5b0ea18a9631e4abff579a7dd4831fefb8b948640ba54c64675b",
+  "baseline/scene_8010/record.json": "2556869c21a60457a48e96e5077dfa4105f167ec3b70db299c240255ea5bc132"
+}

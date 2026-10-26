@@ -1,7 +1,0 @@
-[CHECK] Plotting 80 raw converged CSV points; no interpolation.
-[SAVED] D:\Vs codeProjects\research work1\toma_isac\tmp\cleanup_preflight_20261010\figures\communication_sensing_tradeoff.png
-[SAVED] D:\Vs codeProjects\research work1\toma_isac\tmp\cleanup_preflight_20261010\figures\communication_sensing_tradeoff.pdf
-[SAVED] D:\Vs codeProjects\research work1\toma_isac\tmp\cleanup_preflight_20261010\figures\communication_sensing_tradeoff.svg
-[NOTE] All connecting segments are solid; all 80 raw points retained.
-mkdir -p failed for path C:\Users\27809\.matplotlib: [WinError 5] �ܾ����ʡ�: 'C:\\Users\\27809\\.matplotlib'
-Matplotlib created a temporary cache directory at C:\Users\27809\AppData\Local\Temp\matplotlib-bgw0ok8l because there was an issue with the default path ({configdir}); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.

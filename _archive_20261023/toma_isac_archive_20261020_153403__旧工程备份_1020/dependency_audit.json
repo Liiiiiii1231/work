@@ -1,0 +1,1804 @@
+{
+  "scanned_python_files": [
+    "algorithm.py",
+    "baselines.py",
+    "channels.py",
+    "config.py",
+    "geometry.py",
+    "initialization.py",
+    "inner_solver.py",
+    "ma_baseline.py",
+    "main.py",
+    "metrics.py",
+    "multistart.py",
+    "outer_solver.py",
+    "run_all_figures_unified.py",
+    "stage8.py",
+    "state.py",
+    "utils.py",
+    "experiments/extend_regular25_scene8001_to_40dbm.py",
+    "experiments/final_protocol.py",
+    "experiments/ma_add4_common.py",
+    "experiments/ma_add4_styles.py",
+    "experiments/ma_add4_support.py",
+    "experiments/paper_figure_styles.py",
+    "experiments/paper_figures_unified.py",
+    "experiments/run_regular025_multistart_pilot.py",
+    "experiments/run_regular25_multistart_pilot.py",
+    "experiments/run_stage10_ma_add4.py",
+    "experiments/run_stage10_ma_transition4.py",
+    "experiments/stage10_planar_pm_support.py"
+  ],
+  "imports": [
+    {
+      "path": "algorithm.py",
+      "line": 9,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 11,
+      "statement": "from dataclasses import dataclass"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 12,
+      "statement": "from copy import deepcopy"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 14,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 16,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 17,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 18,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 19,
+      "statement": "from initialization import (\n    generate_feasible_endpoints,\n    initialize_resources,\n)"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 23,
+      "statement": "from inner_solver import solve_inner_problem"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 24,
+      "statement": "from metrics import compute_performance"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 25,
+      "statement": "from outer_solver import (\n    OuterRCGState,\n    create_outer_rcg_state,\n    update_positions_once,\n    update_positions_once_fp_aware,\n)"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 31,
+      "statement": "from state import (\n    ChannelState,\n    GeometryState,\n    PerformanceResult,\n    ResourceState,\n)"
+    },
+    {
+      "path": "algorithm.py",
+      "line": 37,
+      "statement": "from utils import (\n    check_resource_constraints,\n    relative_change,\n)"
+    },
+    {
+      "path": "baselines.py",
+      "line": 20,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "baselines.py",
+      "line": 22,
+      "statement": "from dataclasses import dataclass"
+    },
+    {
+      "path": "baselines.py",
+      "line": 23,
+      "statement": "from copy import deepcopy"
+    },
+    {
+      "path": "baselines.py",
+      "line": 25,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "baselines.py",
+      "line": 27,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "baselines.py",
+      "line": 28,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "baselines.py",
+      "line": 29,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "baselines.py",
+      "line": 30,
+      "statement": "from initialization import (\n    generate_feasible_endpoints,\n    initialize_resources,\n)"
+    },
+    {
+      "path": "baselines.py",
+      "line": 34,
+      "statement": "from inner_solver import (\n    solve_inner_problem,\n    update_sensing_combiners,\n    update_uplink_combiners,\n)"
+    },
+    {
+      "path": "baselines.py",
+      "line": 39,
+      "statement": "from metrics import compute_performance"
+    },
+    {
+      "path": "baselines.py",
+      "line": 40,
+      "statement": "from outer_solver import (\n    create_outer_rcg_state,\n    update_positions_once,\n)"
+    },
+    {
+      "path": "baselines.py",
+      "line": 44,
+      "statement": "from state import (\n    ChannelState,\n    GeometryState,\n    PerformanceResult,\n    ResourceState,\n)"
+    },
+    {
+      "path": "baselines.py",
+      "line": 50,
+      "statement": "from utils import (\n    check_resource_constraints,\n    relative_change,\n)"
+    },
+    {
+      "path": "channels.py",
+      "line": 15,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "channels.py",
+      "line": 17,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "channels.py",
+      "line": 18,
+      "statement": "from state import ChannelState, GeometryState"
+    },
+    {
+      "path": "config.py",
+      "line": 1,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "config.py",
+      "line": 3,
+      "statement": "from dataclasses import dataclass"
+    },
+    {
+      "path": "config.py",
+      "line": 4,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "config.py",
+      "line": 6,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "config.py",
+      "line": 7,
+      "statement": "import yaml"
+    },
+    {
+      "path": "geometry.py",
+      "line": 16,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "geometry.py",
+      "line": 18,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "geometry.py",
+      "line": 19,
+      "statement": "from state import GeometryState"
+    },
+    {
+      "path": "initialization.py",
+      "line": 20,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "initialization.py",
+      "line": 22,
+      "statement": "from channels import (\n    transmit_array_response,\n)"
+    },
+    {
+      "path": "initialization.py",
+      "line": 25,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "initialization.py",
+      "line": 26,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "initialization.py",
+      "line": 27,
+      "statement": "from state import (\n    ChannelState,\n    GeometryState,\n    ResourceState,\n)"
+    },
+    {
+      "path": "initialization.py",
+      "line": 32,
+      "statement": "from utils import (\n    hermitianize,\n    normalize_vector,\n)"
+    },
+    {
+      "path": "inner_solver.py",
+      "line": 9,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "inner_solver.py",
+      "line": 11,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "inner_solver.py",
+      "line": 12,
+      "statement": "from scipy.linalg import eigh"
+    },
+    {
+      "path": "inner_solver.py",
+      "line": 14,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "inner_solver.py",
+      "line": 15,
+      "statement": "from metrics import (\n    build_sensing_interference_covariance,\n    build_transmit_interference_gram,\n    build_uplink_interference_covariance,\n    compute_performance,\n)"
+    },
+    {
+      "path": "inner_solver.py",
+      "line": 21,
+      "statement": "from state import (\n    ChannelState,\n    FPState,\n    ResourceState,\n)"
+    },
+    {
+      "path": "inner_solver.py",
+      "line": 26,
+      "statement": "from utils import (\n    check_resource_constraints,\n    hermitianize,\n    normalize_vector,\n    relative_change,\n    split_transmit_matrix,\n)"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 15,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 17,
+      "statement": "from dataclasses import dataclass"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 18,
+      "statement": "from copy import deepcopy"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 20,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 22,
+      "statement": "from baselines import build_fpa_upa_geometry"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 23,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 24,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 25,
+      "statement": "from initialization import initialize_resources"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 26,
+      "statement": "from inner_solver import solve_inner_problem"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 27,
+      "statement": "from metrics import compute_performance"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 28,
+      "statement": "from state import (\n    ChannelState,\n    GeometryState,\n    PerformanceResult,\n    ResourceState,\n)"
+    },
+    {
+      "path": "ma_baseline.py",
+      "line": 34,
+      "statement": "from utils import check_resource_constraints, relative_change"
+    },
+    {
+      "path": "main.py",
+      "line": 3,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "main.py",
+      "line": 5,
+      "statement": "from algorithm import run_joint_algorithm"
+    },
+    {
+      "path": "main.py",
+      "line": 6,
+      "statement": "from config import load_config"
+    },
+    {
+      "path": "main.py",
+      "line": 7,
+      "statement": "from geometry import (\n    min_endpoint_distance,\n    min_tx_rx_element_distance,\n)"
+    },
+    {
+      "path": "metrics.py",
+      "line": 29,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "metrics.py",
+      "line": 31,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "metrics.py",
+      "line": 32,
+      "statement": "from state import (\n    ChannelState,\n    PerformanceResult,\n    ResourceState,\n)"
+    },
+    {
+      "path": "metrics.py",
+      "line": 37,
+      "statement": "from utils import (\n    check_finite,\n    hermitianize,\n    split_transmit_matrix,\n)"
+    },
+    {
+      "path": "multistart.py",
+      "line": 13,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "multistart.py",
+      "line": 15,
+      "statement": "from dataclasses import dataclass"
+    },
+    {
+      "path": "multistart.py",
+      "line": 16,
+      "statement": "from time import perf_counter"
+    },
+    {
+      "path": "multistart.py",
+      "line": 17,
+      "statement": "from typing import Any, Callable, Sequence"
+    },
+    {
+      "path": "multistart.py",
+      "line": 19,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "multistart.py",
+      "line": 21,
+      "statement": "from algorithm import run_joint_algorithm"
+    },
+    {
+      "path": "multistart.py",
+      "line": 22,
+      "statement": "from baselines import (\n    run_fixed_toma_fp,\n    run_fixed_toma_traditional,\n    run_fpa_upa_fp,\n    run_fpa_upa_traditional,\n    run_rcg_toma_traditional,\n)"
+    },
+    {
+      "path": "multistart.py",
+      "line": 29,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "multistart.py",
+      "line": 30,
+      "statement": "from utils import check_resource_constraints"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 9,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 11,
+      "statement": "from collections.abc import Callable"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 12,
+      "statement": "from dataclasses import dataclass, replace"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 14,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 16,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 17,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 18,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 19,
+      "statement": "from inner_solver import solve_inner_problem"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 20,
+      "statement": "from metrics import compute_performance"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 21,
+      "statement": "from state import (\n    ChannelState,\n    GeometryState,\n    ResourceState,\n)"
+    },
+    {
+      "path": "outer_solver.py",
+      "line": 26,
+      "statement": "from utils import relative_change"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 6,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 7,
+      "statement": "import os"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 11,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 12,
+      "statement": "import sys,argparse,json,time,traceback"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 13,
+      "statement": "from concurrent.futures import ProcessPoolExecutor,as_completed"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 16,
+      "statement": "import paper_figures_unified as engine"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 101,
+      "statement": "import shutil"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 121,
+      "statement": "import yaml"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 122,
+      "statement": "import shutil"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 123,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 124,
+      "statement": "import run_regular25_multistart_pilot as high"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 95,
+      "statement": "import shutil"
+    },
+    {
+      "path": "stage8.py",
+      "line": 15,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "stage8.py",
+      "line": 17,
+      "statement": "import csv"
+    },
+    {
+      "path": "stage8.py",
+      "line": 18,
+      "statement": "from dataclasses import dataclass, replace"
+    },
+    {
+      "path": "stage8.py",
+      "line": 19,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "stage8.py",
+      "line": 20,
+      "statement": "from typing import Sequence"
+    },
+    {
+      "path": "stage8.py",
+      "line": 22,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "stage8.py",
+      "line": 23,
+      "statement": "import yaml"
+    },
+    {
+      "path": "stage8.py",
+      "line": 25,
+      "statement": "from algorithm import run_joint_algorithm"
+    },
+    {
+      "path": "stage8.py",
+      "line": 26,
+      "statement": "from baselines import (\n    run_fixed_toma_fp,\n    run_fixed_toma_traditional,\n    run_fpa_upa_fp,\n    run_fpa_upa_traditional,\n    run_rcg_toma_traditional,\n)"
+    },
+    {
+      "path": "stage8.py",
+      "line": 33,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "stage8.py",
+      "line": 34,
+      "statement": "from channels import communication_path_gains"
+    },
+    {
+      "path": "stage8.py",
+      "line": 35,
+      "statement": "from ma_baseline import run_ma_fp"
+    },
+    {
+      "path": "stage8.py",
+      "line": 36,
+      "statement": "from multistart import MultiStartResult, run_multi_start"
+    },
+    {
+      "path": "state.py",
+      "line": 1,
+      "statement": "from dataclasses import dataclass"
+    },
+    {
+      "path": "state.py",
+      "line": 3,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "utils.py",
+      "line": 1,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "utils.py",
+      "line": 3,
+      "statement": "from config import SystemConfig"
+    },
+    {
+      "path": "utils.py",
+      "line": 4,
+      "statement": "from state import ResourceState"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 12,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 14,
+      "statement": "import argparse"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 15,
+      "statement": "import csv"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 16,
+      "statement": "import json"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 17,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 18,
+      "statement": "import sys"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 19,
+      "statement": "from concurrent.futures import ProcessPoolExecutor, as_completed"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 20,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 21,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 26,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 31,
+      "statement": "import run_regular25_multistart_pilot as high25"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 2,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 3,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 4,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 5,
+      "statement": "import paper_figures_unified as engine"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 22,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 23,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 24,
+      "statement": "from initialization import initialize_resources"
+    },
+    {
+      "path": "experiments/final_protocol.py",
+      "line": 25,
+      "statement": "import ma_baseline as ma"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 6,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 8,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 13,
+      "statement": "import argparse"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 14,
+      "statement": "from concurrent.futures import ProcessPoolExecutor, as_completed"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 15,
+      "statement": "from contextlib import ExitStack"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 16,
+      "statement": "from copy import deepcopy"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 17,
+      "statement": "from dataclasses import replace"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 18,
+      "statement": "import hashlib"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 19,
+      "statement": "import json"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 20,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 21,
+      "statement": "import sys"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 22,
+      "statement": "from tempfile import TemporaryDirectory"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 23,
+      "statement": "from time import perf_counter"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 24,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 25,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 26,
+      "statement": "import yaml"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 28,
+      "statement": "from ma_add4_support import FIELDS, LABELS, csv_read, csv_write, json_write, plot, sha, values"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 65,
+      "statement": "from config import load_config"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 66,
+      "statement": "from stage8 import make_scene_config"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 87,
+      "statement": "from state import GeometryState, ResourceState"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 103,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 104,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 105,
+      "statement": "from metrics import compute_performance"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 106,
+      "statement": "from utils import check_resource_constraints"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 107,
+      "statement": "import baselines"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 108,
+      "statement": "import ma_baseline as ma"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 138,
+      "statement": "import algorithm"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 139,
+      "statement": "import baselines"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 140,
+      "statement": "import inner_solver"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 141,
+      "statement": "import outer_solver"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 142,
+      "statement": "import ma_baseline as ma"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 143,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 144,
+      "statement": "from metrics import compute_performance"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 145,
+      "statement": "from utils import check_resource_constraints"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 2,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 3,
+      "statement": "import argparse"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 4,
+      "statement": "from copy import deepcopy"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 5,
+      "statement": "import csv"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 6,
+      "statement": "from dataclasses import replace"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 7,
+      "statement": "import hashlib"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 8,
+      "statement": "import io"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 9,
+      "statement": "import json"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 10,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 11,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 12,
+      "statement": "import sys"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 13,
+      "statement": "from tempfile import TemporaryDirectory"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 14,
+      "statement": "from time import perf_counter"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 15,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 16,
+      "statement": "from zipfile import ZipFile"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 17,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 18,
+      "statement": "import yaml"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 48,
+      "statement": "import matplotlib"
+    },
+    {
+      "path": "experiments/ma_add4_support.py",
+      "line": 50,
+      "statement": "import matplotlib.pyplot as plt"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 2,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 3,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 7,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 8,
+      "statement": "from dataclasses import replace,asdict"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 9,
+      "statement": "from contextlib import ExitStack"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 10,
+      "statement": "from copy import deepcopy"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 11,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 12,
+      "statement": "import csv,json,hashlib,time,shutil"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 13,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 14,
+      "statement": "import yaml"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 15,
+      "statement": "from paper_figure_styles import STYLES,POWER_LINESTYLES,POWER_COLORS"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 48,
+      "statement": "from state import GeometryState,ResourceState"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 71,
+      "statement": "from config import load_config"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 72,
+      "statement": "from stage8 import make_scene_config"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 87,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 88,
+      "statement": "from baselines import build_fpa_upa_geometry"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 89,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 90,
+      "statement": "from initialization import initialize_resources"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 101,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 102,
+      "statement": "from metrics import compute_performance"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 108,
+      "statement": "from utils import check_resource_constraints"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 109,
+      "statement": "from geometry import check_geometry_constraints"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 110,
+      "statement": "from baselines import build_fpa_upa_geometry"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 111,
+      "statement": "import ma_baseline as ma"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 141,
+      "statement": "from config import load_config"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 142,
+      "statement": "from tempfile import TemporaryDirectory"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 189,
+      "statement": "import algorithm,baselines,inner_solver,outer_solver,ma_baseline as ma"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 269,
+      "statement": "import matplotlib"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 271,
+      "statement": "import matplotlib.pyplot as plt"
+    },
+    {
+      "path": "experiments/paper_figures_unified.py",
+      "line": 172,
+      "statement": "from stage8 import make_scene_config"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 2,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 3,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 5,
+      "statement": "import sys,json,csv,hashlib,argparse,shutil"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 6,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 7,
+      "statement": "from concurrent.futures import ProcessPoolExecutor,as_completed"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 8,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 9,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 10,
+      "statement": "import yaml"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 12,
+      "statement": "import paper_figures_unified as engine"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 21,
+      "statement": "from geometry import build_geometry"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 22,
+      "statement": "from channels import build_channels"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 23,
+      "statement": "from initialization import initialize_resources"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 24,
+      "statement": "import ma_baseline as ma"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 2,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 3,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 5,
+      "statement": "import argparse,csv,json,sys"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 6,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 7,
+      "statement": "from concurrent.futures import ProcessPoolExecutor,as_completed"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 8,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 9,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 11,
+      "statement": "import run_regular025_multistart_pilot as pilot"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 2,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 3,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 6,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 7,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 8,
+      "statement": "from concurrent.futures import ProcessPoolExecutor,as_completed"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 9,
+      "statement": "import argparse,shutil"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 10,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 11,
+      "statement": "import ma_add4_common as common"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 12,
+      "statement": "from ma_add4_support import csv_read,csv_write,json_write,sha,FIELDS,nondominated"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 13,
+      "statement": "from ma_add4_styles import STYLES"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 22,
+      "statement": "from baselines import build_fpa_upa_geometry"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 23,
+      "statement": "from utils import check_resource_constraints"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 24,
+      "statement": "import ma_baseline as ma"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 49,
+      "statement": "import matplotlib"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 51,
+      "statement": "import matplotlib.pyplot as plt"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 2,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 3,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 6,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 7,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 8,
+      "statement": "from concurrent.futures import ProcessPoolExecutor,as_completed"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 9,
+      "statement": "import argparse,shutil"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 10,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 11,
+      "statement": "import ma_add4_common as common"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 12,
+      "statement": "from ma_add4_support import csv_read,csv_write,json_write,sha,FIELDS,nondominated"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 13,
+      "statement": "from ma_add4_styles import STYLES"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 22,
+      "statement": "from baselines import build_fpa_upa_geometry"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 23,
+      "statement": "from utils import check_resource_constraints"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 24,
+      "statement": "import ma_baseline as ma"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 49,
+      "statement": "import matplotlib"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 51,
+      "statement": "import matplotlib.pyplot as plt"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 2,
+      "statement": "from __future__ import annotations"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 3,
+      "statement": "import argparse"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 4,
+      "statement": "from copy import deepcopy"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 5,
+      "statement": "import csv"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 6,
+      "statement": "from dataclasses import replace"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 7,
+      "statement": "import hashlib"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 8,
+      "statement": "import io"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 9,
+      "statement": "import json"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 10,
+      "statement": "import os"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 11,
+      "statement": "from pathlib import Path"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 12,
+      "statement": "import sys"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 13,
+      "statement": "from tempfile import TemporaryDirectory"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 14,
+      "statement": "from time import perf_counter"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 15,
+      "statement": "from unittest.mock import patch"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 16,
+      "statement": "from zipfile import ZipFile"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 17,
+      "statement": "import numpy as np"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 18,
+      "statement": "import yaml"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 48,
+      "statement": "import matplotlib"
+    },
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "line": 50,
+      "statement": "import matplotlib.pyplot as plt"
+    }
+  ],
+  "python_file_references": [
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 99,
+      "reference": "experiments/paper_figure_styles.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 102,
+      "reference": "experiments/paper_figure_styles.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 102,
+      "reference": "source_configs/paper_figure_styles.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 81,
+      "reference": "experiments/paper_figures_unified.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "algorithm.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "baselines.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "ma_baseline.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "initialization.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "inner_solver.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "outer_solver.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "channels.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "metrics.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "geometry.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "config.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "stage8.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "utils.py"
+    },
+    {
+      "path": "run_all_figures_unified.py",
+      "line": 167,
+      "reference": "state.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 299,
+      "reference": "algorithm.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 300,
+      "reference": "baselines.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 301,
+      "reference": "ma_baseline.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 302,
+      "reference": "initialization.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 303,
+      "reference": "inner_solver.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 304,
+      "reference": "outer_solver.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 305,
+      "reference": "channels.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 306,
+      "reference": "metrics.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 307,
+      "reference": "geometry.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 308,
+      "reference": "config.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 309,
+      "reference": "utils.py"
+    },
+    {
+      "path": "experiments/extend_regular25_scene8001_to_40dbm.py",
+      "line": 310,
+      "reference": "state.py"
+    },
+    {
+      "path": "experiments/ma_add4_common.py",
+      "line": 297,
+      "reference": "stage10_planar_pm_support.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "algorithm.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "baselines.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "ma_baseline.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "initialization.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "inner_solver.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "outer_solver.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "channels.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "metrics.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "geometry.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "config.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "utils.py"
+    },
+    {
+      "path": "experiments/run_regular025_multistart_pilot.py",
+      "line": 81,
+      "reference": "state.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "algorithm.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "baselines.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "ma_baseline.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "initialization.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "inner_solver.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "outer_solver.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "channels.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "metrics.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "geometry.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "config.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "utils.py"
+    },
+    {
+      "path": "experiments/run_regular25_multistart_pilot.py",
+      "line": 40,
+      "reference": "state.py"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 104,
+      "reference": "ma_add4_common.py"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 104,
+      "reference": "ma_add4_support.py"
+    },
+    {
+      "path": "experiments/run_stage10_ma_add4.py",
+      "line": 104,
+      "reference": "ma_add4_styles.py"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 104,
+      "reference": "ma_add4_common.py"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 104,
+      "reference": "ma_add4_support.py"
+    },
+    {
+      "path": "experiments/run_stage10_ma_transition4.py",
+      "line": 104,
+      "reference": "ma_add4_styles.py"
+    }
+  ],
+  "extra_retained_dependencies": [
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "required_by": "experiments/ma_add4_common.py:297",
+      "reason": "Runtime SHA256 input via Path(__file__).with_name('stage10_planar_pm_support.py') in the retained main function"
+    }
+  ],
+  "retained_resource_text_scan": "No remaining runtime/import/path references to archived resource directories or additional historical scripts found; no import/resource path rewriting."
+}

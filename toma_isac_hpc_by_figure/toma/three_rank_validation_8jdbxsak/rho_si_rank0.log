@@ -1,0 +1,28 @@
+MULTINODE PLAN rho_si tasks 8 nodes 3 workers/node 2 total slots 6
+NODE START rank 0 host Liiiiiii workers 2 affinity CPUs None
+START rho_si/1e-05/scene_8002/proposed call 1 previous_steps 0
+START rho_si/1e-05/scene_8003/b6 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8002/proposed WSR 11.975296694132211 converged False steps 1
+TASK FINISHED rank 0 index 0 rho_si/1e-05/scene_8002/proposed converged False
+DONE rho_si/1e-05/scene_8003/b6 WSR 11.89153117730053 converged False steps 1
+TASK FINISHED rank 0 index 3 rho_si/1e-05/scene_8003/b6 converged False
+NODE DONE {'rank': 0, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 2, 'finished_tasks': 2, 'failed_tasks': 0, 'seconds': 2.7819999999992433, 'errors': []}
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "rho_si",
+  "expected_tasks": 8,
+  "finished_tasks": 8,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": false,
+  "scene_seeds": [
+    8002,
+    8003
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}
+ALL NODES COLLECTED rho_si finished tasks 8

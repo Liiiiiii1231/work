@@ -1,0 +1,87 @@
+[
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 2,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 1.61250660777277,
+    "final_wsr": 12.043413687263794,
+    "seconds": 0.022167699999954493,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 3,
+        "wsr": 11.71616042783062,
+        "increment": 10.103653820057849,
+        "alpha": 1.375812357737262,
+        "attempted_alpha": 1.375812357737262,
+        "backtracks": 0,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 3,
+        "cumulative_fp_iterations": 6,
+        "wsr": 12.043413687263794,
+        "increment": 0.3272532594331743,
+        "alpha": 4.605134175772244,
+        "attempted_alpha": 8.210268351544489,
+        "backtracks": 1,
+        "extrapolation_accepted": false
+      }
+    ],
+    "outer_iteration": 1,
+    "after_position_iteration": null
+  },
+  {
+    "actual_fp_iterations": 6,
+    "accepted_blocks": 3,
+    "converged": false,
+    "stop_reason": "actual_fp_budget",
+    "tolerance": 1e-05,
+    "consecutive_small_blocks": 2,
+    "initial_wsr": 13.579377564306863,
+    "final_wsr": 13.609586820252623,
+    "seconds": 0.021290600000611448,
+    "block_history": [
+      {
+        "block": 1,
+        "actual_fp_iterations": 4,
+        "cumulative_fp_iterations": 4,
+        "wsr": 13.60629747824796,
+        "increment": 0.026919913941096496,
+        "alpha": 19.242175500739727,
+        "attempted_alpha": 37.48435100147945,
+        "backtracks": 1,
+        "extrapolation_accepted": true
+      },
+      {
+        "block": 2,
+        "actual_fp_iterations": 1,
+        "cumulative_fp_iterations": 5,
+        "wsr": 13.608046614027348,
+        "increment": 0.0017491357793879558,
+        "alpha": null,
+        "attempted_alpha": null,
+        "backtracks": 0,
+        "extrapolation_accepted": false
+      },
+      {
+        "block": 3,
+        "actual_fp_iterations": 1,
+        "cumulative_fp_iterations": 6,
+        "wsr": 13.609586820252623,
+        "increment": 0.0015402062252753979,
+        "alpha": null,
+        "attempted_alpha": null,
+        "backtracks": 0,
+        "extrapolation_accepted": false
+      }
+    ],
+    "outer_iteration": 2,
+    "after_position_iteration": 1
+  }
+]

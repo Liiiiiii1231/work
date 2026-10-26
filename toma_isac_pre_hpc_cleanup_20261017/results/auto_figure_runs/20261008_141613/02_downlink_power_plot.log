@@ -1,3 +1,0 @@
-Working directory: D:\Vs codeProjects\research work1\toma_isac
-Command: D:\miniconda\envs\toma_isac\python.exe -u -c import numpy as np; from experiments.plot_stage8_results import plot_sweep,_watt_to_dbm; plot_sweep("p_dl_max", "Maximum DL transmit power (dBm)", _watt_to_dbm, np.array([20.,25.,30.,35.,40.]))
-

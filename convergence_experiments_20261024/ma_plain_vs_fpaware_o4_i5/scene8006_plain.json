@@ -1,0 +1,141 @@
+{
+  "scene": 8006,
+  "power_W": 1.0,
+  "mode": "plain",
+  "extrapolation": false,
+  "initial_geometry": "common unscreened start 0; not the future screened winner",
+  "outer_tolerance": 0.0001,
+  "outer_consecutive": 2,
+  "inner_tolerance": 1e-05,
+  "max_outer": 400,
+  "max_inner": 1200,
+  "initial_sha256": "f97b5a63edb9a623d7fc05146fe320aa7055cf970b01afa2e0f090b94d82e11d",
+  "shared_source_sha256": {
+    "algorithms.py": "e92c7dc67f32eb5c4709aae274d94c91d63d6ba5ead5dbbc42d340b68c9ff078",
+    "inner_solver.py": "a2bcdc91bccdfb9ab2e1bb7bb0ec03fc7a0c2a5c104569519cd5ee21d3c96992",
+    "outer_solver.py": "a56fc83ad388c0fc42513ed390576d1842917edd8b05213f05e028ccaeaca470",
+    "channel_model.py": "97699f4781d5386086178310efd3948b746fb80b9871f1fb637beb7f76f3c43c",
+    "system_model.py": "5fb83bc8bca1b938a4b18ff67e5db5164979b5b876d58802ef51e3925cb8afc8"
+  },
+  "finished": true,
+  "iterations": 9,
+  "converged": true,
+  "stop_reason": "outer_tolerance",
+  "seconds": 47.266983400000754,
+  "final_wsr": 10.040712322174116,
+  "history": [
+    0.887367407435341,
+    9.935325803753312,
+    9.969661689012561,
+    9.986442169205798,
+    10.001834694660863,
+    10.016073575563688,
+    10.02932297603854,
+    10.04052016822336,
+    10.040617255494693,
+    10.040712322174116
+  ],
+  "rows": [
+    {
+      "iteration": 1,
+      "wsr": 9.935325803753312,
+      "increment": 9.04795839631797,
+      "accepted_positions": 18,
+      "position_seconds": 1.2660031999985222,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 1200,
+      "main_seconds": 4.3182606999980635,
+      "main_tolerance_met": false
+    },
+    {
+      "iteration": 2,
+      "wsr": 9.969661689012561,
+      "increment": 0.034335885259249466,
+      "accepted_positions": 14,
+      "position_seconds": 1.0406896999993478,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 1200,
+      "main_seconds": 6.129106399999728,
+      "main_tolerance_met": false
+    },
+    {
+      "iteration": 3,
+      "wsr": 9.986442169205798,
+      "increment": 0.01678048019323697,
+      "accepted_positions": 20,
+      "position_seconds": 0.9638403999997536,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 1200,
+      "main_seconds": 5.815517200000613,
+      "main_tolerance_met": false
+    },
+    {
+      "iteration": 4,
+      "wsr": 10.001834694660863,
+      "increment": 0.015392525455064643,
+      "accepted_positions": 22,
+      "position_seconds": 0.8799472999999125,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 1200,
+      "main_seconds": 5.57342730000164,
+      "main_tolerance_met": false
+    },
+    {
+      "iteration": 5,
+      "wsr": 10.016073575563688,
+      "increment": 0.014238880902825102,
+      "accepted_positions": 23,
+      "position_seconds": 0.9523483000011765,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 1200,
+      "main_seconds": 5.695505199997569,
+      "main_tolerance_met": false
+    },
+    {
+      "iteration": 6,
+      "wsr": 10.02932297603854,
+      "increment": 0.01324940047485157,
+      "accepted_positions": 24,
+      "position_seconds": 1.2073754000011832,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 1200,
+      "main_seconds": 4.688323700000183,
+      "main_tolerance_met": false
+    },
+    {
+      "iteration": 7,
+      "wsr": 10.04052016822336,
+      "increment": 0.011197192184820182,
+      "accepted_positions": 27,
+      "position_seconds": 1.1042846999989706,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 1081,
+      "main_seconds": 5.693039199999475,
+      "main_tolerance_met": true
+    },
+    {
+      "iteration": 8,
+      "wsr": 10.040617255494693,
+      "increment": 9.708727133350692e-05,
+      "accepted_positions": 24,
+      "position_seconds": 1.0135454999981448,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 2,
+      "main_seconds": 0.007856600001105107,
+      "main_tolerance_met": true
+    },
+    {
+      "iteration": 9,
+      "wsr": 10.040712322174116,
+      "increment": 9.506667942282832e-05,
+      "accepted_positions": 25,
+      "position_seconds": 0.8968282999994699,
+      "candidate_fp_iterations": 0,
+      "main_fp_iterations": 2,
+      "main_seconds": 0.007081600000674371,
+      "main_tolerance_met": true
+    }
+  ],
+  "exact_resource_inheritance_checks": 8,
+  "total_main_fp_iterations": 8285
+}

@@ -1,0 +1,56 @@
+{
+  "scene": 8001,
+  "weight": 0.2,
+  "jobs": [
+    [
+      "proposed",
+      "continue_original_tolerance",
+      "current",
+      0.0001
+    ],
+    [
+      "b6",
+      "continue_original_tolerance",
+      "current",
+      0.0001
+    ],
+    [
+      "proposed",
+      "continue_tighter_tolerance",
+      "current",
+      1e-06
+    ],
+    [
+      "b6",
+      "continue_tighter_tolerance",
+      "current",
+      1e-06
+    ],
+    [
+      "proposed",
+      "alternate_nonzero_weight_seed",
+      "mid_weight",
+      0.0001
+    ],
+    [
+      "b6",
+      "alternate_nonzero_weight_seed",
+      "low_weight",
+      0.0001
+    ],
+    [
+      "proposed",
+      "pure_sensing_seed",
+      "pure",
+      0.0001
+    ],
+    [
+      "b6",
+      "pure_sensing_seed",
+      "pure",
+      0.0001
+    ]
+  ],
+  "workers": 2,
+  "interpretation": "Controlled diagnostics, not paper results; best-known candidates are not global certificates"
+}

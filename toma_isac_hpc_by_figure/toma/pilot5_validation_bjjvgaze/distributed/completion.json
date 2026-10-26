@@ -1,0 +1,15 @@
+{
+  "complete": true,
+  "figure": "tradeoff_budget_pilot",
+  "expected_tasks": 15,
+  "finished_tasks": 15,
+  "baseline_converged": 3,
+  "converged_tasks": 0,
+  "all_converged": false,
+  "local_test": true,
+  "note": "Targeted ten-scene diagnostic sample, not a replacement 100-scene paper figure. Capped tasks retained and marked.",
+  "nodes": 5,
+  "workers_per_node": 2,
+  "total_worker_slots": 10,
+  "local_multirank_test": true
+}

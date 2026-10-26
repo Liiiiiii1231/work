@@ -1,0 +1,20 @@
+NODE START rank 1 host Liiiiiii workers 2 affinity CPUs None
+START tradeoff/0/scene_8002/b6 call 1 previous_steps 0
+START tradeoff/0/scene_8003/proposed call 1 previous_steps 0
+DONE tradeoff/0/scene_8003/proposed WSR 10.298788780442706 converged False steps 1
+TASK FINISHED rank 1 index 4 tradeoff/0/scene_8003/proposed converged False
+START tradeoff/0/scene_8003/b3 call 1 previous_steps 0
+DONE tradeoff/0/scene_8003/b3 WSR 8.705485276068334 converged False steps 3
+TASK FINISHED rank 1 index 7 tradeoff/0/scene_8003/b3 converged False
+START tradeoff/0.2/scene_8002/b2 call 1 previous_steps 0
+DONE tradeoff/0.2/scene_8002/b2 WSR 9.020706227445244 converged False steps 3
+TASK FINISHED rank 1 index 10 tradeoff/0.2/scene_8002/b2 converged False
+START tradeoff/0.2/scene_8003/b6 call 1 previous_steps 0
+DONE tradeoff/0/scene_8002/b6 WSR 11.053224611706543 converged False steps 1
+TASK FINISHED rank 1 index 1 tradeoff/0/scene_8002/b6 converged False
+START tradeoff/1/scene_8002/proposed call 1 previous_steps 0
+DONE tradeoff/1/scene_8002/proposed WSR 16.258180373843985 converged False steps 1
+TASK FINISHED rank 1 index 16 tradeoff/1/scene_8002/proposed converged False
+DONE tradeoff/0.2/scene_8003/b6 WSR 10.512820135070097 converged False steps 1
+TASK FINISHED rank 1 index 13 tradeoff/0.2/scene_8003/b6 converged False
+NODE DONE {'rank': 1, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 6, 'finished_tasks': 6, 'failed_tasks': 0, 'seconds': 3.360000000000582, 'errors': []}

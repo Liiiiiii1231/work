@@ -1,0 +1,4 @@
+NODE START rank 2 host Liiiiiii workers 2 affinity CPUs None
+TASK FINISHED rank 2 index 2 tradeoff/0/scene_8006/b3 converged False
+TASK FINISHED rank 2 index 7 tradeoff/0.2/scene_8006/b2 converged False
+NODE DONE {'rank': 2, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 2, 'finished_tasks': 2, 'failed_tasks': 0, 'seconds': 1.3429999999934807, 'errors': []}

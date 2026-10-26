@@ -1,0 +1,74 @@
+{
+  "preview_only": true,
+  "source": "D:\\Vs codeProjects\\research work1\\runtime_audit_20261023\\saved_snapshot\\tradeoff_mc10_33614",
+  "saved_tasks": 269,
+  "converged_tasks": 263,
+  "plotted_weights": [
+    0,
+    0.001,
+    0.005,
+    0.015,
+    0.03,
+    0.05
+  ],
+  "omitted_weights": [
+    {
+      "weight": 0.075,
+      "missing_tasks": 11
+    },
+    {
+      "weight": 0.1,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.125,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.16,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.18,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.2,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.24,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.28,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.32,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.36,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.42,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.6,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 0.8,
+      "missing_tasks": 40
+    },
+    {
+      "weight": 1,
+      "missing_tasks": 40
+    }
+  ],
+  "errors": [],
+  "note": "All expected scenes and all schemes required per plotted weight; unconverged saved states are explicitly included. Missing tasks are never filled with zero or initial states."
+}

@@ -1,0 +1,9 @@
+{
+  "system_load": {
+    "complete": true,
+    "expected_starts": 500,
+    "converged_starts": 500,
+    "selected_scene_cells": 200,
+    "errors": []
+  }
+}

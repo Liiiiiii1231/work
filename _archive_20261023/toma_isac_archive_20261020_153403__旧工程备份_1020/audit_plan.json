@@ -1,0 +1,320 @@
+{
+  "project_root": "D:\\Vs codeProjects\\research work1\\toma_isac",
+  "archive_root": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403",
+  "created_at": "2026-10-20T15:34:10.848285+08:00",
+  "move_groups": [
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\check_proposed_near_field.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\check_proposed_near_field.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\extend_stage8_rho_si_minus50.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\extend_stage8_rho_si_minus50.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\planar_pm_initialization.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\planar_pm_initialization.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_convergence_early_main.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_convergence_early_main.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_proposed_convergence.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_proposed_convergence.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage10_cold20.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage10_cold20.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage10_ms20.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage10_ms20.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage10_tradeoff.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage10_tradeoff.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\plot_stage8_results.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\plot_stage8_results.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\rerun_stage8_k5.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\rerun_stage8_k5.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_old_init_power_pilot.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_old_init_power_pilot.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_cold20.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_cold20.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_complete_fixed_abs.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_complete_fixed_abs.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_continue_and_plot.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_continue_and_plot.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_continue_b6_09.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_continue_b6_09.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_fixed_ul_025mW.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_fixed_ul_025mW.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_fixed_ul_025mW_refined16.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_fixed_ul_025mW_refined16.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_ms20.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_ms20.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_multistart20_probe.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_multistart20_probe.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_refine_regular20.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_refine_regular20.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_refine_seed2042.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_refine_seed2042.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_regular_planar_pm.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_regular_planar_pm.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_top10_abs.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_top10_abs.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_tradeoff.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_tradeoff.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_ul_init_compare.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_ul_init_compare.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_ul_init_compare_representative.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_ul_init_compare_representative.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage10_warmstart_probe.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage10_warmstart_probe.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage5_stress.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage5_stress.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage6_baselines.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage6_baselines.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage7_multistart.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage7_multistart.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_full_smoke.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_full_smoke.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_load_sweep.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_load_sweep.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_monte_carlo.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_monte_carlo.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\run_stage8_sweeps.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\run_stage8_sweeps.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_common.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_common.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_support.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_support.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\trace_stage10_proposed_0125.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\trace_stage10_proposed_0125.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare_inputs",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare_inputs",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul16_assets",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul16_assets",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_fixed_ul_assets",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_fixed_ul_assets",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_regular20_source",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_regular20_source",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\old_init_pilot_assets",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\old_init_pilot_assets",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_assets",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_assets",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_planar_pm_assets",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_planar_pm_assets",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_ul_compare3_inputs",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_ul_compare3_inputs",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\experiments\\stage10_seed2042_diagnostic_refs",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\experiments\\stage10_seed2042_diagnostic_refs",
+      "kind": "directory"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\run_all_figures_continue.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\run_all_figures_continue.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\diagnose_stage10_local_convergence.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\diagnose_stage10_local_convergence.py",
+      "kind": "file"
+    },
+    {
+      "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\test_stage10_cross_weight_warmstart.py",
+      "destination": "D:\\Vs codeProjects\\research work1\\toma_isac_archive_20261020_153403\\test_stage10_cross_weight_warmstart.py",
+      "kind": "file"
+    }
+  ],
+  "experiment_scripts": [
+    "check_proposed_near_field.py",
+    "extend_stage8_rho_si_minus50.py",
+    "planar_pm_initialization.py",
+    "plot_convergence_early_main.py",
+    "plot_proposed_convergence.py",
+    "plot_stage10_cold20.py",
+    "plot_stage10_ms20.py",
+    "plot_stage10_tradeoff.py",
+    "plot_stage8_results.py",
+    "rerun_stage8_k5.py",
+    "run_old_init_power_pilot.py",
+    "run_stage10_cold20.py",
+    "run_stage10_complete_fixed_abs.py",
+    "run_stage10_continue_and_plot.py",
+    "run_stage10_continue_b6_09.py",
+    "run_stage10_fixed_ul_025mW.py",
+    "run_stage10_fixed_ul_025mW_refined16.py",
+    "run_stage10_ms20.py",
+    "run_stage10_multistart20_probe.py",
+    "run_stage10_refine_regular20.py",
+    "run_stage10_refine_seed2042.py",
+    "run_stage10_regular_planar_pm.py",
+    "run_stage10_top10_abs.py",
+    "run_stage10_tradeoff.py",
+    "run_stage10_ul_init_compare.py",
+    "run_stage10_ul_init_compare_representative.py",
+    "run_stage10_warmstart_probe.py",
+    "run_stage5_stress.py",
+    "run_stage6_baselines.py",
+    "run_stage7_multistart.py",
+    "run_stage8_full_smoke.py",
+    "run_stage8_load_sweep.py",
+    "run_stage8_monte_carlo.py",
+    "run_stage8_sweeps.py",
+    "stage10_planar_pm_common.py",
+    "stage10_seed2042_support.py",
+    "trace_stage10_proposed_0125.py"
+  ],
+  "resource_directories": [
+    "stage10_ul_compare_inputs",
+    "stage10_fixed_ul16_assets",
+    "stage10_fixed_ul_assets",
+    "stage10_regular20_source",
+    "old_init_pilot_assets",
+    "stage10_seed2042_assets",
+    "stage10_planar_pm_assets",
+    "stage10_ul_compare3_inputs",
+    "stage10_seed2042_diagnostic_refs"
+  ],
+  "root_scripts": [
+    "run_all_figures_continue.py",
+    "diagnose_stage10_local_convergence.py",
+    "test_stage10_cross_weight_warmstart.py"
+  ],
+  "extra_retained_dependencies": [
+    {
+      "path": "experiments/stage10_planar_pm_support.py",
+      "required_by": "experiments/ma_add4_common.py:297",
+      "reason": "Runtime SHA256 input via Path(__file__).with_name('stage10_planar_pm_support.py') in the retained main function"
+    }
+  ],
+  "cache_candidates": [
+    "experiments/__pycache__/paper_figure_styles.cpython-311.pyc",
+    "experiments/__pycache__/paper_figures_unified.cpython-311.pyc",
+    "experiments/__pycache__/run_regular025_multistart_pilot.cpython-311.pyc",
+    "experiments/__pycache__/run_regular25_multistart_pilot.cpython-311.pyc"
+  ]
+}

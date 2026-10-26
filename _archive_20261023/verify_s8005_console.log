@@ -1,0 +1,310 @@
+SCREENING 40 independent optimization calls
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.133218368035404 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 0 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.316421584423477 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 1 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.143946331645292 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 2 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.191954010118941 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 3 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.031111710781273 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 4 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.32750699772872 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 5 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 12.625029584196032 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 6 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.032886953838055 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 8 converged False
+DONE p_dl_max/1/scene_8005/proposed WSR 13.346028216102045 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 7 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.234534896856664 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 9 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.131884458999801 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 10 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.392882010907336 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 11 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.342621163207665 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 12 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.144434844515478 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 14 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.28011484016248 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 13 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.017154995208212 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 15 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.111727582579167 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 16 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.342825883410416 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 17 converged False
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.317747918273136 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 18 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 12.47280745410471 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/proposed start 19 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.673832165657238 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 0 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.649901132883688 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 1 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.701427966048819 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 2 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.66982772035128 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 3 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.646724799602499 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 4 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.591482109312299 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 5 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.609955566910875 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 6 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.717416396038885 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 7 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.620051868194365 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 9 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.688244172105174 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 8 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.702678590413813 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 10 converged False
+DONE p_dl_max/1/scene_8005/b6 WSR 13.701246473423256 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 11 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.759236165345627 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 13 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.704283631291187 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 12 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.665284715488095 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 14 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.671668403565905 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 15 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.596428329117064 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 16 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.720938278403054 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 17 converged False
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/b6 WSR 13.698315281767922 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 18 converged False
+DONE p_dl_max/1/scene_8005/b6 WSR 13.627136944929028 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8005/b6 start 19 converged False
+FROZEN GEOMETRY READY: D:\Vs codeProjects\research work1\_archive_20261023\final_s8005_validation_20261023__�ų�8001�汾������֤\selection\frozen_initial_geometry.json
+The other three figure jobs may now be submitted.
+START convergence/0.1/scene_8003/proposed call 1 previous_steps 0
+START convergence/0.1/scene_8027/proposed call 1 previous_steps 0
+DONE convergence/0.1/scene_8027/proposed WSR 11.524105230221512 converged False steps 1
+TASK FINISHED convergence/0.1/scene_8027/proposed start 0 converged False
+START convergence/1/scene_8003/proposed call 1 previous_steps 0
+DONE convergence/0.1/scene_8003/proposed WSR 11.17833183822097 converged False steps 1
+TASK FINISHED convergence/0.1/scene_8003/proposed start 0 converged False
+START convergence/1/scene_8027/proposed call 1 previous_steps 0
+DONE convergence/1/scene_8027/proposed WSR 13.25955231784546 converged False steps 1
+TASK FINISHED convergence/1/scene_8027/proposed start 0 converged False
+START convergence/10/scene_8003/proposed call 1 previous_steps 0
+DONE convergence/1/scene_8003/proposed WSR 13.279395565754758 converged False steps 1
+TASK FINISHED convergence/1/scene_8003/proposed start 0 converged False
+START convergence/10/scene_8027/proposed call 1 previous_steps 0
+DONE convergence/10/scene_8027/proposed WSR 15.210298910249598 converged False steps 1
+TASK FINISHED convergence/10/scene_8027/proposed start 0 converged False
+DONE convergence/10/scene_8003/proposed WSR 15.035436736950613 converged False steps 1
+TASK FINISHED convergence/10/scene_8003/proposed start 0 converged False
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "convergence",
+  "expected_tasks": 6,
+  "finished_tasks": 6,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": true,
+  "scene_seeds": [
+    8003,
+    8027
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}
+START p_dl_max/1/scene_8003/proposed call 1 previous_steps 0
+START p_dl_max/1/scene_8002/proposed call 1 previous_steps 0
+DONE p_dl_max/1/scene_8002/proposed WSR 13.455112379864016 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8002/proposed start 0 converged False
+START p_dl_max/1/scene_8002/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8003/proposed WSR 13.279395565754758 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8003/proposed start 0 converged False
+START p_dl_max/1/scene_8003/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8003/b6 WSR 13.473756593170993 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8003/b6 start 0 converged False
+START p_dl_max/1/scene_8002/b2 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8002/b2 WSR 9.723773516673337 converged False steps 2
+TASK FINISHED p_dl_max/1/scene_8002/b2 start 0 converged False
+DONE p_dl_max/1/scene_8002/b6 WSR 13.514771538105279 converged False steps 1
+TASK FINISHED p_dl_max/1/scene_8002/b6 start 0 converged False
+START p_dl_max/1/scene_8003/b2 call 1 previous_steps 0
+START p_dl_max/1/scene_8002/b3 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8003/b2 WSR 9.218350929413035 converged False steps 2
+TASK FINISHED p_dl_max/1/scene_8003/b2 start 0 converged False
+DONE p_dl_max/1/scene_8002/b3 WSR 6.108390136888875 converged False steps 2
+TASK FINISHED p_dl_max/1/scene_8002/b3 start 0 converged False
+START p_dl_max/1/scene_8003/b3 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8003/b3 WSR 6.940924187347994 converged False steps 2
+TASK FINISHED p_dl_max/1/scene_8003/b3 start 0 converged False
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "p_dl_max",
+  "expected_tasks": 8,
+  "finished_tasks": 8,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": false,
+  "scene_seeds": [
+    8002,
+    8003
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}
+START rho_si/1e-05/scene_8002/proposed call 1 previous_steps 0
+START rho_si/1e-05/scene_8003/proposed call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8002/proposed WSR 10.305507355916646 converged False steps 1
+TASK FINISHED rho_si/1e-05/scene_8002/proposed start 0 converged False
+START rho_si/1e-05/scene_8002/b6 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8003/proposed WSR 9.800419673032819 converged False steps 1
+TASK FINISHED rho_si/1e-05/scene_8003/proposed start 0 converged False
+START rho_si/1e-05/scene_8003/b6 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8002/b6 WSR 11.848160945427004 converged False steps 1
+TASK FINISHED rho_si/1e-05/scene_8002/b6 start 0 converged False
+START rho_si/1e-05/scene_8002/b2 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8002/b2 WSR 7.2565040183085046 converged False steps 2
+TASK FINISHED rho_si/1e-05/scene_8002/b2 start 0 converged False
+START rho_si/1e-05/scene_8003/b2 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8003/b2 WSR 6.829251274633077 converged False steps 2
+TASK FINISHED rho_si/1e-05/scene_8003/b2 start 0 converged False
+START rho_si/1e-05/scene_8002/b3 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8003/b6 WSR 11.672903588836048 converged False steps 1
+TASK FINISHED rho_si/1e-05/scene_8003/b6 start 0 converged False
+START rho_si/1e-05/scene_8003/b3 call 1 previous_steps 0
+DONE rho_si/1e-05/scene_8002/b3 WSR 6.038911732831096 converged False steps 2
+TASK FINISHED rho_si/1e-05/scene_8002/b3 start 0 converged False
+DONE rho_si/1e-05/scene_8003/b3 WSR 6.899287599186637 converged False steps 2
+TASK FINISHED rho_si/1e-05/scene_8003/b3 start 0 converged False
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "rho_si",
+  "expected_tasks": 8,
+  "finished_tasks": 8,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": false,
+  "scene_seeds": [
+    8002,
+    8003
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}
+START system_load/3/scene_8003/proposed call 1 previous_steps 0
+START system_load/3/scene_8002/proposed call 1 previous_steps 0
+DONE system_load/3/scene_8002/proposed WSR 14.323942599938642 converged False steps 1
+TASK FINISHED system_load/3/scene_8002/proposed start 0 converged False
+START system_load/3/scene_8002/b6 call 1 previous_steps 0
+DONE system_load/3/scene_8003/proposed WSR 14.149359084246509 converged False steps 1
+TASK FINISHED system_load/3/scene_8003/proposed start 0 converged False
+START system_load/3/scene_8003/b6 call 1 previous_steps 0
+DONE system_load/3/scene_8003/b6 WSR 13.638737910123496 converged False steps 1
+TASK FINISHED system_load/3/scene_8003/b6 start 0 converged False
+START system_load/3/scene_8002/b2 call 1 previous_steps 0
+DONE system_load/3/scene_8002/b6 WSR 14.733575781884692 converged False steps 1
+TASK FINISHED system_load/3/scene_8002/b6 start 0 converged False
+DONE system_load/3/scene_8002/b2 WSR 10.07345444413691 converged False steps 2
+TASK FINISHED system_load/3/scene_8002/b2 start 0 converged False
+START system_load/3/scene_8003/b2 call 1 previous_steps 0
+START system_load/3/scene_8002/b3 call 1 previous_steps 0
+DONE system_load/3/scene_8003/b2 WSR 12.07451075627188 converged False steps 2
+DONE system_load/3/scene_8002/b3 WSR 8.952319712326283 converged False steps 2
+TASK FINISHED system_load/3/scene_8003/b2 start 0 converged False
+TASK FINISHED system_load/3/scene_8002/b3 start 0 converged False
+START system_load/3/scene_8003/b3 call 1 previous_steps 0
+START system_load/7/scene_8002/proposed call 1 previous_steps 0
+DONE system_load/3/scene_8003/b3 WSR 8.462653144717306 converged False steps 2
+TASK FINISHED system_load/3/scene_8003/b3 start 0 converged False
+START system_load/7/scene_8003/proposed call 1 previous_steps 0
+DONE system_load/7/scene_8002/proposed WSR 11.016667875808626 converged False steps 1
+TASK FINISHED system_load/7/scene_8002/proposed start 0 converged False
+START system_load/7/scene_8002/b6 call 1 previous_steps 0
+DONE system_load/7/scene_8003/proposed WSR 10.899822957066828 converged False steps 1
+TASK FINISHED system_load/7/scene_8003/proposed start 0 converged False
+START system_load/7/scene_8003/b6 call 1 previous_steps 0
+DONE system_load/7/scene_8002/b6 WSR 11.980590305272274 converged False steps 1
+TASK FINISHED system_load/7/scene_8002/b6 start 0 converged False
+START system_load/7/scene_8002/b2 call 1 previous_steps 0
+DONE system_load/7/scene_8002/b2 WSR 7.774257965296732 converged False steps 2
+TASK FINISHED system_load/7/scene_8002/b2 start 0 converged False
+START system_load/7/scene_8003/b2 call 1 previous_steps 0
+DONE system_load/7/scene_8003/b2 WSR 8.024652227594736 converged False steps 2
+TASK FINISHED system_load/7/scene_8003/b2 start 0 converged False
+START system_load/7/scene_8002/b3 call 1 previous_steps 0
+DONE system_load/7/scene_8002/b3 WSR 4.425950260177797 converged False steps 2
+TASK FINISHED system_load/7/scene_8002/b3 start 0 converged False
+START system_load/7/scene_8003/b3 call 1 previous_steps 0
+DONE system_load/7/scene_8003/b6 WSR 12.232427470527908 converged False steps 1
+TASK FINISHED system_load/7/scene_8003/b6 start 0 converged False
+DONE system_load/7/scene_8003/b3 WSR 5.598507878628251 converged False steps 2
+TASK FINISHED system_load/7/scene_8003/b3 start 0 converged False
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "system_load",
+  "expected_tasks": 16,
+  "finished_tasks": 16,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": false,
+  "scene_seeds": [
+    8002,
+    8003
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}
+FINAL PROTOCOL TESTS PASSED

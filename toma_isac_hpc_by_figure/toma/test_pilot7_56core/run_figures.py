@@ -1,0 +1,156 @@
+"""Figure runner: convergence 30 scenes, other figures 100; UL init 25 mW."""
+from __future__ import annotations
+import os
+for name in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS','NUMEXPR_NUM_THREADS'):
+    os.environ.setdefault(name,'1')
+from pathlib import Path
+import sys, argparse, json, hashlib, traceback
+from concurrent.futures import ProcessPoolExecutor, as_completed
+import numpy as np
+ROOT = Path(__file__).resolve().parent
+# Keep test/figure_engine.py local; reuse the unchanged parent model/solvers.
+SHARED_ROOT = ROOT.parent
+sys.path.insert(1,str(SHARED_ROOT))
+SHARED_FILES = ('algorithms.py','channel_model.py','inner_solver.py','outer_solver.py','system_model.py')
+for name in SHARED_FILES:
+    if (ROOT/name).exists():
+        raise RuntimeError('Move duplicate shared module out of test/ before running: '+str(ROOT/name))
+    if not (SHARED_ROOT/name).is_file():
+        raise RuntimeError('Missing shared module: '+str(SHARED_ROOT/name))
+import figure_engine as engine
+import figure_engine as final
+
+
+def identity(protocol, count):
+    files = list(ROOT.glob('*.py')) + [SHARED_ROOT/name for name in SHARED_FILES]
+    data=dict(protocol=protocol,n_mc=count,sources={os.path.relpath(p,ROOT).replace('\\','/'):hashlib.sha256(p.read_bytes().replace(b'\r\n',b'\n')).hexdigest() for p in sorted(files)})
+    return json.loads(json.dumps(data))
+
+
+def collect(out,p,tasks):
+    status = {}
+    for figure, tt in tasks.items():
+        rows, winners = [], []
+        for task in tt:
+            group = []
+            for start in range(final.n_starts(task)):
+                row = final.read_verified(out,p,task,start)
+                if row is not None:
+                    rows.append(row)
+                    group.append(row)
+            if len(group)==final.n_starts(task):
+                winners.append(max(group,key=lambda r:r['weighted_sum_rate']))
+        complete = len(winners)==len(tt)
+        if rows: engine.csv_write(out/'tables'/f'{figure}_all_starts.csv',rows,list(rows[0]))
+        if complete:
+            engine.csv_write(out/'tables'/f'{figure}_per_scene.csv',winners,list(winners[0]))
+            if figure=='convergence': final.plot_convergence(out,p,tt,winners)
+            elif figure=='tradeoff': final.plot_tradeoff(out,p,tt,winners)
+            else: engine.plot_sweep(out,p,figure,tt,winners)
+        status[figure] = dict(complete=complete,expected_scene_cells=len(tt),completed_scene_cells=len(winners),
+            all_converged=complete and all(r['converged'] for r in rows),
+            expected_starts=sum(final.n_starts(t) for t in tt),converged_starts=sum(r['converged'] for r in rows))
+    engine.json_write(out/'status.json',status)
+    complete=all(s['complete'] for s in status.values())
+    engine.json_write(out/'completion.json',dict(complete=complete,figures=status,initial_UL_power_per_user_mW=25,
+        completion_definition='All tasks finished once, including iteration-limit results',
+        all_converged=complete and all(s['all_converged'] for s in status.values()),
+        absolute_tolerance=1e-4,full_five_figures=set(tasks)==set(engine.FIGURES)))
+    print(json.dumps(status,indent=2),flush=True)
+    return complete
+
+
+def main():
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--config',type=Path,default=Path('simulation_config.json'))
+    ap.add_argument('--output',type=Path,default=Path('results/final_mc100_ul25'))
+    ap.add_argument('--n-mc',type=int,default=None,help='Override scene count; default: convergence 30, other figures 100')
+    ap.add_argument('--workers',type=int,default=1)
+    ap.add_argument('--max-calls',type=int,choices=[1],default=1,help='Single call only; continuation disabled')
+    ap.add_argument('--figures',nargs='+',choices=['tradeoff'],default=['tradeoff'])
+    ap.add_argument('--scene-index',type=int,help='Slurm array index, zero-based')
+    ap.add_argument('--check-only',action='store_true')
+    ap.add_argument('--collect-only',action='store_true')
+    ap.add_argument('--plot-only',action='store_true',help='Redraw exported CSV tables without running solvers or changing checkpoints')
+    ap.add_argument('--plot-source',type=Path,help='Existing run directory containing tables/; requires --plot-only')
+    a=ap.parse_args()
+    if min(a.workers,a.max_calls)<1 or (a.n_mc is not None and a.n_mc<1): ap.error('Positive counts required')
+    if len(set(a.figures))!=len(a.figures): ap.error('Duplicate figures')
+    if a.collect_only and a.scene_index is not None: ap.error('Collection must include every scene')
+    if a.plot_only != (a.plot_source is not None): ap.error('--plot-only and --plot-source must be supplied together')
+    if a.plot_only and (a.check_only or a.collect_only or a.scene_index is not None): ap.error('Plot-only cannot be combined with execution/collection modes')
+    bundle=json.loads((ROOT/a.config).read_text(encoding='utf-8'))
+    p=bundle['protocol']
+    p['_models']=bundle['models']
+    if a.plot_only:
+        final.replot_exports((ROOT/a.plot_source).resolve(),(ROOT/a.output).resolve(),p,a.figures,a.n_mc)
+        return
+    if p['protocol']['initial_ul_power_W']!=.025 or p['protocol']['tol_inner']!=1e-4 or p['protocol']['tol_outer']!=1e-4:
+        raise RuntimeError('Frozen protocol requires 25mW and absolute 1e-4')
+    counts={f:(a.n_mc if a.n_mc is not None else int(p['convergence'].get('n_mc',30)) if f=='convergence' else int(p['n_mc'])) for f in a.figures}
+    if a.scene_index is not None and not 0<=a.scene_index<max(counts.values()): ap.error('scene-index out of range')
+    tasks={f:engine.build_tasks(ROOT,p,f,counts[f]) for f in a.figures}
+    print('PLAN:',json.dumps({f:dict(scene_cells=len(tt),starts=sum(final.n_starts(t) for t in tt)) for f,tt in tasks.items()}),flush=True)
+    if a.check_only:
+        # Validate all starts for representative scenes and all sweep settings.
+        for tt in tasks.values():
+            seen=set()
+            for t in tt:
+                key=(t['scheme'],t['parameter_value'])
+                if key in seen: continue
+                seen.add(key)
+                cfg=engine.config_for_task(ROOT,p,t)
+                for start in range(final.n_starts(t)):
+                    g,r=final.pair(cfg,p,t['scheme'],start)
+                    engine.check_state(g,r,cfg,p,t['scheme'])
+                    if not np.allclose(abs(r.q_ul)**2,.025,rtol=0,atol=1e-12): raise RuntimeError('Wrong UL power')
+        tt=next(iter(tasks.values()))
+        t=dict(tt[0]);c1=engine.config_for_task(ROOT,p,t);t['scene_seed']+=1;c2=engine.config_for_task(ROOT,p,t)
+        if np.array_equal(c1.q_dl,c2.q_dl) or np.array_equal(c1.q_ul,c2.q_ul): raise RuntimeError('Scenes did not change user positions')
+        print('CHECK PASSED: frozen solvers, feasible starts, distinct user scenes, 25mW; no optimizer invoked.',flush=True)
+        return
+    out=(ROOT/a.output).resolve()
+    expected=identity(p,counts)
+    # Each array index owns its metadata and task records; collection is a separate job.
+    tag='all' if a.scene_index is None else str(a.scene_index)
+    meta=out/'metadata'/f'scene_{tag}.json'
+    if a.collect_only:
+        available=list((out/'metadata').glob('scene_*.json'))
+        if not available: raise RuntimeError('No run metadata found')
+        if any(engine.read_json(f)!=expected for f in available): raise RuntimeError('Output identity differs')
+        if not collect(out,p,tasks): raise SystemExit('Incomplete cells: resume array jobs before collection')
+        return
+    if out.exists():
+        available=list((out/'metadata').glob('scene_*.json'))
+        # The Slurm script creates logs before Python initializes run metadata.
+        # Concurrent scene processes may also create the metadata directory first.
+        # Accept these bootstrap directories, but never adopt orphaned results.
+        bootstrap_only=all(entry.name in ('logs','metadata') and entry.is_dir() for entry in out.iterdir())
+        if not available and not bootstrap_only: raise RuntimeError('Output has no compatible metadata')
+        if any(engine.read_json(f)!=expected for f in available): raise RuntimeError('Output identity differs; use a new output')
+    engine.json_write(meta,expected)
+    selected=[t for tt in tasks.values() for t in tt if a.scene_index is None or t['scene_seed']==p['scene_seed_start']+a.scene_index]
+    jobs=[(str(out),p,t,s,a.max_calls) for t in selected for s in range(final.n_starts(t))]
+    errors=[]
+    def accept(job,call):
+        try:
+            row=call()
+            if not row['converged']: print('BUDGET FINISHED:',engine.task_key(job[2]),flush=True)
+        except Exception as exc:
+            errors.append(dict(task=job[2],start=job[3],error=repr(exc),traceback=traceback.format_exc()))
+            print('FAILED:',errors[-1],flush=True)
+    if a.workers==1:
+        for job in jobs: accept(job,lambda job=job:final.run_job(job))
+    else:
+        with ProcessPoolExecutor(max_workers=a.workers) as pool:
+            fs={pool.submit(final.run_job,j):j for j in jobs}
+            for f in as_completed(fs): accept(fs[f],f.result)
+    engine.json_write(out/'logs'/f'scene_{tag}_status.json',dict(complete=not errors,errors=errors))
+    if a.scene_index is None:
+        done=collect(out,p,tasks)
+    else:
+        done=not errors
+    if errors or not done: raise SystemExit('Incomplete: rerun the same command to resume compatible checkpoints')
+
+
+if __name__=='__main__': main()

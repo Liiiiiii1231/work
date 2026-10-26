@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "figure": "screening",
+  "expected_tasks": 4,
+  "finished_tasks": 4,
+  "nodes": 3,
+  "workers_per_node": 2,
+  "total_worker_slots": 6,
+  "local_multirank_test": true
+}

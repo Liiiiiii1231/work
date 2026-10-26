@@ -1,0 +1,8 @@
+{
+  "real_small_grid_cases": 8,
+  "all_converged": true,
+  "collect_only_passed": true,
+  "bash_syntax_passed": true,
+  "formal_sources_unchanged": true,
+  "full_20_point_test_executed": false
+}

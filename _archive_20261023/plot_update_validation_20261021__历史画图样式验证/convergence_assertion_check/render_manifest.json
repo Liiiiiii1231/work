@@ -1,0 +1,51 @@
+{
+  "mode": "exported_csv_replot_no_optimization",
+  "source": "D:\\Vs codeProjects\\research work1\\plot_update_validation_20261021\\inputs\\SYNTHETIC_convergence_fixture",
+  "input_sha256": {
+    "D:\\Vs codeProjects\\research work1\\plot_update_validation_20261021\\inputs\\SYNTHETIC_convergence_fixture\\tables\\convergence_per_scene.csv": "baa49da8c934f0d108fd65fb127cd0f32d514c3773c1910aaa70f24c5b0f6889",
+    "D:\\Vs codeProjects\\research work1\\plot_update_validation_20261021\\inputs\\SYNTHETIC_convergence_fixture\\tables\\convergence_histories.csv": "c34bc30261f46d709f0ea0897c8c7c5713b6d25b16cf8fcdad7bf7c117e182a1"
+  },
+  "figures": {
+    "convergence": {
+      "n_mc": 30,
+      "scene_seeds": [
+        8001,
+        8002,
+        8003,
+        8004,
+        8005,
+        8006,
+        8007,
+        8008,
+        8009,
+        8010,
+        8011,
+        8012,
+        8013,
+        8014,
+        8015,
+        8016,
+        8017,
+        8018,
+        8019,
+        8020,
+        8021,
+        8022,
+        8023,
+        8024,
+        8025,
+        8026,
+        8027,
+        8028,
+        8029,
+        8030
+      ],
+      "parameter_values": [
+        0.1,
+        1.0,
+        10.0
+      ]
+    }
+  },
+  "solvers_invoked": false
+}

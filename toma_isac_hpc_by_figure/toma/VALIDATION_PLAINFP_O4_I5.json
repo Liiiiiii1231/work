@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "ma_solver": "algorithms.run_ma_fp",
+  "ma_candidate_fp_optimization": false,
+  "proposed_position_search": "fp_aware_2",
+  "extrapolation": false,
+  "shared_sources_unchanged": true,
+  "configs_identical_to_input_archive": true,
+  "full_task_plans": {
+    "screening": 40,
+    "convergence": 90,
+    "p_dl_max": 2000,
+    "rho_si": 2000,
+    "system_load": 2000,
+    "tradeoff": 8000
+  },
+  "all_five_figures_nodes": 3,
+  "cpus_per_node": 56,
+  "local_multirank_test_passed": true,
+  "ma_matches_original_exactly": true,
+  "bash_syntax_checked": true,
+  "actual_slurm_test_performed": false
+}

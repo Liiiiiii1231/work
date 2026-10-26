@@ -1,0 +1,22 @@
+{
+  "index": 3,
+  "rank": 3,
+  "task": {
+    "figure": "tradeoff",
+    "parameter_value": 0.1,
+    "scene_seed": 8006,
+    "scheme": "b6",
+    "_pilot_id": 30,
+    "input_state": "inputs/030_initial.npz",
+    "input_record": "inputs/030_original.json",
+    "state_sha256": "4092f63a94fadbf28b7f301c7bd53256d8ece093c83bea017dd66eb50cf112ef",
+    "record_sha256": "59d426d42a285f876c018071ec6add6b3be4ab3eeb177706ab95d61aa54a1b74"
+  },
+  "ok": true,
+  "worker": {
+    "host": "Liiiiiii",
+    "pid": 97508
+  },
+  "wsr": 10.163150847165177,
+  "converged": false
+}

@@ -1,0 +1,32 @@
+{
+  "mode": "exported_csv_replot_no_optimization",
+  "source": "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\paper_figures_regular25_multistart",
+  "input_sha256": {
+    "D:\\Vs codeProjects\\research work1\\toma_isac\\results\\paper_figures_regular25_multistart\\tables\\p_dl_max_per_scene.csv": "96b28d027458e9cf3806fd94f9a9a3ec80891720b075cc92e4b6493a96bbe77b"
+  },
+  "figures": {
+    "p_dl_max": {
+      "n_mc": 10,
+      "scene_seeds": [
+        8001,
+        8002,
+        8003,
+        8004,
+        8005,
+        8006,
+        8007,
+        8008,
+        8009,
+        8010
+      ],
+      "parameter_values": [
+        0.1,
+        0.31622776601683794,
+        1.0,
+        3.1622776601683795,
+        10.0
+      ]
+    }
+  },
+  "solvers_invoked": false
+}

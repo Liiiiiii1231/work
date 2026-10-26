@@ -1,0 +1,15 @@
+{
+  "tradeoff_support_i1200_o1500/figure_engine.py": "cc3b266ecc4a4f5e775d24f02bc1ff9318036dcfcf48055b2fee26d20b8d99f0",
+  "tradeoff_support_i1200_o1500/finalize_run.py": "3753746fcf63725eacfa5ec5f594030e9dbeb65d713c59da18b22852e685d577",
+  "tradeoff_support_i1200_o1500/ma_fp_aware.py": "4d3020285732d3da8b313418205d5b4e77fbb5bc617d39b89e3f34dd133a7f78",
+  "tradeoff_support_i1200_o1500/README.md": "f5bb8f977f37817acfabfaf6d4989441089bf7726827f9edecf676b40bef4a51",
+  "tradeoff_support_i1200_o1500/reference_screening_identity.json": "c725f2e6de32309416f0fcec8ed23faea2d93ff2d6961ca3b299ba3e118b26f8",
+  "tradeoff_support_i1200_o1500/run_tradeoff_final.py": "14d6c220baba9c046701ae29072a4874e22982cad09e9ab3913046a089dc71a3",
+  "tradeoff_support_i1200_o1500/shared_module_hashes.json": "317683114c7c8582aef19bb21bfb17fbfd40abfa7adfafbcbc5c72ae66e5e9ea",
+  "tradeoff_support_i1200_o1500/tradeoff_final_config.json": "4417afb638d554dcb844f252247a3b71188217e225b044c4ed5ba151bed72412",
+  "tradeoff_support_i1200_o1500/validation_report.json": "27e5fb0325bcf4fc70d81c364b9f28929ba3c9608a13f61ab3ff204d73f8ffbd",
+  "05_communication_sensing_tradeoff/run_tradeoff.py": "e6a181f385cff2a7779b7a6316c7a7b098ff47858894616ae62e9d8ffaa601c3",
+  "05_communication_sensing_tradeoff/submit_tradeoff.sh": "9cc0f38fc478e8045a3baabc1fc84ec2eab6964d156f48aa33fb61e7ca026c46",
+  "05_communication_sensing_tradeoff/tradeoff_config.json": "4417afb638d554dcb844f252247a3b71188217e225b044c4ed5ba151bed72412",
+  "05_communication_sensing_tradeoff/README_FINAL_TRADEOFF.md": "f5bb8f977f37817acfabfaf6d4989441089bf7726827f9edecf676b40bef4a51"
+}

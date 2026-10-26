@@ -1,0 +1,275 @@
+{
+  "row": {
+    "figure": "tradeoff",
+    "parameter_value": 1.0,
+    "scene_seed": 8003,
+    "scheme": "b2",
+    "sum_rate_dl": 74.7607521256894,
+    "sum_rate_ul": 67.87412968219073,
+    "sum_rate_comm": 142.6348818078801,
+    "sum_rate_sensing": 40.62771080945552,
+    "weighted_sum_rate": 14.263488180788015,
+    "iterations": 3,
+    "runtime_s": 0.013259199999083648,
+    "converged": false,
+    "calls": 1,
+    "stop_reason": "iteration_limit",
+    "position_method": "fixed"
+  },
+  "cfg_sha256": "d53b7984267f0ac1fc0bd40eb3ee60adff8b2bafc94c1e36ebb61846b230e6d6",
+  "solver_sha256": "7f56fa16ed7227610b181240a99c31e8a5722a0212b759bae2dc7ca7ff19daa8",
+  "resource_solver": {
+    "method": "projected_squared_extrapolation",
+    "max_extrapolation": 64.0,
+    "consecutive_small_blocks": 2,
+    "scope": "main_resource_solves_all_schemes",
+    "candidate_solver": "plain_fp_max_2"
+  },
+  "main_actual_fp_iterations": 3,
+  "main_inner_converged_calls": 0,
+  "main_inner_calls": 1,
+  "history_axis": "accepted_resource_block",
+  "iteration_count_unit": "actual_fp_iteration",
+  "effective_config": {
+    "m_uav": 8,
+    "n_cable": 4,
+    "k_dl": 5,
+    "j_ul": 5,
+    "l_target": 5,
+    "r_sensing": 4,
+    "wavelength": 0.01,
+    "cable_length": 1.0,
+    "min_uav_distance": 0.5,
+    "min_si_distance": 0.001,
+    "p_dl_max": 1.0,
+    "p_ul_max": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "sigma_dl2": [
+      3.981071705534969e-15,
+      3.981071705534969e-15,
+      3.981071705534969e-15,
+      3.981071705534969e-15,
+      3.981071705534969e-15
+    ],
+    "sigma_bs2": 3.981071705534969e-15,
+    "rho_si": 1e-10,
+    "weight_dl": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "weight_ul": [
+      0.1,
+      0.1,
+      0.1,
+      0.1,
+      0.1
+    ],
+    "weight_s": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "q_dl": [
+      [
+        -41.014418455908235,
+        11.684013638240042,
+        -20.0
+      ],
+      [
+        31.00912284338642,
+        -4.0274329983147785,
+        -20.0
+      ],
+      [
+        38.4953994453797,
+        15.738535009144657,
+        -20.0
+      ],
+      [
+        42.87593808809059,
+        -1.2288974940852575,
+        -20.0
+      ],
+      [
+        40.218673358276405,
+        -18.30658564052625,
+        -20.0
+      ]
+    ],
+    "q_ul": [
+      [
+        5.651562064366146,
+        24.532558759286246,
+        -20.0
+      ],
+      [
+        22.284394275848513,
+        -37.482723934817386,
+        -20.0
+      ],
+      [
+        -33.75490569734399,
+        11.0277935545012,
+        -20.0
+      ],
+      [
+        -15.543166846810495,
+        41.048711499752095,
+        -20.0
+      ],
+      [
+        22.18639839356138,
+        33.16678211790609,
+        -20.0
+      ]
+    ],
+    "q_s": [
+      [
+        21.475779556431768,
+        27.198760043071747,
+        -20.0
+      ],
+      [
+        -41.79273456825133,
+        -1.8356727670868578,
+        -20.0
+      ],
+      [
+        -37.59707227035707,
+        17.967477059284757,
+        -20.0
+      ],
+      [
+        23.68053097635999,
+        15.457075957124301,
+        -20.0
+      ],
+      [
+        28.695735383687598,
+        32.19863883473677,
+        -20.0
+      ]
+    ],
+    "xi_s": [
+      [
+        1120.9982432795857,
+        0.0
+      ],
+      [
+        1120.9982432795857,
+        0.0
+      ],
+      [
+        1120.9982432795857,
+        0.0
+      ],
+      [
+        1120.9982432795857,
+        0.0
+      ],
+      [
+        1120.9982432795857,
+        0.0
+      ]
+    ],
+    "fading_dl": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ]
+    ],
+    "fading_ul": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ]
+    ],
+    "fading_s": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ],
+      [
+        1.0,
+        0.0
+      ]
+    ],
+    "kappa_ul": 0.5,
+    "random_seed": 2042,
+    "max_geometry_trials": 10000,
+    "max_inner_iter": 3,
+    "max_outer_iter": 1,
+    "tol_inner": 1e-05,
+    "tol_outer": 0.0001,
+    "max_bisection_iter": 100,
+    "tol_bisection": 1e-10,
+    "max_backtracking_iter": 30,
+    "armijo_mu": 0.0001,
+    "backtracking_factor": 0.5,
+    "finite_diff_delta": 1e-06,
+    "initial_outer_step": 0.1,
+    "plateau_window": 0,
+    "tol_window": 0.0
+  },
+  "initial_sha256": "884244c47ffa6fe78b65cdfcbeca9aa7a0dc1287c50e1f18d6db9d18a30ab0a5",
+  "state_file": "call_001.npz",
+  "state_sha256": "a59f41c1d21079313598a85b7bd59d4a2292ce3d1ed26b7c5d2e3b5ec716376f",
+  "absolute_stopping": true,
+  "stopping_consecutive": 2,
+  "same_parameter_scene_weight_only": true,
+  "convergence_measure": "absolute_difference"
+}

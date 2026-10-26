@@ -1,0 +1,18 @@
+[
+  {
+    "candidate_fp_calls": 103,
+    "candidate_fp_iterations": 206,
+    "accepted_positions": 32,
+    "initial_wsr": 10.260816751538405,
+    "final_wsr": 11.038848713624322,
+    "max_displacement_m": 0.03
+  },
+  {
+    "candidate_fp_calls": 140,
+    "candidate_fp_iterations": 280,
+    "accepted_positions": 32,
+    "initial_wsr": 11.097024947052393,
+    "final_wsr": 11.337111972517711,
+    "max_displacement_m": 0.030000000000000006
+  }
+]

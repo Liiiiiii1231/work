@@ -1,0 +1,15 @@
+{
+  "position_objective_evaluations": 551,
+  "position_objective_seconds": 0.3316762004396878,
+  "inner_seconds": 0.01246640004683286,
+  "inner_iterations": 1,
+  "inner_gain": 4.783159811694304e-05,
+  "position_seconds": 0.7979119999799877,
+  "accepted_positions": 21,
+  "elapsed_seconds": 0.8128712000325322,
+  "initial_wsr": 10.07712911477641,
+  "final_wsr": 10.077274049310734,
+  "outer_gain": 0.00014493453432429249,
+  "max_step_displacement_m": 2.2888183593709998e-07,
+  "note": "One extra outer iteration in isolated memory; formal source and checkpoints unchanged"
+}

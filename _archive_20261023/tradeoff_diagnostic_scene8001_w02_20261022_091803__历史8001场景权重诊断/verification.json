@@ -1,0 +1,8 @@
+{
+  "cases": 8,
+  "formal_source_files_unchanged": true,
+  "all_final_states_feasible": true,
+  "all_histories_monotonic": true,
+  "converged_cases": 6,
+  "budget_limited_unconverged_cases": 2
+}

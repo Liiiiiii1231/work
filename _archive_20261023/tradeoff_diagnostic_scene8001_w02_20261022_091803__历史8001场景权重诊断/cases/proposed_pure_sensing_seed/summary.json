@@ -1,0 +1,37 @@
+{
+  "scheme": "proposed",
+  "case": "pure_sensing_seed",
+  "source": "pure",
+  "tolerance": 0.0001,
+  "status": "converged",
+  "stop_reason": "outer_tolerance",
+  "additional_outer_iterations": 39,
+  "elapsed_s": 12.111179400002584,
+  "initial_wsr": 5.865222668330026,
+  "final_wsr": 6.315674470674315,
+  "improvement_from_start": 0.45045180234428894,
+  "improvement_from_original_terminal": 2.3758598159062014,
+  "final_metrics": {
+    "sum_rate_dl": 25.44147491243127,
+    "sum_rate_ul": 0.0,
+    "sum_rate_comm": 25.44147491243127,
+    "sum_rate_sensing": 36.29278107766056,
+    "weighted_sum_rate": 6.315674470674315
+  },
+  "final_UL_power_W": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_initial_UL_power_W": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "final_state_sha256": "74a3aec9f999f72a56db88e12b567af7def0f67b4c8ade57b2ed1581d8f5cc93",
+  "constraint_checks_passed": true
+}

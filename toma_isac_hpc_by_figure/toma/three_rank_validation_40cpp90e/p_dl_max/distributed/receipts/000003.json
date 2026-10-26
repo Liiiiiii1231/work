@@ -1,0 +1,17 @@
+{
+  "index": 3,
+  "rank": 0,
+  "task": {
+    "figure": "p_dl_max",
+    "parameter_value": 1.0,
+    "scene_seed": 8003,
+    "scheme": "b6"
+  },
+  "ok": true,
+  "worker": {
+    "host": "Liiiiiii",
+    "pid": 44608
+  },
+  "wsr": 9.481600187401904,
+  "converged": false
+}

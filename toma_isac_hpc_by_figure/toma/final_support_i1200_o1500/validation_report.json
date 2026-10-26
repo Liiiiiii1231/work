@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "final_plan": {
+    "convergence": 90,
+    "p_dl_max": 2000,
+    "rho_si": 2000,
+    "system_load": 2000
+  },
+  "screening_starts": 40,
+  "distinct_screening_geometries_per_scheme": 20,
+  "smoke_screening_calls": 40,
+  "smoke_final_calls": 38,
+  "frozen_initial_geometry_verified": true,
+  "all_four_plots_exported": true,
+  "smoke_only": true,
+  "note": "Tiny iteration budgets; not final performance results",
+  "budget_variant_validation": {
+    "inner": 1200,
+    "outer": 1500,
+    "verified_final_task_configs": 6090,
+    "screening_uses_same_budget": true,
+    "final_plan": {
+      "convergence": 90,
+      "p_dl_max": 2000,
+      "rho_si": 2000,
+      "system_load": 2000
+    },
+    "check_only_passed": [
+      "convergence",
+      "system_load"
+    ],
+    "note": "Budget-only change; previous truncated-budget workflow and packaging tests retained. No full final experiment run."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "scheme": "proposed",
+  "case": "continue_tighter_tolerance",
+  "source": "current",
+  "tolerance": 1e-06,
+  "status": "outer_iteration_budget",
+  "stop_reason": "max_outer_iterations",
+  "additional_outer_iterations": 100,
+  "elapsed_s": 41.688973299984355,
+  "initial_wsr": 3.9398146547681088,
+  "final_wsr": 3.946393156673425,
+  "improvement_from_start": 0.00657850190531617,
+  "improvement_from_original_terminal": 0.006578501905311285,
+  "final_metrics": {
+    "sum_rate_dl": 16.643220379781912,
+    "sum_rate_ul": 30.61017594923372,
+    "sum_rate_comm": 47.25339632901563,
+    "sum_rate_sensing": 18.758282688081948,
+    "weighted_sum_rate": 3.946393156673425
+  },
+  "final_UL_power_W": [
+    0.1,
+    0.0,
+    0.0,
+    0.0,
+    0.1
+  ],
+  "source_initial_UL_power_W": [
+    0.1,
+    0.0,
+    0.0,
+    0.0,
+    0.1
+  ],
+  "final_state_sha256": "30e77820d8ef7083ac098bb683b2f2f4b5c98b8d27b64009c27e4917b3aa251c",
+  "constraint_checks_passed": true
+}

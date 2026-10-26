@@ -1,0 +1,15 @@
+MULTINODE PLAN tradeoff tasks 15 nodes 5 workers/node 2 total slots 10
+NODE START rank 0 host Liiiiiii workers 2 affinity CPUs None
+FAILED {'index': 5, 'rank': 0, 'task': {'figure': 'tradeoff', 'parameter_value': 0.1, 'scene_seed': 8006, 'scheme': 'b3', '_pilot_id': 32, 'input_state': 'inputs/032_initial.npz', 'input_record': 'inputs/032_original.json', 'state_sha256': '2ff499493cef44048eab4698facacf5b118f439e6271334a603b0651afe1e07d', 'record_sha256': '07a2c3a919e26d5efdc4729b31fbcdab2179f12f238f48f0fa650749cde486b3'}, 'ok': False, 'error': 'AttributeError("\'BaselineResult\' object has no attribute \'stop_reason\'")'}
+FAILED {'index': 13, 'rank': 0, 'task': {'figure': 'tradeoff', 'parameter_value': 1.0, 'scene_seed': 8099, 'scheme': 'b2', '_pilot_id': 148, 'input_state': 'inputs/148_initial.npz', 'input_record': 'inputs/148_original.json', 'state_sha256': 'e8a3b259de6069df119d81a26d4cc08f4ce629a8358be9f8332df545340dc849', 'record_sha256': 'ae80aaa847f5e1a9d879f2b4b629a060d6233547923d46743eb72428cbc75718'}, 'ok': False, 'error': 'AttributeError("\'BaselineResult\' object has no attribute \'stop_reason\'")'}
+TASK FINISHED rank 0 index 0 tradeoff/0/scene_8006/b6 converged False
+NODE DONE {'rank': 0, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 3, 'finished_tasks': 1, 'failed_tasks': 2, 'seconds': 2.265999999974156, 'errors': [{'index': 5, 'rank': 0, 'task': {'figure': 'tradeoff', 'parameter_value': 0.1, 'scene_seed': 8006, 'scheme': 'b3', '_pilot_id': 32, 'input_state': 'inputs/032_initial.npz', 'input_record': 'inputs/032_original.json', 'state_sha256': '2ff499493cef44048eab4698facacf5b118f439e6271334a603b0651afe1e07d', 'record_sha256': '07a2c3a919e26d5efdc4729b31fbcdab2179f12f238f48f0fa650749cde486b3'}, 'ok': False, 'error': 'AttributeError("\'BaselineResult\' object has no attribute \'stop_reason\'")'}, {'index': 13, 'rank': 0, 'task': {'figure': 'tradeoff', 'parameter_value': 1.0, 'scene_seed': 8099, 'scheme': 'b2', '_pilot_id': 148, 'input_state': 'inputs/148_initial.npz', 'input_record': 'inputs/148_original.json', 'state_sha256': 'e8a3b259de6069df119d81a26d4cc08f4ce629a8358be9f8332df545340dc849', 'record_sha256': 'ae80aaa847f5e1a9d879f2b4b629a060d6233547923d46743eb72428cbc75718'}, 'ok': False, 'error': 'AttributeError("\'BaselineResult\' object has no attribute \'stop_reason\'")'}]}
+Traceback (most recent call last):
+  File "D:\Vs codeProjects\research work1\toma_isac_hpc_by_figure\toma\tradeoff_budget_pilot_5nodes\run_pilot.py", line 161, in <module>
+    queue.main()
+  File "D:\Vs codeProjects\research work1\toma_isac_hpc_by_figure\toma\tradeoff_budget_pilot_5nodes\queue_runtime.py", line 324, in main
+    if rank==0:collect_all(args,world,plan)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Vs codeProjects\research work1\toma_isac_hpc_by_figure\toma\tradeoff_budget_pilot_5nodes\queue_runtime.py", line 251, in collect_all
+    raise RuntimeError('Distributed tasks failed; inspect logs/task_errors.json')
+RuntimeError: Distributed tasks failed; inspect logs/task_errors.json

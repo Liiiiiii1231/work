@@ -1,0 +1,28 @@
+MULTINODE PLAN convergence tasks 6 nodes 3 workers/node 2 total slots 6
+NODE START rank 0 host Liiiiiii workers 2 affinity CPUs None
+START convergence/0.1/scene_8003/proposed call 1 previous_steps 0
+START convergence/1/scene_8006/proposed call 1 previous_steps 0
+DONE convergence/0.1/scene_8003/proposed WSR 11.0503133327481 converged False steps 1
+TASK FINISHED rank 0 index 0 convergence/0.1/scene_8003/proposed converged False
+DONE convergence/1/scene_8006/proposed WSR 13.286750184885422 converged False steps 1
+TASK FINISHED rank 0 index 3 convergence/1/scene_8006/proposed converged False
+NODE DONE {'rank': 0, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 2, 'finished_tasks': 2, 'failed_tasks': 0, 'seconds': 2.0940000000009604, 'errors': []}
+{
+  "complete": true,
+  "all_converged": false,
+  "figure": "convergence",
+  "expected_tasks": 6,
+  "finished_tasks": 6,
+  "converged_tasks": 0,
+  "excluded_scene_seeds": [
+    8001
+  ],
+  "scene_selection_note": "Scene 8001 excluded after observing long runtime; 100 final scenes are 8002..8101. Screening scene 8005 was selected using prior runtime observations, which do not guarantee fast convergence at the reference objective.",
+  "historically_selected_scenes": true,
+  "scene_seeds": [
+    8003,
+    8006
+  ],
+  "completion_definition": "All single-pass tasks finished, not necessarily converged"
+}
+ALL NODES COLLECTED convergence finished tasks 6

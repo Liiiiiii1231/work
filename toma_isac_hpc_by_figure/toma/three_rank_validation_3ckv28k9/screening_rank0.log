@@ -1,0 +1,11 @@
+MULTINODE PLAN screening tasks 4 nodes 3 workers/node 2 total slots 6
+NODE START rank 0 host Liiiiiii workers 2 affinity CPUs None
+START p_dl_max/1/scene_8005/proposed call 1 previous_steps 0
+START p_dl_max/1/scene_8005/b6 call 1 previous_steps 0
+DONE p_dl_max/1/scene_8005/proposed WSR 13.45616028813244 converged False steps 1
+TASK FINISHED rank 0 index 0 p_dl_max/1/scene_8005/proposed converged False
+DONE p_dl_max/1/scene_8005/b6 WSR 9.994791510677004 converged False steps 1
+TASK FINISHED rank 0 index 3 p_dl_max/1/scene_8005/b6 converged False
+NODE DONE {'rank': 0, 'host': 'Liiiiiii', 'workers': 2, 'affinity_cpus': None, 'assigned_tasks': 2, 'finished_tasks': 2, 'failed_tasks': 0, 'seconds': 2.2340000000003783, 'errors': []}
+FROZEN GEOMETRY READY: D:\Vs codeProjects\research work1\toma_isac_hpc_by_figure\toma\three_rank_validation_3ckv28k9\selection\frozen_initial_geometry.json
+ALL NODES COLLECTED screening finished tasks 4

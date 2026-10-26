@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "ma_solver": "ma_fp_aware.run_ma_fp_aware",
+  "candidate_fp_max_iterations": 2,
+  "candidate_fp_calls_observed": 357,
+  "candidate_fp_steps_observed": [
+    2
+  ],
+  "extrapolation": false,
+  "paired_cases": [
+    {
+      "scene": 8003,
+      "exact_history_geometry_resources_equal": true
+    },
+    {
+      "scene": 8006,
+      "exact_history_geometry_resources_equal": true
+    }
+  ]
+}

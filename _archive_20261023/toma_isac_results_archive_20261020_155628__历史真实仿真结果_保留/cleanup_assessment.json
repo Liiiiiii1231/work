@@ -1,0 +1,178 @@
+{
+  "project_root": "D:\\Vs codeProjects\\research work1\\toma_isac",
+  "results_root": "D:\\Vs codeProjects\\research work1\\toma_isac\\results",
+  "created_at": "2026-10-20T15:53:37.739110+08:00",
+  "mode": "assessment_only_no_files_moved_or_deleted",
+  "total_bytes": 73033358,
+  "suggested_historical_directories": [
+    {
+      "path": "auto_figure_runs",
+      "files": 54,
+      "bytes": 2319561
+    },
+    {
+      "path": "old_init_power_pilot",
+      "files": 133,
+      "bytes": 667990
+    },
+    {
+      "path": "regular025_multistart_pilot",
+      "files": 5,
+      "bytes": 10517
+    },
+    {
+      "path": "stage10/cold20_ms20_in1e6_out1e5_continued",
+      "files": 163,
+      "bytes": 8186904
+    },
+    {
+      "path": "stage10/multistart20_probe",
+      "files": 44,
+      "bytes": 181785
+    },
+    {
+      "path": "stage10/proposed_0125_trace",
+      "files": 244,
+      "bytes": 1997113
+    },
+    {
+      "path": "stage10/regular_ul_init_compare_representative",
+      "files": 31,
+      "bytes": 73110
+    },
+    {
+      "path": "stage10/four_schemes_top10_abs1e4_scene8001",
+      "files": 455,
+      "bytes": 1899507
+    },
+    {
+      "path": "stage10/top10_abs1e4_scene8001",
+      "files": 468,
+      "bytes": 2233170
+    },
+    {
+      "path": "stage10/top10_abs1e4_scene8001_b6_09_continued",
+      "files": 11,
+      "bytes": 376103
+    }
+  ],
+  "byte_identical_duplicate_zip_candidates": [
+    {
+      "path": "paper_figures_regular_abs_v2.zip",
+      "files": 1,
+      "bytes": 8943767
+    },
+    {
+      "path": "regular25_scene8001_20to40.zip",
+      "files": 1,
+      "bytes": 263175
+    },
+    {
+      "path": "paper_figures_regular_abs_v2/source_configs.zip",
+      "files": 1,
+      "bytes": 7099
+    },
+    {
+      "path": "paper_figures_regular_abs_v2/tables.zip",
+      "files": 1,
+      "bytes": 52111
+    },
+    {
+      "path": "stage10/fixed_ul025mW_MA_transition4.zip",
+      "files": 1,
+      "bytes": 252850
+    },
+    {
+      "path": "stage10/proposed_0125_trace.zip",
+      "files": 1,
+      "bytes": 1041760
+    },
+    {
+      "path": "stage10/regular_planar_pm_fixed_ul025mW_refined16.zip",
+      "files": 1,
+      "bytes": 373349
+    },
+    {
+      "path": "stage10/regular_planar_pm_full27.zip",
+      "files": 1,
+      "bytes": 527005
+    },
+    {
+      "path": "stage10/regular_ul_init_compare_representative.zip",
+      "files": 1,
+      "bytes": 50802
+    },
+    {
+      "path": "stage10/seed2042_refined_weights.zip",
+      "files": 1,
+      "bytes": 828101
+    }
+  ],
+  "repair_backup_candidates": [
+    {
+      "path": "paper_figures_regular25_multistart/repair_backup",
+      "files": 345,
+      "bytes": 1396808
+    },
+    {
+      "path": "paper_regular25_convergence/repair_backup",
+      "files": 38,
+      "bytes": 153431
+    },
+    {
+      "path": "paper_regular25_rho_si/repair_backup",
+      "files": 377,
+      "bytes": 1425870
+    }
+  ],
+  "retain_in_project": [
+    "paper_figures_regular25_multistart",
+    "paper_regular25_convergence",
+    "paper_regular25_rho_si",
+    "paper_regular25_system_load",
+    "regular25_multistart_pilot",
+    "regular25_scene8001_20to40",
+    "paper_figures_regular_abs_v2",
+    "stage8",
+    "stage10/fixed_ul025mW_MA_transition4",
+    "stage10/seed2042_refined_weights",
+    "stage10/regular_planar_pm_fixed_ul025mW_refined16",
+    "stage10/regular_planar_pm_full27",
+    "stage10/regular_planar_pm_refined20",
+    "stage10/fixed_ul025mW_MA_add4.zip",
+    "stage10/stage10_tradeoff.csv",
+    "stage10/stage10_tradeoff.npz",
+    "stage10/stage10_failures.csv"
+  ],
+  "protected_checkpoint_policy": "Keep every active candidate/record.json/initial.npz/current state and metadata; do not remove state files by extension or convergence flag.",
+  "older_unreferenced_call_files": {
+    "count": 36,
+    "bytes": 466223,
+    "recommendation": "Keep for now; small size and useful trajectory/repair provenance. Count excludes repair_backup and does not authorize deletion."
+  },
+  "nonduplicate_zip_exceptions": [
+    {
+      "path": "stage10/fixed_ul025mW_MA_add4.zip",
+      "reason": "Only packaged copy of accepted MA add4 results; no corresponding unpacked directory; retain."
+    },
+    {
+      "path": "stage10/regular_ul_init_compare018.zip",
+      "reason": "No unpacked matching copy; historical archive may be moved but should not be treated as a redundant duplicate."
+    },
+    {
+      "path": "stage10/four_schemes_top10_abs1e4_scene8001.zip",
+      "reason": "458 archived files but only 455 identical local copies; 3 diagnostic plots exist only in ZIP; historical archive may be moved, not discarded as an exact duplicate."
+    }
+  ],
+  "paper_link_findings": [
+    "paper_figures_regular_abs_v2 includes exact image matches to paper/V1.1/figures/01_proposed_convergence.png and 04_wsr_vs_system_load.png",
+    "stage8 includes exact image matches to paper/V1.1/figures/fig_convergence.png, fig_load.png, fig_pdl.png and fig_rsi.png, which are referenced by the current TeX",
+    "Latest MA transition figure matches results/stage10/fixed_ul025mW_MA_transition4/figures/05_communication_sensing_tradeoff_MA_transition4.png"
+  ],
+  "runtime_dependency_findings": [
+    "Current main25 reads results/regular25_multistart_pilot and results/regular25_scene8001_20to40 for default reuse",
+    "MA add4/transition use packaged inputs in experiments; transition output and accepted add4 ZIP kept for latest frozen figure lineage",
+    "ma_add4_common.main defaults to results/stage10/seed2042_refined_weights; retain this output",
+    "Legacy stage10 planar/refined accepted runs kept conservatively because paper weight provenance is not fully resolved by image byte comparison"
+  ]
+}

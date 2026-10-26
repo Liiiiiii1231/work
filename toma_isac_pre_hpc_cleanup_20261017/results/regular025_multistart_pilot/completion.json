@@ -1,9 +1,0 @@
-{
-  "complete": true,
-  "smoke": false,
-  "expected_starts": 30,
-  "new_optimizations": 18,
-  "returned_records": 30,
-  "converged_starts": 30,
-  "errors": []
-}
